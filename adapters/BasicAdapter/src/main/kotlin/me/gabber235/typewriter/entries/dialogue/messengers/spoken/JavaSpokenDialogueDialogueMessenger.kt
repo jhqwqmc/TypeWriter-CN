@@ -26,13 +26,13 @@ val spokenFormat: String by snippet(
 		|
 		|<message>
 		|
-		|<next_color>${" ".repeat(20)} Press<white> <confirmation_key> </white>to <finish_text>
+		|<next_color>${" ".repeat(20)} 按<white> <confirmation_key> </white>键完成<finish_text>
 		|<gray><st>${" ".repeat(60)}</st>
 		""".trimMargin()
 )
 
-val spokenInstructionNextText: String by snippet("dialogue.spoken.instruction.next", "continue")
-val spokenInstructionFinishText: String by snippet("dialogue.spoken.instruction.finish", "finish")
+val spokenInstructionNextText: String by snippet("dialogue.spoken.instruction.next", "继续")
+val spokenInstructionFinishText: String by snippet("dialogue.spoken.instruction.finish", "结束")
 val spokenInstructionBaseColor: String by snippet("dialogue.spoken.instruction.color.base", "<gray>")
 val spokenInstructionHighlightColor: String by snippet("dialogue.spoken.instruction.color.highlight", "<red>")
 val spokenPadding: String by snippet("dialogue.spoken.padding", "    ")

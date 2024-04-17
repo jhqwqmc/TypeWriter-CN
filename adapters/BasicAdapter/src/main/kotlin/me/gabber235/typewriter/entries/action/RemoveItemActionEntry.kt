@@ -14,7 +14,7 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("remove_item", "Remove an item from the players inventory", Colors.RED, Icons.WAND_SPARKLES)
+@Entry("remove_item", "从玩家物品栏中移除物品", Colors.RED, Icons.WAND_SPARKLES)
 /**
  * The `Remove Item Action` is an action that removes an item from the player's inventory.
  * This action provides you with the ability to remove items from the player's inventory in response to specific events.
@@ -35,7 +35,7 @@ class RemoveItemActionEntry(
     override val criteria: List<Criteria>,
     override val modifiers: List<Modifier>,
     override val triggers: List<String> = emptyList(),
-    @Help("The item to remove.")
+    @Help("要删除的物品。")
     val item: Item = Item.Empty,
 ) : ActionEntry {
     override fun execute(player: Player) {

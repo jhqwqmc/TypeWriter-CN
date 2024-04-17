@@ -13,7 +13,7 @@ import org.bukkit.Location
 import org.bukkit.entity.Player
 import org.bukkit.event.player.PlayerMoveEvent
 
-@Entry("on_player_near_location", "When the player is near a certain location", Colors.YELLOW, Icons.HAND_POINTER)
+@Entry("on_player_near_location", "当玩家靠近某个位置时", Colors.YELLOW, Icons.HAND_POINTER)
 /**
  * The `PlayerNearLocationEventEntry` class represents an event that is triggered when a player is within a certain range of a location.
  *
@@ -26,9 +26,9 @@ class PlayerNearLocationEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("The location the player should be near.")
+    @Help("玩家应该靠近的位置。")
     val location: Location = Location(null, 0.0, 0.0, 0.0),
-    @Help("The range within which the event should trigger.")
+    @Help("事件应触发的范围。")
     @Min(1)
     val range: Double = 1.0
 ) : EventEntry

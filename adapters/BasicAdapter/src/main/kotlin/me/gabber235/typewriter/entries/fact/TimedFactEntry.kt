@@ -10,7 +10,7 @@ import me.gabber235.typewriter.utils.Icons
 import java.time.Duration
 import java.time.LocalDateTime
 
-@Entry("timed_fact", "Saved for a specified duration, like 20 minutes", Colors.PURPLE, Icons.STOPWATCH)
+@Entry("timed_fact", "保存指定的持续时间，例如 20 分钟", Colors.PURPLE, Icons.STOPWATCH)
 /**
  * This fact is stored for a certain amount of time.
  * After that time, it is reset.
@@ -23,7 +23,7 @@ class TimedFactEntry(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("The duration after which the fact expires.")
+    @Help("变量到期后的持续时间。")
     val duration: Duration = Duration.ZERO,
 ) : ExpirableFactEntry, PersistableFactEntry {
     override fun hasExpired(fact: Fact): Boolean {

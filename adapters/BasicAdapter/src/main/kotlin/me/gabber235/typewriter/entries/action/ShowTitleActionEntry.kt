@@ -16,7 +16,7 @@ import org.bukkit.entity.Player
 import java.time.Duration
 import java.util.*
 
-@Entry("show_title", "Show a title to a player", Colors.RED, Icons.ALIGN_CENTER)
+@Entry("show_title", "向玩家显示标题", Colors.RED, Icons.ALIGN_CENTER)
 /**
  * The `Show Title Action` is an action that shows a title to a player. You can specify the subtitle, and durations if needed.
  *
@@ -32,13 +32,13 @@ class ShowTitleActionEntry(
     override val triggers: List<String> = emptyList(),
     @Placeholder
     @Colored
-    @Help("The title text to show.")
+    @Help("要显示的标题文本。")
     val title: String = "",
     @Placeholder
     @Colored
-    @Help("The subtitle text to show.")
+    @Help("要显示的副标题文字。")
     val subtitle: String = "",
-    @Help("Optional duration settings for the title.")
+    @Help("标题的可选持续时间设置。")
     // Duration of the title: Fade in, how long it stays, fade out.
     val durations: Optional<TitleDurations> = Optional.empty(),
 ) : ActionEntry {
@@ -68,10 +68,10 @@ class ShowTitleActionEntry(
 }
 
 data class TitleDurations(
-    @Help("The duration of the fade in effect.")
+    @Help("淡入效果的时间。")
     val fadeIn: Duration,
-    @Help("The duration that it stays.")
+    @Help("保持显示的时间。")
     val stay: Duration,
-    @Help("The duration of the fade out effect.")
+    @Help("淡出效果的时间。")
     val fadeOut: Duration
 )

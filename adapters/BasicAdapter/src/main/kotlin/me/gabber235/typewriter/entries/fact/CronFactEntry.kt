@@ -10,7 +10,7 @@ import me.gabber235.typewriter.utils.CronExpression
 import me.gabber235.typewriter.utils.Icons
 import java.time.LocalDateTime
 
-@Entry("cron_fact", "Saved until a specified date, like (0 0 * * 1)", Colors.PURPLE, Icons.CALENDAR_DAYS)
+@Entry("cron_fact", "保存到指定日期，例如 (0 0 * * 1)", Colors.PURPLE, Icons.CALENDAR_DAYS)
 /**
  * A [fact](/docs/facts) that is saved until a specified date, like (0 0 \* \* 1).
  *
@@ -22,7 +22,7 @@ class CronFactEntry(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("The cron expression when the fact expires.")
+    @Help("变量到期时的 cron 表达式。")
     // The <Link to="https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html">Cron Expression</Link> when the fact expires.
     val cron: CronExpression = CronExpression.default()
 ) : ExpirableFactEntry, PersistableFactEntry {

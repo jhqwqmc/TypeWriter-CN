@@ -13,7 +13,7 @@ import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
 
-@Entry("set_block", "Set a block at a location", Colors.RED, Icons.CUBE)
+@Entry("set_block", "在某个位置设置一个方块", Colors.RED, Icons.CUBE)
 /**
  * The `SetBlockActionEntry` is an action that sets a block at a specific location.
  *
@@ -32,9 +32,9 @@ class SetBlockActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The material of the block to set.")
+    @Help("设置方块的材质。")
     val material: Material = Material.AIR,
-    @Help("The location to set the block at.")
+    @Help("设置方块的位置。")
     val location: Location = Location(null, 0.0, 0.0, 0.0),
 ) : ActionEntry {
     override fun execute(player: Player) {

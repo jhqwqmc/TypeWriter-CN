@@ -26,7 +26,7 @@ class BedrockSpokenDialogueDialogueMessenger(player: Player, entry: SpokenDialog
             org.geysermc.cumulus.form.SimpleForm.builder()
                 .title("<bold>${entry.speakerDisplayName}</bold>".legacy())
                 .content("${entry.text.parsePlaceholders(player).legacy()}\n\n")
-                .button("Continue")
+                .button("继续")
                 .closedOrInvalidResultHandler { _, _ ->
                     state = MessengerState.CANCELLED
                 }

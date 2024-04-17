@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.DialogueEntry
 import me.gabber235.typewriter.utils.Icons
 import java.time.Duration
 
-@Entry("random_spoken", "Display a random selected animated message to the player", "#1E88E5", Icons.MESSAGE)
+@Entry("random_spoken", "向玩家显示随机选择的动画消息", "#1E88E5", Icons.MESSAGE)
 /**
  * The `Random Spoken Dialogue` action displays a randomly selected animated message to the player.
  *
@@ -30,9 +30,9 @@ class RandomSpokenDialogueEntry(
     override val speaker: String = "",
     @Placeholder
     @Colored
-    @Help("The text to display to the player. One will be picked at random.")
+    @Help("显示给玩家的文本。 将随机选择一个。")
     // A list of messages to display to the player. Every time the dialogue is triggered, one of these messages will be picked at random.
     val messages: List<String> = emptyList(),
-    @Help("The duration it takes to type out the message.")
+    @Help("输出消息所需的时间。")
     val duration: Duration = Duration.ZERO,
 ) : DialogueEntry

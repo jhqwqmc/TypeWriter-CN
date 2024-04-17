@@ -10,7 +10,7 @@ import me.gabber235.typewriter.utils.Icons
 import me.gabber235.typewriter.utils.Item
 import org.bukkit.entity.Player
 
-@Entry("set_item", "Set an item in a specific slot", Colors.RED, Icons.WAND_SPARKLES)
+@Entry("set_item", "在特定槽位中设置物品", Colors.RED, Icons.WAND_SPARKLES)
 /**
  * The `Set Item Action` is an action that sets an item in a specific slot in the player's inventory.
  *
@@ -24,9 +24,9 @@ class SetItemActionEntry(
     override val criteria: List<Criteria>,
     override val modifiers: List<Modifier>,
     override val triggers: List<String> = emptyList(),
-    @Help("The item to set.")
+    @Help("设置的物品。")
     val item: Item = Item.Empty,
-    @Help("The slot to set the item in.")
+    @Help("设置物品的槽位。")
     val slot: Int = 0,
 ) : ActionEntry {
     override fun execute(player: Player) {

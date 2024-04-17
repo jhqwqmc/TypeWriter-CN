@@ -13,7 +13,7 @@ import me.gabber235.typewriter.utils.optional
 import org.bukkit.Material
 import org.bukkit.entity.Player
 
-@Entry("give_item", "Give an item to the player", Colors.RED, Icons.WAND_SPARKLES)
+@Entry("give_item", "给予玩家一个物品", Colors.RED, Icons.WAND_SPARKLES)
 /**
  * The `Give Item Action` is an action that gives a player an item. This action provides you with the ability to give an item with a specified Minecraft material, amount, display name, and lore.
  *
@@ -27,7 +27,7 @@ class GiveItemActionEntry(
     override val criteria: List<Criteria>,
     override val modifiers: List<Modifier>,
     override val triggers: List<String> = emptyList(),
-    @Help("The item to give.")
+    @Help("要给予的物品。")
     val item: Item = Item.Empty,
 ) : ActionEntry {
     override fun execute(player: Player) {

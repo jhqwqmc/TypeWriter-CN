@@ -16,7 +16,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
-@Entry("console_run_command", "Run command from console", Colors.RED, Icons.TERMINAL)
+@Entry("console_run_command", "从控制台运行命令", Colors.RED, Icons.TERMINAL)
 /**
  * The Console Command Action is an action that sends a command to the server console. This action provides you with the ability to execute console commands on the server in response to specific events.
  *
@@ -32,7 +32,7 @@ class ConsoleCommandActionEntry(
     override val triggers: List<String> = emptyList(),
     @Placeholder
     @MultiLine
-    @Help("The command(s) to run.")
+    @Help("要运行的命令。")
     // Every line is a different command. Commands should not be prefixed with <code>/</code>.
     private val command: String = "",
 ) : ActionEntry {

@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 
-@Entry("add_potion_effect", "Add a potion effect to the player", Colors.RED, Icons.FLASK_VIAL)
+@Entry("add_potion_effect", "为玩家添加药水效果", Colors.RED, Icons.FLASK_VIAL)
 /**
  * The `Add Potion Effect Action` is an action that adds a potion effect to the player.
  *
@@ -25,17 +25,17 @@ class AddPotionEffectActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The potion effect to add.")
+    @Help("要添加的药水效果。")
     val potionEffect: PotionEffectType = PotionEffectType.SPEED,
-    @Help("The duration of the potion effect in ticks.")
+    @Help("药水效果的持续时间，以刻度（tick）为单位。")
     val duration: Int = 20,
-    @Help("The amplifier of the potion effect.")
+    @Help("药水效果的等级。")
     val amplifier: Int = 1,
-    @Help("Whether or not the effect is ambient")
+    @Help("效果是否是环境效果")
     val ambient: Boolean = false,
-    @Help("Whether or not to show the potion effect particles.")
+    @Help("是否显示药水效果粒子。")
     val particles: Boolean = true,
-    @Help("Whether or not to show the potion effect icon in the player's inventory.")
+    @Help("是否在玩家的物品栏中显示药水效果图标。")
     val icon: Boolean = true,
 ) : ActionEntry {
     override fun execute(player: Player) {

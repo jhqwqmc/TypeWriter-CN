@@ -9,7 +9,7 @@ import me.gabber235.typewriter.entry.triggerAllFor
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.event.player.PlayerJoinEvent
 
-@Entry("on_player_join", "When the player joins the server", Colors.YELLOW, Icons.PERSON_CIRCLE_PLUS)
+@Entry("on_player_join", "当玩家加入服务器时", Colors.YELLOW, Icons.PERSON_CIRCLE_PLUS)
 /**
  * The `Player Join Event` event is called when a player joins the server.
  *

@@ -20,7 +20,7 @@ import org.bukkit.entity.Player
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType.BLINDNESS
 
-@Entry("blinding_cinematic", "Blind the player so the screen looks black", Colors.CYAN, Icons.SOLID_EYE_SLASH)
+@Entry("blinding_cinematic", "使玩家失明，使屏幕看起来是黑色的", Colors.CYAN, Icons.SOLID_EYE_SLASH)
 /**
  * The `Blinding Cinematic` entry is used to blind the player so the screen looks black.
  *
@@ -47,9 +47,9 @@ class BlindingCinematicEntry(
 data class BlindingSegment(
     override val startFrame: Int,
     override val endFrame: Int,
-    @Help("Teleport the player to y 500 to prevent them from seeing the world")
+    @Help("将玩家传送到 y 500 以防止他们看到这个世界")
     val teleport: Boolean = false,
-    @Help("Set the player to spectator mode")
+    @Help("将玩家设置为旁观模式")
     val spectator: Boolean = false,
 ) : Segment
 

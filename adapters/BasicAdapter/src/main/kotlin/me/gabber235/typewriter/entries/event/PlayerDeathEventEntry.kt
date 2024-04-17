@@ -13,7 +13,7 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause
 import org.bukkit.event.entity.EntityDeathEvent
 import java.util.*
 
-@Entry("on_player_death", "When a player dies", Colors.YELLOW, Icons.SKULL_CROSSBONES)
+@Entry("on_player_death", "当玩家死亡时", Colors.YELLOW, Icons.SKULL_CROSSBONES)
 /**
  * The `Player Death Event` is fired when any player dies. This event allows you to select the cause of death if you wish. If you want to detect when another player kills a player, use the [`Player Kill Player Event`](on_player_kill_player).
  *
@@ -25,7 +25,7 @@ class PlayerDeathEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("The cause of the death.")
+    @Help("死亡原因。")
     // If specified, the death cause must match the cause of death in order for the event to trigger.
     val deathCause: Optional<DamageCause> = Optional.empty()
 ) : EventEntry

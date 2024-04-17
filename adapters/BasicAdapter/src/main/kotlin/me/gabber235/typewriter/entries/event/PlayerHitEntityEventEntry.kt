@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import java.util.*
 
-@Entry("on_player_hit_entity", "When a player hits an entity", Colors.YELLOW, Icons.HEART_CRACK)
+@Entry("on_player_hit_entity", "当玩家击中实体时", Colors.YELLOW, Icons.HEART_CRACK)
 /**
  * The `Player Hit Entity Event` event is fired when a player hits an entity. If you want to detect when a player kills an entity, use the [`Player Kill Entity Event`](on_player_kill_entity) event.
  *
@@ -25,7 +25,7 @@ class PlayerHitEntityEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("The type of entity that was hit.")
+    @Help("被击中的实体的类型。")
     // If specified, the entity type must match the entity type that was hit in order for the event to trigger.
     val entityType: Optional<EntityType> = Optional.empty(),
 ) : EventEntry

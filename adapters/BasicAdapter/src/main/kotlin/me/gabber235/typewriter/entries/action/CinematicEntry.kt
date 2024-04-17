@@ -12,7 +12,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
 
-@Entry("cinematic", "Start a new cinematic", Colors.RED, Icons.CAMERA_RETRO)
+@Entry("cinematic", "开始新的过场动画", Colors.RED, Icons.CAMERA_RETRO)
 /**
  * The `Cinematic` action is used to start a new cinematic.
  *
@@ -30,9 +30,9 @@ class CinematicEntry(
     override val modifiers: List<Modifier> = emptyList(),
     @SerializedName("page")
     @Page(PageType.CINEMATIC)
-    @Help("The cinematic page to start.")
+    @Help("过场动画页面开始。")
     val pageId: String = "",
-    @Help("If the player is already in a cinematic, should the cinematic be replaced?")
+    @Help("如果玩家已经在过场动画中，是否应该更换过场动画？")
     val override: Boolean = false
 ) : CustomTriggeringActionEntry {
     override fun execute(player: Player) {

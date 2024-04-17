@@ -18,7 +18,7 @@ import org.bukkit.entity.Player
 import kotlin.jvm.optionals.getOrDefault
 import net.kyori.adventure.sound.Sound as AdventureSound
 
-@Entry("sound_cinematic", "Play a sound during a cinematic", Colors.YELLOW, Icons.MUSIC)
+@Entry("sound_cinematic", "在过场动画播放期间播放声音", Colors.YELLOW, Icons.MUSIC)
 /**
  * The `Sound Cinematic` entry plays a sound during a cinematic.
  *
@@ -44,7 +44,7 @@ class SoundCinematicEntry(
 data class SoundSegment(
     override val startFrame: Int,
     override val endFrame: Int,
-    @Help("The sound to play")
+    @Help("要播放的声音")
     val sound: Sound,
 ) : Segment
 
@@ -77,7 +77,7 @@ fun migrate040SoundCinematic(json: JsonObject, context: EntryMigratorContext): J
 
     val segmentsJson = json["segments"]
     if (segmentsJson?.isJsonArray == true) {
-        logger.severe("Tried migrating sound cinematic entry ${json["name"]}, but segments were not an array.")
+        logger.severe("尝试迁移声音过场动画条目 ${json["name"]}，但片段不是数组。")
         return data
     }
 
@@ -85,7 +85,7 @@ fun migrate040SoundCinematic(json: JsonObject, context: EntryMigratorContext): J
 
     val segments = segmentsArray.mapNotNull {
         if (!it.isJsonObject) {
-            logger.severe("Tried migrating sound cinematic entry ${json["name"]}, but segment was not an object.")
+            logger.severe("尝试迁移声音过场动画条目 ${json["name"]}，但片段不是对象。")
             return@mapNotNull null
         }
 

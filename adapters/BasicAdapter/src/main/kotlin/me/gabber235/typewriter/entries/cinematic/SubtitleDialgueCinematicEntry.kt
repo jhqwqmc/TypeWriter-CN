@@ -24,7 +24,7 @@ import net.kyori.adventure.title.Title.Times
 import org.bukkit.entity.Player
 import java.time.Duration
 
-@Entry("subtitle_dialogue_cinematic", "Show an action bar message", Colors.CYAN, Icons.DIAGRAM_NEXT)
+@Entry("subtitle_dialogue_cinematic", "显示动作栏消息", Colors.CYAN, Icons.DIAGRAM_NEXT)
 /**
  * The `Subtitle Dialogue Cinematic Entry` is a cinematic entry that displays an animated subtitle message.
  * The speaker is displayed in the action bar, and the dialogue is displayed in the subtitle.
@@ -37,7 +37,7 @@ class SubtitleDialogueCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
-    @Help("The speaker of the dialogue")
+    @Help("对话的发言者")
     @EntryIdentifier(SpeakerEntry::class)
     val speaker: String = "",
     @Segments(icon = Icons.MESSAGE)
@@ -61,12 +61,12 @@ class SubtitleDialogueCinematicEntry(
     }
 }
 
-@Entry("random_subtitle_dialogue_cinematic", "Show a random action bar message", Colors.CYAN, Icons.DIAGRAM_NEXT)
+@Entry("random_subtitle_dialogue_cinematic", "显示随机动作栏消息", Colors.CYAN, Icons.DIAGRAM_NEXT)
 data class RandomSubtitleDialogueCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
-    @Help("The speaker of the dialogue")
+    @Help("对话的发言者")
     @EntryIdentifier(SpeakerEntry::class)
     val speaker: String = "",
     @Segments(icon = Icons.MESSAGE)

@@ -21,14 +21,14 @@ data class DisplayDialogueSegment(
     override val endFrame: Int = 0,
     @Placeholder
     @Colored
-    @Help("The text to display to the player.")
+    @Help("显示给玩家的文本。")
     val text: String = "",
 ) : Segment
 
 data class RandomDisplayDialogueSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("Possible texts to display to the player.")
+    @Help("可能向玩家显示的文本。")
     val texts: List<String> = emptyList(),
 ) : Segment {
     fun toDisplaySegment(): DisplayDialogueSegment {

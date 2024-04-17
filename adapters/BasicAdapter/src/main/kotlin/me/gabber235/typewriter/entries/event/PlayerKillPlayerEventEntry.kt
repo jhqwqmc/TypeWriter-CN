@@ -11,7 +11,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDeathEvent
 
-@Entry("on_player_kill_player", "When a player kills a player", Colors.YELLOW, Icons.SKULL)
+@Entry("on_player_kill_player", "当一个玩家杀死一个玩家时", Colors.YELLOW, Icons.SKULL)
 /**
  * The `Player Kill Player Event` is triggered when a player kills another player. If you want to detect when a player kills some thing else, use the [`Player Kill Entity Event`](on_player_kill_entity) instead.
  *
@@ -25,7 +25,7 @@ class PlayerKillPlayerEventEntry(
     override val triggers: List<String> = emptyList(),
     @Triggers
     @EntryIdentifier(TriggerableEntry::class)
-    @Help("The triggers to be executed for the player who was killed.")
+    @Help("为被杀死的玩家执行的触发器。")
     // The entries connected tho this field will be triggered for the player who was killed.
     val killedTriggers: List<String> = emptyList(),
 ) : EventEntry

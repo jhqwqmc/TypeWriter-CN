@@ -15,7 +15,7 @@ import me.gabber235.typewriter.plugin
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("player_run_command", "Make player run command", Colors.RED, Icons.TERMINAL)
+@Entry("player_run_command", "让玩家运行命令", Colors.RED, Icons.TERMINAL)
 /**
  * The `Player Command Action` is an action that runs a command as if the player entered it.
  * This action provides you with the ability to execute commands on behalf of the player in response to specific events.
@@ -37,7 +37,7 @@ class PlayerCommandActionEntry(
     override val triggers: List<String> = emptyList(),
     @Placeholder
     @MultiLine
-    @Help("The command(s) to run.")
+    @Help("要运行的命令。")
     // Every line is a different command. Commands should not be prefixed with <code>/</code>.
     private val command: String = "",
 ) : ActionEntry {

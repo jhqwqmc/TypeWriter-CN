@@ -27,7 +27,7 @@ import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffect.INFINITE_DURATION
 import org.bukkit.potion.PotionEffectType.INVISIBILITY
 
-@Entry("camera_cinematic", "Create a cinematic camera path", Colors.CYAN, Icons.VIDEO)
+@Entry("camera_cinematic", "创建过场动画镜头路径", Colors.CYAN, Icons.VIDEO)
 /**
  * The `Camera Cinematic` entry is used to create a cinematic camera path.
  *
@@ -117,7 +117,7 @@ class CameraCinematicAction(
 
         segments = entry.segments.mapNotNull { segment ->
             if (segment.path.isEmpty()) {
-                logger.warning("Camera segment has no path in ${entry.id}, skipping.")
+                logger.warning("相机段在 ${entry.id} 中没有路径，跳过。")
                 return@mapNotNull null
             }
             if (player.isFloodgate) {

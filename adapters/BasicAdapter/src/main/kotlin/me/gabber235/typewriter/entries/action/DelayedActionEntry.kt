@@ -13,7 +13,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 import java.time.Duration
 
-@Entry("delayed_action", "Delay an action for a certain amount of time", Colors.RED, Icons.SOLID_HOURGLASS_HALF)
+@Entry("delayed_action", "将动作延迟一定时间", Colors.RED, Icons.SOLID_HOURGLASS_HALF)
 /**
  * The `Delayed Action Entry` is an entry that fires its triggers after a specified duration. This entry provides you with the ability to create time-based actions and events.
  *
@@ -29,7 +29,7 @@ class DelayedActionEntry(
     override val modifiers: List<Modifier> = emptyList(),
     @SerializedName("triggers")
     override val customTriggers: List<String> = emptyList(),
-    @Help("The time to delay the action for.")
+    @Help("延迟动作的时间。")
     // The duration before the next triggers are fired.
     private val duration: Duration = Duration.ZERO, // Number of milliseconds
 ) : CustomTriggeringActionEntry {

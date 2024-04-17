@@ -23,7 +23,7 @@ val messageFormat: String by snippet(
     "\n<gray> [ <bold><speaker></bold><reset><gray> ]\n<reset><white> <message>\n"
 )
 
-@Entry("send_message", "Send a message to a player", Colors.RED, Icons.MESSAGE)
+@Entry("send_message", "向玩家发送消息", Colors.RED, Icons.MESSAGE)
 /**
  * The `Send Message Action` is an action that sends a message to a player.
  * You can specify the speaker, and the message to send.
@@ -43,10 +43,10 @@ class MessageActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The speaker of the message")
+    @Help("消息的发言者")
     @EntryIdentifier(SpeakerEntry::class)
     val speaker: String = "",
-    @Help("The message to send")
+    @Help("要发送的消息")
     @MultiLine
     val message: String = "",
 ) : ActionEntry {

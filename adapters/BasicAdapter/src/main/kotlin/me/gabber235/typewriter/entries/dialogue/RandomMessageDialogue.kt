@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.Modifier
 import me.gabber235.typewriter.entry.entries.DialogueEntry
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("random_message", "Display a random message from a list to a player", "#1c4da3", Icons.COMMENT)
+@Entry("random_message", "从列表中向玩家显示随机消息", "#1c4da3", Icons.COMMENT)
 /**
  * The `Random Message Dialogue` action displays a random message from a list to the player. This action provides you with the ability to create interactive dialogues with randomized responses.
  *
@@ -28,6 +28,6 @@ class RandomMessageDialogueEntry(
     @MultiLine
     @Colored
     @Placeholder
-    @Help("The text to display to the player. One will be picked at random.")
+    @Help("显示给玩家的文本。 将随机选择一个。")
     val messages: List<String> = emptyList(),
 ) : DialogueEntry

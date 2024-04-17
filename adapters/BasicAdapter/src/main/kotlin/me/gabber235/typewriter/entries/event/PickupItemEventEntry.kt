@@ -14,7 +14,7 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityPickupItemEvent
 
-@Entry("on_item_pickup", "When the player picks up an item", Colors.YELLOW, Icons.HAND_SPARKLES)
+@Entry("on_item_pickup", "当玩家拾取物品时", Colors.YELLOW, Icons.HAND_SPARKLES)
 /**
  * The `Pickup Item Event` is triggered when the player picks up an item.
  *
@@ -26,7 +26,7 @@ class PickupItemEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("The item to listen for.")
+    @Help("要监听的物品。")
     val item: Item = Item.Empty,
 ) : EventEntry
 

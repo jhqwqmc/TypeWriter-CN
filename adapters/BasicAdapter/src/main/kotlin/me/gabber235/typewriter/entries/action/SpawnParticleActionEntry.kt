@@ -12,7 +12,7 @@ import org.bukkit.Particle
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("spawn_particles", "Spawn particles at location", Colors.RED, Icons.FIRE_FLAME_SIMPLE)
+@Entry("spawn_particles", "在指定位置生成粒子", Colors.RED, Icons.FIRE_FLAME_SIMPLE)
 /**
  * The `Spawn Particle Action` is an action that spawns a specific particle at a given location. This action provides you with the ability to spawn particles with a specified type, count, and location.
  *
@@ -26,17 +26,17 @@ class SpawnParticleActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The location to spawn the particles at. (Defaults to player's location)")
+    @Help("生成粒子的位置。 （默认为玩家所在位置）")
     val location: Optional<Location> = Optional.empty(),
-    @Help("The particle to spawn.")
+    @Help("要生成的粒子。")
     val particle: Particle = Particle.SMOKE_NORMAL,
-    @Help("The amount of particles to spawn.")
+    @Help("生成的粒子数量。")
     val count: Int = 1,
-    @Help("The offset from the location on the X axis.")
+    @Help("距 X 轴位置的偏移量。")
     val offsetX: Double = 0.0,
-    @Help("The offset from the location on the Y axis.")
+    @Help("距 Y 轴位置的偏移量。")
     val offsetY: Double = 0.0,
-    @Help("The offset from the location on the Z axis.")
+    @Help("距 Z 轴位置的偏移量。")
     val offsetZ: Double = 0.0,
 ) : ActionEntry {
     override fun execute(player: Player) {

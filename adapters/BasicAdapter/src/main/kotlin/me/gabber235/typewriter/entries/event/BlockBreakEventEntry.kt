@@ -18,7 +18,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.block.BlockBreakEvent
 import java.util.*
 
-@Entry("on_block_break", "When the player breaks a block", Colors.YELLOW, Icons.HAND_POINTER)
+@Entry("on_block_break", "当玩家破坏一个方块时", Colors.YELLOW, Icons.HAND_POINTER)
 /**
  *The `Block Break Event` is triggered when a player breaks a block.
  *
@@ -31,11 +31,11 @@ class BlockBreakEventEntry(
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
     @MaterialProperties(MaterialProperty.BLOCK)
-    @Help("The block that was broken.")
+    @Help("被破坏的方块。")
     val block: Optional<Material> = Optional.empty(),
-    @Help("The location of the block that was broken.")
+    @Help("被破坏的方块的位置。")
     val location: Optional<Location> = Optional.empty(),
-    @Help("The item the player must be holding when the block is broken.")
+    @Help("当方块被破坏时玩家必须持有的物品。")
     val itemInHand: Item = Item.Empty,
 ) : EventEntry
 

@@ -17,7 +17,7 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemStack
 
-@Entry("pumpkin_hat_cinematic", "Show a pumpkin hat during a cinematic", Colors.CYAN, Icons.HAT_COWBOY_SIDE)
+@Entry("pumpkin_hat_cinematic", "在过场动画播放期间佩戴雕刻南瓜", Colors.CYAN, Icons.HAT_COWBOY_SIDE)
 class PumpkinHatCinematicEntry(
     override val id: String = "",
     override val name: String = "",

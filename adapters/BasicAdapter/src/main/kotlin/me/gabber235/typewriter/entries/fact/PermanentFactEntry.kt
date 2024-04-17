@@ -5,7 +5,7 @@ import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.entry.entries.PersistableFactEntry
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("permanent_fact", "Saved permanently, it never gets removed", Colors.PURPLE, Icons.DATABASE)
+@Entry("permanent_fact", "永久保存，永远不会被删除", Colors.PURPLE, Icons.DATABASE)
 /**
  * This [fact](/docs/facts) is permanent and never expires.
  *

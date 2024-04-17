@@ -13,7 +13,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("teleport", "Teleport a player", Colors.RED, Icons.STREET_VIEW)
+@Entry("teleport", "传送玩家", Colors.RED, Icons.STREET_VIEW)
 /**
  * The `Teleport Action` entry is used to teleport a player to a location.
  *
@@ -28,7 +28,7 @@ class TeleportActionEntry(
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
     @WithRotation
-    @Help("The location to teleport the player to.")
+    @Help("将玩家传送到的位置。")
     val location: Location = Location(null, 0.0, 0.0, 0.0),
 ) : ActionEntry {
     override fun execute(player: Player) {

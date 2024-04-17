@@ -17,7 +17,7 @@ import net.kyori.adventure.title.Title
 import org.bukkit.entity.Player
 import java.time.Duration
 
-@Entry("title_cinematic", "Show a title during a cinematic", Colors.CYAN, Icons.PARAGRAPH)
+@Entry("title_cinematic", "在过场动画播放期间显示标题", Colors.CYAN, Icons.PARAGRAPH)
 /**
  * The `Title Cinematic` entry shows a title during a cinematic.
  *
@@ -43,13 +43,13 @@ class TitleCinematicEntry(
 data class TitleSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("The title to show")
+    @Help("要显示的标题")
     val title: String = "",
-    @Help("The subtitle to show")
+    @Help("要显示的副标题")
     val subtitle: String = "",
-    @Help("The fade in time")
+    @Help("淡入时间")
     val fadeIn: Long = 20,
-    @Help("The fade out time")
+    @Help("淡出时间")
     val fadeOut: Long = 20,
 ) : Segment
 

@@ -8,7 +8,7 @@ import me.gabber235.typewriter.entry.TriggerableEntry
 import me.gabber235.typewriter.entry.entries.DialogueEntry
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("option", "Display a list of options to the player", "#4CAF50", Icons.LIST_UL)
+@Entry("option", "向玩家显示选项列表", "#4CAF50", Icons.LIST_UL)
 /**
  * The `Option Dialogue` action displays a list of options to the player to choose from. This action provides you with the ability to give players choices that affect the outcome of the game.
  *
@@ -25,21 +25,21 @@ class OptionDialogueEntry(
     override val speaker: String = "",
     @Placeholder
     @Colored
-    @Help("The text to display to the player.")
+    @Help("显示给玩家的文本。")
     val text: String = "",
-    @Help("The options for the player to choose from.")
+    @Help("供玩家选择的选项。")
     val options: List<Option> = emptyList(),
 ) : DialogueEntry
 
 data class Option(
-    @Help("Text for this option.")
+    @Help("此选项的文本。")
     val text: String = "",
-    @Help("The criteria that must be met for this option to show.")
+    @Help("显示此选项必须满足的条件。")
     val criteria: List<Criteria> = emptyList(),
-    @Help("The modifiers to apply when this option is chosen.")
+    @Help("选择此选项时要应用的修饰符。")
     val modifiers: List<Modifier> = emptyList(),
     @Triggers
     @EntryIdentifier(TriggerableEntry::class)
-    @Help("The triggers to fire when this option is chosen.")
+    @Help("选择此选项时触发的触发器。")
     val triggers: List<String> = emptyList()
 )

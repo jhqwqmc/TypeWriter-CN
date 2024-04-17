@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.Modifier
 import me.gabber235.typewriter.entry.entries.DialogueEntry
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("message", "Display a single message to the player", "#1c4da3", Icons.COMMENT)
+@Entry("message", "向玩家显示一条消息", "#1c4da3", Icons.COMMENT)
 /**
  * The `Message Dialogue Action` is an action that displays a single message to the player. This action provides you with the ability to show a message to the player in response to specific events.
  *
@@ -28,6 +28,6 @@ class MessageDialogueEntry(
     @MultiLine
     @Placeholder
     @Colored
-    @Help("The text to display to the player.")
+    @Help("显示给玩家的文本。")
     val text: String = "",
 ) : DialogueEntry

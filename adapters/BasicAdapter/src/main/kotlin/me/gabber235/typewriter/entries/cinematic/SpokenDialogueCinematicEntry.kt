@@ -22,7 +22,7 @@ import me.gabber235.typewriter.utils.isFloodgate
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import org.bukkit.entity.Player
 
-@Entry("spoken_dialogue_cinematic", "Play a spoken dialogue cinematic", Colors.CYAN, Icons.MESSAGE)
+@Entry("spoken_dialogue_cinematic", "播放对话动画", Colors.CYAN, Icons.MESSAGE)
 /**
  * The `Spoken Dialogue Cinematic` is a cinematic that displays an animated message in chat.
  *
@@ -34,7 +34,7 @@ class SpokenDialogueCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
-    @Help("The speaker of the dialogue")
+    @Help("对话的发言者")
     @EntryIdentifier(SpeakerEntry::class)
     val speaker: String = "",
     @Segments(icon = Icons.MESSAGE)
@@ -59,12 +59,12 @@ class SpokenDialogueCinematicEntry(
     }
 }
 
-@Entry("random_spoken_dialogue_cinematic", "Play a random spoken dialogue cinematic", Colors.CYAN, Icons.MESSAGE)
+@Entry("random_spoken_dialogue_cinematic", "播放随机对话动画", Colors.CYAN, Icons.MESSAGE)
 data class RandomSpokenDialogueCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
-    @Help("The speaker of the dialogue")
+    @Help("对话的发言者")
     @EntryIdentifier(SpeakerEntry::class)
     val speaker: String = "",
     @Segments(icon = Icons.MESSAGE)

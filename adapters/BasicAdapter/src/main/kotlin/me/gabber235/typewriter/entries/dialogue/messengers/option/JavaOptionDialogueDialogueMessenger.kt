@@ -29,7 +29,7 @@ val optionFormat: String by snippet(
 			|<white> <speaker><reset>: <text>
 			|
 			|<options>
-			|<#5d6c78>[ <grey><white>Scroll</white> to change option and press<white> <confirmation_key> </white>to select <#5d6c78>]</#5d6c78>
+			|<#5d6c78>[ <grey><white>滚动</white>到更改的选项并按<white> <confirmation_key> </white>键进行选择 <#5d6c78>]</#5d6c78>
 			|<gray><st>${" ".repeat(60)}</st>
 		""".trimMargin()
 )

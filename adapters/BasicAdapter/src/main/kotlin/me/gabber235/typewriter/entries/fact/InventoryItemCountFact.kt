@@ -17,7 +17,7 @@ import java.util.*
 
 @Entry(
     "inventory_item_count_fact",
-    "The amount of a specific item in the player's inventory",
+    "玩家物品栏中特定物品的数量",
     Colors.PURPLE,
     Icons.BAG_SHOPPING
 )
@@ -35,7 +35,7 @@ class InventoryItemCountFact(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("The item to check for.")
+    @Help("要检查的物品。")
     val item: Item = Item.Empty,
 ) : ReadableFactEntry {
     override fun read(playerId: UUID): Fact {

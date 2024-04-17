@@ -4,7 +4,7 @@ import App
 import me.gabber235.typewriter.adapters.Adapter
 import me.gabber235.typewriter.adapters.TypewriteAdapter
 
-@Adapter("Basic", "For all the most basic entries", App.VERSION)
+@Adapter("Basic", "对于所有最基本的条目", App.VERSION)
 /**
  * The Basic Adapter contains all the essential entries for Typewriter.
  * In most cases, it should be installed with Typewriter.

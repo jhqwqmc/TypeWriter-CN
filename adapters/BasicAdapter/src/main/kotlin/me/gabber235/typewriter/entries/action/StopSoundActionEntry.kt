@@ -12,7 +12,7 @@ import net.kyori.adventure.sound.SoundStop
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("stop_sound", "Stop a or all sounds for a player", Colors.RED, Icons.MUSIC)
+@Entry("stop_sound", "停止某个玩家的一个或所有声音", Colors.RED, Icons.MUSIC)
 /**
  * The `Stop Sound` action is used to stop a or all sounds for a player.
  *
@@ -27,7 +27,7 @@ class StopSoundActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The sound to stop.")
+    @Help("要停止的声音。")
     // The sound to stop. If this field is left blank, all sounds will be stopped.
     val sound: Optional<SoundId> = Optional.empty(),
 ) : ActionEntry {

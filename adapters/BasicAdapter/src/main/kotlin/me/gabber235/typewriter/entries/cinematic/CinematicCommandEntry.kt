@@ -19,7 +19,7 @@ interface CinematicCommandEntry : CinematicEntry {
     val segments: List<CommandSegment>
 }
 
-@Entry("cinematic_console_command", "Runs command as the console at a specific frame.", Colors.YELLOW, Icons.TERMINAL)
+@Entry("cinematic_console_command", "在特定帧时以控制台身份运行命令。", Colors.YELLOW, Icons.TERMINAL)
 /**
  * The `Cinematic Console Command` entry runs a command as the console at a specific frame.
  *
@@ -46,7 +46,7 @@ class CinematicConsoleCommandEntry(
     }
 }
 
-@Entry("cinematic_player_command", "Runs command as the player at a specific frame.", Colors.YELLOW, Icons.TERMINAL)
+@Entry("cinematic_player_command", "在特定帧以玩家身份运行命令。", Colors.YELLOW, Icons.TERMINAL)
 /**
  * The `Cinematic Player Command` entry runs a command as the player at a specific frame.
  *
@@ -76,7 +76,7 @@ class CinematicPlayerCommandEntry(
 data class CommandSegment(
     override val startFrame: Int,
     override val endFrame: Int,
-    @Help("The command(s) to run.")
+    @Help("要运行的命令。")
     @Placeholder
     @MultiLine
     // Every line is a different command. Commands should not be prefixed with <code>/</code>.

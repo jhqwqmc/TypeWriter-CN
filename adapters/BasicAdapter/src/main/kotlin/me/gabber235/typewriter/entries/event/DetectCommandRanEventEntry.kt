@@ -12,7 +12,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.event.player.PlayerCommandPreprocessEvent
 import kotlin.text.Regex as KotlinRegex
 
-@Entry("on_detect_command_ran", "When a player runs an existing command", Colors.YELLOW, Icons.TERMINAL)
+@Entry("on_detect_command_ran", "当玩家运行现有命令时", Colors.YELLOW, Icons.TERMINAL)
 /**
  * The `Detect Command Ran Event` event is triggered when an **already existing** command is ran.
  *
@@ -31,7 +31,7 @@ class DetectCommandRanEventEntry(
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
     @Regex
-    @Help("The command that was ran. Can be a regular expression.")
+    @Help("运行的命令。 可以是正则表达式。")
     /**
      * The command to listen for.
      * This can be partial, so if you wanted to listen for any warp command,

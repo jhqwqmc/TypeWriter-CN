@@ -43,7 +43,7 @@ class BedrockOptionDialogueDialogueMessenger(player: Player, entry: OptionDialog
                 .title("<bold>${entry.speakerDisplayName}</bold>".legacy())
                 .label("${entry.text.parsePlaceholders(player).legacy()}\n\n\n")
                 .dropdown(
-                    "Select Response",
+                    "选择响应",
                     usableOptions.map { it.text.parsePlaceholders(player).legacy() })
                 .label("\n\n\n\n")
                 .closedOrInvalidResultHandler { _, _ ->

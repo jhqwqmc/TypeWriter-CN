@@ -19,7 +19,7 @@ import org.bukkit.event.block.Action
 import org.bukkit.event.player.PlayerInteractEvent
 import java.util.*
 
-@Entry("on_interact_with_block", "When the player interacts with a block", Colors.YELLOW, Icons.HAND_POINTER)
+@Entry("on_interact_with_block", "当玩家与方块交互时", Colors.YELLOW, Icons.HAND_POINTER)
 /**
  * The `Interact Block Event` is triggered when a player interacts with a block by right-clicking it.
  *
@@ -32,22 +32,22 @@ class InteractBlockEventEntry(
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
     @MaterialProperties(BLOCK)
-    @Help("The block that was interacted with.")
+    @Help("与之进行交互的方块。")
     val block: Material = Material.AIR,
-    @Help("The location of the block that was interacted with.")
+    @Help("与之交互的方块的位置。")
     val location: Optional<Location> = Optional.empty(),
-    @Help("The item the player must be holding when the block is interacted with.")
+    @Help("与方块交互时玩家必须持有的物品。")
     val itemInHand: Item = Item.Empty,
-    @Help("Cancel the event when triggered")
+    @Help("触发时取消事件")
     /**
      * Cancel the event when triggered.
      * It will only cancel the event if all the criteria are met.
      * If set to false, it will not modify the event.
      */
     val cancel: Boolean = false,
-    @Help("The type of interaction that should trigger the event.")
+    @Help("应触发事件的交互类型。")
     val interactionType: InteractionType = InteractionType.ALL,
-    @Help("The type of shift that should trigger the event.")
+    @Help("应触发事件的转变类型。")
     val shiftType: ShiftType = ShiftType.ANY,
 ) : EventEntry
 

@@ -9,7 +9,7 @@ import me.gabber235.typewriter.entry.triggerAllFor
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.event.player.PlayerQuitEvent
 
-@Entry("on_player_quit", "When the player quits the server", Colors.YELLOW, Icons.PERSON_CIRCLE_MINUS)
+@Entry("on_player_quit", "当玩家退出服务器时", Colors.YELLOW, Icons.PERSON_CIRCLE_MINUS)
 /**
  * The `Player Quit Event` event is called when a player quits the server.
  *

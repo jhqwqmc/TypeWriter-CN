@@ -17,7 +17,7 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("drop_item", "Drop an item at location, or on player", Colors.RED, Icons.DROPBOX)
+@Entry("drop_item", "将物品掉落到某个位置或玩家身上", Colors.RED, Icons.DROPBOX)
 /**
  * The `Drop Item Action` is an action that drops an item in the world.
  * This action provides you with the ability to drop an item with a specified Minecraft material, amount, display name, lore, and location.
@@ -34,9 +34,9 @@ class DropItemActionEntry(
     override val criteria: List<Criteria>,
     override val modifiers: List<Modifier>,
     override val triggers: List<String> = emptyList(),
-    @Help("The item to drop.")
+    @Help("要掉落的物品。")
     val item: Item = Item.Empty,
-    @Help("The location to drop the item. (Defaults to the player's location)")
+    @Help("掉落物品的位置。 （默认为玩家所在位置）")
     // The location to drop the item at. If this field is left blank, the item will be dropped at the location of the player triggering the action.
     private val location: Optional<Location> = Optional.empty(),
 ) : ActionEntry {

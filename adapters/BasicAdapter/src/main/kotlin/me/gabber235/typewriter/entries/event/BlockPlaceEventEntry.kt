@@ -15,7 +15,7 @@ import org.bukkit.Material
 import org.bukkit.event.block.BlockPlaceEvent
 import java.util.*
 
-@Entry("on_place_block", "When the player places a block", Colors.YELLOW, Icons.CUBES_STACKED)
+@Entry("on_place_block", "当玩家放置一个方块时", Colors.YELLOW, Icons.CUBES_STACKED)
 /**
  * The `Block Place Event` is called when a block is placed in the world.
  *
@@ -27,10 +27,10 @@ class BlockPlaceEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("The location of the block that was placed.")
+    @Help("放置的方块的位置。")
     val location: Optional<Location> = Optional.empty(),
     @MaterialProperties(BLOCK)
-    @Help("The block that is placed.")
+    @Help("放置的方块。")
     val block: Material = Material.STONE,
 ) : EventEntry
 

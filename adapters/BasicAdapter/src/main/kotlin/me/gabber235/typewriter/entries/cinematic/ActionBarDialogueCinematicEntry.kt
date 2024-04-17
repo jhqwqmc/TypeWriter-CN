@@ -18,7 +18,7 @@ import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import org.bukkit.entity.Player
 
-@Entry("actionbar_dialogue_cinematic", "Show an action bar typed dialogue", Colors.CYAN, Icons.XMARKS_LINES)
+@Entry("actionbar_dialogue_cinematic", "显示动作栏输出的对话", Colors.CYAN, Icons.XMARKS_LINES)
 /**
  * The `Action Bar Dialogue Cinematic` is a cinematic that shows a dialogue in the action bar.
  * You can specify the speaker and the dialogue.
@@ -32,7 +32,7 @@ class ActionBarDialogueCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
-    @Help("The speaker of the dialogue")
+    @Help("对话的发言者")
     @EntryIdentifier(SpeakerEntry::class)
     val speaker: String = "",
     @Segments(icon = Icons.MESSAGE)
@@ -55,7 +55,7 @@ class ActionBarDialogueCinematicEntry(
 
 @Entry(
     "random_actionbar_dialogue_cinematic",
-    "Show a random action bar typed dialogue",
+    "显示随机动作栏输出的对话",
     Colors.CYAN,
     Icons.XMARKS_LINES
 )
@@ -64,7 +64,7 @@ data class RandomActionBarDialogueCinematicEntry(
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
     @EntryIdentifier(SpeakerEntry::class)
-    @Help("The speaker of the dialogue")
+    @Help("对话的发言者")
     val speaker: String = "",
     @Segments(icon = Icons.MESSAGE)
     val segments: List<RandomDisplayDialogueSegment> = emptyList(),

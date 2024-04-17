@@ -11,7 +11,7 @@ import org.bukkit.Location
 import org.bukkit.Particle
 import org.bukkit.entity.Player
 
-@Entry("particle_cinematic", "Spawn particles for a cinematic", Colors.CYAN, Icons.FIRE_FLAME_SIMPLE)
+@Entry("particle_cinematic", "为过场动画生成粒子", Colors.CYAN, Icons.FIRE_FLAME_SIMPLE)
 /**
  * The `Particle Cinematic` entry is used to spawn particles for a cinematic.
  *
@@ -25,22 +25,22 @@ class ParticleCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
-    @Help("The location to spawn the particles at.")
+    @Help("生成粒子的位置。")
     val location: Location = Location(null, 0.0, 0.0, 0.0),
-    @Help("The particle to spawn.")
+    @Help("要生成的粒子。")
     val particle: Particle = Particle.SMOKE_NORMAL,
-    @Help("The amount of particles to spawn.")
+    @Help("生成的粒子数量。")
     val count: Int = 1,
-    @Help("The offset from the location on the X axis.")
+    @Help("距 X 轴位置的偏移量。")
     val offsetX: Double = 0.0,
-    @Help("The offset from the location on the Y axis.")
+    @Help("距 Y 轴位置的偏移量。")
     val offsetY: Double = 0.0,
-    @Help("The offset from the location on the Z axis.")
+    @Help("距 Z 轴位置的偏移量。")
     val offsetZ: Double = 0.0,
-    @Help("The speed of the particles.")
+    @Help("粒子的速度。")
     // The speed of the particles. For some particles, this is the "extra" data value to control particle behavior.
     val speed: Double = 0.0,
-    @Help("The amount of particles to spawn per tick.")
+    @Help("每个刻度（tick）生成的粒子数量。")
     val spawnCountPerTick: Int = 0,
     @Segments(icon = Icons.FIRE_FLAME_SIMPLE)
     val segments: List<ParticleSegment> = emptyList(),

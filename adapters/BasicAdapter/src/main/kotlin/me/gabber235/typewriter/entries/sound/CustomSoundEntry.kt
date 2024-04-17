@@ -5,7 +5,7 @@ import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.entry.entries.SoundIdEntry
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("custom_sound", "A custom sound", Colors.ORANGE, Icons.VOLUME_HIGH)
+@Entry("custom_sound", "自定义声音", Colors.ORANGE, Icons.VOLUME_HIGH)
 /**
  * The `Custom Sound Entry` is an entry that allow you to add sounds from a resource pack.
  * And use it in other entries.

@@ -9,7 +9,7 @@ import me.gabber235.typewriter.entry.entries.*
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("random_trigger", "Randomly selects its connected triggers", Colors.PINK, Icons.CLOVER)
+@Entry("random_trigger", "随机选择其连接的触发器", Colors.PINK, Icons.CLOVER)
 /**
  * The `Random Trigger Gate` is a gate that triggers a specified number of entries randomly. This gate provides you with the ability to randomly select and trigger a set number of entries in response to a specific event.
  *
@@ -24,7 +24,7 @@ class RandomTriggerGateEntry(
     override val customTriggers: List<String> = emptyList(),
     override val criteria: List<Criteria>,
     override val modifiers: List<Modifier>,
-    @Help("The amount of triggers to fire.")
+    @Help("触发的触发次数。")
     private val amount: Int = 1,
 ) : CustomTriggeringActionEntry {
 
