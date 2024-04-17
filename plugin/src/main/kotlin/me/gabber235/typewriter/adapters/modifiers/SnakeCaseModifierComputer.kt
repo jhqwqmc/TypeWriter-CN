@@ -19,11 +19,11 @@ object SnakeCaseModifierComputer : StaticModifierComputer<SnakeCase> {
         innerCompute(annotation, info)?.let { return it }
 
         if (info !is PrimitiveField) {
-            logger.warning("SnakeCase annotation can only be used on strings (including in lists or maps)!")
+            logger.warning("SnakeCase 注释只能用于字符串（包括列表或映射）！")
             return null
         }
         if (info.type != PrimitiveFieldType.STRING) {
-            logger.warning("SnakeCase annotation can only be used on strings (including in lists or maps)!")
+            logger.warning("SnakeCase 注释只能用于字符串（包括列表或映射）！")
             return null
         }
 

@@ -44,20 +44,20 @@ abstract class MultiTapeRecordedCapturer<T>(title: String) : MultiRecordedCaptur
     abstract fun combineFrame(frame: Int): T
 
     @Deprecated(
-        "Cannot use this method with MultiTapeRecordedCapturer",
+        "无法将此方法与 MultiTapeRecordedCapturer 一起使用",
         level = DeprecationLevel.ERROR,
         replaceWith = ReplaceWith("tapeCapturer(capturer)")
     )
     override fun <V> capturer(capturer: (String) -> RecordedCapturer<V>): MultiRecorderCapturerDelegate<V> =
-        throw UnsupportedOperationException("Cannot use this method with MultiTapeRecordedCapturer")
+        throw UnsupportedOperationException("无法将此方法与 MultiTapeRecordedCapturer 一起使用")
 
     @Deprecated(
-        "Cannot use this method with MultiTapeRecordedCapturer",
+        "无法将此方法与 MultiTapeRecordedCapturer 一起使用",
         level = DeprecationLevel.ERROR,
         replaceWith = ReplaceWith("tapeCapturer(capturer)")
     )
     override fun <V> capturer(capturer: RecordedCapturer<V>): MultiRecorderCapturerDelegate<V> =
-        throw UnsupportedOperationException("Cannot use this method with MultiTapeRecordedCapturer")
+        throw UnsupportedOperationException("无法将此方法与 MultiTapeRecordedCapturer 一起使用")
 
     fun <V> tapeCapturer(capturer: RecordedCapturer<Tape<V>>): MultiRecorderCapturerDelegate<Tape<V>> {
         return MultiRecorderCapturerDelegate(capturer).also { capturers.add(it) }
@@ -87,7 +87,7 @@ class MultiRecorderCapturerDelegate<T>(private val capturer: RecordedCapturer<T>
 
     override operator fun getValue(thisRef: MultiRecordedCapturer<*>, property: KProperty<*>): T {
         if (value == null) {
-            logger.severe("Capturer ${capturer.title} has not been recorded yet!")
+            logger.severe("捕获者 ${capturer.title} 尚未被记录！")
         }
         return value!!
     }

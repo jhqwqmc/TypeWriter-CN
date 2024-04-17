@@ -226,7 +226,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 		if (parts.size != expectedParts) {
 			throw IllegalArgumentException(
 				String.format(
-					"Invalid cron expression [%s], expected %s field, got %s",
+					"无效的 cron 表达式 [%s]，预期 %s 字段，得到 %s",
 					expression,
 					expectedParts,
 					parts.size
@@ -332,7 +332,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 			for (rangePart: String in rangeParts) {
 				val m = CRON_FIELD_REGEXP.matcher(rangePart)
 				if (!m.matches()) {
-					throw IllegalArgumentException("Invalid cron field '$rangePart' for field [$fieldType]")
+					throw IllegalArgumentException("字段 [$fieldType] 的 cron 字段“$rangePart”无效")
 				}
 				val startNummer = m.group("start")
 				val modifier = m.group("mod")
@@ -361,7 +361,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 				} else if (m.group("last") != null) {
 					part.modifier = m.group("last")
 				} else {
-					throw IllegalArgumentException("Invalid cron part: $rangePart")
+					throw IllegalArgumentException("无效的 cron 部分：$rangePart")
 				}
 				if (increment != null) {
 					part.incrementModifier = incrementModifier
@@ -376,9 +376,9 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 
 		protected open fun validatePart(part: FieldPart) {
 			if (part.modifier != null) {
-				throw IllegalArgumentException(String.format("Invalid modifier [%s]", part.modifier))
+				throw IllegalArgumentException(String.format("无效修饰符 [%s]", part.modifier))
 			} else if (part.incrementModifier != null && "/" != part.incrementModifier) {
-				throw IllegalArgumentException(String.format("Invalid increment modifier [%s]", part.incrementModifier))
+				throw IllegalArgumentException(String.format("无效增量修饰符 [%s]", part.incrementModifier))
 			}
 		}
 
@@ -386,14 +386,14 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 			if (part.from != -1 && part.from < fieldType.from || part.to != -1 && (part.to > fieldType.to)) {
 				throw IllegalArgumentException(
 					String.format(
-						"Invalid interval [%s-%s], must be %s<=_<=%s", part.from, part.to, fieldType.from,
+						"无效间隔 [%s-%s]，必须为 %s<=_<=%s", part.from, part.to, fieldType.from,
 						fieldType.to
 					)
 				)
 			} else if ((part.from != -1 && part.to != -1) && part.from > part.to) {
 				throw IllegalArgumentException(
 					String.format(
-						"Invalid interval [%s-%s].  Rolling periods are not supported (ex. 5-1, only 1-5) since this won't give a deterministic result. Must be %s<=_<=%s",
+						"无效间隔 [%s-%s]。 不支持滚动周期（例如 5-1，仅 1-5），因为这不会给出确定性结果。 必须是 %s<=_<=%s",
 						part.from, part.to, fieldType.from, fieldType.to
 					)
 				)
@@ -431,15 +431,15 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 		companion object {
 			private val CRON_FIELD_REGEXP = Pattern
 				.compile(
-					"(?:                                             # start of group 1\n"
-							+ "   (?:(?<all>\\*)|(?<ignore>\\?)|(?<last>L))  # global flag (L, ?, *)\n"
-							+ " | (?<start>[0-9]{1,2}|[a-z]{3})              # or start number or symbol\n"
-							+ "      (?:                                        # start of group 2\n"
-							+ "         (?<mod>L|W)                             # modifier (L,W)\n"
-							+ "       | -(?<end>[0-9]{1,2}|[a-z]{3})        # or end nummer or symbol (in range)\n"
-							+ "      )?                                         # end of group 2\n"
-							+ ")                                              # end of group 1\n"
-							+ "(?:(?<incmod>/|\\#)(?<inc>[0-9]{1,7}))?        # increment and increment modifier (/ or \\#)\n",
+					"(?:                                             # 第 1 组开始\n"
+							+ "   (?:(?<all>\\*)|(?<ignore>\\?)|(?<last>L))  # 全局标志 (L, ?, *)\n"
+							+ " | (?<start>[0-9]{1,2}|[a-z]{3})              # 或起始数字或符号\n"
+							+ "      (?:                                        # 第 2 组开始\n"
+							+ "         (?<mod>L|W)                             # 修饰符 (L,W)\n"
+							+ "       | -(?<end>[0-9]{1,2}|[a-z]{3})        # 或结束数字或符号（在范围内）\n"
+							+ "      )?                                         # 第 2 组结束\n"
+							+ ")                                              # 第 1 组结束\n"
+							+ "(?:(?<incmod>/|\\#)(?<inc>[0-9]{1,7}))?        # 增量和增量修饰符 (/ 或 \\#)\n",
 					Pattern.CASE_INSENSITIVE or Pattern.COMMENTS
 				)
 		}
@@ -512,11 +512,11 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 
 		override fun validatePart(part: FieldPart) {
 			if (part.modifier != null && listOf("L", "?").indexOf(part.modifier) == -1) {
-				throw IllegalArgumentException(String.format("Invalid modifier [%s]", part.modifier))
+				throw IllegalArgumentException(String.format("无效修饰符 [%s]", part.modifier))
 			} else if (part.incrementModifier != null && listOf("/", "#")
 					.indexOf(part.incrementModifier) == -1
 			) {
-				throw IllegalArgumentException(String.format("Invalid increment modifier [%s]", part.incrementModifier))
+				throw IllegalArgumentException(String.format("无效增量修饰符 [%s]", part.incrementModifier))
 			}
 		}
 	}
@@ -547,9 +547,9 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 
 		override fun validatePart(part: FieldPart) {
 			if (part.modifier != null && listOf("L", "W", "?").indexOf(part.modifier) == -1) {
-				throw IllegalArgumentException(String.format("Invalid modifier [%s]", part.modifier))
+				throw IllegalArgumentException(String.format("无效修饰符 [%s]", part.modifier))
 			} else if (part.incrementModifier != null && "/" != part.incrementModifier) {
-				throw IllegalArgumentException(String.format("Invalid increment modifier [%s]", part.incrementModifier))
+				throw IllegalArgumentException(String.format("无效增量修饰符 [%s]", part.incrementModifier))
 			}
 		}
 
@@ -576,7 +576,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 
 		private fun checkIfDateTimeBarrierIsReached(nextTime: ZonedDateTime, dateTimeBarrier: ZonedDateTime) {
 			if (nextTime.isAfter(dateTimeBarrier)) {
-				throw IllegalArgumentException("No next execution time could be determined that is before the limit of $dateTimeBarrier")
+				throw IllegalArgumentException("无法确定 $dateTimeBarrier 限制之前的下一个执行时间")
 			}
 		}
 	}

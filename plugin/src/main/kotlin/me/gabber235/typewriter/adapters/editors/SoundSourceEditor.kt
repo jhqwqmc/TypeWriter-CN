@@ -42,7 +42,7 @@ fun ObjectEditor<SoundSource>.soundSource() = reference {
                 LocationSoundSource(location)
             }
 
-            else -> throw IllegalArgumentException("Invalid sound source type: $type")
+            else -> throw IllegalArgumentException("无效的声源类型：$type")
         }
     }
 

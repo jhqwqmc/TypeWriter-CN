@@ -51,7 +51,7 @@ sealed class FieldInfo {
                         val typeArg = type.actualTypeArguments[0]
                         ListField(fromTypeToken(TypeToken.get(typeArg)))
                     } else {
-                        throw IllegalArgumentException("Unknown type for list field: $type")
+                        throw IllegalArgumentException("列表字段的未知类型：$type")
                     }
                 }
 
@@ -61,7 +61,7 @@ sealed class FieldInfo {
                         val typeArgs = type.actualTypeArguments
                         MapField(fromTypeToken(TypeToken.get(typeArgs[0])), fromTypeToken(TypeToken.get(typeArgs[1])))
                     } else {
-                        throw IllegalArgumentException("Unknown type for map field: $type")
+                        throw IllegalArgumentException("映射字段的未知类型：$type")
                     }
                 }
 

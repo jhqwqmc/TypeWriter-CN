@@ -22,7 +22,7 @@ object EntrySelectorModifierComputer : StaticModifierComputer<EntryIdentifier> {
         // Get the tag from the entry with annotation @Tags
         val tag = entry.annotations.find { it is Tags }?.let { (it as Tags).tags.firstOrNull() }
         if (tag == null) {
-            logger.warning("WARNING: Entry ${entry.simpleName} does not have a tag. It is needed for the StaticEntryIdentifier")
+            logger.warning("警告：条目 ${entry.simpleName} 没有标签。 StaticEntryIdentifier 需要它")
             return null
         }
 
@@ -33,11 +33,11 @@ object EntrySelectorModifierComputer : StaticModifierComputer<EntryIdentifier> {
         }
 
         if (info !is PrimitiveField) {
-            logger.warning("StaticEntryIdentifier can only be used on a string field")
+            logger.warning("StaticEntryIdentifier 只能用于字符串字段")
             return null
         }
         if (info.type != PrimitiveFieldType.STRING) {
-            logger.warning("StaticEntryIdentifier can only be used on a string field")
+            logger.warning("StaticEntryIdentifier 只能用于字符串字段")
             return null
         }
 

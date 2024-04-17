@@ -13,15 +13,15 @@ object TriggersModifierComputer : StaticModifierComputer<Triggers> {
 
     override fun computeModifier(annotation: Triggers, info: FieldInfo): FieldModifier? {
         if (info !is ListField) {
-            logger.warning("Triggers annotation can only be used on lists")
+            logger.warning("触发器注释只能在列表上使用")
             return null
         }
         if (info.type !is PrimitiveField) {
-            logger.warning("Triggers annotation can only be used on lists of strings")
+            logger.warning("触发器注释只能用于字符串列表")
             return null
         }
         if (info.type.type != PrimitiveFieldType.STRING) {
-            logger.warning("Triggers annotation can only be used on lists of strings")
+            logger.warning("触发器注释只能用于字符串列表")
             return null
         }
 

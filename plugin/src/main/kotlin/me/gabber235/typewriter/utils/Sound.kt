@@ -13,15 +13,15 @@ import net.kyori.adventure.sound.Sound as AdventureSound
 
 
 data class Sound(
-    @Help("The sound to play.")
+    @Help("要播放的声音。")
     val soundId: SoundId = SoundId.EMPTY,
-    @Help("The source of the location to play the sound from. (Defaults to player's location)")
+    @Help("播放声音的位置的来源。 （默认为玩家所在位置）")
     val soundSource: SoundSource = SelfSoundSource,
-    @Help("The track to play the sound on. (Corresponds to the Minecraft sound category)")
+    @Help("播放声音的曲目。 （对应于 Minecraft 声音类别）")
     val track: AdventureSound.Source = AdventureSound.Source.MASTER,
-    @Help("The volume of the sound. A value of 1.0 is normal volume.")
+    @Help("声音的音量。 值 1.0 是正常音量。")
     val volume: Float = 1.0f,
-    @Help("The pitch of the sound. A value of 1.0 is normal pitch.")
+    @Help("声音的音高。 值 1.0 是正常音高。")
     val pitch: Float = 1.0f,
 ) {
 
@@ -42,7 +42,7 @@ data class Sound(
                 val entryId = soundSource.entryId
                 val entry = Query.findById<SoundSourceEntry>(entryId)
                 if (entry == null) {
-                    logger.warning("Could not find sound source entry with id $entryId")
+                    logger.warning("找不到 ID 为 $entryId 的声源条目")
                     return
                 }
                 val emitter = entry.getEmitter()
@@ -77,7 +77,7 @@ class EntrySoundId(val entryId: String) : SoundId {
         get() {
             val entry = Query.findById<SoundIdEntry>(entryId)
             if (entry == null) {
-                logger.warning("Could not find sound entry with id $entryId")
+                logger.warning("找不到 ID 为 $entryId 的声音条目")
                 return null
             }
             return NamespacedKey.fromString(entry.soundId)

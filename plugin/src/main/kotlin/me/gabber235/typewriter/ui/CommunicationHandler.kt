@@ -29,28 +29,28 @@ class CommunicationHandler : KoinComponent {
     private val hostName: String by config(
         "hostname",
         "127.0.0.1",
-        comment = "The hostname of the server. CHANGE THIS to your servers ip."
+        comment = "服务器的主机名。 将其更改为您的服务器 IP。"
     )
     private val panelPort: Int by config(
         "panel.port",
         8080,
-        comment = "The port of the web panel. Make sure this port is open."
+        comment = "Web面板的端口。 确保此端口已打开。"
     )
     private val BASE_URL get() = "http://${hostName}:${panelPort}/#"
     private val enabled: Boolean by config(
         "enabled",
         false,
-        comment = "Whether the web panel and web sockets are enabled."
+        comment = "是否启用 Web 面板和 Web 套接字。"
     )
     private val port: Int by config(
         "websocket.port",
         9092,
-        comment = "The port of the websocket server. Make sure this port is open."
+        comment = "Websocket 服务器的端口。 确保此端口已打开。"
     )
     private val auth: String by config(
         "websocket.auth", "session", comment = """
-        |The authentication that is used. Leave unchanged if you don't know what you are doing.
-        |Possible values: none (not recommended), session
+        |使用的身份验证。 如果您不知道自己在做什么，请保持不变。
+        |可能的值：none（不推荐）、session
     """.trimMargin()
     ) // Possible values: none, session
     val authenticationEnabled: Boolean
@@ -63,7 +63,7 @@ class CommunicationHandler : KoinComponent {
 
     fun initialize() {
         if (!enabled) return
-        logger.warning("Websocket server is enabled. This is not recommended for production servers.")
+        logger.warning("Websocket 服务器已启用。 不建议对生产服务器这样做。")
         panelHost.initialize()
         val config = Configuration().apply {
             hostname = "0.0.0.0"
@@ -94,7 +94,7 @@ class CommunicationHandler : KoinComponent {
         server?.addEventListener("captureRequest", String::class.java, clientSynchronizer::handleCaptureRequest)
 
         server?.addConnectListener { socket ->
-            logger.info("Client connected: ${socket.remoteAddress}")
+            logger.info("客户端连接：${socket.remoteAddress}")
             socket.sendEvent("stagingState", stagingManager.stagingState.name.lowercase())
 
             val token = getSessionToken(socket.handshakeData)
@@ -111,7 +111,7 @@ class CommunicationHandler : KoinComponent {
         }
 
         server?.addDisconnectListener {
-            logger.info("Client disconnected: ${it.remoteAddress}")
+            logger.info("客户端已断开连接：${it.remoteAddress}")
             server?.broadcastOperations?.sendEvent("disconnectWriter", it, it.sessionId.toString())
 
             writers.removeWriter(it.sessionId.toString())
@@ -130,7 +130,7 @@ class CommunicationHandler : KoinComponent {
         if (auth == "none") return true
         if (auth == "session") {
             val token = getSessionToken(data)
-                .logErrorIfNull("${data.address} tried to connect to the socket without token!") ?: return false
+                .logErrorIfNull("${data.address} 尝试在没有令牌的情况下连接到套接字！") ?: return false
             val session = sessionTokens[token] ?: return false
             return session.isValid
         }

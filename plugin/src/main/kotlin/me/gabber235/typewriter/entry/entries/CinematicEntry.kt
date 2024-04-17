@@ -8,7 +8,7 @@ import org.bukkit.entity.Player
 
 @Tags("cinematic")
 interface CinematicEntry : Entry {
-    @Help("The criteria that must be met before this entry is shown")
+    @Help("显示此条目之前必须满足的条件")
     val criteria: List<Criteria>
 
     fun createSimulated(player: Player): CinematicAction? = create(player)

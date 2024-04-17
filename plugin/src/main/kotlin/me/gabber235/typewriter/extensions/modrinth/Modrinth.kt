@@ -61,12 +61,12 @@ object Modrinth {
 
         plugin.logger.severe(
             """|
-            |-----------------{ Typewriter Update }-----------------
-            |    A new version of Typewriter is available!
-            |    Current version: ${plugin.pluginMeta.version}
-            |    New version:     ${latestVersion.versionNumber}
-            |    Download it at:  ${latestVersion.url}
-            |------------------------------------------------------
+            |-----------------{ Typewriter更新 }-----------------
+            |    新版本的Typewriter现已推出！
+            |    当前版本：${plugin.pluginMeta.version}
+            |    新版本：  ${latestVersion.versionNumber}
+            |    下载地址：${latestVersion.url}
+            |----------------------------------------------------
         """.trimMargin()
         )
 
@@ -96,14 +96,14 @@ object Modrinth {
 
         player.sendMessage(
             """
-            |<st><gray>             </st><gray>{ <dark_gray><bold>Typewriter Update</bold><gray> }<st>             </st>
+            |<st><gray>             </st><gray>{ <dark_gray><bold>Typewriter更新</bold><gray> }<st>             </st>
             |
-            |    A new version of Typewriter is available!
-            |    <red>Current version: <reset>${plugin.pluginMeta.version}<reset>
-            |    <green>New version:       <reset>${newVersion.versionNumber}<reset>
-            |    <blue>Download it:       <reset><bold><click:open_url:${newVersion.url}><hover:show_text:Click to open>[Here]<reset>
+            |    新版本的Typewriter现已推出！
+            |    <red>当前版本：<reset>${plugin.pluginMeta.version}<reset>
+            |    <green>新版本：  <reset>${newVersion.versionNumber}<reset>
+            |    <blue>下载地址：<reset><bold><click:open_url:${newVersion.url}><hover:show_text:Click to open>[Here]<reset>
             |    
-            |<st><gray>                                                      </st>
+            |<st><gray>                                                   </st>
         """.trimMargin().asMini()
         )
     }

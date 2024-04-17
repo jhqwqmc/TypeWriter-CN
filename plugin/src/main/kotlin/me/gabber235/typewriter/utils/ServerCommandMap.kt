@@ -60,7 +60,7 @@ fun CustomCommandEntry.register() {
         }
     })
 
-    logger.info("Registered command $command for $name (${id}) Success: $result")
+    logger.info("为 $name (${id}) 注册命令 $command 成功：$result")
 }
 
 fun CustomCommandEntry.unregister() {

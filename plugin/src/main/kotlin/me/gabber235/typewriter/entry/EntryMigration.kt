@@ -81,7 +81,7 @@ object EntryMigrations {
 
     private fun entryName(klass: KClass<out Entry>): String {
         val entry = klass.findAnnotations(me.gabber235.typewriter.adapters.Entry::class).firstOrNull()
-            ?: throw IllegalStateException("Entry ${klass.simpleName} does not have an @Entry annotation.")
+            ?: throw IllegalStateException("条目 ${klass.simpleName} 没有 @Entry 注释。")
         return entry.name
     }
 
@@ -110,16 +110,16 @@ object EntryMigrations {
         val annotation = method.getAnnotation(EntryMigration::class.java)
 
         if (method.parameterCount != 2) {
-            throw EntryMigratorException(method, "has ${method.parameterCount} parameters.")
+            throw EntryMigratorException(method, "有 ${method.parameterCount} 参数。")
         }
         if (method.parameterTypes[0] != JsonObject::class.java) {
-            throw EntryMigratorException(method, "the first parameter is not JsonObject.")
+            throw EntryMigratorException(method, "第一个参数不是 JsonObject。")
         }
         if (method.parameterTypes[1] != EntryMigratorContext::class.java) {
-            throw EntryMigratorException(method, "the second parameter is not EntryMigratorContext.")
+            throw EntryMigratorException(method, "第二个参数不是 EntryMigratorContext。")
         }
         if (method.returnType != JsonObject::class.java) {
-            throw EntryMigratorException(method, "the return type is not JsonObject.")
+            throw EntryMigratorException(method, "返回类型不是 JsonObject。")
         }
         val needsMigration = NeedsMigration.fromMethod(method)
 
@@ -217,4 +217,4 @@ sealed interface NeedsMigration {
 }
 
 class EntryMigratorException(method: Method, comment: String) :
-    Exception("Entry migration method ${method.name} should have signature (JsonObject, EntryMigratorContext) -> JsonObject, but $comment.")
+    Exception("条目迁移方法 ${method.name} 应该具有签名 (JsonObject, EntryMigratorContext) -> JsonObject，但是 $comment。")

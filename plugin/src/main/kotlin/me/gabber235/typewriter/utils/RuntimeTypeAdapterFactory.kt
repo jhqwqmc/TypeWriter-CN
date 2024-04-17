@@ -125,7 +125,7 @@ class RuntimeTypeAdapterFactory<T : Any> private constructor(
 		if (type == null || label == null) {
 			throw NullPointerException()
 		}
-		require(!(subtypeToLabel.containsKey(type) || labelToSubtype.containsKey(label))) { "types and labels must be unique" }
+		require(!(subtypeToLabel.containsKey(type) || labelToSubtype.containsKey(label))) { "类型和标签必须是唯一的" }
 		labelToSubtype[label] = type
 		subtypeToLabel[type] = label
 		return this
@@ -154,7 +154,7 @@ class RuntimeTypeAdapterFactory<T : Any> private constructor(
 				}
 				if (labelJsonElement == null) {
 					throw JsonParseException(
-						"cannot deserialize $baseType because it does not define a field named $typeFieldName"
+						"无法反序列化 $baseType，因为它没有定义名为 $typeFieldName 的字段"
 					)
 				}
 				val label = labelJsonElement.asString
@@ -162,7 +162,7 @@ class RuntimeTypeAdapterFactory<T : Any> private constructor(
 						= labelToDelegate[label] as? TypeAdapter<R>?
 					?: throw NonExistentSubtypeException(
 						label,
-						"cannot deserialize $baseType subtype named $label; did you forget to register a subtype?"
+						"无法反序列化名为 $label 的 $baseType 子类型； 您是否忘记注册子类型？"
 					)
 				return delegate.fromJsonTree(jsonElement)
 			}
@@ -175,7 +175,7 @@ class RuntimeTypeAdapterFactory<T : Any> private constructor(
 						= subtypeToDelegate[srcType] as TypeAdapter<R>?
 					?: throw NonExistentSubtypeException(
 						srcType.name,
-						"cannot serialize ${srcType.name}; did you forget to register a subtype?"
+						"无法序列化${srcType.name}； 您是否忘记注册子类型？"
 					)
 				val jsonObject = delegate.toJsonTree(value).asJsonObject
 				if (maintainType) {
@@ -185,7 +185,7 @@ class RuntimeTypeAdapterFactory<T : Any> private constructor(
 				val clone = JsonObject()
 				if (jsonObject.has(typeFieldName)) {
 					throw JsonParseException(
-						"cannot serialize ${srcType.name} because it already defines a field named $typeFieldName"
+						"无法序列化 ${srcType.name}，因为它已经定义了名为 $typeFieldName 的字段"
 					)
 				}
 				clone.add(typeFieldName, JsonPrimitive(label))

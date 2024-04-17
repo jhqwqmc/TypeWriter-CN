@@ -75,7 +75,7 @@ class InteractionHandler : Listener, KoinComponent {
             try {
                 event.player.interaction?.onEvent(event)
             } catch (e: Exception) {
-                logger.severe("An error occurred while handling event ${event}: ${e.message}")
+                logger.severe("处理事件 ${event} 时发生错误：${e.message}")
                 e.printStackTrace()
             }
         }
@@ -104,7 +104,7 @@ class InteractionHandler : Listener, KoinComponent {
                     try {
                         interaction.tick()
                     } catch (e: Exception) {
-                        logger.severe("An error occurred while ticking interaction ${interaction.player.name}: ${e.message}")
+                        logger.severe("勾选交互 ${interaction.player.name} 时出错：${e.message}")
                         e.printStackTrace()
                     }
                 }

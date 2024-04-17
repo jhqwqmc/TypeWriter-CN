@@ -10,10 +10,10 @@ interface EntityEntry : StaticEntry
 
 @Tags("speaker")
 interface SpeakerEntry : EntityEntry {
-    @Help("The name of the entity that will be displayed in the chat (e.g. 'Steve' or 'Alex').")
+    @Help("将在聊天中显示的实体的名称（例如“Steve”或“Alex”）。")
     val displayName: String
 
-    @Help("The sound that will be played when the entity speaks.")
+    @Help("实体说话时将播放的声音。")
     val sound: Sound
 }
 

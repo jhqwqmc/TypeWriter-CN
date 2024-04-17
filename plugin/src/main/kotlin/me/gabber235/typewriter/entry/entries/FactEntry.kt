@@ -12,7 +12,7 @@ import java.util.*
 @Tags("fact")
 interface FactEntry : StaticEntry {
     @MultiLine
-    @Help("A comment to keep track of what this fact is used for.")
+    @Help("用于跟踪该变量用途的注释。")
     val comment: String
 }
 

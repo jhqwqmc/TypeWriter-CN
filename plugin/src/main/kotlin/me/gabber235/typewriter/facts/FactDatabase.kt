@@ -175,7 +175,7 @@ class FactsModifier(private val uuid: UUID) {
         val oldValue = modifications[id] ?: get<FactDatabase>(FactDatabase::class.java).getFact(
             uuid,
             id
-        )?.value?.logErrorIfNull("Could not read fact: $id. Please report! Using 0 as default value.") ?: 0
+        )?.value?.logErrorIfNull("无法读取变量：$id。 请向作者反馈！ 使用 0 作为默认值。") ?: 0
         modifications[id] = modifier(oldValue)
     }
 

@@ -70,14 +70,14 @@ class AdapterLoaderImpl : AdapterLoader, KoinComponent {
         }
 
         adapters = dir.listFiles()?.filter { it.extension == "jar" }?.mapNotNull {
-            logger.info("Loading adapter ${it.nameWithoutExtension}")
+            logger.info("正在加载适配器 ${it.nameWithoutExtension}")
             try {
                 loadAdapter(it)
             } catch (e: ClassNotFoundException) {
-                logger.warning("Failed to load adapter ${it.nameWithoutExtension}. Error: ${e.message}. This is likely due to a missing dependency. Skipping...")
+                logger.warning("无法加载适配器 ${it.nameWithoutExtension}。 错误：${e.message}。 这可能是由于缺少依赖项造成的。 跳过...")
                 null
             } catch (e: Exception) {
-                logger.warning("Failed to load adapter ${it.nameWithoutExtension}. Skipping...")
+                logger.warning("无法加载适配器 ${it.nameWithoutExtension}。 跳过...")
                 e.printStackTrace()
                 null
             }
@@ -93,10 +93,10 @@ class AdapterLoaderImpl : AdapterLoader, KoinComponent {
             logger.warning(
                 """
                 |
-                |${"-".repeat(15)}{ No Adapters Loaded }${"-".repeat(15)}
+                |${"-".repeat(15)}{ 未加载适配器 }${"-".repeat(15)}
                 |
-                |No adapters were loaded. 
-                |You should always have at least the BasicAdapter loaded.
+                |未加载任何适配器。
+                |您应该至少加载 BasicAdapter。
                 |
                 |${"-".repeat(50)}
                 """.trimMargin()
@@ -108,7 +108,7 @@ class AdapterLoaderImpl : AdapterLoader, KoinComponent {
             logger.info(
                 """
                 |
-                |${"-".repeat(15)}{ Loaded Adapters }${"-".repeat(15)}
+                |${"-".repeat(15)}{ 加载适配器 }${"-".repeat(15)}
                 |
                 |${adapters.joinToString("\n") { it.displayString(maxAdapterLength, maxVersionLength, maxDigits) }}
                 |
@@ -128,7 +128,7 @@ class AdapterLoaderImpl : AdapterLoader, KoinComponent {
                     try {
                         it.clazz.getConstructor().newInstance()
                     } catch (e: Exception) {
-                        logger.warning("Failed to initialize adapter ${it.name}. It is both not a kotlin object and has no empty constructor. Skipping initialization...")
+                        logger.warning("无法初始化适配器 ${it.name}。 它既不是 kotlin 对象，也没有空构造函数。 正在跳过初始化...")
                         return@forEach
                     }
                 }
@@ -143,7 +143,7 @@ class AdapterLoaderImpl : AdapterLoader, KoinComponent {
         val classes = loadClasses(file)
 
         val adapterClass: Class<*> = classes.firstOrNull { it.hasAnnotation(Adapter::class) }
-            ?: throw IllegalArgumentException("No adapter class found in ${file.name}")
+            ?: throw IllegalArgumentException("${file.name} 中找不到适配器类")
 
         val entryClasses = classes.filter { it.hasAnnotation(Entry::class) }
         val messengerClasses = classes.filter { it.hasAnnotation(Messenger::class) }
@@ -335,7 +335,7 @@ enum class AdapterFlag(val warning: String) {
     /**
      * The adapter is not tested and may not work.
      */
-    Untested("⚠\uFE0F UNTESTED"),
+    Untested("⚠\uFE0F 未经测试"),
 }
 
 // Annotation for marking a class as an adapter

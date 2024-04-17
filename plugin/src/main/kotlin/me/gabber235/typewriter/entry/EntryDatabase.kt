@@ -75,7 +75,7 @@ class EntryDatabaseImpl : EntryDatabase, KoinComponent {
 
         entryListeners.register()
 
-        logger.info("Loaded ${entries.size} entries from ${pages.size} pages.")
+        logger.info("已从 ${pages.size} 页加载 ${entries.size} 条目。")
     }
 
     private fun readPages(gson: Gson): List<Page> {
@@ -134,7 +134,7 @@ fun JsonReader.parsePage(id: String, gson: Gson): Result<Page> {
 
         Result.success(page)
     } catch (e: Exception) {
-        logger.warning("Failed to parse page: ${e.message}")
+        logger.warning("无法解析页面：${e.message}")
         Result.failure(e)
     }
 }
@@ -161,17 +161,17 @@ private fun JsonReader.parseEntry(gson: Gson): Entry? {
         logger.warning(
             """
 			|--------------------------------------------------------------------------
-			|Failed to parse entry: $subtypeName is not a valid entry type. (skipping)
+			|无法解析条目：$subtypeName 不是有效的条目类型。 （跳过）
 			|
-			|This is either because an adapter is missing or due to having an outdated page entry. 
+			|这要么是因为适配器丢失，要么是由于页面条目过时。
 			|
-			|Please report this on the TypeWriter Discord!
+			|请在 TypeWriter Discord 上报告此问题！
 			|--------------------------------------------------------------------------
 		""".trimMargin()
         )
         null
     } catch (e: Exception) {
-        logger.warning("Failed to parse entry: ${e.message} (${this})")
+        logger.warning("无法解析条目：${e.message} (${this})")
         null
     }
 }
@@ -210,7 +210,7 @@ fun createEntryParserGson(adapterLoader: AdapterLoader): Gson {
     val entries = adapterLoader.adapters.flatMap { it.entries }
 
     entries.groupingBy { it.name }.eachCount().filter { it.value > 1 }.forEach { (name, count) ->
-        logger.warning("WARNING: Found $count entries with the name '$name'")
+        logger.warning("警告：发现 $count 个名为“$name”的条目")
     }
 
     entries.forEach {

@@ -49,14 +49,14 @@ fun File.migrateIfNecessary(run: Int = 0) {
         logger.info(
             """
 			|
-			| -------------- MIGRATION --------------
-			| Starting migration of ${migratable.size} files.
-			| 
-			| This may take a while, please wait.
-			| 
-			| If the migration fails, please report this to the developer. 
-			| Your files will be backed up to the folder "plugins/Typewriter/backup".
-			| -------------- MIGRATION --------------
+			| -------------- 迁移 --------------
+			| 开始迁移 ${migratable.size} 文件。
+			|
+			| 这可能需要一段时间，请稍候。
+			|
+			| 如果迁移失败，请向开发者报告。
+			| 您的文件将备份到文件夹“plugins/Typewriter/backup”。
+			| -------------- 迁移 --------------
 		""".trimMargin()
         )
 
@@ -65,7 +65,7 @@ fun File.migrateIfNecessary(run: Int = 0) {
 
     val lowestPageVersion = migratable.minBy { it.version }.version
     val lowestMigratorVersion = EntryMigrations.findMinimalNeededMigrationVersion(lowestPageVersion)
-        ?: throw IllegalStateException("Could not find a migration for version $lowestPageVersion")
+        ?: throw IllegalStateException("找不到版本 $lowestPageVersion 的迁移")
 
     val migrators = EntryMigrations.findEntryMigrators(lowestMigratorVersion)
 
@@ -119,7 +119,7 @@ data class SemanticVersion(
             val versionPart = versionParts[0]
             val parts = versionPart.split(".")
             if (parts.size != 3) {
-                throw IllegalArgumentException("Invalid version format: $version")
+                throw IllegalArgumentException("版本格式无效：$version")
             }
 
             val (major, minor, patch) = parts.map { it.toInt() }

@@ -18,16 +18,16 @@ interface StaticEntry : Entry
 interface TriggerEntry : Entry {
 	@Triggers
 	@EntryIdentifier(TriggerableEntry::class)
-	@Help("The entries that will be fired after this entry.")
+	@Help("在此条目之后将被激发的条目。")
 	val triggers: List<String>
 }
 
 @Tags("triggerable")
 interface TriggerableEntry : TriggerEntry {
-	@Help("The criteria that must be met before this entry is triggered")
+	@Help("触发此条目之前必须满足的条件")
 	val criteria: List<Criteria>
 
-	@Help("The modifiers that will be applied when this entry is triggered")
+	@Help("触发此条目时将应用的修饰符")
 	val modifiers: List<Modifier>
 }
 
@@ -49,12 +49,12 @@ enum class CriteriaOperator {
 }
 
 data class Criteria(
-	@Help("The fact to check before triggering the entry")
+	@Help("在触发该条目之前要检查的变量。")
 	@EntryIdentifier(ReadableFactEntry::class)
 	val fact: String = "",
-	@Help("The operator to use when comparing the fact value to the criteria value")
+	@Help("将变量的值与标准值进行比较时使用的运算符")
 	val operator: CriteriaOperator = CriteriaOperator.EQUALS,
-	@Help("The value to compare the fact value to")
+	@Help("与变量的值进行比较的值")
 	val value: Int = 0,
 ) {
 	fun isValid(fact: Fact?): Boolean {
@@ -78,11 +78,11 @@ enum class ModifierOperator {
 }
 
 data class Modifier(
-	@Help("The fact to modify when the entry is triggered")
+	@Help("触发条目时要修改的变量")
 	@EntryIdentifier(WritableFactEntry::class)
 	val fact: String = "",
-	@Help("The operator to use when modifying the fact value")
+	@Help("修改变量的值的时使用的运算符")
 	val operator: ModifierOperator = ModifierOperator.ADD,
-	@Help("The value to modify the fact value by")
+	@Help("修改变量的值")
 	val value: Int = 0,
 )

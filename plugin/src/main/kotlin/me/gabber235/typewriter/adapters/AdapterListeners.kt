@@ -53,7 +53,7 @@ sealed interface ParameterGenerator {
         fun getGenerators(parameters: Array<Parameter>): List<ParameterGenerator> {
             return parameters.map { parameter ->
                 getGenerator(parameter)
-                    ?: throw IllegalArgumentException("There is no way to create a parameter for ${parameter.name} (${parameter.type}) in ${parameter.declaringExecutable}")
+                    ?: throw IllegalArgumentException("无法在 ${parameter.declaringExecutable} 中为 ${parameter.name} (${parameter.type}) 创建参数")
             }
         }
     }

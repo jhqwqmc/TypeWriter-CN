@@ -17,12 +17,12 @@ object ColoredModifierComputer : StaticModifierComputer<Colored> {
         innerCompute(annotation, info)?.let { return it }
 
         if (info !is PrimitiveField) {
-            logger.warning("Colored annotation can only be used on strings (including in lists or maps)!")
+            logger.warning("彩色注释只能用于字符串（包括列表或映射）！")
             return FieldModifier.StaticModifier("colored")
         }
 
         if (info.type != PrimitiveFieldType.STRING) {
-            logger.warning("Colored annotation can only be used on strings (including in lists or maps)!")
+            logger.warning("彩色注释只能用于字符串（包括列表或映射）！")
             return FieldModifier.StaticModifier("colored")
         }
 

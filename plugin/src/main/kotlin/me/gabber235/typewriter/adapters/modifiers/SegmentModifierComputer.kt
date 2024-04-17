@@ -15,23 +15,23 @@ object SegmentModifierComputer : StaticModifierComputer<Segments> {
 
     override fun computeModifier(annotation: Segments, info: FieldInfo): FieldModifier? {
         if (info !is ListField) {
-            logger.warning("Segment annotation can only be used on lists")
+            logger.warning("段注释只能用在列表上")
             return null
         }
         val type = info.type
         if (type !is ObjectField) {
-            logger.warning("Segment annotation can only be used on lists of objects")
+            logger.warning("段注释只能用在对象列表上")
             return null
         }
         val startFrame = type.fields["startFrame"]
         val endFrame = type.fields["endFrame"]
         if (startFrame !is PrimitiveField || endFrame !is PrimitiveField) {
-            logger.warning("Segment annotation can only be used on lists of objects with startFrame and endFrame fields")
+            logger.warning("段注释只能用于具有 startFrame 和 endFrame 字段的对象列表")
             return null
         }
 
         if (startFrame.type != PrimitiveFieldType.INTEGER || endFrame.type != PrimitiveFieldType.INTEGER) {
-            logger.warning("Segment annotation can only be used on lists of objects with startFrame and endFrame fields of type int")
+            logger.warning("段注释只能用在具有 int 类型的 startFrame 和 endFrame 字段的对象列表上")
             return null
         }
 

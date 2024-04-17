@@ -18,11 +18,11 @@ object MultiLineModifierComputer : StaticModifierComputer<MultiLine> {
         innerCompute(annotation, info)?.let { return it }
 
         if (info !is PrimitiveField) {
-            logger.warning("MultiLine annotation can only be used on strings")
+            logger.warning("MultiLine 注释只能用于字符串")
             return null
         }
         if (info.type != PrimitiveFieldType.STRING) {
-            logger.warning("MultiLine annotation can only be used on strings")
+            logger.warning("MultiLine 注释只能用于字符串")
             return null
         }
 

@@ -16,11 +16,11 @@ object WithRotationModifierComputer : StaticModifierComputer<WithRotation> {
         innerCompute(annotation, info)?.let { return it }
 
         if (info !is CustomField) {
-            logger.warning("WithRotation annotation can only be used on locations (including in lists or maps)!")
+            logger.warning("WithRotation 注释只能用于位置（包括列表或映射）！")
             return null
         }
         if (info.editor != "location") {
-            logger.warning("WithRotation annotation can only be used on locations (including in lists or maps)!")
+            logger.warning("WithRotation 注释只能用于位置（包括列表或映射）！")
             return null
         }
 

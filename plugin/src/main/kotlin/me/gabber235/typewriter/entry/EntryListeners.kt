@@ -58,7 +58,7 @@ class EntryListeners : KoinComponent {
         try {
             adapterListener.method.invoke(null, *parameters.toTypedArray())
         } catch (e: Exception) {
-            logger.severe("Failed to invoke entry listener ${adapterListener.method.name} for event ${event::class.simpleName}")
+            logger.severe("无法调用事件 ${event::class.simpleName} 的入口侦听器 ${adapterListener.method.name}")
             e.printStackTrace()
         }
     }

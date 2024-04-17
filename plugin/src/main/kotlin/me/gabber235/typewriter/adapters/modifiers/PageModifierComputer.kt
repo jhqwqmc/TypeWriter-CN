@@ -17,12 +17,12 @@ object PageModifierComputer : StaticModifierComputer<Page> {
         innerCompute(annotation, info)?.let { return it }
 
         if (info !is PrimitiveField) {
-            logger.warning("Page annotation can only be used on primitive fields")
+            logger.warning("页面注释只能用在原始字段上")
             return null
         }
 
         if (info.type != PrimitiveFieldType.STRING) {
-            logger.warning("Page annotation can only be used on string fields")
+            logger.warning("页面注释只能用于字符串字段")
             return null
         }
 

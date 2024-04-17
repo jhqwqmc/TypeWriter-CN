@@ -12,7 +12,7 @@ import java.util.*
 interface EventEntry : TriggerEntry
 
 interface CustomCommandEntry : EventEntry {
-    @Help("The command to register. Do not include the leading slash.")
+    @Help("注册命令。 请勿包含前导斜杠（/）。")
     val command: String
 
     fun filter(player: Player, commandLabel: String, args: Array<out String>): CommandFilterResult =

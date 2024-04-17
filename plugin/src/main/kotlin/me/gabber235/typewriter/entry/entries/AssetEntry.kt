@@ -9,7 +9,7 @@ import me.gabber235.typewriter.utils.failure
 
 @Tags("asset")
 interface AssetEntry : StaticEntry {
-    @Help("The path to the asset.")
+    @Help("资源的路径。")
     val path: String
 }
 
@@ -18,7 +18,7 @@ interface AssetEntry : StaticEntry {
  */
 @Tags("artifact")
 interface ArtifactEntry : AssetEntry {
-    @Help("A unique identifier for the artifact. SHOULD NOT BE CHANGED!")
+    @Help("这是工件的唯一标识符。不应更改！")
     @Generated
     val artifactId: String
 
@@ -31,15 +31,15 @@ interface ArtifactEntry : AssetEntry {
 
 fun getAssetFromFieldValue(fieldValue: Any?): Result<AssetEntry> {
     if (fieldValue !is String) {
-        return failure("Field value must be a string!")
+        return failure("字段值必须是一个字符串！")
     }
 
     if (fieldValue.isBlank()) {
-        return failure("A asset must be selected.")
+        return failure("必须选择一个资源。")
     }
 
     val artifact = Query.findById<AssetEntry>(fieldValue)
-        ?: return failure("Could not find artifact with id $fieldValue")
+        ?: return failure("找不到 ID 为 $fieldValue 的工件")
 
     return Result.success(artifact)
 }

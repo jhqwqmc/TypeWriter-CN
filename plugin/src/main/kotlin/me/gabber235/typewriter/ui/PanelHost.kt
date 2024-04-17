@@ -19,7 +19,7 @@ class PanelHost : KoinComponent {
     fun initialize() {
         if (!enabled) {
             // If we are developing the ui we don't want to start the server
-            logger.warning("The panel is disabled while the websocket is enabled. This is only for development purposes. Please enable either both or none.")
+            logger.warning("当 websocket 启用时，面板被禁用。 这仅用于开发目的。 请同时启用或都不启用。")
             return
         }
         server = embeddedServer(io.ktor.server.netty.Netty, port) {

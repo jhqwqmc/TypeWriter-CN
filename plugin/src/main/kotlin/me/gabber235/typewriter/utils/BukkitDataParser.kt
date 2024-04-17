@@ -41,7 +41,7 @@ class LocationSerializer : JsonSerializer<Location>, JsonDeserializer<Location> 
             split[0].let { worldName ->
                 val world = Bukkit.getWorld(worldName)
                 if (world == null) {
-                    logger.severe("World $worldName not found!")
+                    logger.severe("世界 $worldName 未找到！")
                 }
                 world
             },

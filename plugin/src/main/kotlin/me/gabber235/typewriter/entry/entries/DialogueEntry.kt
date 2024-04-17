@@ -8,7 +8,7 @@ import me.gabber235.typewriter.entry.TriggerableEntry
 
 @Tags("dialogue")
 interface DialogueEntry : TriggerableEntry {
-    @Help("The speaker of the dialogue")
+    @Help("对话的发言者")
     @EntryIdentifier(SpeakerEntry::class)
     val speaker: String
 

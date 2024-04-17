@@ -26,7 +26,7 @@ interface CustomTriggeringActionEntry : ActionEntry {
 
     @Triggers
     @EntryIdentifier(TriggerableEntry::class)
-    @Help("The entries that will be fired after this entry.")
+    @Help("这个条目之后将会触发的条目。")
     val customTriggers: List<String>
 
     fun Player.triggerCustomTriggers() {

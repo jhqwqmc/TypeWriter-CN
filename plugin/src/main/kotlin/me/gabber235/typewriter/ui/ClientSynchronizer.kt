@@ -63,7 +63,7 @@ class ClientSynchronizerImpl : ClientSynchronizer, KoinComponent {
             ack.sendAckData(adapters.toString())
         }
 
-        ack.sendAckData("No data found")
+        ack.sendAckData("没有找到数据")
     }
 
     override fun handleCreatePage(client: SocketIOClient, data: String, ack: AckRequest) {
@@ -152,7 +152,7 @@ class ClientSynchronizerImpl : ClientSynchronizer, KoinComponent {
     override fun handleUpdateWriter(client: SocketIOClient, data: String, ack: AckRequest) {
         writers.updateWriter(client.sessionId.toString(), data)
         communicationHandler.server.broadcastWriters(writers)
-        ack.sendResult(Result.success("Writer updated"))
+        ack.sendResult(Result.success("Writer更新"))
     }
 
     override fun handleCaptureRequest(client: SocketIOClient, data: String, ack: AckRequest) {
@@ -163,7 +163,7 @@ class ClientSynchronizerImpl : ClientSynchronizer, KoinComponent {
         if (player == null) {
             // If we have authentication enabled, we don't want to fallback as it could be a security issue.
             if (communicationHandler.authenticationEnabled) {
-                ack.sendResult(Result.failure(Exception("Could not determine player")))
+                ack.sendResult(Result.failure(Exception("无法确定玩家")))
                 return
             }
 
@@ -172,17 +172,17 @@ class ClientSynchronizerImpl : ClientSynchronizer, KoinComponent {
 
             val onlinePlayers = server.onlinePlayers
             if (onlinePlayers.isEmpty()) {
-                ack.sendResult(Result.failure(Exception("No players online to record")))
+                ack.sendResult(Result.failure(Exception("没有玩家在线可录制")))
                 return
             }
 
             if (onlinePlayers.size > 1) {
-                ack.sendResult(Result.failure(Exception("Could not determine player to record")))
+                ack.sendResult(Result.failure(Exception("无法确定要录制的玩家")))
                 return
             }
 
             player = onlinePlayers.first()
-            logger.warning("Could not determine player from session, using ${player.name}")
+            logger.warning("无法使用 ${player.name} 确定会话中的玩家")
         }
 
         val result = recorders.requestRecording(player!!, context)

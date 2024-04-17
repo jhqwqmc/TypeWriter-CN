@@ -110,15 +110,15 @@ class EmptyDialogueMessenger(player: Player, entry: DialogueEntry) : DialogueMes
 
 private val confirmationKeyString by config(
     "confirmationKey", ConfirmationKey.SWAP_HANDS.name, comment = """
-    |The key that should be pressed to confirm a dialogue option.
-    |Possible values: ${ConfirmationKey.values().joinToString(", ") { it.name }}
+    |确认对话框选项时应按下的键。
+    |可能的值：${ConfirmationKey.values().joinToString(", ") { it.name }}
 """.trimMargin()
 )
 
 val confirmationKey: ConfirmationKey by reloadable {
     val key = ConfirmationKey.fromString(confirmationKeyString)
     if (key == null) {
-        plugin.logger.warning("Invalid confirmation key '$confirmationKeyString'. Using default key '${ConfirmationKey.SWAP_HANDS.name}' instead.")
+        plugin.logger.warning("无效的确认键 '$confirmationKeyString'。将使用默认键 '${ConfirmationKey.SWAP_HANDS.name}'。")
         return@reloadable ConfirmationKey.SWAP_HANDS
     }
     key

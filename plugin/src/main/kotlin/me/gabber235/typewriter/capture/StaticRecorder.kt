@@ -37,7 +37,7 @@ class StaticRecorder<T>(private val player: Player, private val capturer: Record
 
     override suspend fun record(): T {
         if (data != null) {
-            throw IllegalStateException("Already recording!")
+            throw IllegalStateException("已经在录制了！")
         }
 
         val recordingData = prepareRecording()
@@ -49,7 +49,7 @@ class StaticRecorder<T>(private val player: Player, private val capturer: Record
         val completer = CompletableDeferred<T>()
 
         val bossBar = BossBar.bossBar(
-            "<aqua><bold>Waiting ${capturer.title}:</bold></aqua> Press <red><bold><key:key.swapOffhand></bold></red> to start recording".asMini(),
+            "<aqua><bold>等待${capturer.title}：</bold></aqua>按<red><bold><key:key.swapOffhand></bold></red>开始录制".asMini(),
             1f,
             BossBar.Color.BLUE,
             BossBar.Overlay.PROGRESS
@@ -91,10 +91,10 @@ class StaticRecorder<T>(private val player: Player, private val capturer: Record
 
     private fun startRecording() {
         if (state != RecordingState.WAITING_FOR_START) {
-            throw IllegalStateException("Can only start recording when waiting for start!")
+            throw IllegalStateException("只有在等待开始时才能开始录制！")
         }
         data?.bossBar?.let {
-            it.name("<red><bold>Recording ${capturer.title}:</bold></red> Press <green><bold><key:key.swapOffhand></bold></green> to stop.".asMini())
+            it.name("<red><bold>正在录制 ${capturer.title}：</bold></red> 按 <green><bold><key:key.swapOffhand></bold></green> 停止。".asMini())
             it.color(BossBar.Color.RED)
         }
         player.playSound(Sound.sound(Key.key("ui.button.click"), Sound.Source.MASTER, 1f, 1f))
@@ -113,7 +113,7 @@ class StaticRecorder<T>(private val player: Player, private val capturer: Record
 
     private fun stopRecording() {
         if (state != RecordingState.RECORDING) {
-            throw IllegalStateException("Can only stop recording when recording!")
+            throw IllegalStateException("只能在录制时停止录制！")
         }
         data?.bossBar?.let { player.hideBossBar(it) }
         player.playSound(Sound.sound(Key.key("ui.cartography_table.take_result"), Sound.Source.MASTER, 1f, 1f))

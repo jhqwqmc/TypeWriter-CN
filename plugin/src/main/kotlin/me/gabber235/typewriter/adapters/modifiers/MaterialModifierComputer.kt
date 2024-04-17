@@ -35,11 +35,11 @@ object MaterialPropertiesModifierComputer : StaticModifierComputer<MaterialPrope
         innerCompute(annotation, info)?.let { return it }
 
         if (info !is CustomField) {
-            logger.warning("MaterialProperties annotation can only be used on custom fields")
+            logger.warning("材料属性注释只能用于自定义字段")
             return null
         }
         if (info.editor != "material") {
-            logger.warning("MaterialProperties annotation can only be used materials (not on ${info.editor})")
+            logger.warning("MaterialProperties 注解只能用于材质（不能在 ${info.editor} 上使用）")
             return null
         }
 

@@ -53,7 +53,7 @@ class Recorders : KoinComponent {
 
     suspend fun <T> record(player: Player, recorder: Recorder<T>): T {
         if (recorders.containsKey(player.uniqueId)) {
-            throw IllegalStateException("Already recording!")
+            throw IllegalStateException("已经在录制了！")
         }
         recorders[player.uniqueId] = recorder
         val result = recorder.record()
@@ -80,7 +80,7 @@ class Recorders : KoinComponent {
         val capturerResult = capturerCreator.create(context)
 
         if (capturerResult.isFailure) {
-            return RecorderResponse.RecorderCouldNotStart(capturerResult.exceptionOrNull()?.message ?: "Unknown reason")
+            return RecorderResponse.RecorderCouldNotStart(capturerResult.exceptionOrNull()?.message ?: "不明原因")
         }
 
         val capturer = capturerResult.getOrThrow()
@@ -115,10 +115,10 @@ data class RecorderRequestContext(
                 .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
 
             if (cinematic != null) {
-                return "Recording $field in cinematic $cinematic"
+                return "在过场动画$cinematic中录制$field"
             }
 
-            return "Recording $field"
+            return "录制 $field"
         }
 
     val cinematicData: CinematicRecordingData?

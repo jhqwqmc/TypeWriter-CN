@@ -17,29 +17,29 @@ import kotlin.contracts.contract
 open class Item(
     @MaterialProperties(MaterialProperty.ITEM)
     @Icon(Icons.CUBE)
-    @Help("The material of the item.")
+    @Help("物品的材质。")
     private val material: Optional<Material> = Optional.empty(),
     @InnerMin(Min(0))
     @Icon(Icons.HASHTAG)
-    @Help("The amount of items.")
+    @Help("物品的数量。")
     val amount: Optional<Int> = Optional.empty(),
     @Placeholder
     @Colored
     @Icon(Icons.TAG)
-    @Help("The display name of the item.")
+    @Help("物品的显示名称。")
     private val name: Optional<String> = Optional.empty(),
     @Placeholder
     @Colored
     @MultiLine
     @Icon(Icons.SOLID_FILE_LINES)
-    @Help("The lore of the item.")
+    @Help("物品的描述信息（lore）。")
     private val lore: Optional<String> = Optional.empty(),
 //    private val enchantments: Optional<Map<Enchantment, Int>>,
     @Icon(Icons.SOLID_FLAG)
-    @Help("Special flags for the item.")
+    @Help("物品的特殊标志。")
     private val flags: Optional<List<ItemFlag>> = Optional.empty(),
     @Icon(Icons.CODE)
-    @Help("The serialized NBT data of the item.")
+    @Help("物品的序列化NBT数据。")
     private val nbt: Optional<String> = Optional.empty(),
 ) {
 

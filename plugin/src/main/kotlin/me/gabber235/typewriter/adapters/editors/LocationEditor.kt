@@ -40,7 +40,7 @@ fun ObjectEditor<Location>.location() = reference {
         val bukkitWorld =
             server.getWorld(world) ?: server.worlds.firstOrNull { it.name.equals(world, true) }
                 .logErrorIfNull(
-                    "Could not find world '$world' for location, so picking default world. Possible worlds: ${
+                    "无法找到世界“$world”作为位置，因此选择默认世界。 可能的世界： ${
                         server.worlds.joinToString(
                             ", "
                         ) { "'${it.name}'" }

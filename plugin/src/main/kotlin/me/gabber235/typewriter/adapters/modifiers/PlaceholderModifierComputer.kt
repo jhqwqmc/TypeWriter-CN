@@ -18,12 +18,12 @@ object PlaceholderModifierComputer : StaticModifierComputer<Placeholder> {
         innerCompute(annotation, info)?.let { return it }
 
         if (info !is PrimitiveField) {
-            logger.warning("Placeholder annotation can only be used on strings (including in lists or maps)!")
+            logger.warning("占位符注释只能用于字符串（包括列表或映射）！")
             return FieldModifier.StaticModifier("placeholder")
         }
 
         if (info.type != PrimitiveFieldType.STRING) {
-            logger.warning("Placeholder annotation can only be used on strings (including in lists or maps)!")
+            logger.warning("占位符注释只能用于字符串（包括列表或映射）！")
             return FieldModifier.StaticModifier("placeholder")
         }
 

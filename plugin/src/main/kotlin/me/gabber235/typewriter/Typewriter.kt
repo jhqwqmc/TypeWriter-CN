@@ -85,7 +85,7 @@ class Typewriter : KotlinPlugin(), KoinComponent {
 
         if (!server.pluginManager.isPluginEnabled("ProtocolLib")) {
             logger.warning(
-                "ProtocolLib is not enabled, Typewriter will not work without it. Shutting down..."
+                "ProtocolLib 未启用，没有它，Typewriter将无法工作。 正在关闭..."
             )
             server.pluginManager.disablePlugin(this)
             return

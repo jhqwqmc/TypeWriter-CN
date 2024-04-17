@@ -28,7 +28,7 @@ class ConfigPropertyDelegate<T : Any>(
         }
         val t = klass.safeCast(value)
         if (t == null) {
-            logger.warning("Invalid value for config key '$key', expected ${klass.simpleName}, got ${value::class.simpleName}")
+            logger.warning("配置键 '$key' 的值无效，应为 ${klass.simpleName}，但得到 ${value::class.simpleName}")
             return default
         }
         return t

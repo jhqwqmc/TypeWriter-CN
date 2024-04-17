@@ -21,17 +21,17 @@ object CaptureModifierComputer : StaticModifierComputer<Capture> {
         val name = capturer.qualifiedName
 
         if (name == null) {
-            logger.warning("Capturer ${capturer.jvmName} does not have a qualified name! It must be a non-local non-anonymous class.")
+            logger.warning("捕获器 ${capturer.jvmName} 没有限定名称！ 它必须是非本地非匿名类。")
             return null
         }
 
         if (capturer.companionObject == null) {
-            logger.warning("Capturer ${capturer.jvmName} needs to have a companion object which extends CapturerCreator<${capturer.simpleName}>! It has no companion object.")
+            logger.warning("捕获器 ${capturer.jvmName} 需要有一个扩展 CapturerCreator<${capturer.simpleName}> 的伴生对象！ 它没有伴生对象。")
             return null
         }
 
         if (capturer.companionObject?.isSubclassOf(CapturerCreator::class) != true) {
-            logger.warning("Capturer ${capturer.jvmName} needs to have a companion object which extends CapturerCreator<${capturer.simpleName}>! Forgot to extend CapturerCreator?")
+            logger.warning("捕获器 ${capturer.jvmName} 需要有一个扩展 CapturerCreator<${capturer.simpleName}> 的伴生对象！ 忘记扩展 CapturerCreator？")
             return null
         }
 

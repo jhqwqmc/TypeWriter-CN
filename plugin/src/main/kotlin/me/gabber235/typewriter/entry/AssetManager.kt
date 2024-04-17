@@ -28,7 +28,7 @@ class AssetManager : KoinComponent {
     private fun removeUnusedAssets() {
         val usedPaths = usedPaths()
         if (usedPaths.isFailure) {
-            plugin.logger.severe("Failed to remove unused assets: ${usedPaths.exceptionOrNull()?.message}")
+            plugin.logger.severe("无法删除未使用的资源：${usedPaths.exceptionOrNull()?.message}")
             return
         }
 
@@ -72,7 +72,7 @@ class AssetManager : KoinComponent {
     fun fetchAsset(entry: AssetEntry): String? {
         val result = storage.fetchAsset(entry.path)
         if (result.isFailure) {
-            plugin.logger.severe("Failed to fetch asset ${entry.path}")
+            plugin.logger.severe("无法获取资源${entry.path}")
             return null
         }
         return result.getOrNull()
@@ -93,7 +93,7 @@ class LocalAssetStorage : AssetStorage {
     override fun fetchAsset(path: String): Result<String> {
         val file = plugin.dataFolder.resolve("assets/$path")
         if (!file.exists()) {
-            return Result.failure(IllegalArgumentException("Asset $path not found."))
+            return Result.failure(IllegalArgumentException("未找到资源$path。"))
         }
         return Result.success(file.readText())
     }

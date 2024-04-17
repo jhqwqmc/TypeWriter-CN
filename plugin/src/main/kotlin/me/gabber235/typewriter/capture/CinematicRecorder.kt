@@ -44,7 +44,7 @@ class CinematicRecorder<T>(
 
     override suspend fun record(): T {
         if (data != null) {
-            throw IllegalStateException("Already recording!")
+            throw IllegalStateException("已经在录制了！")
         }
 
         val recordingData = prepareRecording()
@@ -56,7 +56,7 @@ class CinematicRecorder<T>(
         val completer = CompletableDeferred<T>()
 
         val bossBar = BossBar.bossBar(
-            "Waiting <aqua>${capturer.title}</aqua>: Press <red><bold><key:key.swapOffhand></bold></red> to start recording".asMini(),
+            "等待<aqua>${capturer.title}</aqua>：按<red><bold><key:key.swapOffhand></bold></red>开始录制".asMini(),
             1f,
             BossBar.Color.BLUE,
             BossBar.Overlay.PROGRESS
@@ -134,7 +134,7 @@ class CinematicRecorder<T>(
         }
 
         data?.bossBar?.let {
-            it.name("<gold><bold>Viewing ${capturer.title}:</bold></gold> Starting recording in <$color><bold>$secondsLeft</bold></$color>".asMini())
+            it.name("<gold><bold>查看${capturer.title}：</bold></gold>开始在<$color><bold>$secondsLeft</bold></$color>中录制".asMini())
             it.color(BossBar.Color.YELLOW)
             it.progress(1f - (frame / frames.first.toFloat()))
         }
@@ -156,7 +156,7 @@ class CinematicRecorder<T>(
 
 
         data?.bossBar?.let {
-            it.name("<gold><bold>Viewing ${capturer.title}:</bold></gold> Recording ends in <bold>$secondsLeft</bold>".asMini())
+            it.name("<gold><bold>查看 ${capturer.title}：</bold></gold> 录制结束于 <bold>$secondsLeft</bold>".asMini())
             it.color(BossBar.Color.YELLOW)
             it.progress((frame - frames.first) / (frames.last - frames.first).toFloat())
         }
@@ -167,7 +167,7 @@ class CinematicRecorder<T>(
 
     private fun startRecording() {
         if (state != RecordingState.WAITING_FOR_START && state != RecordingState.PRE_SEGMENT) {
-            throw IllegalStateException("Can only start recording when waiting for start!")
+            throw IllegalStateException("只有在等待开始时才能开始录制！")
         }
         player.playSound(Sound.sound(Key.key("ui.button.click"), Sound.Source.MASTER, 1f, 1f))
         capturer.startRecording(player)
@@ -176,7 +176,7 @@ class CinematicRecorder<T>(
 
     private fun stopRecording() {
         if (state != RecordingState.RECORDING) {
-            throw IllegalStateException("Can only stop recording when recording!")
+            throw IllegalStateException("只能在录制时停止录制！")
         }
         data?.bossBar?.let { player.hideBossBar(it) }
         player.playSound(Sound.sound(Key.key("ui.cartography_table.take_result"), Sound.Source.MASTER, 1f, 1f))

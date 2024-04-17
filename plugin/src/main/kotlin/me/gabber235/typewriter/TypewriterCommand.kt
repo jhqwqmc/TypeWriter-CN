@@ -56,9 +56,9 @@ private fun LiteralDSLBuilder.reloadCommands() {
     literal("reload") {
         requiresPermissions("typewriter.reload")
         executes {
-            source.msg("Reloading configuration...")
+            source.msg("正在重新加载配置...")
             TypewriterReloadEvent().callEvent()
-            source.msg("Configuration reloaded!")
+            source.msg("配置已重新加载！")
         }
     }
 }
@@ -71,11 +71,11 @@ private fun LiteralDSLBuilder.factsCommands() {
         fun Player.listCachedFacts(source: CommandSender) {
             val facts = factDatabase.listCachedFacts(uniqueId)
             if (facts.isEmpty()) {
-                source.msg("$name has no facts.")
+                source.msg("$name 没有变量。")
             } else {
                 source.sendMini("\n\n")
-                val formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy")
-                source.msg("$name has the following facts:\n")
+                val formatter = DateTimeFormatter.ofPattern("HH:mm:ss yyyy/MM/dd")
+                source.msg("$name 有以下变量：\n")
                 facts.map { it to Query.findById<FactEntry>(it.id) }.forEach { (fact, entry) ->
                     if (entry == null) return@forEach
 
@@ -85,7 +85,7 @@ private fun LiteralDSLBuilder.factsCommands() {
                                 Regex(" +"),
                                 " "
                             )
-                        }\n\n<gray><i>Click to modify'><click:suggest_command:'/tw facts $name set ${entry.name} ${fact.value}'><gray> - </gray><blue>${entry.formattedName}:</blue> ${fact.value} <gray><i>(${
+                        }\n\n<gray><i>点击修改'><click:suggest_command:'/tw facts $name set ${entry.name} ${fact.value}'><gray> - </gray><blue>${entry.formattedName}:</blue> ${fact.value} <gray><i>(${
                             formatter.format(
                                 fact.lastUpdate
                             )
@@ -108,7 +108,7 @@ private fun LiteralDSLBuilder.factsCommands() {
                             factDatabase.modify(player.get().uniqueId) {
                                 set(fact.get().id, value.get())
                             }
-                            source.msg("Set <blue>${fact.get().formattedName}</blue> to ${value.get()} for ${player.get().name}")
+                            source.msg("将 ${player.get().name} 的 <blue>${fact.get().formattedName}</blue> 设置为 ${value.get()}")
                         }
                     }
                 }
@@ -122,7 +122,7 @@ private fun LiteralDSLBuilder.factsCommands() {
                             set(id, 0)
                         }
                     }
-                    source.msg("All facts for ${p.name} have been reset.")
+                    source.msg("${p.name} 的所有变量均已重置。")
                 }
             }
         }
@@ -137,7 +137,7 @@ private fun LiteralDSLBuilder.factsCommands() {
                         factDatabase.modify(source.uniqueId) {
                             set(fact.get().id, value.get())
                         }
-                        source.msg("Fact <blue>${fact.get().formattedName}</blue> set to ${value.get()}.")
+                        source.msg("变量 <blue>${fact.get().formattedName}</blue> 设置为 ${value.get()}。")
                     }
                 }
             }
@@ -150,7 +150,7 @@ private fun LiteralDSLBuilder.factsCommands() {
                         set(id, 0)
                     }
                 }
-                source.msg("All your facts have been reset.")
+                source.msg("你所有的变量都已被重置。")
             }
         }
     }
@@ -174,32 +174,32 @@ private fun LiteralDSLBuilder.connectCommand() {
         requiresPermissions("typewriter.connect")
         executesConsole {
             if (communicationHandler.server == null) {
-                source.msg("The server is not hosting the websocket. Try and enable it in the config.")
+                source.msg("服务器未托管 websocket。 尝试在配置中启用它。")
                 return@executesConsole
             }
 
             val url = communicationHandler.generateUrl(playerId = null)
-            source.msg("Connect to<blue> $url </blue>to start the connection.")
+            source.msg("连接到<blue> $url </blue>以启动连接。")
         }
         executesPlayer {
             if (communicationHandler.server == null) {
-                source.msg("The server is not hosting the websocket. Try and enable it in the config.")
+                source.msg("服务器未托管 websocket。 尝试在配置中启用它。")
                 return@executesPlayer
             }
 
             val url = communicationHandler.generateUrl(source.uniqueId)
 
-            val bookTitle = "<blue>Connect to the server</blue>".asMini()
+            val bookTitle = "<blue>连接到服务器</blue>".asMini()
             val bookAuthor = "<blue>Typewriter</blue>".asMini()
 
             val bookPage = """
-				|<blue><bold>Connect to Panel</bold></blue>
+				|<blue><bold>连接到面板</bold></blue>
 				|
-				|<#3e4975>Click on the link below to connect to the panel. Once you are connected, you can start writing.</#3e4975>
+				|<#3e4975>点击下面的链接连接到面板。 连接后，您就可以开始编写了。</#3e4975>
 				|
-				|<hover:show_text:'<gray>Click to open the link'><click:open_url:'$url'><blue>[Link]</blue></click></hover>
+				|<hover:show_text:'<gray>点击打开链接'><click:open_url:'$url'><blue>[Link]</blue></click></hover>
 				|
-				|<gray><i>Because of security reasons, this link will expire in 5 minutes.</i></gray>
+				|<gray><i>由于安全原因，此链接将在 5 分钟后过期。</i></gray>
 			""".trimMargin().asMini()
 
             val book = Book.book(bookTitle, bookAuthor, bookPage)

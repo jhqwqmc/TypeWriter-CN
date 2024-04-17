@@ -26,7 +26,7 @@ fun ObjectEditor<SoundId>.soundId() = reference {
         when (type) {
             "default" -> DefaultSoundId(value)
             "entry" -> EntrySoundId(value)
-            else -> throw IllegalArgumentException("Invalid sound id type: $type")
+            else -> throw IllegalArgumentException("无效的声音 ID 类型：$type")
         }
     }
 
