@@ -1545,7 +1545,7 @@ List<ContextMenuTile> _entryContextActions(
     final icon = icons[iconName] ?? FontAwesomeIcons.plus;
 
     return ContextMenuTile.button(
-      title: "Add $title",
+      title: "添加$title",
       onTap: () {
         _addSegment(ref.passing, entryId, path);
       },

@@ -56,7 +56,7 @@ class FieldHeader extends HookConsumerWidget {
         .where((filter) => filter.shouldShow(path, field))
         .toList();
     final name =
-        ref.watch(pathDisplayNameProvider(path)).nullIfEmpty ?? "Fields";
+        ref.watch(pathDisplayNameProvider(path)).nullIfEmpty ?? "字段";
 
     final expanded = useState(defaultExpanded);
 
