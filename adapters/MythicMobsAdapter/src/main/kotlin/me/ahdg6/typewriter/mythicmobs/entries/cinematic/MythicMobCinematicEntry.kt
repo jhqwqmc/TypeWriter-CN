@@ -23,7 +23,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("mythicmob_cinematic", "Spawn a MythicMob during a cinematic", Colors.PURPLE, Icons.DRAGON)
+@Entry("mythicmob_cinematic", "在过场动画中生成 MythicMob 的生物", Colors.PURPLE, Icons.DRAGON)
 /**
  * The `Spawn MythicMob Cinematic` cinematic entry spawns a MythicMob during a cinematic.
  *
@@ -46,9 +46,9 @@ class MythicMobCinematicEntry(
 data class MythicMobSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("The name of the mob to spawn")
+    @Help("要生成的生物的名称")
     val mobName: String = "",
-    @Help("The location to spawn the mob at")
+    @Help("生成生物的位置")
     val location: Location = Location(null, 0.0, 0.0, 0.0),
 ) : Segment
 

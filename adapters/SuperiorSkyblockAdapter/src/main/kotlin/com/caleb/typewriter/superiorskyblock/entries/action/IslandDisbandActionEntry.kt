@@ -9,7 +9,7 @@ import me.gabber235.typewriter.entry.entries.ActionEntry
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("island_disband", "Disbands player's island", Colors.RED, Icons.TRASH)
+@Entry("island_disband", "解散玩家的岛屿", Colors.RED, Icons.TRASH)
 /**
  * The `Island Disband Action` disbands a player's island.
  *

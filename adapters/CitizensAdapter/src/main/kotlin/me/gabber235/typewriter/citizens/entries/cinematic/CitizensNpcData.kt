@@ -90,7 +90,7 @@ class PlayerNpcData : CitizensNpcData {
 data class ReferenceNpcData(val id: Int) : CitizensNpcData {
     override fun create(player: Player, location: Location): NPC {
         val original =
-            CitizensAPI.getNPCRegistry().getById(id) ?: throw IllegalArgumentException("NPC with id $id not found.")
+            CitizensAPI.getNPCRegistry().getById(id) ?: throw IllegalArgumentException("未找到 ID 为 $id 的 NPC。")
 
         val type = original.getOrAddTrait(MobType::class.java).type
         val npc = temporaryRegistry.createNPC(type, original.name)
@@ -128,7 +128,7 @@ data class ReferenceNpcData(val id: Int) : CitizensNpcData {
 
     override fun spawn(player: Player, npc: NPC, location: Location) {
         val original =
-            CitizensAPI.getNPCRegistry().getById(id) ?: throw IllegalArgumentException("NPC with id $id not found.")
+            CitizensAPI.getNPCRegistry().getById(id) ?: throw IllegalArgumentException("未找到 ID 为 $id 的 NPC。")
         val filter = original.getOrAddTrait(PlayerFilter::class.java)
 
         if (filter.isAllowlist) {
@@ -144,7 +144,7 @@ data class ReferenceNpcData(val id: Int) : CitizensNpcData {
         super.teardown(player, npc)
 
         val original =
-            CitizensAPI.getNPCRegistry().getById(id) ?: throw IllegalArgumentException("NPC with id $id not found.")
+            CitizensAPI.getNPCRegistry().getById(id) ?: throw IllegalArgumentException("未找到 ID 为 $id 的 NPC。")
         val filter = original.getOrAddTrait(PlayerFilter::class.java)
         if (filter.isAllowlist) {
             filter.addPlayer(player.uniqueId)

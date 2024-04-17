@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.triggerAllFor
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("on_island_join", "When a player joins a Skyblock island", Colors.YELLOW, Icons.ENVELOPE_OPEN)
+@Entry("on_island_join", "当玩家加入岛屿时", Colors.YELLOW, Icons.ENVELOPE_OPEN)
 /**
  * The `Island Join Event` is fired when a player joins an island.
  *

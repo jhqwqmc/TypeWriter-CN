@@ -32,7 +32,7 @@ enum class IslandFacts(private val retrieveFact: (SuperiorPlayer, Island) -> Int
     }
 }
 
-@Entry("island_fact", "Various facts about a player's island", Colors.PURPLE, Icons.MAP_LOCATION_DOT)
+@Entry("island_fact", "关于玩家岛屿的各种变量", Colors.PURPLE, Icons.MAP_LOCATION_DOT)
 /**
  * A [fact](/docs/facts) that can retrieve various information about an island.
  *
@@ -46,7 +46,7 @@ class IslandFactEntry(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("The fact to get")
+    @Help("要获取的变量")
     // The specific piece of information to retrieve about the island.
     val fact: IslandFacts,
 ) : ReadableFactEntry {

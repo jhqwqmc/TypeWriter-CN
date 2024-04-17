@@ -13,7 +13,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
 
-@Entry("despawn_mythicmobs_mob", "Despawn a mob from MythicMobs", Colors.ORANGE, Icons.TRASH)
+@Entry("despawn_mythicmobs_mob", "从 MythicMobs 中消灭一个生物", Colors.ORANGE, Icons.TRASH)
 /**
  * The `Despawn Mob Action` action removes MythicMobs mobs from the world.
  *
@@ -27,7 +27,7 @@ class DespawnMobActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The mob's name")
+    @Help("生物的名字")
     private val mobName: String = "",
 ) : ActionEntry {
     override fun execute(player: Player) {

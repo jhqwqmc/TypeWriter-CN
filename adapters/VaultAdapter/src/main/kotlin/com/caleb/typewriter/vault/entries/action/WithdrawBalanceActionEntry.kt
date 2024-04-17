@@ -11,7 +11,7 @@ import me.gabber235.typewriter.utils.Icons
 import net.milkbowl.vault.economy.Economy
 import org.bukkit.entity.Player
 
-@Entry("withdraw_balance", "Withdraw Balance", Colors.RED, Icons.MONEY_BILL)
+@Entry("withdraw_balance", "从余额取款", Colors.RED, Icons.MONEY_BILL)
 /**
  * The `Withdraw Balance Action` is used to withdraw money from a user's balance.
  *
@@ -25,7 +25,7 @@ class WithdrawBalanceActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The amount of money to withdraw.")
+    @Help("要取出的金额。")
     private val amount: Double = 0.0,
 ) : ActionEntry {
     override fun execute(player: Player) {

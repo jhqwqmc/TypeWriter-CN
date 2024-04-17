@@ -10,7 +10,7 @@ import me.gabber235.typewriter.utils.Icons
 import net.islandearth.rpgregions.api.RPGRegionsAPI
 import java.util.*
 
-@Entry("in_rpg_region_fact", "If the player is in a RPGRegions region", Colors.PURPLE, Icons.ROAD_BARRIER)
+@Entry("in_rpg_region_fact", "如果玩家位于 RPGRegions 区域", Colors.PURPLE, Icons.ROAD_BARRIER)
 /**
  * A [fact](/docs/facts) that checks if the player is in a specific region. The value will be `0` if the player is not in the region, and `1` if the player is in the region.
  *
@@ -24,7 +24,7 @@ class InRegionFact(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("The name of the region which the player must be in")
+    @Help("玩家所在区域的名称")
     // The name of the region which the player must be in. Make sure that this is the region ID, not the region's display name.
     val region: String = "",
 ) : ReadableFactEntry {

@@ -11,7 +11,7 @@ import net.milkbowl.vault.permission.Permission
 import org.bukkit.Bukkit.getServer
 import org.bukkit.plugin.RegisteredServiceProvider
 
-@Adapter("Vault", "For Vault", App.VERSION)
+@Adapter("Vault", "对于 Vault", App.VERSION)
 /**
  * The Vault Adapter is an adapter for the Vault plugin. It allows you to use Vault's economy system in your dialogue.
  */
@@ -28,7 +28,7 @@ object VaultAdapter : TypewriteAdapter() {
 
     override fun initialize() {
         if (!server.pluginManager.isPluginEnabled("Vault")) {
-            logger.warning("Vault plugin not found, try installing it or disabling the Vault adapter")
+            logger.warning("未找到 Vault 插件，请尝试安装它或禁用 Vault 适配器")
             return
         }
 

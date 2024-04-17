@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.EventEntry
 import me.gabber235.typewriter.entry.triggerAllFor
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("on_mission_complete", "When a player completes a mission", Colors.YELLOW, Icons.CLIPBOARD_CHECK)
+@Entry("on_mission_complete", "当玩家完成任务时", Colors.YELLOW, Icons.CLIPBOARD_CHECK)
 /**
  * The `Mission Complete` event is triggered when a player completes a mission.
  *
@@ -22,7 +22,7 @@ class MissionCompleteEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("The name of the mission that needs to be completed")
+    @Help("需要完成的任务名称")
     val missionName: String = "",
 ) : EventEntry
 

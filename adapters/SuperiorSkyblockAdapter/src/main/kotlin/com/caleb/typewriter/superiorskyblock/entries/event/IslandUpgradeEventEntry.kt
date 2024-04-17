@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.triggerAllFor
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("on_island_upgrade", "When a player upgrades their Skyblock island", Colors.YELLOW, Icons.ARROW_UP)
+@Entry("on_island_upgrade", "当玩家升级他们的岛屿时", Colors.YELLOW, Icons.ARROW_UP)
 /**
  * The `Island Upgrade Event` is fired when a player upgrades their island.
  *

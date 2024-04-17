@@ -11,7 +11,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.block.Biome
 import org.bukkit.entity.Player
 
-@Entry("island_set_biome", "Set a player's island's biome", Colors.RED, Icons.EARTH_AMERICAS)
+@Entry("island_set_biome", "设置玩家岛屿的生物群系", Colors.RED, Icons.EARTH_AMERICAS)
 /**
  * The `Island Set Biome` action is used to set a player's island's biome.
  *
@@ -25,7 +25,7 @@ class IslandSetBiomeActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The biome to set the island to")
+    @Help("设置岛屿的生物群系")
     val biome: Biome = Biome.PLAINS
 ) : ActionEntry {
 

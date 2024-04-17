@@ -82,7 +82,7 @@ class PlayerNpcData : FancyNpcData {
 class ReferenceNpcData(private val npcId: String) : FancyNpcData {
     override fun create(player: Player, location: Location): Npc {
         val original = FancyNpcsPlugin.get().npcManager.getNpc(npcId)
-            ?: throw IllegalArgumentException("NPC with id $npcId not found.")
+            ?: throw IllegalArgumentException("未找到 ID 为 $npcId 的 NPC。")
         val ogData = original.data
 
         val data = de.oliver.fancynpcs.api.NpcData(
@@ -115,7 +115,7 @@ class ReferenceNpcData(private val npcId: String) : FancyNpcData {
 
     override fun spawn(player: Player, npc: Npc, location: Location) {
         val original = FancyNpcsPlugin.get().npcManager.getNpc(npcId)
-            ?: throw IllegalArgumentException("NPC with id $npcId not found.")
+            ?: throw IllegalArgumentException("未找到 ID 为 $npcId 的 NPC。")
 
         original.remove(player)
 
@@ -126,7 +126,7 @@ class ReferenceNpcData(private val npcId: String) : FancyNpcData {
         super.teardown(player, npc)
 
         val original = FancyNpcsPlugin.get().npcManager.getNpc(npcId)
-            ?: throw IllegalArgumentException("NPC with id $npcId not found.")
+            ?: throw IllegalArgumentException("未找到 ID 为 $npcId 的 NPC。")
 
         original.spawn(player)
     }

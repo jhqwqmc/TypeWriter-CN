@@ -10,7 +10,7 @@ import net.kyori.adventure.sound.Sound as AdventureSound
 
 
 @Tags("znpc_reference_npc")
-@Entry("znpc_reference_npc", "When the npc is not managed by TypeWriter", Colors.ORANGE, Icons.PERSON)
+@Entry("znpc_reference_npc", "当npc不受TypeWriter管理时", Colors.ORANGE, Icons.PERSON)
 /**
  * An identifier that references an NPC in the ZNPCsPlus plugin. But does not manage the NPC.
  *
@@ -23,7 +23,7 @@ class ReferenceNpcEntry(
     override val name: String = "",
     override val displayName: String = "",
     override val sound: Sound,
-    @Help("The id of the NPC in the ZNPCsPlus plugin.")
+    @Help("ZNPCsPlus 插件中 NPC 的 id。")
     override val npcId: String = "",
 ) : ZNPC {
     override fun getEmitter(): AdventureSound.Emitter {

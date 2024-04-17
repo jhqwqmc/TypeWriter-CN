@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-@Entry("discover_rpg_region", "Create a discover for an RPGRegions region", Colors.RED, Icons.ADDRESS_BOOK)
+@Entry("discover_rpg_region", "为 RPGRegions 创建一个可发现的区域", Colors.RED, Icons.ADDRESS_BOOK)
 /**
  * The `Discover Region Action` is used to add a discovery into a user's account.
  *
@@ -27,7 +27,7 @@ class DiscoverRegionActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The region to discover.")
+    @Help("待发现的区域。")
     // The region to discover. Make sure that this is the region ID, not the region's display name.
     private val region: String = "",
 ) : ActionEntry {

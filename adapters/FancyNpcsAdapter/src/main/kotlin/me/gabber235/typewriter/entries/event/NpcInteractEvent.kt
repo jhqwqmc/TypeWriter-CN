@@ -12,7 +12,7 @@ import me.gabber235.typewriter.entry.entries.EventEntry
 import me.gabber235.typewriter.entry.startDialogueWithOrNextDialogue
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("fancy_on_npc_interact", "When a player clicks on an NPC", Colors.YELLOW, Icons.PEOPLE_ROBBERY)
+@Entry("fancy_on_npc_interact", "当玩家点击NPC时", Colors.YELLOW, Icons.PEOPLE_ROBBERY)
 /**
  * The `NPC Interact Event` is fired when a player interacts with an NPC.
  *
@@ -25,7 +25,7 @@ class NpcInteractEventEntry(
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
     @EntryIdentifier(FancyNpc::class)
-    @Help("The identifier of the NPC.")
+    @Help("NPC 的标识符（id）。")
     // The NPC that needs to be interacted with.
     val identifier: String = "",
 ) : EventEntry

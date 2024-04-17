@@ -11,7 +11,7 @@ import java.util.*
 
 @Entry(
     "mythic_mob_count_fact",
-    "Count the number of active Mythic Mobs of the specified type",
+    "计算指定类型的活跃MythicMobs的生物的数量",
     Colors.PURPLE,
     Icons.PLACE_OF_WORSHIP
 )
@@ -28,7 +28,7 @@ class MobCountFact(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("The id of the mob to count")
+    @Help("要计数的生物的ID")
     val mobName: String = "",
 ) : ReadableFactEntry {
     override fun read(playerId: UUID): Fact {

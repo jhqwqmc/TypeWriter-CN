@@ -10,7 +10,7 @@ import net.kyori.adventure.sound.Sound as AdventureSound
 
 
 @Tags("fancy_reference_npc")
-@Entry("fancy_reference_npc", "When the npc is not managed by TypeWriter", Colors.ORANGE, Icons.PERSON)
+@Entry("fancy_reference_npc", "当npc不受TypeWriter管理时", Colors.ORANGE, Icons.PERSON)
 /**
  * An identifier that references an NPC in the FancyNpcs plugin. But does not manage the NPC.
  *
@@ -23,7 +23,7 @@ class ReferenceNpcEntry(
     override val name: String = "",
     override val displayName: String = "",
     override val sound: Sound,
-    @Help("The id of the NPC in the FancyNpcs plugin.")
+    @Help("FancyNpcs插件中NPC的id。")
     override val npcId: String = "",
 ) : FancyNpc {
     override fun getEmitter(): AdventureSound.Emitter {

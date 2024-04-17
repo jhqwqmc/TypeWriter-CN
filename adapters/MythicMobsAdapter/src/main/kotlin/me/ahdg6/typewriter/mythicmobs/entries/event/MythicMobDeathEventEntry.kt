@@ -12,7 +12,7 @@ import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
 
-@Entry("on_mythic_mob_die", "When a player kill a MythicMobs mob.", Colors.YELLOW, Icons.SKULL)
+@Entry("on_mythic_mob_die", "当玩家杀死 MythicMobs 生物时。", Colors.YELLOW, Icons.SKULL)
 /**
  * The `Mob Death Event` event is triggered when a player kill a mob.
  *
@@ -24,7 +24,7 @@ class MythicMobDeathEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("Only trigger when a specific mob dies.")
+    @Help("仅当特定生物死亡时触发。")
     val mobName: String = "",
 ) : EventEntry
 

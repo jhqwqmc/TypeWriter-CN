@@ -12,7 +12,7 @@ import me.gabber235.typewriter.utils.Icons
 import net.islandearth.rpgregions.api.events.RegionsEnterEvent
 
 
-@Entry("on_enter_rpg_region", "When a player enters a RPGRegions region", Colors.YELLOW, Icons.DOOR_OPEN)
+@Entry("on_enter_rpg_region", "当玩家进入 RPGRegions 区域时", Colors.YELLOW, Icons.DOOR_OPEN)
 /**
  * The `Enter Region Event` is triggered when a player enters a region.
  *
@@ -25,7 +25,7 @@ class EnterRegionEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("The region to check for.")
+    @Help("要检查的区域。")
     // The region to check for. Make sure that this is the region ID, not the region's display name.
     val region: String = "",
 ) : EventEntry

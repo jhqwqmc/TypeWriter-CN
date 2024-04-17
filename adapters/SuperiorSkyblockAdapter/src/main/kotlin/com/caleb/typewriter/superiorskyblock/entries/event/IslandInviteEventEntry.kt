@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.*
 import me.gabber235.typewriter.entry.entries.EventEntry
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("on_island_invite", "When a player is invited to a Skyblock island", Colors.YELLOW, Icons.ENVELOPE)
+@Entry("on_island_invite", "当玩家受邀前往岛屿时", Colors.YELLOW, Icons.ENVELOPE)
 /**
  * The `Island Invite Event` is an event that is triggered when a player is invited to an island.
  *
@@ -24,7 +24,7 @@ class IslandInviteEventEntry(
     override val triggers: List<String> = emptyList(),
     @Triggers
     @EntryIdentifier(TriggerableEntry::class)
-    @Help("The triggers for the player who got invited")
+    @Help("被邀请的玩家的触发器")
     val inviteeTriggers: List<String> = emptyList(),
 ) : EventEntry
 

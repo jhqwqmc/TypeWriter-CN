@@ -16,7 +16,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "reference_npc_cinematic",
-    "A reference to an existing npc specifically for cinematic",
+    "对现有 npc 的引用，专门用于过场动画",
     Colors.PINK,
     Icons.USER_TIE
 )
@@ -34,13 +34,13 @@ class ReferenceNpcCinematicEntry(
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
     override val recordedSegments: List<NpcRecordedSegment> = emptyList(),
-    @Help("Reference npc to clone")
+    @Help("选择一个NPC进行克隆")
     @EntryIdentifier(ReferenceNpcEntry::class)
     val referenceNpc: String = "",
 ) : NpcCinematicEntry {
     override fun create(player: Player): CinematicAction {
         val referenceNpc =
-            Query.findById<ReferenceNpcEntry>(this.referenceNpc) ?: throw Exception("Reference npc not found")
+            Query.findById<ReferenceNpcEntry>(this.referenceNpc) ?: throw Exception("未找到选择的NPC")
 
         return NpcCinematicAction(
             player,

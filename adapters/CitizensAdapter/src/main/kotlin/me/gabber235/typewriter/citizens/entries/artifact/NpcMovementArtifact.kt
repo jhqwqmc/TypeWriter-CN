@@ -5,7 +5,7 @@ import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.entry.entries.NpcMovementArtifact
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("npc_movement_artifact", "Movement data for an npc", Colors.PINK, Icons.PERSON_WALKING)
+@Entry("npc_movement_artifact", "NPC 的移动数据", Colors.PINK, Icons.PERSON_WALKING)
 /**
  * The `Npc Movement Artifact` is an artifact that stores the movement data of an NPC.
  * There is no reason to create this on its own.

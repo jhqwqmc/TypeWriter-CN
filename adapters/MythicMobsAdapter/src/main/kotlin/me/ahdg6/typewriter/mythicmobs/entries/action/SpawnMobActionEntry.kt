@@ -29,11 +29,11 @@ class SpawnMobActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The mob's name")
+    @Help("生物的名字")
     private val mobName: String = "",
-    @Help("The mob's level")
+    @Help("生物的等级")
     private val level: Double = 1.0,
-    @Help("The mob's spawn location")
+    @Help("生物生成的位置")
     private var spawnLocation: Location,
 ) : ActionEntry {
     override fun execute(player: Player) {

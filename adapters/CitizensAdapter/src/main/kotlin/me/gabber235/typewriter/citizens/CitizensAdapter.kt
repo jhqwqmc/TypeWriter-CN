@@ -12,7 +12,7 @@ import net.citizensnpcs.api.npc.NPCDataStore
 import net.citizensnpcs.api.npc.NPCRegistry
 import net.citizensnpcs.api.trait.TraitInfo
 
-@Adapter("Citizens", "For the Citizens plugin", App.VERSION)
+@Adapter("Citizens", "对于 Citizens 插件", App.VERSION)
 /**
  * The Citizens adapter allows you to create custom interactions with NPCs.
  */
@@ -23,7 +23,7 @@ object CitizensAdapter : TypewriteAdapter() {
 
     override fun initialize() {
         if (!plugin.server.pluginManager.isPluginEnabled("Citizens")) {
-            logger.warning("Citizens plugin not found, try installing it or disabling the Citizens adapter")
+            logger.warning("未找到 Citizens 插件，请尝试安装它或禁用 Citizens 适配器")
             return
         }
 

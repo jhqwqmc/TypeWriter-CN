@@ -9,7 +9,7 @@ import me.gabber235.typewriter.facts.Fact
 import me.gabber235.typewriter.utils.Icons
 import java.util.*
 
-@Entry("balance_fact", "The balance of a player's account", Colors.PURPLE, Icons.MONEY_BILLS)
+@Entry("balance_fact", "玩家账户余额", Colors.PURPLE, Icons.MONEY_BILLS)
 /**
  * A [fact](/docs/facts) that represents a player's balance.
  *

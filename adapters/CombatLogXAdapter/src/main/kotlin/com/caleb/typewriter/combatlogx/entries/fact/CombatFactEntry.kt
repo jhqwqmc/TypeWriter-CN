@@ -9,7 +9,7 @@ import me.gabber235.typewriter.facts.Fact
 import me.gabber235.typewriter.utils.Icons
 import java.util.*
 
-@Entry("combat_fact", "If the player is in combat", Colors.PURPLE, Icons.SHIELD_HALVED)
+@Entry("combat_fact", "如果玩家处于战斗状态", Colors.PURPLE, Icons.SHIELD_HALVED)
 /**
  * A [fact](/docs/facts) that tells whether a player is in combat.
  *

@@ -16,7 +16,7 @@ import net.citizensnpcs.api.event.NPCLeftClickEvent
 import net.citizensnpcs.api.event.NPCRightClickEvent
 import org.bukkit.entity.Player
 
-@Entry("on_npc_interact", "When a player clicks on an NPC", Colors.YELLOW, Icons.PEOPLE_ROBBERY)
+@Entry("on_npc_interact", "当玩家点击NPC时", Colors.YELLOW, Icons.PEOPLE_ROBBERY)
 /**
  * The `NPC Interact Event` is fired when a player interacts with an NPC.
  *
@@ -29,7 +29,7 @@ class NpcInteractEventEntry(
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
     @EntryIdentifier(CitizensNpc::class)
-    @Help("The identifier of the NPC.")
+    @Help("NPC 的标识符（id）。")
     // The NPC that needs to be interacted with.
     val identifier: String = "",
 ) : EventEntry
@@ -37,7 +37,7 @@ class NpcInteractEventEntry(
 private fun onNpcInteract(player: Player, identifier: String, query: Query<NpcInteractEventEntry>) {
     val speaker: CitizensNpc? = Query findByName identifier
     if (speaker == null) {
-        logger.warning("Could not find a speaker with name $identifier.")
+        logger.warning("找不到名为 $identifier 的发言者。")
         return
     }
     query findWhere {

@@ -12,7 +12,7 @@ import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.math.BigDecimal
 
-@Entry("island_bank_withdraw", "Withdraw into a player's Island bank", Colors.RED, Icons.PIGGY_BANK)
+@Entry("island_bank_withdraw", "从玩家的岛屿银行取款", Colors.RED, Icons.PIGGY_BANK)
 /**
  * The `Island Bank Withdraw` action allows you to withdraw money from the player's Island bank.
  *
@@ -26,7 +26,7 @@ class IslandBankWithdrawActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The amount to withdraw from the player's Island bank")
+    @Help("从玩家岛屿银行取款的金额")
     val amount: Double = 0.0
 ) : ActionEntry {
 

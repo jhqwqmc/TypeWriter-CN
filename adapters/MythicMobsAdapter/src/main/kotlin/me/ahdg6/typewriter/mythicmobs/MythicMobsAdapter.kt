@@ -8,7 +8,7 @@ import me.gabber235.typewriter.adapters.Untested
 import me.gabber235.typewriter.logger
 
 @Untested
-@Adapter("MythicMobs", "For Using MythicMobs", App.VERSION)
+@Adapter("MythicMobs", "对于使用 MythicMobs", App.VERSION)
 /**
  * The MythicMobs Adapter is an adapter for the MythicMobs plugin. It allows you handle mob-related things in TypeWriter.
  */
@@ -16,7 +16,7 @@ object MythicMobsAdapter : TypewriteAdapter() {
 
     override fun initialize() {
         if (!server.pluginManager.isPluginEnabled("MythicMobs")) {
-            logger.warning("MythicMobs plugin not found, try installing it or disabling the MythicMobs adapter")
+            logger.warning("未找到 MythicMobs 插件，请尝试安装它或禁用 MythicMobs 适配器")
             return
         }
     }

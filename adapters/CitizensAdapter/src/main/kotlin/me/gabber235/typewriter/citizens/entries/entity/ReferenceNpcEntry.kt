@@ -13,7 +13,7 @@ import kotlin.jvm.optionals.getOrDefault
 import net.kyori.adventure.sound.Sound as AdventureSound
 
 @Tags("reference_npc")
-@Entry("reference_npc", "When the npc is not managed by TypeWriter", Colors.ORANGE, Icons.PERSON)
+@Entry("reference_npc", "当npc不受TypeWriter管理时", Colors.ORANGE, Icons.PERSON)
 /**
  * An identifier that references an NPC in the Citizens plugin. But does not manage the NPC.
  *
@@ -26,7 +26,7 @@ class ReferenceNpcEntry(
     override val name: String = "",
     override val displayName: String = "",
     override val sound: Sound,
-    @Help("The id of the NPC in the Citizens plugin.")
+    @Help("Citizens插件中NPC的id。")
     override val npcId: Int = 0,
 ) : CitizensNpc {
     override fun getEmitter(): AdventureSound.Emitter {

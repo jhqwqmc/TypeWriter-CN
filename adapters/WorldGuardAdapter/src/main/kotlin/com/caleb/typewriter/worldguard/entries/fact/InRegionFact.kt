@@ -11,7 +11,7 @@ import me.gabber235.typewriter.facts.Fact
 import me.gabber235.typewriter.utils.Icons
 import java.util.*
 
-@Entry("in_region_fact", "If the player is in a WorldGuard region", Colors.PURPLE, Icons.ROAD_BARRIER)
+@Entry("in_region_fact", "如果玩家位于 WorldGuard 区域", Colors.PURPLE, Icons.ROAD_BARRIER)
 /**
  * A [fact](/docs/facts) that checks if the player is in a specific region. The value will be `0` if the player is not in the region, and `1` if the player is in the region.
  *
@@ -25,7 +25,7 @@ class InRegionFact(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("The name of the region which the player must be in.")
+    @Help("玩家所在区域的名称。")
     val region: String = "",
 ) : ReadableFactEntry {
     override fun read(playerId: UUID): Fact {

@@ -7,7 +7,7 @@ import me.gabber235.typewriter.adapters.Adapter
 import me.gabber235.typewriter.adapters.TypewriteAdapter
 import me.gabber235.typewriter.logger
 
-@Adapter("WorldGuard", "For Using WorldGuard", App.VERSION)
+@Adapter("WorldGuard", "对于使用 WorldGuard", App.VERSION)
 /**
  * The WorldGuard Adapter allows you to create dialogue that is triggered by WorldGuard regions.
  */
@@ -15,7 +15,7 @@ object WorldGuardAdapter : TypewriteAdapter() {
 
     override fun initialize() {
         if (!server.pluginManager.isPluginEnabled("WorldGuard")) {
-            logger.warning("WorldGuard plugin not found, try installing it or disabling the WorldGuard adapter")
+            logger.warning("未找到 WorldGuard 插件，请尝试安装它或禁用 WorldGuard 适配器")
             return
         }
 
@@ -24,7 +24,7 @@ object WorldGuardAdapter : TypewriteAdapter() {
         val registered = worldGuard.platform.sessionManager.registerHandler(WorldGuardHandler.Factory(), null)
 
         if (!registered) {
-            logger.warning("Failed to register WorldGuardHandler. This is a bug, please report it on the Typewriter Discord.")
+            logger.warning("无法注册 WorldGuardHandler。 这是一个错误，请在 Typewriter Discord 上报告。")
         }
     }
 }

@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.EventEntry
 import me.gabber235.typewriter.entry.startDialogueWithOrNextDialogue
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("mythicmobs_interact_event", "MythicMob Interact Event", Colors.YELLOW, Icons.DRAGON)
+@Entry("mythicmobs_interact_event", "MythicMob 交互事件", Colors.YELLOW, Icons.DRAGON)
 /**
  * The `MythicMob Interact Event` is fired when a player interacts with a MythicMob.
  *
@@ -22,7 +22,7 @@ class MythicMobInteractEventEntry(
     override val id: String,
     override val name: String,
     override val triggers: List<String>,
-    @Help("The specific MythicMob type to listen for")
+    @Help("要监听的特定 MythicMob 类型")
     val mobName: String,
 ) : EventEntry
 

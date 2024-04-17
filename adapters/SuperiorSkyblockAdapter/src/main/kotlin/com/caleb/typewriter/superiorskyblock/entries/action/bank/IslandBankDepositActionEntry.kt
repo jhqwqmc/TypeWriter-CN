@@ -12,7 +12,7 @@ import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.math.BigDecimal
 
-@Entry("island_bank_deposit", "Deposit into a player's Island bank", Colors.RED, Icons.PIGGY_BANK)
+@Entry("island_bank_deposit", "从玩家的岛屿银行存款", Colors.RED, Icons.PIGGY_BANK)
 /**
  * The `Island Bank Deposit Action` is used to deposit money into the player's Island bank.
  *
@@ -27,7 +27,7 @@ class IslandBankDepositActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The amount to deposit into the player's Island bank")
+    @Help("从玩家岛屿银行存款的金额")
     val amount: Double = 0.0
 ) : ActionEntry {
 

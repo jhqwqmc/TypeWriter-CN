@@ -6,14 +6,14 @@ import me.gabber235.typewriter.adapters.TypewriteAdapter
 import me.gabber235.typewriter.adapters.Untested
 
 @Untested
-@Adapter("FancyNpcs", "For the FancyNpcs plugin", App.VERSION)
+@Adapter("FancyNpcs", "对于 FancyNpcs 插件", App.VERSION)
 /**
  * The FancyNpcs adapter allows you to create custom interactions with NPCs.
  */
 object FancyNpcsAdapter : TypewriteAdapter() {
     override fun initialize() {
         if (!plugin.server.pluginManager.isPluginEnabled("FancyNpcs")) {
-            logger.warning("FancyNpcs plugin not found, try installing it or disabling the FancyNpcs adapter")
+            logger.warning("未找到 FancyNpcs 插件，请尝试安装它或禁用 FancyNpcs 适配器")
             return
         }
     }

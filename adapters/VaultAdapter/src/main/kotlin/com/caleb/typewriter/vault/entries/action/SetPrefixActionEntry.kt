@@ -11,7 +11,7 @@ import me.gabber235.typewriter.utils.Icons
 import net.milkbowl.vault.chat.Chat
 import org.bukkit.entity.Player
 
-@Entry("set_prefix", "Set Prefix", Colors.RED, Icons.USER_TAG)
+@Entry("set_prefix", "设置前缀", Colors.RED, Icons.USER_TAG)
 /**
  * The `Set Prefix Action` action sets the prefix of a player's message
  *
@@ -27,7 +27,7 @@ class SetPrefixActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The prefix to set.")
+    @Help("要设置的前缀。")
     private val prefix: String = "",
 ) : ActionEntry {
     override fun execute(player: Player) {

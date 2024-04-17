@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.ActionEntry
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("island_set_member_limit", "Set a player's island's member limit", Colors.RED, Icons.PEOPLE_GROUP)
+@Entry("island_set_member_limit", "设置玩家岛屿的成员限制", Colors.RED, Icons.PEOPLE_GROUP)
 /**
  * The `Island Set Member Limit Action` is an action that sets the member limit of an island.
  *
@@ -25,7 +25,7 @@ class IslandSetMemberLimitActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The new limit to set the island's member limit to")
+    @Help("新的限制将岛屿的成员限制设置为")
     val size: Int = 0
 ) : ActionEntry {
 

@@ -11,7 +11,7 @@ import me.gabber235.typewriter.utils.Icons
 import net.milkbowl.vault.economy.Economy
 import org.bukkit.entity.Player
 
-@Entry("deposit_balance", "Deposit Balance", Colors.RED, Icons.MONEY_BILL)
+@Entry("deposit_balance", "从余额存款", Colors.RED, Icons.MONEY_BILL)
 /**
  * The `Deposit Balance Action` is used to deposit money into a user's balance.
  *
@@ -25,7 +25,7 @@ class DepositBalanceActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The amount of money to deposit.")
+    @Help("要存入的金额。")
     private val amount: Double = 0.0,
 ) : ActionEntry {
     override fun execute(player: Player) {

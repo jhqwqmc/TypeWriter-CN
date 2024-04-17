@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.entries.EventEntry
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("on_player_enter_combat", "When a player enters combat", Colors.YELLOW, Icons.HEART_CRACK)
+@Entry("on_player_enter_combat", "当玩家进入战斗状态时", Colors.YELLOW, Icons.HEART_CRACK)
 /**
  * The `Player Enter Combat Event` is triggered when a player enters combat with another player.
  *
@@ -25,7 +25,7 @@ class PlayerEnterCombatEventEntry(
     override val triggers: List<String> = emptyList(),
     @Triggers
     @EntryIdentifier(TriggerableEntry::class)
-    @Help("The triggers for the aggressor")
+    @Help("攻击者的触发器")
     // Triggers to fire for the aggressor who made the attack.
     val aggressorTriggers: List<String> = emptyList()
 ) : EventEntry

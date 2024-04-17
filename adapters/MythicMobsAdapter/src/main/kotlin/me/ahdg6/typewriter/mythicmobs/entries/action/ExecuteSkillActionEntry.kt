@@ -15,7 +15,7 @@ import me.gabber235.typewriter.logger
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("execute_mythicmob_skill", "Executes a MythicMobs skill", Colors.RED, Icons.BOLT_LIGHTNING)
+@Entry("execute_mythicmob_skill", "执行 MythicMobs 技能", Colors.RED, Icons.BOLT_LIGHTNING)
 /**
  * The `Execute Skill Action` action executes a MythicMobs skill.
  *
@@ -29,14 +29,14 @@ class ExecuteSkillActionEntry(
     override val triggers: List<String> = emptyList(),
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
-    @Help("The name of the skill to execute")
+    @Help("执行的技能名称")
     val skillName: String = "",
 ) : ActionEntry {
     override fun execute(player: Player) {
         super.execute(player)
 
         val skill = MythicBukkit.inst().skillManager.getSkill(skillName).orElseGet {
-            throw IllegalArgumentException("Skill $skillName not found")
+            throw IllegalArgumentException("技能 $skillName 未找到")
         }
         val trigger = BukkitAdapter.adapt(player)
         val caster = GenericCaster(trigger)
@@ -45,6 +45,6 @@ class ExecuteSkillActionEntry(
             SkillMetadataImpl(SkillTriggers.API, caster, trigger)
 
         if (skill.isUsable(skillMeta)) skill.execute(skillMeta)
-        else logger.warning("Skill $skillName is not usable at this time (cooldown, etc.)")
+        else logger.warning("技能$skillName此时无法使用（冷却时间等）")
     }
 }

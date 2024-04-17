@@ -11,7 +11,7 @@ import me.gabber235.typewriter.utils.Icons
 import net.milkbowl.vault.permission.Permission
 import java.util.*
 
-@Entry("permission_fact", "If the player has a permission", Colors.PURPLE, Icons.USER_SHIELD)
+@Entry("permission_fact", "如果玩家有权限", Colors.PURPLE, Icons.USER_SHIELD)
 /**
  * A [fact](/docs/facts) that checks if the player has a certain permission.
  *
@@ -25,7 +25,7 @@ class PermissionFactEntry(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("The permission to check for")
+    @Help("要检查的权限")
     val permission: String = ""
 ) : ReadableFactEntry {
     override fun read(playerId: UUID): Fact {

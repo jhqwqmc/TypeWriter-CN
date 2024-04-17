@@ -10,7 +10,7 @@ import me.gabber235.typewriter.logger
 import org.bukkit.Bukkit
 
 @Untested
-@Adapter("CombatLogX", "For Using CombatLogX", App.VERSION)
+@Adapter("CombatLogX", "对于使用 CombatLogX", App.VERSION)
 /**
  * The CombatLogX Adapter allows you to create entries that are triggered when a player enters or leaves combat.
  */
@@ -18,7 +18,7 @@ object CombatLogXAdapter : TypewriteAdapter() {
 
     override fun initialize() {
         if (!server.pluginManager.isPluginEnabled("CombatLogX")) {
-            logger.warning("CombatLogX plugin not found, try installing it or disabling the CombatLogX adapter")
+            logger.warning("未找到 CombatLogX 插件，请尝试安装它或禁用 CombatLogX 适配器")
             return
         }
     }

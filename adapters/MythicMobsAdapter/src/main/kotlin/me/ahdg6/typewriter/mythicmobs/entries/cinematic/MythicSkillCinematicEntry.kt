@@ -20,7 +20,7 @@ import me.gabber235.typewriter.logger
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("mythicskill_cinematic", "Spawn a MythicMob during a cinematic", Colors.PURPLE, Icons.BOLT_LIGHTNING)
+@Entry("mythicskill_cinematic", "在过场动画中触发 MythicMob 的技能", Colors.PURPLE, Icons.BOLT_LIGHTNING)
 /**
  * The `Mythic Skill Cinematic` cinematic entry triggers a skill during a cinematic.
  *
@@ -53,7 +53,7 @@ class MythicSkillCinematicEntry(
 data class MythicSkillSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("The name of the skill to trigger")
+    @Help("触发的技能名称")
     val skillName: String = "",
 ) : Segment
 
@@ -67,7 +67,7 @@ class SkillCinematicAction(
         super.startSegment(segment)
 
         val skill = MythicBukkit.inst().skillManager.getSkill(segment.skillName).orElseGet {
-            throw IllegalArgumentException("Skill ${segment.skillName} not found")
+            throw IllegalArgumentException("找不到技能 ${segment.skillName}")
         }
 
         val trigger = BukkitAdapter.adapt(player)
@@ -77,6 +77,6 @@ class SkillCinematicAction(
             SkillMetadataImpl(SkillTriggers.API, caster, trigger)
 
         if (skill.isUsable(skillMeta)) skill.execute(skillMeta)
-        else logger.warning("Skill ${segment.skillName} is not usable at this time (cooldown, etc.)")
+        else logger.warning("技能${segment.skillName}此时无法使用（冷却时间等）")
     }
 }

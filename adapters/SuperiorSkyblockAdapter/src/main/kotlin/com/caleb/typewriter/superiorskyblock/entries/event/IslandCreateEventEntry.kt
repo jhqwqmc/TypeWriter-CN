@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.triggerAllFor
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("on_island_create", "When a player creates an Island", Colors.YELLOW, Icons.GLOBE)
+@Entry("on_island_create", "当玩家创建岛屿时", Colors.YELLOW, Icons.GLOBE)
 /**
  * The `Island Create Event` is triggered when an island is created.
  *

@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.triggerAllFor
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("on_island_disband", "When a player disbands an Island", Colors.YELLOW, Icons.GLOBE)
+@Entry("on_island_disband", "当玩家解散岛屿时", Colors.YELLOW, Icons.GLOBE)
 /**
  * The `Island Disband Event` is triggered when an island is disbanded.
  *

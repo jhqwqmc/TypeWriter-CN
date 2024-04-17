@@ -8,7 +8,7 @@ import me.gabber235.typewriter.adapters.Untested
 import me.gabber235.typewriter.logger
 
 @Untested
-@Adapter("RPGRegions", "For Using RPGRegions", App.VERSION)
+@Adapter("RPGRegions", "对于使用 RPGRegions", App.VERSION)
 /**
  * The RPGRegions Adapter is an adapter for the RPGRegions plugin. It allows you to use RPGRegions's discovery system in your dialogue.
  */
@@ -16,7 +16,7 @@ object RPGRegionsAdapter : TypewriteAdapter() {
 
     override fun initialize() {
         if (!server.pluginManager.isPluginEnabled("RPGRegions")) {
-            logger.warning("RPGRegions plugin not found, try installing it or disabling the adapter")
+            logger.warning("未找到 RPGRegions 插件，请尝试安装它或禁用适配器")
             return
         }
     }

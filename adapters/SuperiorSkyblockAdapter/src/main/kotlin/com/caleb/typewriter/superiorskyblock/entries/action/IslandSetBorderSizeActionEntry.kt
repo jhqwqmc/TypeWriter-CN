@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.ActionEntry
 import me.gabber235.typewriter.utils.Icons
 import org.bukkit.entity.Player
 
-@Entry("island_set_border_size", "Set a player's island's border size", Colors.RED, Icons.BORDER_ALL)
+@Entry("island_set_border_size", "设置玩家岛屿的边界大小", Colors.RED, Icons.BORDER_ALL)
 /**
  * The `Island Set Border Size` action is used to set a player's island's border size.
  *
@@ -24,7 +24,7 @@ class IslandSetBorderSizeActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<String> = emptyList(),
-    @Help("The size to set the island's border to")
+    @Help("设置岛屿边界的大小")
     val size: Int = 0
 ) : ActionEntry {
 

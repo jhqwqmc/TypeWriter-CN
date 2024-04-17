@@ -93,7 +93,7 @@ class ReferenceNpcData(private val npcId: String) : ZNPCData {
         val api = NpcApiProvider.get()
         val npcRegistry = api.npcRegistry
 
-        val original = npcRegistry.getById(npcId) ?: throw IllegalArgumentException("NPC with id $npcId not found.")
+        val original = npcRegistry.getById(npcId) ?: throw IllegalArgumentException("未找到 ID 为 $npcId 的 NPC。")
         val type = original.npc.type
 
         val entry = api.npcRegistry.create(
@@ -113,7 +113,7 @@ class ReferenceNpcData(private val npcId: String) : ZNPCData {
 
     override fun spawn(player: Player, npc: NpcEntry, location: Location) {
         val original = NpcApiProvider.get().npcRegistry.getById(npcId)
-            ?: throw IllegalArgumentException("NPC with id $npcId not found.")
+            ?: throw IllegalArgumentException("未找到 ID 为 $npcId 的 NPC。")
 
         original.npc.hide(player)
 
@@ -124,7 +124,7 @@ class ReferenceNpcData(private val npcId: String) : ZNPCData {
         super.teardown(player, npc)
 
         val original = NpcApiProvider.get().npcRegistry.getById(npcId)
-            ?: throw IllegalArgumentException("NPC with id $npcId not found.")
+            ?: throw IllegalArgumentException("未找到 ID 为 $npcId 的 NPC。")
 
         original.npc.show(player)
     }

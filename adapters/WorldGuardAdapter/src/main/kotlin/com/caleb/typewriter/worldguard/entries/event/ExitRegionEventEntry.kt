@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.entries.EventEntry
 import me.gabber235.typewriter.entry.triggerAllFor
 import me.gabber235.typewriter.utils.Icons
 
-@Entry("on_exit_region", "When a player exits a WorldGuard region", Colors.YELLOW, Icons.SQUARE_XMARK)
+@Entry("on_exit_region", "当玩家离开 WorldGuard 区域时", Colors.YELLOW, Icons.SQUARE_XMARK)
 /**
  * The `Exit Region Event` is triggered when a player leaves a region.
  *
@@ -24,7 +24,7 @@ class ExitRegionEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<String> = emptyList(),
-    @Help("The region to check for.")
+    @Help("要检查的区域。")
     // The region the player must leave to trigger the event.
     val region: String = "",
 ) : EventEntry
