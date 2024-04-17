@@ -115,7 +115,7 @@ data class RecorderRequestContext(
                 .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
 
             if (cinematic != null) {
-                return "在过场动画$cinematic中录制$field"
+                return "在过场动画 $cinematic 中录制 $field "
             }
 
             return "录制 $field"
