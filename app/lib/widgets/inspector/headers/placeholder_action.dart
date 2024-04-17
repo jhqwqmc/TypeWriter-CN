@@ -27,7 +27,7 @@ class PlaceholderHeaderAction extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return const InfoHeaderAction(
       tooltip:
-          "Placeholers like %player_name% are supported. Click for more info.",
+          "支持像 %player_name% 这样的占位符。 点击了解更多信息。",
       icon: FontAwesomeIcons.subscript,
       color: Color(0xFF00b300),
       url: "https://github.com/PlaceholderAPI/PlaceholderAPI/wiki",

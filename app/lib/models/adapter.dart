@@ -324,6 +324,6 @@ class IconConverter extends JsonConverter<IconData, String> {
   // This should not be used.
   @override
   String toJson(IconData object) {
-    throw Exception("Icon data cannot be converted to JSON");
+    throw Exception("图标数据无法转换为 JSON");
   }
 }

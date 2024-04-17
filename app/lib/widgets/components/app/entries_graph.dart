@@ -115,8 +115,8 @@ class EntriesGraph extends HookConsumerWidget {
 
     if (entryIds.isEmpty) {
       return EmptyScreen(
-        title: "There are no graphable entries on this page.",
-        buttonText: "Add Entry",
+        title: "此页面上没有可图形化的条目。",
+        buttonText: "添加条目",
         onButtonPressed: () => ref.read(searchProvider.notifier).asBuilder()
           ..fetchNewEntry()
           ..tag("trigger")

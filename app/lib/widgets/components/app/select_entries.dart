@@ -79,7 +79,7 @@ class EntriesSelectionNotifier extends StateNotifier<EntriesSelection?> {
     Function(Ref<dynamic>, List<String>)? onSelectionChanged,
   }) {
     if (state != null) {
-      throw StateError("Already selecting entries");
+      throw StateError("已经选择条目");
     }
 
     state = EntriesSelection(
@@ -92,7 +92,7 @@ class EntriesSelectionNotifier extends StateNotifier<EntriesSelection?> {
 
   void finishSelection() {
     if (state == null) {
-      throw StateError("Not selecting entries");
+      throw StateError("没有选择条目");
     }
     state?.onSelectionChanged?.call(ref, state!.selectedEntries);
     state = null;
@@ -100,7 +100,7 @@ class EntriesSelectionNotifier extends StateNotifier<EntriesSelection?> {
 
   void stopSelection() {
     if (state == null) {
-      throw StateError("Not selecting entries");
+      throw StateError("没有选择条目");
     }
     state = null;
   }
@@ -203,12 +203,12 @@ class EntriesSelectorInspector extends HookConsumerWidget {
             children: [
               const SizedBox(height: 16),
               Text(
-                "Selected $tag",
+                "已选择$tag",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 12),
               Text(
-                "Click on any $tag in the editor to (un)select it.\n\nHere you can see the list of selected ${tag}s:",
+                "点击编辑器中的任何 $tag 以（取消）选择它。\n\n在这里您可以看到所选 ${tag} 的列表：",
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               const SizedBox(height: 12),
@@ -219,13 +219,13 @@ class EntriesSelectorInspector extends HookConsumerWidget {
                 children: [
                   FilledButton.icon(
                     icon: const Icon(FontAwesomeIcons.x),
-                    label: const Text("Cancel"),
+                    label: const Text("取消"),
                     color: Colors.redAccent,
                     onPressed: () => _cancel(ref),
                   ),
                   FilledButton.icon(
                     icon: const Icon(FontAwesomeIcons.check),
-                    label: const Text("Finish"),
+                    label: const Text("结束"),
                     color: Colors.green,
                     onPressed: () => _finish(ref),
                   ),

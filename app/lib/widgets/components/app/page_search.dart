@@ -79,7 +79,7 @@ class PageFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Pages";
+  String get title => "页面";
 
   @override
   List<SearchElement> fetch(PassingRef ref) {
@@ -115,7 +115,7 @@ class AddPageFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Add Page";
+  String get title => "添加页面";
 
   @override
   List<SearchElement> fetch(PassingRef ref) {
@@ -175,12 +175,12 @@ class PageSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Open",
+        "打开",
         Icons.open_in_new,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
       SearchAction(
-        "Rename",
+        "重命名",
         FontAwesomeIcons.pencil,
         SmartSingleActivator(LogicalKeyboardKey.keyR, control: true),
         onTrigger: (context, __) async =>
@@ -191,7 +191,7 @@ class PageSearchElement extends SearchElement {
             false,
       ),
       SearchAction(
-        "Change Chapter",
+        "更改章节",
         FontAwesomeIcons.bookBookmark,
         SmartSingleActivator(LogicalKeyboardKey.keyC, control: true),
         onTrigger: (context, __) async =>
@@ -205,7 +205,7 @@ class PageSearchElement extends SearchElement {
             false,
       ),
       SearchAction(
-        "Delete",
+        "删除",
         FontAwesomeIcons.trash,
         SmartSingleActivator(LogicalKeyboardKey.backspace, control: true),
         color: Colors.red,
@@ -237,10 +237,10 @@ class AddPageSearchElement extends SearchElement {
   final void Function(Page)? onAdded;
 
   @override
-  String get title => "Add ${type.name}";
+  String get title => "添加${type.name}";
 
   @override
-  String description(BuildContext context) => "Create a new ${type.name}";
+  String description(BuildContext context) => "创建一个新的${type.name}";
 
   @override
   Widget icon(BuildContext context) => Icon(type.icon);
@@ -255,7 +255,7 @@ class AddPageSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Add",
+        "添加",
         Icons.add,
         SingleActivator(LogicalKeyboardKey.enter),
       ),

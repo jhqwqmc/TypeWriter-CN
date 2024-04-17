@@ -29,7 +29,7 @@ class Operations extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SectionTitle(title: "Operations"),
+        const SectionTitle(title: "执行"),
         const SizedBox(height: 8),
         for (final action in actions) ...[
           if (action is ContextMenuDivider) const Divider(),
@@ -71,7 +71,7 @@ class _ExtendWithDuplicate extends HookConsumerWidget {
         page.extendsWithDuplicate(ref.passing, entryId!);
       },
       icon: const FaIcon(FontAwesomeIcons.solidCopy),
-      label: const Text("Extend with Duplicate"),
+      label: const Text("通过复制扩展"),
       color: Colors.blue,
     );
   }
@@ -91,7 +91,7 @@ class _ExtendWithEntry extends HookConsumerWidget {
         page.extendsWith(ref.passing, entryId!);
       },
       icon: const FaIcon(FontAwesomeIcons.plus),
-      label: const Text("Extend with ..."),
+      label: const Text("扩展与..."),
       color: Colors.blue,
     );
   }
@@ -111,7 +111,7 @@ class _DeleteEntry extends HookConsumerWidget {
         page.deleteEntryWithConfirmation(context, ref.passing, entryId!);
       },
       icon: const FaIcon(FontAwesomeIcons.trash),
-      label: const Text("Delete Entry"),
+      label: const Text("删除条目"),
       color: Theme.of(context).colorScheme.error,
     );
   }

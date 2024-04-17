@@ -57,7 +57,7 @@ class DurationEditor extends HookConsumerWidget {
           final parsedValue = value.milliseconds;
           final formatted = prettyDuration(parsedValue,
               abbreviated: false, tersity: DurationTersity.millisecond,);
-          return "Valid Duration: $formatted";
+          return "有效时间：$formatted";
         },
       ),
     );

@@ -65,7 +65,7 @@ class MinecraftSoundIdsFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Sounds";
+  String get title => "声音";
 
   @override
   List<SearchElement> fetch(PassingRef ref) {
@@ -148,7 +148,7 @@ class MinecraftSoundIdSearchElement extends SearchElement {
   @override
   String description(BuildContext context) {
     if (sound.value.length > 1) {
-      return "${sound.category.formatted} (${sound.value.length} Sound ${sound.value.length.pluralize("track")})";
+      return "${sound.category.formatted} (${sound.value.length} 声音 ${sound.value.length.pluralize("track")})";
     } else {
       return sound.category.formatted;
     }
@@ -158,7 +158,7 @@ class MinecraftSoundIdSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Select",
+        "选择",
         FontAwesomeIcons.check,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
@@ -416,7 +416,7 @@ class _EmptySelector extends HookConsumerWidget {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    "Select a sound",
+                    "选择声音",
                     style: Theme.of(context).inputDecorationTheme.hintStyle,
                   ),
                 ],
@@ -454,7 +454,7 @@ class _LoadingSelector extends HookConsumerWidget {
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                "Loading Sounds...",
+                "正在加载声音...",
                 style: Theme.of(context).inputDecorationTheme.hintStyle,
               ),
             ),
@@ -484,7 +484,7 @@ class _ErrorSelector extends HookConsumerWidget {
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                "Failed to load sound",
+                "声音加载失败",
                 style: Theme.of(context)
                     .inputDecorationTheme
                     .hintStyle

@@ -143,18 +143,18 @@ class _EntryNode extends HookConsumerWidget {
               ...contextActions,
               if (canTrigger)
                 ContextMenuTile.button(
-                  title: "Extend with ...",
+                  title: "扩展与...",
                   icon: FontAwesomeIcons.plus,
                   onTap: () => _extendsWith(ref),
                 ),
               if (canTrigger && canBeTriggered)
                 ContextMenuTile.button(
-                  title: "Extend with Duplicate",
+                  title: "通过复制扩展",
                   icon: FontAwesomeIcons.copy,
                   onTap: () => _extendsWithDuplicate(ref),
                 ),
               ContextMenuTile.button(
-                title: "Delete",
+                title: "删除",
                 icon: FontAwesomeIcons.trash,
                 color: Colors.redAccent,
                 onTap: () => _deleteEntry(context, ref),
@@ -384,11 +384,11 @@ class InvalidEntry extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Unknown entry",
+                  "未知条目",
                   style: TextStyle(color: Colors.white),
                 ),
                 Text(
-                  "(this should never happen)",
+                  "（这绝对不应该发生）",
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: Colors.white70,
                         fontStyle: FontStyle.italic,
@@ -417,7 +417,7 @@ class ExternalEntryNode extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final blueprint = ref.watch(entryBlueprintProvider(entry.type));
     final page = ref.watch(pageProvider(pageId));
-    final pageName = page?.pageName.formatted ?? "Unknown page";
+    final pageName = page?.pageName.formatted ?? "未知页面";
     final isSelectingEntries = ref.watch(isSelectingEntriesProvider);
 
     if (blueprint == null) {
@@ -440,7 +440,7 @@ class ExternalEntryNode extends HookConsumerWidget {
         builder: (context) {
           return [
             ContextMenuTile.button(
-              title: "Delete Reference",
+              title: "删除引用",
               icon: Icons.delete,
               color: Colors.redAccent,
               onTap: () => ref

@@ -80,10 +80,10 @@ class EmptyInspector extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Inspector"),
+        const Text("检测"),
         const SizedBox(height: 12),
         Text(
-          "Click on an entry to inspect its properties.",
+          "点击一个条目可检查其属性。",
           style: Theme.of(context).textTheme.bodySmall,
         ),
         const SizedBox(height: 40),

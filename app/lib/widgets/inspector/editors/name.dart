@@ -41,7 +41,7 @@ class NameField extends HookConsumerWidget {
               snakeCaseFormatter(),
               FilteringTextInputFormatter.allow(RegExp("[a-z0-9_.]")),
             ],
-            hintText: "Enter a name",
+            hintText: "输入名称",
             icon: FontAwesomeIcons.signature,
           ),
         ),

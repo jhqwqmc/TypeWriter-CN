@@ -52,7 +52,7 @@ class RiveStateMachine extends ChangeNotifier {
     if (controller != null) {
       artboard.addController(controller);
     } else {
-      throw Exception("StateMachineController not found: $stateMachineName");
+      throw Exception("未找到状态机控制器：$stateMachineName");
     }
     _controller = controller;
     notifyListeners();

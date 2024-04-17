@@ -99,7 +99,7 @@ extension AppRouterX on AppRouter {
       await ref.read(appRouter).push(
             PageEditorRoute(id: pageName),
             onFailure: (e) =>
-                debugPrint("Failed to navigate to page $pageName: $e"),
+                debugPrint("无法导航到页面 $pageName: $e"),
           );
     }
   }

@@ -11,7 +11,7 @@ class AutoCompleteField extends StatelessWidget {
     required this.onQuery,
     required this.onChanged,
     this.icon,
-    this.hintText = "Enter a value",
+    this.hintText = "输入一个值",
     this.inputFormatters,
     this.path,
     super.key,

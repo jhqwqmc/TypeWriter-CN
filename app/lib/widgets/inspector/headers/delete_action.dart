@@ -21,11 +21,11 @@ class RemoveHeaderAction extends HookConsumerWidget {
     return IconButton(
       icon: const Icon(FontAwesomeIcons.trash, size: 12),
       color: Theme.of(context).colorScheme.error,
-      tooltip: "Remove $name",
+      tooltip: "移除$name",
       onPressed: () => showConfirmationDialogue(
         context: context,
-        title: "Remove $name?",
-        content: "Are you sure you want to remove this item?",
+        title: "移除$name？",
+        content: "您确定要删除该物品吗？",
         onConfirm: onRemove,
       ),
     );

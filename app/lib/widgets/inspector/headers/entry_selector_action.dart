@@ -57,7 +57,7 @@ class EntrySelectorHeaderAction extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final tag = field.getModifier("entry-list")?.data ?? "";
     return Tooltip(
-      message: "Select multiple entries",
+      message: "选择多个条目",
       child: Material(
         borderRadius: BorderRadius.circular(4),
         color: Colors.deepPurple,

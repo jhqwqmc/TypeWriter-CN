@@ -135,9 +135,9 @@ class _MapEntry extends HookConsumerWidget {
     if (_alreadyContainsKey(key)) {
       showConfirmationDialogue(
         context: context,
-        title: "Override key?",
+        title: "覆盖键？",
         content:
-            "The key '$key' already exists.\nThis will delete all the data from the existing key.",
+            "键 '$key' 已经存在。\n这将会删除现有键中的所有数据。",
         confirmIcon: FontAwesomeIcons.triangleExclamation,
         onConfirm: () => _changeKeyField(ref, key),
       );
@@ -237,7 +237,7 @@ class _StringKey extends HookConsumerWidget {
       field: field,
       forcedValue: value,
       icon: FontAwesomeIcons.key,
-      hint: "Enter a key",
+      hint: "输入一个键",
       onChanged: onChanged,
     );
   }

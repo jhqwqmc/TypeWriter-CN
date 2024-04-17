@@ -87,7 +87,7 @@ class EntrySelectorEditor extends HookConsumerWidget {
               return [
                 if (hasEntry) ...[
                   ContextMenuTile.button(
-                    title: "Navigate to entry",
+                    title: "导航至条目",
                     icon: FontAwesomeIcons.pencil,
                     onTap: () {
                       ref
@@ -96,7 +96,7 @@ class EntrySelectorEditor extends HookConsumerWidget {
                     },
                   ),
                   ContextMenuTile.button(
-                    title: "Remove reference",
+                    title: "删除引用",
                     icon: FontAwesomeIcons.solidSquareMinus,
                     color: Colors.redAccent,
                     onTap: () {
@@ -108,7 +108,7 @@ class EntrySelectorEditor extends HookConsumerWidget {
                 ],
                 if (!hasEntry) ...[
                   ContextMenuTile.button(
-                    title: "Select entry",
+                    title: "选择条目",
                     icon: FontAwesomeIcons.magnifyingGlass,
                     onTap: () {
                       _select(ref.passing, tag);
@@ -162,7 +162,7 @@ class EntrySelectorEditor extends HookConsumerWidget {
                     else
                       Expanded(
                         child: Text(
-                          "Select a $tag",
+                          "选择一个$tag",
                           style:
                               Theme.of(context).inputDecorationTheme.hintStyle,
                         ),
@@ -202,7 +202,7 @@ class EntrySelectorEditor extends HookConsumerWidget {
             const SizedBox(width: 12),
             Expanded(
               child: Text(
-                "Entry is not allowed here",
+                "这里不允许选择条目",
                 style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             ),

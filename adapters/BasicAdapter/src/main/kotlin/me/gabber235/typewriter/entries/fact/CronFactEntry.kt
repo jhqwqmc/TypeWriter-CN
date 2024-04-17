@@ -22,7 +22,7 @@ class CronFactEntry(
     override val id: String = "",
     override val name: String = "",
     override val comment: String = "",
-    @Help("变量到期时的 cron 表达式。")
+    @Help("变量到期时的计划任务表达式。")
     // The <Link to="https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html">Cron Expression</Link> when the fact expires.
     val cron: CronExpression = CronExpression.default()
 ) : ExpirableFactEntry, PersistableFactEntry {

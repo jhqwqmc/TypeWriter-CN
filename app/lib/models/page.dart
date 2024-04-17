@@ -105,7 +105,7 @@ enum PageType {
         values.firstWhereOrNull((type) => blueprint.tags.contains(type.tag));
     if (pageType == null) {
       throw Exception(
-        "No page type found for blueprint ${blueprint.name}, make sure it has one of the following tags: ${values.map((type) => type.tag).join(", ")}",
+        "找不到蓝图 ${blueprint.name} 的页面类型，请确保它具有以下标签之一：${values.map((type) => type.tag).join(", ")}",
       );
     }
     return pageType;
@@ -348,7 +348,7 @@ extension PageX on Page {
     if (entry == null) return;
     final isTrigger = ref.read(isTriggerEntryProvider(entryId));
     if (!isTrigger) {
-      debugPrint("Cannot extend a non-trigger entry.");
+      debugPrint("无法扩展非触发条目。");
       return;
     }
 
@@ -373,7 +373,7 @@ extension PageX on Page {
     if (entry == null) return;
     final isTrigger = ref.read(isTriggerEntryProvider(entryId));
     if (!isTrigger) {
-      debugPrint("Cannot extend a non-trigger entry.");
+      debugPrint("无法扩展非触发条目。");
       return;
     }
 
@@ -407,9 +407,9 @@ extension PageX on Page {
   ) {
     showConfirmationDialogue(
       context: context,
-      title: "Delete Entry",
-      content: "Are you sure you want to delete this entry?",
-      confirmText: "Delete",
+      title: "删除条目",
+      content: "您确定要删除此条目吗？",
+      confirmText: "删除",
       onConfirm: () {
         final entry = ref.read(entryProvider(pageName, entryId));
         if (entry == null) return;

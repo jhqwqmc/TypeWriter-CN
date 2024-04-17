@@ -106,7 +106,7 @@ class _LocationWorldEditor extends HookConsumerWidget {
         focus: focus,
         text: value,
         icon: FontAwesomeIcons.earthAmericas,
-        hintText: "World",
+        hintText: "世界",
         onChanged: (value) {
           ref
               .read(inspectingEntryDefinitionProvider)

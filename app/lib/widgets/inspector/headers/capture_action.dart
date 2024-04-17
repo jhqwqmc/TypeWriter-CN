@@ -47,8 +47,8 @@ class CaptureHeaderAction extends HookConsumerWidget {
     if (entryId == null) {
       Toasts.showError(
         ref,
-        "No Entry Selected",
-        description: "An entry must be selected to capture a field.",
+        "未选择任何条目",
+        description: "必须选择一个条目来捕获字段。",
       );
       return;
     }
@@ -61,8 +61,8 @@ class CaptureHeaderAction extends HookConsumerWidget {
     if (page == null) {
       Toasts.showError(
         ref,
-        "No Page Selected",
-        description: "A page must be selected to capture a field.",
+        "未选择页面",
+        description: "必须选择一个页面来捕获字段。",
       );
       return;
     }
@@ -85,18 +85,18 @@ class CaptureHeaderAction extends HookConsumerWidget {
     if (result.success) {
       Toasts.showSuccess(
         ref,
-        "Capture Successful",
+        "捕获成功",
         description: result.message,
       );
     } else {
-      Toasts.showError(ref, "Capture Failed", description: result.message);
+      Toasts.showError(ref, "捕获失败", description: result.message);
     }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Tooltip(
-      message: "Capture field",
+      message: "捕获领域",
       child: Material(
         borderRadius: BorderRadius.circular(4),
         color: Colors.blue,

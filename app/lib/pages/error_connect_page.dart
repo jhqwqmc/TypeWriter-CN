@@ -36,7 +36,7 @@ class ErrorConnectPage extends HookConsumerWidget {
           ),
           SizedBox(height: 24),
           Text(
-            "Communication error",
+            "通信故障",
             style: TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class ErrorConnectPage extends HookConsumerWidget {
             ),
           ),
           Text(
-            "There was an error while communicating to the server.\nPlease check your connection and try again.",
+            "与服务器通信时出错。\n请检查您的连接并重试。",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20, color: Colors.grey),
           ),

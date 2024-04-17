@@ -103,13 +103,13 @@ class ConfirmationDialogue extends HookWidget {
 Future<bool> showConfirmationDialogue({
   required BuildContext context,
   required Function onConfirm,
-  String title = "Are you sure?",
-  String content = "This action cannot be undone.",
-  String confirmText = "Confirm",
+  String title = "你确定吗？",
+  String content = "此操作无法撤消。",
+  String confirmText = "确认",
   IconData confirmIcon = FontAwesomeIcons.trash,
   Color confirmColor = Colors.redAccent,
   Duration delayConfirm = Duration.zero,
-  String cancelText = "Cancel",
+  String cancelText = "取消",
   IconData cancelIcon = FontAwesomeIcons.xmark,
   Function? onCancel,
 }) async {

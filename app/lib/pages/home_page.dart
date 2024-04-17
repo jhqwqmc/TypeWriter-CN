@@ -30,12 +30,12 @@ class HomePage extends HookConsumerWidget {
             ),
           ),
           Text(
-            "Your journey starts here",
+            "您的旅程从这里开始",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
           ),
           Text(
-            "Run the following command on your server to start editing",
+            "在您的服务器上运行以下命令开始编辑",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20,
@@ -75,21 +75,21 @@ class _ConnectButtons extends HookConsumerWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("Connect to"),
+          title: const Text("连接到"),
           content: TextField(
             controller: controller,
             decoration: const InputDecoration(
-              hintText: "Fill in the url to connect to",
+              hintText: "填写要连接的 URL",
             ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text("Cancel"),
+              child: const Text("取消"),
             ),
             FilledButton.icon(
               icon: const FaIcon(FontAwesomeIcons.link),
-              label: const Text("Connect"),
+              label: const Text("连接"),
               onPressed: () => Navigator.of(context).pop(controller.text),
             ),
           ],
@@ -107,7 +107,7 @@ class _ConnectButtons extends HookConsumerWidget {
     final port = int.tryParse(uri.queryParameters["port"] ?? "9092") ?? 9092;
     final token = uri.queryParameters["token"] ?? "";
 
-    debugPrint("Connecting to $hostname:$port with token $token");
+    debugPrint("使用令牌 $token 连接到 $hostname:$port");
 
     if (hostname == null) {
       return;
@@ -124,13 +124,13 @@ class _ConnectButtons extends HookConsumerWidget {
         FilledButton.icon(
           color: Colors.green,
           icon: const Icon(FontAwesomeIcons.house),
-          label: const Text("Connect Localhost"),
+          label: const Text("连接到Localhost"),
           onPressed: () => connectTo(ref, "localhost", 9092),
         ),
         const SizedBox(width: 24),
         FilledButton.icon(
           icon: const Icon(FontAwesomeIcons.connectdevelop),
-          label: const Text("Connect Custom"),
+          label: const Text("连接到自定义地址"),
           onPressed: () => customConnectToPopup(context, ref),
         ),
       ],

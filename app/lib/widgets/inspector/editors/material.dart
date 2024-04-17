@@ -27,7 +27,7 @@ List<MaterialProperty> materialProperties(
       .map(
         (property) => MaterialProperty.values.firstWhere(
           (element) => element.name.toLowerCase() == property,
-          orElse: () => throw Exception("Unknown material property: $property"),
+          orElse: () => throw Exception("未知的材料属性：$property"),
         ),
       )
       .toList();
@@ -73,7 +73,7 @@ class MaterialsFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Materials";
+  String get title => "材料";
 
   @override
   List<SearchElement> fetch(PassingRef ref) {
@@ -138,7 +138,7 @@ class MaterialSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Select",
+        "选择",
         FontAwesomeIcons.check,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
@@ -248,7 +248,7 @@ class MaterialEditor extends HookConsumerWidget {
               else
                 Expanded(
                   child: Text(
-                    "Select a material",
+                    "选择材料",
                     style: Theme.of(context).inputDecorationTheme.hintStyle,
                   ),
                 ),

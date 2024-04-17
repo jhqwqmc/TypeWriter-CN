@@ -55,7 +55,7 @@ class StringEditor extends HookConsumerWidget {
       child: FormattedTextField(
         focus: focus,
         icon: icon,
-        hintText: hint.isNotEmpty ? hint : "Enter a ${field.type.name}",
+        hintText: hint.isNotEmpty ? hint : "输入 ${field.type.name}",
         text: forcedValue ?? value,
         singleLine: singleLine,
         keyboardType: singleLine ? TextInputType.text : TextInputType.multiline,

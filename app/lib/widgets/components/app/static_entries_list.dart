@@ -33,8 +33,8 @@ class StaticEntriesList extends HookConsumerWidget {
 
     if (entryIds.isEmpty) {
       return EmptyScreen(
-        title: "There are no static entries on this page.",
-        buttonText: "Add Entry",
+        title: "此页面上没有静态条目。",
+        buttonText: "添加条目",
         onButtonPressed: () => ref.read(searchProvider.notifier).asBuilder()
           ..fetchNewEntry()
           ..tag("static", canRemove: false)

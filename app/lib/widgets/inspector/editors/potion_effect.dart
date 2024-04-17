@@ -55,7 +55,7 @@ class PotionEffectsFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Potion Effects";
+  String get title => "药水效果";
 
   @override
   List<SearchElement> fetch(PassingRef ref) {
@@ -123,7 +123,7 @@ class PotionEffectSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Select",
+        "选择",
         FontAwesomeIcons.check,
         SingleActivator(LogicalKeyboardKey.enter),
       ),

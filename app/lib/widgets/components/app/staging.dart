@@ -107,7 +107,7 @@ class _PublishButton extends HookConsumerWidget {
                       ),
                       SizedBox(width: 12),
                       Text(
-                        "Publish",
+                        "发布",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

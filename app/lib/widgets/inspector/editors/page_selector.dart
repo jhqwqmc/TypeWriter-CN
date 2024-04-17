@@ -57,7 +57,7 @@ class PageSelectorEditor extends HookConsumerWidget {
     final type = typeTag == null ? null : PageType.fromName(typeTag);
 
     if (type == null) {
-      return const Text("Invalid page type");
+      return const Text("页面类型无效");
     }
 
     final pageId = ref.watch(fieldValueProvider(path, ""));
@@ -71,14 +71,14 @@ class PageSelectorEditor extends HookConsumerWidget {
           return [
             if (hasPage) ...[
               ContextMenuTile.button(
-                title: "Navigate to entry",
+                title: "导航至条目",
                 icon: FontAwesomeIcons.pencil,
                 onTap: () {
                   ref.read(appRouter).navigateToPage(ref.passing, pageId);
                 },
               ),
               ContextMenuTile.button(
-                title: "Remove reference",
+                title: "删除引用",
                 icon: FontAwesomeIcons.solidSquareMinus,
                 color: Colors.redAccent,
                 onTap: () {
@@ -90,7 +90,7 @@ class PageSelectorEditor extends HookConsumerWidget {
             ],
             if (!hasPage) ...[
               ContextMenuTile.button(
-                title: "Select entry",
+                title: "选择条目",
                 icon: FontAwesomeIcons.magnifyingGlass,
                 onTap: () {
                   _select(ref.passing, type);
@@ -129,7 +129,7 @@ class PageSelectorEditor extends HookConsumerWidget {
                   Expanded(child: _SelectedPage(id: pageId))
                 else
                   Expanded(
-                    child: Text("Select a ${type.tag} page",
+                    child: Text("选择 ${type.tag} 页面",
                         style:
                             Theme.of(context).inputDecorationTheme.hintStyle),
                   ),

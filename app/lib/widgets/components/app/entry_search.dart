@@ -63,7 +63,7 @@ class ExcludeEntryFilter extends SearchFilter {
   final bool canRemove;
 
   @override
-  String get title => "Exclude Entry";
+  String get title => "排除条目";
 
   @override
   Color get color => Colors.orange;
@@ -153,7 +153,7 @@ Fuzzy<EntryBlueprint> _fuzzyBlueprints(_FuzzyBlueprintsRef ref) {
       keys: [
         WeightedKey(
           name: "name",
-          getter: (blueprint) => "Add ${blueprint.name.formatted}",
+          getter: (blueprint) => "添加${blueprint.name.formatted}",
           weight: 0.5,
         ),
         WeightedKey(
@@ -190,7 +190,7 @@ class NewEntryFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "New Entries";
+  String get title => "新条目";
 
   @override
   List<SearchElement> fetch(PassingRef ref) {
@@ -235,7 +235,7 @@ class EntryFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Entries";
+  String get title => "条目";
 
   @override
   List<SearchElement> fetch(PassingRef ref) {
@@ -316,12 +316,12 @@ class EntrySearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Open",
+        "打开",
         FontAwesomeIcons.upRightFromSquare,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
       SearchAction(
-        "Open Wiki",
+        "打开Wiki",
         FontAwesomeIcons.book,
         SmartSingleActivator(LogicalKeyboardKey.keyO, control: true),
         onTrigger: (_, __) {
@@ -352,7 +352,7 @@ class AddEntrySearchElement extends SearchElement {
   final FutureOr<bool?> Function(Entry)? onAdded;
 
   @override
-  String get title => "Add ${blueprint.name.formatted}";
+  String get title => "添加${blueprint.name.formatted}";
 
   @override
   Color color(BuildContext context) => blueprint.color;
@@ -370,12 +370,12 @@ class AddEntrySearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Add",
+        "添加",
         FontAwesomeIcons.plus,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
       SearchAction(
-        "Open Wiki",
+        "打开Wiki",
         FontAwesomeIcons.book,
         SmartSingleActivator(LogicalKeyboardKey.keyO, control: true),
         onTrigger: (_, __) {

@@ -44,7 +44,7 @@ class NumberEditor extends HookConsumerWidget {
       child: FormattedTextField(
         focus: focus,
         icon: FontAwesomeIcons.hashtag,
-        hintText: "Enter a ${field.type.name}",
+        hintText: "输入${field.type.name}",
         text: "$value",
         keyboardType: TextInputType.number,
         inputFormatters: [

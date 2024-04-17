@@ -107,7 +107,7 @@ class _ReconnectOverlay extends HookConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "Connection lost, Reconnecting...",
+                  "连接丢失，正在重新连接...",
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 8),
@@ -267,7 +267,7 @@ class _DiscordButton extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return _SimpleButton(
-      tooltip: "Join Discord",
+      tooltip: "加入Discord",
       icon: FontAwesomeIcons.discord,
       onTap: _launchDiscord,
     );
@@ -287,7 +287,7 @@ class _WikiButton extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return _SimpleButton(
-      tooltip: "Open Wiki",
+      tooltip: "打开Wiki",
       icon: FontAwesomeIcons.book,
       onTap: _launchWiki,
     );
@@ -300,7 +300,7 @@ class _ReloadBookButton extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return _SimpleButton(
-      tooltip: "Reload Data",
+      tooltip: "重新加载数据",
       icon: FontAwesomeIcons.arrowsRotate,
       onTap: () => ref.read(bookProvider.notifier).reload(),
     );

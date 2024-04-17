@@ -598,7 +598,7 @@ class _SearchBar extends HookConsumerWidget {
               focus: focusNode,
               autofocus: true,
               decoration: const InputDecoration(
-                hintText: "Enter search query...",
+                hintText: "输入搜索查询...",
                 border: InputBorder.none,
                 filled: false,
               ),
@@ -910,7 +910,7 @@ class _SearchActions extends HookConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Actions",
+              "执行",
               style: Theme.of(context)
                   .textTheme
                   .bodySmall

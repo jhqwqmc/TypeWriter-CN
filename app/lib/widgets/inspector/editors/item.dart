@@ -38,7 +38,7 @@ class ItemEditor extends HookConsumerWidget {
         info.fieldInfo is ObjectField ? info.fieldInfo as ObjectField? : null;
     if (objectField == null) {
       return ErrorBox(
-        message: "Could not find subfields for item field: $path",
+        message: "找不到项目字段的子字段：$path",
       );
     }
     return FieldHeader(

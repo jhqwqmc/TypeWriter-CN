@@ -15,7 +15,7 @@ Future<List<String>> potionEffects(PotionEffectsRef ref) async {
   final response =
       await http.get(Uri.parse(_minecraftRegistriesUrl)).timeout(5.seconds);
   if (response.statusCode != 200) {
-    throw Exception("Failed to load sounds");
+    throw Exception("声音加载失败");
   }
   return _mapData(jsonDecode(response.body));
 }
@@ -23,7 +23,7 @@ Future<List<String>> potionEffects(PotionEffectsRef ref) async {
 List<String> _mapData(Map<String, dynamic> json) {
   final effects = json["mob_effect"];
   if (effects is! List) {
-    throw const FormatException("Invalid data format");
+    throw const FormatException("数据格式无效");
   }
   return effects.map((effect) => effect as String).toList();
 }

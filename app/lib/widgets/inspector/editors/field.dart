@@ -35,6 +35,6 @@ class _NoEditorFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ErrorBox(message: "Could not find a editor for $path");
+    return ErrorBox(message: "找不到 $path 的编辑器");
   }
 }

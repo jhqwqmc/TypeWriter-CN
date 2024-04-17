@@ -19,7 +19,7 @@ class AddHeaderAction extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return IconButton(
       icon: const Icon(FontAwesomeIcons.plus, size: 16),
-      tooltip: "Add new ${ref.watch(pathDisplayNameProvider(path)).singular}",
+      tooltip: "添加新的 ${ref.watch(pathDisplayNameProvider(path)).singular}",
       onPressed: () {
         onAdd();
         // If we add a new item, we probably want to edit it.

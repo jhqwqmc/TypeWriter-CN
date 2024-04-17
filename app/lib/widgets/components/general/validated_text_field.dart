@@ -65,12 +65,12 @@ class ValidatedTextField<T> extends HookConsumerWidget {
   _State _parse(String value) {
     try {
       final object = serialize != null ? serialize?.call(value) : value as T;
-      if (object == null) return _Invalid("Invalid $name: $value");
+      if (object == null) return _Invalid("无效的$name: $value");
       final message = validator?.call(object);
       if (message != null) return _Invalid(message);
-      return _Valid(object, "Valid $name: $value");
+      return _Valid(object, "有效的$name: $value");
     } on FormatException catch (_) {
-      return _Invalid("Invalid $name: $value");
+      return _Invalid("无效的$name: $value");
     }
   }
 
@@ -111,7 +111,7 @@ class ValidatedTextField<T> extends HookConsumerWidget {
               size: 18,
               color: state.value is _Invalid ? Colors.redAccent : null,
             ),
-            hintText: "Enter a $name",
+            hintText: "输入 $name",
             errorText: state.value.cast<_Invalid>()?.message,
           ),
           onChanged: (value) {

@@ -31,17 +31,17 @@ SoundData _parseSoundData(dynamic data) {
   if (data is Map<String, dynamic>) {
     return SoundData.fromJson(data);
   }
-  throw const FormatException("Invalid data format");
+  throw const FormatException("数据格式无效");
 }
 
 Map<String, List<SoundData>> _mapData(Map<String, dynamic> json) {
   return json.map((key, value) {
     if (value is! Map) {
-      throw const FormatException("Invalid data format");
+      throw const FormatException("数据格式无效");
     }
     final sounds = value["sounds"];
     if (sounds is! List) {
-      throw const FormatException("Invalid data format");
+      throw const FormatException("数据格式无效");
     }
     return MapEntry(key, sounds.map(_parseSoundData).toList());
   });
@@ -55,7 +55,7 @@ Future<Map<String, List<SoundData>>> minecraftSounds(
 ) async {
   final response = await http.get(Uri.parse(_minecraftSoundsUrl));
   if (response.statusCode != 200) {
-    throw Exception("Failed to load sounds");
+    throw Exception("声音加载失败");
   }
   return _mapData(jsonDecode(response.body));
 }

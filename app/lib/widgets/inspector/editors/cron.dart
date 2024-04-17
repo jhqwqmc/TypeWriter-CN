@@ -50,16 +50,16 @@ class CronEditor extends HookConsumerWidget {
         serialize: (value) {
           final cron = CronExpression.parse(value);
           if (cron == null) {
-            throw const FormatException("Invalid cron expression");
+            throw const FormatException("无效的计划任务表达式");
           }
           return value;
         },
         formatted: (value) {
           final cron = CronExpression.parse(value);
           if (cron == null) {
-            return "Invalid cron expression";
+            return "无效的计划任务表达式";
           }
-          return "Valid Cron: ${cron.toHumanReadableString()}";
+          return "有效的计划任务： ${cron.toHumanReadableString()}";
         },
       ),
     );

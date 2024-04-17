@@ -71,7 +71,7 @@ class SocketNotifier extends StateNotifier<Socket?> {
   void _handleError(String message) {
     if (_disposed) {
       debugPrint(
-        "The socket was disposed so a connection error should not be possible. This is a bug.",
+        "套接字已被释放，因此不可能出现连接错误。 这是一个错误。",
       );
       return;
     }
@@ -116,7 +116,7 @@ class SocketNotifier extends StateNotifier<Socket?> {
     var url = "http://$hostname:$port";
     if (token != null) url += "?token=$token";
 
-    debugPrint("Initializing socket");
+    debugPrint("初始化套接字");
     final socket = io(
       url,
       OptionBuilder().setTransports(["websocket"]).disableAutoConnect().build(),
@@ -126,11 +126,11 @@ class SocketNotifier extends StateNotifier<Socket?> {
       ..onConnect((data) {
         if (_disposed) {
           debugPrint(
-            "The socket was disposed so a connect should not be possible. This is a bug.",
+            "套接字已被处置，因此不可能进行连接。 这是一个错误。",
           );
           return;
         }
-        debugPrint("connected: $data");
+        debugPrint("已连接：$data");
         _timeoutTimer?.cancel();
         state = socket;
         final shouldSetup = _connectionState == ConnectionState.connecting;
@@ -138,24 +138,24 @@ class SocketNotifier extends StateNotifier<Socket?> {
         if (shouldSetup) setup(socket);
       })
       ..onConnectError((data) {
-        _handleError("connect error $data");
+        _handleError("连接错误$data");
       })
       ..onConnectTimeout((data) {
-        _handleError("connect timeout $data");
+        _handleError("连接超时$data");
       })
       ..onError((data) {
-        _handleError("error $data");
+        _handleError("错误$data");
       })
       ..onDisconnect((data) {
         if (_disposed) {
           debugPrint(
-            "The socket was disposed so a disconnect should not be possible. This is a bug.",
+            "套接字已被处置，因此不应断开连接。 这是一个错误。",
           );
           return;
         }
         if (_connectionState != ConnectionState.connected) return;
         _connectionState = ConnectionState.disconnected;
-        debugPrint("disconnected: $data");
+        debugPrint("断开连接：$data");
         _startTimeoutTimer(socket);
       })
       ..connect();
@@ -213,7 +213,7 @@ class SocketNotifier extends StateNotifier<Socket?> {
 
   @override
   void dispose() {
-    debugPrint("Disposing socket");
+    debugPrint("处置套接字");
     _disposed = true;
     _timeoutTimer?.cancel();
     state?.dispose();
@@ -422,7 +422,7 @@ class Communicator {
     if (socket == null || !socket.connected) {
       return const Response(
         success: false,
-        message: "Socket not connected",
+        message: "套接字没有连接",
       );
     }
 
@@ -434,7 +434,7 @@ class Communicator {
     if (response == null) {
       return const Response(
         success: false,
-        message: "No response from server",
+        message: "服务器没有响应",
       );
     }
 
@@ -529,7 +529,7 @@ class Communicator {
       return;
     }
     if (data is! String) {
-      debugPrint("Could not parse ack: $data");
+      debugPrint("无法解析应答：$data");
       return;
     }
 
@@ -537,17 +537,17 @@ class Communicator {
     final response = Response.fromJson(json);
 
     if (!response.success) {
-      debugPrint("Ack failed: ${response.message}");
+      debugPrint("应答失败：${response.message}");
       Toasts.showError(
         ref.passing,
         response.message,
-        description: "Reloading the full book to resync with the server.",
+        description: "重新加载整本书以与服务器重新同步。",
       );
       fetchBook();
       return;
     }
 
-    debugPrint("Ack: ${response.message}");
+    debugPrint("应答:${response.message}");
   }
 }
 

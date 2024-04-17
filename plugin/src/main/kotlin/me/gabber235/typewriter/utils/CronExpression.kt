@@ -226,7 +226,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 		if (parts.size != expectedParts) {
 			throw IllegalArgumentException(
 				String.format(
-					"无效的 cron 表达式 [%s]，预期 %s 字段，得到 %s",
+					"无效的计划任务表达式 [%s]，预期 %s 字段，得到 %s",
 					expression,
 					expectedParts,
 					parts.size
@@ -332,7 +332,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 			for (rangePart: String in rangeParts) {
 				val m = CRON_FIELD_REGEXP.matcher(rangePart)
 				if (!m.matches()) {
-					throw IllegalArgumentException("字段 [$fieldType] 的 cron 字段“$rangePart”无效")
+					throw IllegalArgumentException("字段 [$fieldType] 的计划任务字段“$rangePart”无效")
 				}
 				val startNummer = m.group("start")
 				val modifier = m.group("mod")
@@ -361,7 +361,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, withSecon
 				} else if (m.group("last") != null) {
 					part.modifier = m.group("last")
 				} else {
-					throw IllegalArgumentException("无效的 cron 部分：$rangePart")
+					throw IllegalArgumentException("无效的计划任务部分：$rangePart")
 				}
 				if (increment != null) {
 					part.incrementModifier = incrementModifier
