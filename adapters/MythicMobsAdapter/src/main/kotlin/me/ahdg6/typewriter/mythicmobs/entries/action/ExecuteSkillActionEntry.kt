@@ -45,6 +45,6 @@ class ExecuteSkillActionEntry(
             SkillMetadataImpl(SkillTriggers.API, caster, trigger)
 
         if (skill.isUsable(skillMeta)) skill.execute(skillMeta)
-        else logger.warning("技能$skillName此时无法使用（冷却时间等）")
+        else logger.warning("技能 $skillName 此时无法使用（冷却时间等）")
     }
 }

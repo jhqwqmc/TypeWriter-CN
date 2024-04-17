@@ -144,34 +144,34 @@ sealed interface RecorderResponse {
     }
 
     object CapturedRecording : RecorderResponse {
-        override val message: String = "Captured Field!"
+        override val message: String = "被捕获的区域！"
         override val status: RecorderResponseStatus = RecorderResponseStatus.SUCCESS
     }
 
     object RecordingStarting : RecorderResponse {
-        override val message: String = "Join the server to start recording!"
+        override val message: String = "加入服务器开始录制！"
         override val status: RecorderResponseStatus = RecorderResponseStatus.SUCCESS
     }
 
     object CapturerNotFound : RecorderResponse {
         override val message: String =
-            "The capturer for this field was not found! Report to the typewriter adapter developer."
+            "未找到该字段的捕获器！ 向typewriter适配器开发人员报告。"
         override val status: RecorderResponseStatus = RecorderResponseStatus.ERROR
     }
 
     class CapturerCreatorNotFound(recorderClassPath: String) : RecorderResponse {
         override val message: String =
-            "The capturer creator for the recorder $recorderClassPath was not found! Report to the typewriter adapter developer."
+            "未找到记录器 $recorderClassPath 的捕获器创建者！ 向向typewriter适配器开发人员报告。适配器开发人员报告。"
         override val status: RecorderResponseStatus = RecorderResponseStatus.ERROR
     }
 
     object AlreadyRecording : RecorderResponse {
-        override val message: String = "You are already recording!"
+        override val message: String = "你已经在录制了！"
         override val status: RecorderResponseStatus = RecorderResponseStatus.ERROR
     }
 
     class RecorderCouldNotStart(reason: String) : RecorderResponse {
-        override val message: String = "The recorder could not start: $reason"
+        override val message: String = "录制无法启动：$reason"
         override val status: RecorderResponseStatus = RecorderResponseStatus.ERROR
     }
 }

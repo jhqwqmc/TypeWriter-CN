@@ -15,7 +15,7 @@ import org.bukkit.Location
 import org.bukkit.entity.Player
 
 
-@Entry("spawn_mythicmobs_mob", "Spawn a mob from MythicMobs", Colors.ORANGE, Icons.DRAGON)
+@Entry("spawn_mythicmobs_mob", "从 MythicMobs 中生成一个生物", Colors.ORANGE, Icons.DRAGON)
 /**
  * The `Spawn Mob Action` action spawn MythicMobs mobs to the world.
  *
