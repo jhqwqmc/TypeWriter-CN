@@ -29,7 +29,7 @@ class Operations extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SectionTitle(title: "执行"),
+        const SectionTitle(title: "操作"),
         const SizedBox(height: 8),
         for (final action in actions) ...[
           if (action is ContextMenuDivider) const Divider(),

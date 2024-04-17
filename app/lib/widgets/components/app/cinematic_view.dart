@@ -2034,7 +2034,7 @@ class _SegmentOperations extends HookConsumerWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionTitle(title: "执行"),
+        SectionTitle(title: "操作"),
         SizedBox(height: 8),
         _DuplicateSegment(),
         SizedBox(height: 8),

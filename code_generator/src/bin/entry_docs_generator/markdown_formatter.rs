@@ -50,7 +50,7 @@ fn append_info(builder: &mut Builder, entry: &EntryClass) {
 }
 
 fn append_fields(builder: &mut Builder, entry: &EntryClass) {
-    builder.append_line("## Fields");
+    builder.append_line("## 字段");
     builder.empty_line();
 
     entry

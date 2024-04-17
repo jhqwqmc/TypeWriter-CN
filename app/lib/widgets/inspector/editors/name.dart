@@ -24,7 +24,7 @@ class NameField extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SectionTitle(title: "Name"),
+        const SectionTitle(title: "名称"),
         const SizedBox(height: 1),
         WritersIndicator(
           provider: fieldWritersProvider("name"),

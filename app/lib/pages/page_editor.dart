@@ -201,7 +201,7 @@ class _SearchBar extends HookConsumerWidget {
                   color: Colors.grey,
                 ),
                 const SizedBox(width: 5),
-                const Text("Search", style: TextStyle(color: Colors.grey)),
+                const Text("搜索", style: TextStyle(color: Colors.grey)),
                 const SizedBox(width: 50),
                 ShortcutLabel(
                   activator: SmartSingleActivator(

@@ -96,7 +96,7 @@ class CaptureHeaderAction extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Tooltip(
-      message: "捕获领域",
+      message: "捕获区域",
       child: Material(
         borderRadius: BorderRadius.circular(4),
         color: Colors.blue,
