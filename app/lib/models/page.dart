@@ -89,9 +89,9 @@ bool entryExists(EntryExistsRef ref, String entryId) {
 }
 
 enum PageType {
-  sequence("触发器", FontAwesomeIcons.diagramProject, Colors.blue),
-  static("静态", FontAwesomeIcons.bars, Colors.deepPurple),
-  cinematic("过场动画", FontAwesomeIcons.film, Colors.orange),
+  sequence("trigger", FontAwesomeIcons.diagramProject, Colors.blue),
+  static("static", FontAwesomeIcons.bars, Colors.deepPurple),
+  cinematic("cinematic", FontAwesomeIcons.film, Colors.orange),
   ;
 
   const PageType(this.tag, this.icon, this.color);
