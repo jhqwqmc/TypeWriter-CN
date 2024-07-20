@@ -1,11 +1,11 @@
-name: Build Development Jars and Publish
+name: Build Development Jars 和 Publish
 
 on: 
   workflow_dispatch:
   
 jobs:
   build-publish-development:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     concurrency:
       group: build-publish-development
       cancel-in-progress: true
