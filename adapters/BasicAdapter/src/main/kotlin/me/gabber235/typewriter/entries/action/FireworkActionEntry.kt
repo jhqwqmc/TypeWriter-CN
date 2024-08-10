@@ -29,7 +29,7 @@ import java.util.*
 
 private const val FIREWORK_EXPLOSION_STATUS = 17
 
-@Entry("firework", "Spawns a firework", Colors.RED, "streamline:fireworks-rocket-solid")
+@Entry("firework", "生成一个烟花火箭", Colors.RED, "streamline:fireworks-rocket-solid")
 /**
  * The `Firework Action Entry` is an action that spawns a firework.
  *
@@ -42,11 +42,11 @@ class FireworkActionEntry(
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
-    @Help("The location to spawn the firework.")
+    @Help("生成烟花火箭的位置。")
     val location: Location = Location(null, 0.0, 0.0, 0.0),
-    @Help("The effects to display on the firework.")
+    @Help("烟花火箭上显示的效果。")
     val effects: List<FireworkEffectConfig> = emptyList(),
-    @Help("The power of the firework.")
+    @Help("烟花火箭的威力。")
     val power: Int = 0,
 ) : ActionEntry {
     override fun execute(player: Player) {

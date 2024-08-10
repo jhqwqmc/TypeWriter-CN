@@ -12,7 +12,7 @@ import me.gabber235.typewriter.entry.entries.ActionEntry
 import me.gabber235.typewriter.plugin
 import org.bukkit.entity.Player
 
-@Entry("switch_server_action", "Switches the player to another server", Colors.RED, "fluent:server-link-16-filled")
+@Entry("switch_server_action", "将玩家切换到另一个服务器", Colors.RED, "fluent:server-link-16-filled")
 /**
  * The `Switch Server Action` is an action that switches the player to another server.
  *
@@ -26,7 +26,7 @@ class SwitchServerActionEntry(
     override val criteria: List<Criteria>,
     override val modifiers: List<Modifier>,
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The server the player has switched to")
+    @Help("玩家切换的服务器")
     val server: String = "",
 ): ActionEntry {
     override fun execute(player: Player) {

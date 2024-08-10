@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.entries.ActionEntry
 import me.gabber235.typewriter.utils.Vector
 import org.bukkit.entity.Player
 
-@Entry("apply_velocity", "Apply a velocity to the player", Colors.RED, "fa-solid:wind")
+@Entry("apply_velocity", "对玩家应用速度", Colors.RED, "fa-solid:wind")
 /**
  * The `ApplyVelocityActionEntry` is an action that applies a velocity to the player.
  *
@@ -25,7 +25,7 @@ class ApplyVelocityActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The force to apply to the player.")
+    @Help("强制应用到玩家")
     val force: Vector = Vector(0.0, 0.0, 0.0),
 ) : ActionEntry {
     override fun execute(player: Player) {

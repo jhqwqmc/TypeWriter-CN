@@ -17,10 +17,10 @@ object WithRotationModifierComputer : StaticModifierComputer<WithRotation> {
         innerCompute(annotation, info)?.let { return ok(it) }
 
         if (info !is CustomField) {
-            logger.warning("WithRotation 注释只能用于位置（包括列表或映射）！")
+            return failure("WithRotation 注释只能用于位置（包括列表或映射）！")
         }
         if (info.editor != "location") {
-            logger.warning("WithRotation 注释只能用于位置（包括列表或映射）！")
+            return failure("WithRotation 注释只能用于位置（包括列表或映射）！")
         }
 
         return ok(FieldModifier.StaticModifier("with_rotation"))
