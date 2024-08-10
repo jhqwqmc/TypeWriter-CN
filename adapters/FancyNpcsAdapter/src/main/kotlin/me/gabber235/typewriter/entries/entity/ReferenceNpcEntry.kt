@@ -4,13 +4,13 @@ import me.gabber235.typewriter.adapters.Colors
 import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.Tags
 import me.gabber235.typewriter.adapters.modifiers.Help
-import me.gabber235.typewriter.utils.Icons
 import me.gabber235.typewriter.utils.Sound
 import net.kyori.adventure.sound.Sound as AdventureSound
 
 
+@Deprecated("使用 EntityAdapter 代替")
 @Tags("fancy_reference_npc")
-@Entry("fancy_reference_npc", "当npc不受TypeWriter管理时", Colors.ORANGE, Icons.PERSON)
+@Entry("fancy_reference_npc", "当npc不受TypeWriter管理时", Colors.ORANGE, "fa-solid:user-tie")
 /**
  * An identifier that references an NPC in the FancyNpcs plugin. But does not manage the NPC.
  *

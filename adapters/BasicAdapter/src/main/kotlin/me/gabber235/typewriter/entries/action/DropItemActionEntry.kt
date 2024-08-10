@@ -1,6 +1,5 @@
 package me.gabber235.typewriter.entries.action
 
-import com.github.shynixn.mccoroutine.bukkit.launch
 import com.google.gson.JsonObject
 import lirand.api.extensions.other.set
 import me.gabber235.typewriter.adapters.Colors
@@ -8,16 +7,15 @@ import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Help
 import me.gabber235.typewriter.entry.*
 import me.gabber235.typewriter.entry.entries.ActionEntry
-import me.gabber235.typewriter.plugin
-import me.gabber235.typewriter.utils.Icons
 import me.gabber235.typewriter.utils.Item
+import me.gabber235.typewriter.utils.ThreadType.SYNC
 import me.gabber235.typewriter.utils.optional
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("drop_item", "将物品掉落到某个位置或玩家身上", Colors.RED, Icons.DROPBOX)
+@Entry("drop_item", "将物品掉落到某个位置或玩家身上", Colors.RED, "fa-brands:dropbox")
 /**
  * The `Drop Item Action` is an action that drops an item in the world.
  * This action provides you with the ability to drop an item with a specified Minecraft material, amount, display name, lore, and location.
@@ -33,7 +31,7 @@ class DropItemActionEntry(
     override val name: String = "",
     override val criteria: List<Criteria>,
     override val modifiers: List<Modifier>,
-    override val triggers: List<String> = emptyList(),
+    override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Help("要掉落的物品。")
     val item: Item = Item.Empty,
     @Help("掉落物品的位置。 （默认为玩家所在位置）")
@@ -43,7 +41,7 @@ class DropItemActionEntry(
     override fun execute(player: Player) {
         super.execute(player)
         // Run on main thread
-        plugin.launch {
+        SYNC.launch {
             if (location.isPresent) {
                 location.get().world.dropItem(location.get(), item.build(player))
             } else {

@@ -3,7 +3,8 @@ package me.gabber235.typewriter.adapters.modifiers
 import me.gabber235.typewriter.adapters.CustomField
 import me.gabber235.typewriter.adapters.FieldInfo
 import me.gabber235.typewriter.adapters.FieldModifier
-import me.gabber235.typewriter.logger
+import me.gabber235.typewriter.utils.failure
+import me.gabber235.typewriter.utils.ok
 
 enum class MaterialProperty {
     ITEM,
@@ -30,22 +31,20 @@ annotation class MaterialProperties(vararg val properties: MaterialProperty)
 object MaterialPropertiesModifierComputer : StaticModifierComputer<MaterialProperties> {
     override val annotationClass: Class<MaterialProperties> = MaterialProperties::class.java
 
-    override fun computeModifier(annotation: MaterialProperties, info: FieldInfo): FieldModifier? {
-        // If the field is wrapped in a list or other container we try if the inner type can be modified
-        innerCompute(annotation, info)?.let { return it }
+    override fun computeModifier(annotation: MaterialProperties, info: FieldInfo): Result<FieldModifier?> {
+        // If the field is wrapped in a list or other container, we try if the inner type can be modified
+        innerCompute(annotation, info)?.let { return ok(it) }
 
         if (info !is CustomField) {
-            logger.warning("材料属性注释只能用于自定义字段")
-            return null
+            return failure("材料属性注释只能用于自定义字段")
         }
         if (info.editor != "material") {
-            logger.warning("MaterialProperties 注解只能用于材质（不能在 ${info.editor} 上使用）")
-            return null
+            return failure("MaterialProperties 注解只能用于材质（不能在 ${info.editor} 上使用）")
         }
 
-        return FieldModifier.DynamicModifier(
+        return ok(FieldModifier.DynamicModifier(
             "material_properties",
             annotation.properties.joinToString(";") { it.name.lowercase() }
-        )
+        ))
     }
 }

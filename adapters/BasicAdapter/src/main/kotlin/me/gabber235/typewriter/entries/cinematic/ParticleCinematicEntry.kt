@@ -3,15 +3,15 @@ package me.gabber235.typewriter.entries.cinematic
 import me.gabber235.typewriter.adapters.Colors
 import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Help
+import me.gabber235.typewriter.adapters.modifiers.Negative
 import me.gabber235.typewriter.adapters.modifiers.Segments
 import me.gabber235.typewriter.entry.Criteria
 import me.gabber235.typewriter.entry.entries.*
-import me.gabber235.typewriter.utils.Icons
 import org.bukkit.Location
 import org.bukkit.Particle
 import org.bukkit.entity.Player
 
-@Entry("particle_cinematic", "为过场动画生成粒子", Colors.CYAN, Icons.FIRE_FLAME_SIMPLE)
+@Entry("particle_cinematic", "为过场动画生成粒子", Colors.CYAN, "fa6-solid:fire-flame-simple")
 /**
  * The `Particle Cinematic` entry is used to spawn particles for a cinematic.
  *
@@ -28,21 +28,22 @@ class ParticleCinematicEntry(
     @Help("生成粒子的位置。")
     val location: Location = Location(null, 0.0, 0.0, 0.0),
     @Help("要生成的粒子。")
-    val particle: Particle = Particle.SMOKE_NORMAL,
+    val particle: Particle = Particle.FLAME,
     @Help("生成的粒子数量。")
     val count: Int = 1,
+    @Negative
     @Help("距 X 轴位置的偏移量。")
     val offsetX: Double = 0.0,
+    @Negative
     @Help("距 Y 轴位置的偏移量。")
     val offsetY: Double = 0.0,
+    @Negative
     @Help("距 Z 轴位置的偏移量。")
     val offsetZ: Double = 0.0,
     @Help("粒子的速度。")
     // The speed of the particles. For some particles, this is the "extra" data value to control particle behavior.
     val speed: Double = 0.0,
-    @Help("每个刻度（tick）生成的粒子数量。")
-    val spawnCountPerTick: Int = 0,
-    @Segments(icon = Icons.FIRE_FLAME_SIMPLE)
+    @Segments(icon = "fa6-solid:fire-flame-simple")
     val segments: List<ParticleSegment> = emptyList(),
 ) : CinematicEntry {
     override fun create(player: Player): CinematicAction {
@@ -70,7 +71,7 @@ class ParticleCinematicAction(
         player.spawnParticle(
             entry.particle,
             entry.location,
-            entry.spawnCountPerTick,
+            entry.count,
             entry.offsetX,
             entry.offsetY,
             entry.offsetZ,

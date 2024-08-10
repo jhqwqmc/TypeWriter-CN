@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:hooks_riverpod/hooks_riverpod.dart";
 import "package:typewriter/models/adapter.dart";
+import "package:typewriter/utils/icons.dart";
 import "package:typewriter/widgets/inspector/header.dart";
 import "package:typewriter/widgets/inspector/headers/info_action.dart";
 
@@ -27,8 +27,8 @@ class PlaceholderHeaderAction extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return const InfoHeaderAction(
       tooltip:
-          "支持像 %player_name% 这样的占位符。 点击了解更多信息。",
-      icon: FontAwesomeIcons.subscript,
+          "支持 %player_name% 等占位符。单击以了解更多信息。",
+      icon: TWIcons.subscript,
       color: Color(0xFF00b300),
       url: "https://github.com/PlaceholderAPI/PlaceholderAPI/wiki",
     );

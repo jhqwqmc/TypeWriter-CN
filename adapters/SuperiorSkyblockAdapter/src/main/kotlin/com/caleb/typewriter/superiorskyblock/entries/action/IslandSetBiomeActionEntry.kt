@@ -6,12 +6,13 @@ import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Help
 import me.gabber235.typewriter.entry.Criteria
 import me.gabber235.typewriter.entry.Modifier
+import me.gabber235.typewriter.entry.Ref
+import me.gabber235.typewriter.entry.TriggerableEntry
 import me.gabber235.typewriter.entry.entries.ActionEntry
-import me.gabber235.typewriter.utils.Icons
 import org.bukkit.block.Biome
 import org.bukkit.entity.Player
 
-@Entry("island_set_biome", "设置玩家岛屿的生物群系", Colors.RED, Icons.EARTH_AMERICAS)
+@Entry("island_set_biome", "设置玩家岛屿的生物群系", Colors.RED, "fa6-solid:map")
 /**
  * The `Island Set Biome` action is used to set a player's island's biome.
  *
@@ -24,7 +25,7 @@ class IslandSetBiomeActionEntry(
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
-    override val triggers: List<String> = emptyList(),
+    override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Help("设置岛屿的生物群系")
     val biome: Biome = Biome.PLAINS
 ) : ActionEntry {

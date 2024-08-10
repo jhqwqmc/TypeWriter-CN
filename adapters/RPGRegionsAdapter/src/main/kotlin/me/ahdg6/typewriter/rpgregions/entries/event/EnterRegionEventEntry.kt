@@ -4,15 +4,12 @@ import lirand.api.extensions.server.server
 import me.gabber235.typewriter.adapters.Colors
 import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Help
-import me.gabber235.typewriter.entry.EntryListener
-import me.gabber235.typewriter.entry.Query
+import me.gabber235.typewriter.entry.*
 import me.gabber235.typewriter.entry.entries.EventEntry
-import me.gabber235.typewriter.entry.triggerAllFor
-import me.gabber235.typewriter.utils.Icons
 import net.islandearth.rpgregions.api.events.RegionsEnterEvent
 
 
-@Entry("on_enter_rpg_region", "当玩家进入 RPGRegions 区域时", Colors.YELLOW, Icons.DOOR_OPEN)
+@Entry("on_enter_rpg_region", "当玩家进入 RPGRegions 区域时", Colors.YELLOW, "fa6-solid:door-open")
 /**
  * The `Enter Region Event` is triggered when a player enters a region.
  *
@@ -24,7 +21,7 @@ import net.islandearth.rpgregions.api.events.RegionsEnterEvent
 class EnterRegionEventEntry(
     override val id: String = "",
     override val name: String = "",
-    override val triggers: List<String> = emptyList(),
+    override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Help("要检查的区域。")
     // The region to check for. Make sure that this is the region ID, not the region's display name.
     val region: String = "",

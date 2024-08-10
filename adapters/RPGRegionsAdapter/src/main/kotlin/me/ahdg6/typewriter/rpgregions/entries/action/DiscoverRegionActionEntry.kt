@@ -5,15 +5,16 @@ import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Help
 import me.gabber235.typewriter.entry.Criteria
 import me.gabber235.typewriter.entry.Modifier
+import me.gabber235.typewriter.entry.Ref
+import me.gabber235.typewriter.entry.TriggerableEntry
 import me.gabber235.typewriter.entry.entries.ActionEntry
-import me.gabber235.typewriter.utils.Icons
 import net.islandearth.rpgregions.api.RPGRegionsAPI
 import net.islandearth.rpgregions.managers.data.region.WorldDiscovery
 import org.bukkit.entity.Player
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-@Entry("discover_rpg_region", "为 RPGRegions 创建一个可发现的区域", Colors.RED, Icons.ADDRESS_BOOK)
+@Entry("discover_rpg_region", "为 RPGRegions 创建一个可发现的区域", Colors.RED, "fa6-solid:address-book")
 /**
  * The `Discover Region Action` is used to add a discovery into a user's account.
  *
@@ -26,7 +27,7 @@ class DiscoverRegionActionEntry(
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
-    override val triggers: List<String> = emptyList(),
+    override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Help("待发现的区域。")
     // The region to discover. Make sure that this is the region ID, not the region's display name.
     private val region: String = "",

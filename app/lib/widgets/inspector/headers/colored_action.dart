@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:hooks_riverpod/hooks_riverpod.dart";
 import "package:typewriter/models/adapter.dart";
+import "package:typewriter/utils/icons.dart";
 import "package:typewriter/widgets/inspector/header.dart";
 import "package:typewriter/widgets/inspector/headers/info_action.dart";
 
@@ -30,8 +30,8 @@ class ColoredHeaderAction extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return const InfoHeaderAction(
-      tooltip: "支持Minimessage格式。 点击了解更多信息。",
-      icon: FontAwesomeIcons.paintbrush,
+      tooltip: "支持 Adventure Mini 格式。单击以了解更多信息。",
+      icon: TWIcons.paintBrush,
       color: Color(0xFFff8e42),
       url: "https://docs.advntr.dev/minimessage/format.html",
     );

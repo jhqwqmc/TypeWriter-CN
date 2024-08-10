@@ -10,11 +10,12 @@ import org.koin.core.qualifier.named
 import java.io.StringReader
 
 interface AssetStorage {
-    fun storeAsset(path: String, content: String)
-    fun fetchAsset(path: String): Result<String>
-    fun deleteAsset(path: String)
+    suspend fun storeAsset(path: String, content: String)
+    suspend fun containsAsset(path: String): Boolean
+    suspend fun fetchAsset(path: String): Result<String>
+    suspend fun deleteAsset(path: String)
 
-    fun fetchAllAssetPaths(): Set<String>
+    suspend fun fetchAllAssetPaths(): Set<String>
 }
 
 class AssetManager : KoinComponent {
@@ -25,17 +26,18 @@ class AssetManager : KoinComponent {
     fun initialize() {
     }
 
-    private fun removeUnusedAssets() {
+    internal suspend fun removeUnusedAssets(): Int {
         val usedPaths = usedPaths()
         if (usedPaths.isFailure) {
-            plugin.logger.severe("无法删除未使用的资源：${usedPaths.exceptionOrNull()?.message}")
-            return
+            plugin.logger.severe("无法删除未使用的资源: ${usedPaths.exceptionOrNull()?.message}")
+            return 0
         }
 
         val unusedPaths = storage.fetchAllAssetPaths().subtract((usedPaths.getOrNull() ?: emptySet()).toSet())
         unusedPaths.forEach {
             storage.deleteAsset(it)
         }
+        return unusedPaths.size
     }
 
     /**
@@ -65,47 +67,54 @@ class AssetManager : KoinComponent {
         return Result.success(stagingPaths.union(productionPaths))
     }
 
-    fun storeAsset(entry: AssetEntry, content: String) {
+    suspend fun storeAsset(entry: AssetEntry, content: String) {
         storage.storeAsset(entry.path, content)
     }
 
-    fun fetchAsset(entry: AssetEntry): String? {
+    suspend fun containsAsset(entry: AssetEntry): Boolean {
+        return storage.containsAsset(entry.path)
+    }
+
+    suspend fun fetchAsset(entry: AssetEntry): String? {
         val result = storage.fetchAsset(entry.path)
         if (result.isFailure) {
-            plugin.logger.severe("无法获取资源${entry.path}")
+            plugin.logger.severe("无法获取资源 ${entry.path}")
             return null
         }
         return result.getOrNull()
     }
 
     fun shutdown() {
-        removeUnusedAssets()
     }
 }
 
 class LocalAssetStorage : AssetStorage {
-    override fun storeAsset(path: String, content: String) {
+    override suspend fun storeAsset(path: String, content: String) {
         val file = plugin.dataFolder.resolve("assets/$path")
         file.parentFile.mkdirs()
         file.writeText(content)
     }
 
-    override fun fetchAsset(path: String): Result<String> {
+    override suspend fun containsAsset(path: String): Boolean {
+        return plugin.dataFolder.resolve("assets/$path").exists()
+    }
+
+    override suspend fun fetchAsset(path: String): Result<String> {
         val file = plugin.dataFolder.resolve("assets/$path")
         if (!file.exists()) {
-            return Result.failure(IllegalArgumentException("未找到资源$path。"))
+            return Result.failure(IllegalArgumentException("未找到资源 $path 。"))
         }
         return Result.success(file.readText())
     }
 
-    override fun deleteAsset(path: String) {
+    override suspend fun deleteAsset(path: String) {
         val asset = plugin.dataFolder.resolve("assets/$path")
         val deletedAsset = plugin.dataFolder.resolve("deleted_assets/$path")
         deletedAsset.parentFile.mkdirs()
         asset.renameTo(deletedAsset)
     }
 
-    override fun fetchAllAssetPaths(): Set<String> {
+    override suspend fun fetchAllAssetPaths(): Set<String> {
         return plugin.dataFolder.resolve("assets").walk().filter { it.isFile }
             .map { it.relativeTo(plugin.dataFolder.resolve("assets")).path }.toSet()
     }

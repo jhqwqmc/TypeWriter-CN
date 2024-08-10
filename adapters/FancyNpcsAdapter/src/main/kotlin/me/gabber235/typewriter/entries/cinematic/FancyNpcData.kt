@@ -4,9 +4,9 @@ import de.oliver.fancynpcs.api.FancyNpcsPlugin
 import de.oliver.fancynpcs.api.Npc
 import de.oliver.fancynpcs.api.utils.NpcEquipmentSlot.*
 import de.oliver.fancynpcs.api.utils.SkinFetcher
-import me.gabber235.typewriter.capture.capturers.ArmSwing
-import me.gabber235.typewriter.entry.entries.NpcData
-import me.gabber235.typewriter.extensions.protocollib.swingArm
+import me.gabber235.typewriter.extensions.packetevents.ArmSwing
+import me.gabber235.typewriter.extensions.packetevents.swingArm
+import me.gabber235.typewriter.utils.ThreadType
 import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Location
 import org.bukkit.entity.EntityType
@@ -17,6 +17,9 @@ import java.util.*
 
 
 interface FancyNpcData : NpcData<Npc> {
+    override val threadType: ThreadType
+        get() = ThreadType.ASYNC
+
     override fun spawn(player: Player, npc: Npc, location: Location) {
         npc.data.location = location
         npc.spawn(player)
@@ -51,6 +54,7 @@ interface FancyNpcData : NpcData<Npc> {
             EquipmentSlot.CHEST -> CHEST
             EquipmentSlot.LEGS -> LEGS
             EquipmentSlot.FEET -> FEET
+            else -> CHEST
         }
         npc.data.equipment[fancySlot] = itemStack
         npc.update(player)
@@ -102,10 +106,12 @@ class ReferenceNpcData(private val npcId: String) : FancyNpcData {
             false,
             {},
             emptyList(),
+            false,
             "",
-            "",
+            emptyList(),
             0f,
-            ogData.attributes,
+            emptyMap(),
+            false
         )
 
         val npc = FancyNpcsPlugin.get().npcAdapter.apply(data)

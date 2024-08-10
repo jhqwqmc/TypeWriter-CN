@@ -5,13 +5,10 @@ import lirand.api.extensions.server.server
 import me.gabber235.typewriter.adapters.Colors
 import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Help
-import me.gabber235.typewriter.entry.EntryListener
-import me.gabber235.typewriter.entry.Query
+import me.gabber235.typewriter.entry.*
 import me.gabber235.typewriter.entry.entries.EventEntry
-import me.gabber235.typewriter.entry.triggerAllFor
-import me.gabber235.typewriter.utils.Icons
 
-@Entry("on_enter_region", "当玩家进入 WorldGuard 区域时", Colors.YELLOW, Icons.SQUARE_CHECK)
+@Entry("on_enter_region", "当玩家进入 WorldGuard 区域时", Colors.YELLOW, "fa6-solid:door-open")
 /**
  * The `Enter Region Event` is triggered when a player enters a region.
  *
@@ -23,7 +20,7 @@ import me.gabber235.typewriter.utils.Icons
 class EnterRegionEventEntry(
     override val id: String = "",
     override val name: String = "",
-    override val triggers: List<String> = emptyList(),
+    override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Help("要检查的区域。")
     // The region that the player must enter to trigger the event.
     val region: String = "",

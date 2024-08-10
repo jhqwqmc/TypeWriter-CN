@@ -4,13 +4,10 @@ import com.bgsoftware.superiorskyblock.api.events.MissionCompleteEvent
 import me.gabber235.typewriter.adapters.Colors
 import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Help
-import me.gabber235.typewriter.entry.EntryListener
-import me.gabber235.typewriter.entry.Query
+import me.gabber235.typewriter.entry.*
 import me.gabber235.typewriter.entry.entries.EventEntry
-import me.gabber235.typewriter.entry.triggerAllFor
-import me.gabber235.typewriter.utils.Icons
 
-@Entry("on_mission_complete", "当玩家完成任务时", Colors.YELLOW, Icons.CLIPBOARD_CHECK)
+@Entry("on_mission_complete", "当玩家完成任务时", Colors.YELLOW, "fa6-solid:clipboard-check")
 /**
  * The `Mission Complete` event is triggered when a player completes a mission.
  *
@@ -21,7 +18,7 @@ import me.gabber235.typewriter.utils.Icons
 class MissionCompleteEventEntry(
     override val id: String = "",
     override val name: String = "",
-    override val triggers: List<String> = emptyList(),
+    override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Help("需要完成的任务名称")
     val missionName: String = "",
 ) : EventEntry

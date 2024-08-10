@@ -1,19 +1,19 @@
 package me.gabber235.typewriter.entries.action
 
-import com.github.shynixn.mccoroutine.bukkit.launch
 import me.gabber235.typewriter.adapters.Colors
 import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Help
 import me.gabber235.typewriter.entry.Criteria
 import me.gabber235.typewriter.entry.Modifier
+import me.gabber235.typewriter.entry.Ref
+import me.gabber235.typewriter.entry.TriggerableEntry
 import me.gabber235.typewriter.entry.entries.ActionEntry
-import me.gabber235.typewriter.plugin
-import me.gabber235.typewriter.utils.Icons
+import me.gabber235.typewriter.utils.ThreadType.SYNC
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
 
-@Entry("set_block", "在某个位置设置一个方块", Colors.RED, Icons.CUBE)
+@Entry("set_block", "在某个位置设置一个方块", Colors.RED, "fluent:cube-add-20-filled")
 /**
  * The `SetBlockActionEntry` is an action that sets a block at a specific location.
  *
@@ -31,7 +31,7 @@ class SetBlockActionEntry(
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
-    override val triggers: List<String> = emptyList(),
+    override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Help("设置方块的材质。")
     val material: Material = Material.AIR,
     @Help("设置方块的位置。")
@@ -40,7 +40,7 @@ class SetBlockActionEntry(
     override fun execute(player: Player) {
         super.execute(player)
 
-        plugin.launch {
+        SYNC.launch {
             location.block.type = material
         }
     }

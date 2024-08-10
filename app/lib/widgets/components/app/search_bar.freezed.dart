@@ -12,7 +12,7 @@ part of 'search_bar.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    '看来您使用“MyClass._()”构建了您的类。 此构造函数仅供冻结使用，您不应需要它或使用它。\n请查看此处的文档以获取更多信息：https://github.com/rrousselGit/freezed#custom-getters-and- 方法');
+    '看起来您使用 `MyClass._()` 构造了您的类。此构造函数仅供 freezed 使用，您不需要它，也不会使用它。\n请查看此处的文档以获取更多信息：https://github.com/rroussselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Search {
@@ -168,7 +168,7 @@ class _$SearchImpl implements _Search {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchImpl &&

@@ -4,13 +4,18 @@ import me.gabber235.typewriter.adapters.Entry
 import me.gabber235.typewriter.adapters.modifiers.Colored
 import me.gabber235.typewriter.adapters.modifiers.Help
 import me.gabber235.typewriter.adapters.modifiers.Placeholder
-import me.gabber235.typewriter.entry.Criteria
-import me.gabber235.typewriter.entry.Modifier
+import me.gabber235.typewriter.entry.*
 import me.gabber235.typewriter.entry.entries.DialogueEntry
-import me.gabber235.typewriter.utils.Icons
+import me.gabber235.typewriter.entry.entries.SpeakerEntry
 import java.time.Duration
 
 @Entry("random_spoken", "向玩家显示随机选择的动画消息", "#1E88E5", Icons.MESSAGE)
+@Entry(
+    "random_spoken",
+    "向玩家显示随机选择的动画消息",
+    "#1E88E5",
+    "mingcute:message-4-fill"
+)
 /**
  * The `Random Spoken Dialogue` action displays a randomly selected animated message to the player.
  *
@@ -26,8 +31,8 @@ class RandomSpokenDialogueEntry(
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
-    override val triggers: List<String> = emptyList(),
-    override val speaker: String = "",
+    override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
+    override val speaker: Ref<SpeakerEntry> = emptyRef(),
     @Placeholder
     @Colored
     @Help("显示给玩家的文本。 将随机选择一个。")
