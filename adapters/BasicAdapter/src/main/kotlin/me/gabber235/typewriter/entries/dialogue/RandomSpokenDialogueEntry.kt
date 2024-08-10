@@ -9,7 +9,6 @@ import me.gabber235.typewriter.entry.entries.DialogueEntry
 import me.gabber235.typewriter.entry.entries.SpeakerEntry
 import java.time.Duration
 
-@Entry("random_spoken", "向玩家显示随机选择的动画消息", "#1E88E5", Icons.MESSAGE)
 @Entry(
     "random_spoken",
     "向玩家显示随机选择的动画消息",
