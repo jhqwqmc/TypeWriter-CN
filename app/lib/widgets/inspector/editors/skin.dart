@@ -65,7 +65,7 @@ class SkinEditor extends HookConsumerWidget {
       canExpand: true,
       actions: [
         HeaderButton(
-          tooltip: "Fetch From UUID",
+          tooltip: "从 UUID 获取",
           icon: TWIcons.accountTag,
           color: Colors.green,
           onTap: () => showDialog(
@@ -79,7 +79,7 @@ class SkinEditor extends HookConsumerWidget {
           ),
         ),
         HeaderButton(
-          tooltip: "Fetch From URL",
+          tooltip: "从 URL 获取",
           icon: TWIcons.url,
           color: Colors.orange,
           onTap: () => showDialog(
@@ -174,7 +174,7 @@ class _FetchFromMineSkinDialogue extends HookConsumerWidget {
     final error = useState<String?>(null);
 
     return AlertDialog(
-      title: const Text("Fetch Skin"),
+      title: const Text("获取皮肤"),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -188,7 +188,7 @@ class _FetchFromMineSkinDialogue extends HookConsumerWidget {
             focus: focus,
             controller: controller,
             icon: icon,
-            hintText: "Enter the $bodyKey to fetch the skin",
+            hintText: "输入 $bodyKey 获取皮肤",
           ),
         ],
       ),
@@ -233,54 +233,54 @@ class _FetchFromMineSkinDialogue extends HookConsumerWidget {
       if (data is Map<String, dynamic> && data.containsKey("error")) {
         return data["error"];
       }
-      return "An unknown error occurred";
+      return "发生未知错误";
     }
 
     final result = jsonDecode(response.body);
     if (result is! Map<String, dynamic>) {
-      return "An unknown error occurred";
+      return "发生未知错误";
     }
 
     if (!result.containsKey("data")) {
-      return "Could not find the skin data in the response";
+      return "无法在响应中找到皮肤数据";
     }
     final resultData = result["data"];
 
     if (resultData is! Map<String, dynamic>) {
-      return "Result data is not a map";
+      return "结果数据不是地图";
     }
 
     if (!resultData.containsKey("texture")) {
-      return "Could not find the texture in the response";
+      return "无法在响应中找到纹理";
     }
     final textureData = resultData["texture"];
 
     if (textureData is! Map<String, dynamic>) {
-      return "Texture is not a map";
+      return "纹理不是地图";
     }
 
     if (!textureData.containsKey("value")) {
-      return "Could not find the texture value in the response";
+      return "无法在响应中找到纹理值";
     }
     final texture = textureData["value"];
 
     if (texture is! String) {
-      return "Texture value is not a string";
+      return "纹理值不是字符串";
     }
 
     if (!textureData.containsKey("signature")) {
-      return "Could not find the signature in the response";
+      return "无法在响应中找到签名";
     }
 
     final signature = textureData["signature"];
 
     if (signature is! String) {
-      return "Signature is not a string";
+      return "签名不是字符串";
     }
 
     final definition = ref.read(inspectingEntryDefinitionProvider);
     if (definition == null) {
-      return "Currently not inspecting an entry";
+      return "当前未检查条目";
     }
     await definition.updateField(ref, path, {
       "texture": texture,

@@ -54,8 +54,8 @@ class ContentEditor(
         }
         val result = mode.setup()
         if (result.isFailure) {
-            logger.severe("Failed to setup content mode for player ${player.name}: ${result.exceptionOrNull()?.message}")
-            player.msg("<red><b>Failed to setup content mode. Please report this to the server administrator.")
+            logger.severe("为玩家${player.name}设置内容模式失败：${result.exceptionOrNull()?.message}")
+            player.msg("<red><b>设置内容模式失败。请将此问题报告给服务器管理员。")
             SystemTrigger.CONTENT_END forceTriggerFor player
             return
         }

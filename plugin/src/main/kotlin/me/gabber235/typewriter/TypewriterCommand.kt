@@ -174,7 +174,7 @@ private fun CommandTree.connectCommand() {
             val bookPage = """
 				|<blue><bold>连接到面板</bold></blue>
 				|
-				|<#3e4975>点击下面的链接连接到面板。 连接后，您就可以开始编写了。</#3e4975>
+				|<#3e4975>点击下面的链接连接到面板。 连接后，你就可以开始编写了。</#3e4975>
 				|
 				|<hover:show_text:'<gray>点击打开链接'><click:open_url:'$url'><blue>[链接]</blue></click></hover>
 				|
@@ -265,7 +265,7 @@ private fun CommandTree.questCommands() = literalArgument("quest") {
             anyExecutor { sender, args ->
                 val target = args.targetOrSelfPlayer(sender) ?: return@anyExecutor
                 target.unTrackQuest()
-                sender.msg("您不再追踪任何任务。")
+                sender.msg("你不再追踪任何任务。")
             }
         }
     }
@@ -316,12 +316,12 @@ private fun CommandTree.manifestCommands() = literalArgument("manifest") {
                 val target = args.targetOrSelfPlayer(sender) ?: return@anyExecutor
                 val inEntries = Query.findWhere<AudienceEntry> { target.inAudience(it) }.sortedBy { it.name }.toList()
                 if (inEntries.none()) {
-                    sender.msg("您不在任何受众条目中。")
+                    sender.msg("你不在任何观众条目中。")
                     return@anyExecutor
                 }
 
                 sender.sendMini("\n\n")
-                sender.msg("您属于以下受众条目:")
+                sender.msg("你属于以下观众条目:")
                 for (entry in inEntries) {
                     sender.sendMini(
                         "<hover:show_text:'<gray>${entry.id}'><click:copy_to_clipboard:${entry.id}><gray> - </gray><blue>${entry.formattedName}</blue></click></hover>"
@@ -341,14 +341,14 @@ private fun CommandTree.manifestCommands() = literalArgument("manifest") {
                         Query.findWhereFromPage<AudienceEntry>(pageName) { true }.sortedBy { it.name }.toList()
 
                     if (audienceEntries.isEmpty()) {
-                        sender.msg("在页面 $pageName 上未找到任何受众条目")
+                        sender.msg("在页面 $pageName 上未找到任何观众条目")
                         return@anyExecutor
                     }
 
                     val entryStates = audienceEntries.groupBy { target.audienceState(it) }
 
                     sender.sendMini("\n\n")
-                    sender.msg("以下是页面 <i>$pageName</i> 上的受众条目:")
+                    sender.msg("以下是页面 <i>$pageName</i> 上的观众条目:")
                     for (state in AudienceDisplayState.entries) {
                         val entries = entryStates[state] ?: continue
                         val color = state.color

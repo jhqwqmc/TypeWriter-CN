@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.ActionEntry
 import org.bukkit.entity.Player
 
 //<code-block:action_entry>
-@Entry("example_action", "An example action entry.", Colors.RED, "material-symbols:touch-app-rounded")
+@Entry("example_action", "示例动作条目。", Colors.RED, "material-symbols:touch-app-rounded")
 class ExampleActionEntry(
     override val id: String = "",
     override val name: String = "",

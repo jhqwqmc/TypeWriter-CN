@@ -30,12 +30,12 @@ class HomePage extends HookConsumerWidget {
             ),
           ),
           Text(
-            "您的旅程从这里开始",
+            "你的旅程从这里开始",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
           ),
           Text(
-            "在您的服务器上运行以下命令开始编辑",
+            "在你的服务器上运行以下命令开始编辑",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20,

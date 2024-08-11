@@ -72,7 +72,7 @@ class SimulateCinematicComponent(
         bossBar {
             val frameDisplay = "$frame".padStart(maxFrame.digits)
             val scrolling =
-                if (scrollFrames != null) " <gray>- <gradient:#9452ff:#ff2eea><b>(Scrolling)</b></gradient>" else ""
+                if (scrollFrames != null) " <gray>- <gradient:#9452ff:#ff2eea><b>（滚动中）</b></gradient>" else ""
             title =
                 "<yellow><bold>${page.id} <reset><gray>- <white>$frameDisplay/$maxFrame (${playbackSpeed}x)$scrolling"
             color = if (scrollFrames != null) BossBar.Color.PURPLE else BossBar.Color.YELLOW
@@ -134,13 +134,13 @@ class SimulateCinematicComponent(
 
     override fun items(player: Player): Map<Int, IntractableItem> {
         val playbackSpeed = ItemStack(Material.CLOCK).meta {
-            name = "<yellow><bold>Playback Speed"
+            name = "<yellow><bold>播放速度"
             loreString = """
-                    |<line> <green><b>Right Click: </b><white>Increases speed by 1
-                    |<line> <green>Shift + Right Click: <white>Increases speed by 0.25
-                    |<line> <red><b>Left Click: </b><white>Decreases speed by 1
-                    |<line> <red>Shift + Left Click: <white>Decreases speed by 0.25
-                    |<line> <blue><b><key:key.swapOffhand>: </b><white>Pause/Resume
+                    |<line> <green><b>右键点击：</b><white>速度增加1
+                    |<line> <green>Shift + 右键点击：<white>速度增加0.25
+                    |<line> <red><b>左键点击：</b><white>速度减少1
+                    |<line> <red>Shift + 左键点击：<white>速度减少0.25
+                    |<line> <blue><b><key:key.swapOffhand>：</b><white>暂停/继续
                 """.trimMargin()
         } onInteract { (type) ->
             when (type) {
@@ -157,14 +157,14 @@ class SimulateCinematicComponent(
         }
 
         val skip = ItemStack(Material.AMETHYST_SHARD).meta {
-            name = "<yellow><bold>Skip Frame"
+            name = "<yellow><bold>跳过帧"
             loreString = """
-                    |<line> <green><b>Right Click: </b><white>Goes forward 20 frames
-                    |<line> <green>Shift + Right Click: <white>Goes forward 1 frames
-                    |<line> <red><b>Left Click: </b><white>Goes backwards 20 frames
-                    |<line> <red>Shift + Left Click: <white>Goes backwards 1 frames
-                    |<line> <yellow><b><key:key.drop>: </b><white>Rewind to start
-                    |<line> <blue><b><key:key.swapOffhand>: </b><white>Go into advanced playback control mode
+                    |<line> <green><b>右键点击：</b><white>前进20帧
+                    |<line> <green>Shift + 右键点击：<white>前进1帧
+                    |<line> <red><b>左键点击：</b><white>后退20帧
+                    |<line> <red>Shift + 左键点击：<white>后退1帧
+                    |<line> <yellow><b><key:key.drop>：</b><white>回到开始
+                    |<line> <blue><b><key:key.swapOffhand>：</b><white>进入高级播放控制模式
                 """.trimMargin()
         } onInteract { (type) ->
             when (type) {
@@ -199,18 +199,18 @@ class SimulateCinematicComponent(
 
 fun findCinematicPageById(pageId: String?): Page? {
     if (pageId.isNullOrEmpty()) {
-        logger.warning("Can only simulate cinematic for a page")
+        logger.warning("只能模拟页面的过场动画效果")
         return null
     }
     val entryDatabase = KoinJavaComponent.get<EntryDatabase>(EntryDatabase::class.java)
     val page = entryDatabase.findPageById(pageId)
     if (page == null) {
-        logger.warning("Page $pageId not found, make sure to publish before using content mode")
+        logger.warning("未找到页面 $pageId ，请确保在使用内容模式前发布")
         return null
     }
 
     if (page.type != PageType.CINEMATIC) {
-        logger.warning("Page $pageId is not a cinematic page")
+        logger.warning("页面 $pageId 不是过场动画页面")
         return null
     }
     return page

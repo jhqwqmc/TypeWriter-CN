@@ -22,7 +22,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("warden_definition", "A warden entity", Colors.ORANGE, "streamline:smiley-surprised-solid")
+@Entry("warden_definition", "监守者实体", Colors.ORANGE, "streamline:smiley-surprised-solid")
 @Tags("warden_definition")
 /**
  * The `WardenDefinition` class is an entry that shows up as a warden in-game.
@@ -41,7 +41,7 @@ class WardenDefinition(
     override fun create(player: Player): FakeEntity = WardenEntity(player)
 }
 
-@Entry("warden_instance", "An instance of a warden entity", Colors.YELLOW, "streamline:smiley-surprised-solid")
+@Entry("warden_instance", "监守者实体的实例", Colors.YELLOW, "streamline:smiley-surprised-solid")
 class WardenInstance(
     override val id: String = "",
     override val name: String = "",

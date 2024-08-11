@@ -32,7 +32,7 @@ import java.util.*
 private val pathStreamRefreshTime by snippet(
     "path_stream.refresh_time",
     1700,
-    "The time in milliseconds between a new stream being calculated.",
+    "计算新流之间的时间（以毫秒为单位）。",
 )
 
 class PathStreamDisplay(

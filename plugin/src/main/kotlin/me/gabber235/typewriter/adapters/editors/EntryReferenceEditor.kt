@@ -40,7 +40,7 @@ fun ObjectEditor<Ref<*>>.entryReference() = reference {
         val klass = clazz.kotlin
         val tag = klass.annotations.find { it is Tags }?.let { (it as Tags).tags.firstOrNull() }
         if (tag == null) {
-            throw IllegalArgumentException("Entry ${klass.simpleName} does not have a tag. It is needed for the StaticEntryIdentifier")
+            throw IllegalArgumentException("条目${klass.simpleName}没有标签。这对于StaticEntryIdentifier是必需的。")
         }
 
         FieldModifier.DynamicModifier("entry", tag)

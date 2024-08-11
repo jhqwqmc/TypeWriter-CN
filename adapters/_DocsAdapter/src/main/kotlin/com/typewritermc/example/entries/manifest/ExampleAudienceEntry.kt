@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 
 //<code-block:audience_entry>
-@Entry("example_audience", "An example audience entry.", Colors.GREEN, "material-symbols:chat-rounded")
+@Entry("example_audience", "观众条目示例。", Colors.GREEN, "material-symbols:chat-rounded")
 class ExampleAudienceEntry(
     override val id: String,
     override val name: String,

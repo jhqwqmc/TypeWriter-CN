@@ -191,7 +191,7 @@ private fun getProfile(url: String): PlayerProfile {
     textures.skin = try {
         URL(url) // The URL to the skin, for example: https://textures.minecraft.net/texture/18813764b2abc94ec3c3bc67b9147c21be850cdf996679703157f4555997ea63a
     } catch (exception: MalformedURLException) {
-        throw RuntimeException("Invalid URL", exception)
+        throw RuntimeException("无效URL", exception)
     }
     profile.setTextures(textures) // Set the textures back to the profile
     return profile

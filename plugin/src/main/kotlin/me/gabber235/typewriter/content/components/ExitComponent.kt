@@ -51,25 +51,25 @@ class ExitComponent(
 
     override fun item(player: Player): Pair<Int, IntractableItem> {
         val sneakingLine = if (doubleShiftExits) {
-            "<line> <gray>Double shift to exit"
+            "<line> <gray>双击Shift键退出"
         } else {
             ""
         }
         val item = if (player.inLastContentMode) {
             ItemStack(Material.BARRIER).meta {
-                name = "<red><bold>Exit Editor"
+                name = "<red><bold>退出编辑器"
                 loreString = """
                     |
-                    |<line> <gray>Click to exit the editor.
+                    |<line> <gray>点击以退出编辑器。
                     |$sneakingLine
                 """.trimMargin()
             }
         } else {
             ItemStack(Material.END_CRYSTAL).meta {
-                name = "<yellow><bold>Previous Editor"
+                name = "<yellow><bold>上一个编辑器"
                 loreString = """
                     |
-                    |<line> <gray>Click to go back to the previous editor.
+                    |<line> <gray>点击返回上一个编辑器。
                     |$sneakingLine
                 """.trimMargin()
             }

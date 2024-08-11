@@ -79,7 +79,7 @@ void deleteSegmentConfirmation(
   showConfirmationDialogue(
     context: context,
     title: "删除片段",
-    content: "您确定要删除该片段吗？",
+    content: "你确定要删除该片段吗？",
     confirmText: "删除",
     onConfirm: () {
       _deleteSegment(ref, entryId, segmentId);

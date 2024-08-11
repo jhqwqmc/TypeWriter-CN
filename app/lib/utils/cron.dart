@@ -1,94 +1,5 @@
 import "package:typewriter/utils/extensions.dart";
 
-/// Parses a cron expression and returns a [CronExpression] object.
-/// For a detailed description of the cron expression syntax, see [link](https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html).
-///
-/// Fields are separated by whitespace. And may look like this:
-/// |-------------------------------------------------------------------------|
-/// | Field name  | Mandatory? | Allowed values  | Allowed special characters |
-/// |-------------|------------|-----------------|----------------------------|
-/// | Seconds     | NO         | 0-59            | * / , -                    |
-/// | Minutes     | YES        | 0-59            | * / , -                    |
-/// | Hours       | YES        | 0-23            | * / , -                    |
-/// | Day-of-month| YES        | 1-31            | * / , - ? L W              |
-/// | Month       | YES        | 1-12 or JAN-DEC | * / , -                    |
-/// | Day-of-week | YES        | 1-7 or MON-SUN  | * / , - ? L #              |
-/// |-------------------------------------------------------------------------|
-///
-/// The special characters are:
-/// |--------------------------------------------------------------------------|
-/// | Character | Description                                                  |
-/// |-----------|--------------------------------------------------------------|
-/// | *         | Specifies all possible values for a field. For example, "*" in |
-/// |           | the minute field means "every minute".                       |
-/// |-----------|--------------------------------------------------------------|
-/// | ?         | Used to specify both day-of-month and day-of-week.           |
-/// |-----------|--------------------------------------------------------------|
-/// | -         | Used to specify ranges For example, "10-12" in the hour field |
-/// |           | means "the hours 10, 11 and 12".                             |
-/// |-----------|--------------------------------------------------------------|
-/// | ,         | Used to specify additional values. For example, "MON,WED,FRI" |
-/// |           | in the day-of-week field means "the days Monday, Wednesday,   |
-/// |           | and Friday".                                                 |
-/// |-----------|--------------------------------------------------------------|
-/// | /         | Used to specify increments. For example, "0/15" in the seconds |
-/// |           | field means "the seconds 0, 15, 30, and 45". And "5/15" in    |
-/// |           | the seconds field means "the seconds 5, 20, 35, and 50".      |
-/// |           | It can also be used with the '*' character. If used with '*'  |
-/// |           | then the starting value for the increment is 0. For example,  |
-/// |           | "*/15" in the seconds field means "the seconds 0, 15, 30, and |
-/// |           | 45". A character before the '/' is called the 'begin'         |
-/// |           | character in this context.                                   |
-/// |-----------|--------------------------------------------------------------|
-/// | L         | Used to specify the 'last' day of the month - day of month    |
-/// |           | and day of week both. For example, if L is specified in the   |
-/// |           | day-of-month field, the meaning is: "the last day of the      |
-/// |           | month" - day 31 for January, day 28 for February on non-leap  |
-/// |           | years. If L is specified in the day-of-week field by itself,  |
-/// |           | it simply means "7" or "SAT". But if it is specified in the   |
-/// |           | day-of-week field after another value, it means "the last     |
-/// |           | xxx day of the month" - for example "6L" means "the last      |
-/// |           | friday of the month". When using the 'L' option, it is        |
-/// |           | important not to specify lists, or ranges of values, as you   |
-/// |           |'ll get confusing/unexpected results.                         |
-/// |-----------|--------------------------------------------------------------|
-/// | W         | Used to specify the weekday (Monday-Friday) nearest the given |
-/// |           | day. As an example, if you were to specify "15W" as the value |
-/// |           | for the day-of-month field, the meaning is: "the nearest      |
-/// |           | weekday to the 15th of the month". So if the 15th is a       |
-/// |           | Saturday, the trigger will fire on Friday the 14th. If the    |
-/// |           | 15th is a Sunday, the trigger will fire on Monday the 16th.   |
-/// |           | If the 15th is a Tuesday, then it will fire on Tuesday the   |
-/// |           | 15th. However if you specify "1W" as the value for day-of-    |
-/// |           | month, and the 1st is a Saturday, the trigger will fire on    |
-/// |           | Monday the 3rd, as it will not 'jump' over the boundary of a  |
-/// |           | month's days. The 'W' character can only be specified when    |
-/// |           | the day-of-month is a single day, not a range or list of days.|
-/// |-----------|--------------------------------------------------------------|
-/// | #         | Used to specify "the nth" XXX day of the month. For example, |
-/// |           | the value of "6#3" in the day-of-week field means the third   |
-/// |           | Friday of the month (day 6 = Friday and "#3" = the 3rd one in |
-/// |           | the month). Other examples: "2#1" = the first Monday of the   |
-/// |           | month and "4#5" = the fifth Wednesday of the month. Note that |
-/// |           | if you specify "#5" and there is not 5 of the given day-of-   |
-/// |           | week in the month, then no firing will occur that month.      |
-/// |--------------------------------------------------------------------------|
-///
-///
-/// Example:
-/// |-----------------------------------------------------------------------------|
-/// | Expression        | Description                                             |
-/// |-------------------|---------------------------------------------------------|
-/// | 0 0 12 * * ?      | Fire at 12pm (noon) every day                           |
-/// | 0 15 10 ? * *     | Fire at 10:15am every day                               |
-/// | 0 15 10 * * ?     | Fire at 10:15am every day                               |
-/// | 0 * 14 * * ?      | Fire every minute starting at 2pm and ending at 2:59pm, |
-/// | 0/5 14 * * ?      | Fire every five minutes starting at 2:00 p.m. and ending at 2:55 p.m., every day |
-/// | 15 10 ? * MON-FRI | Fire at 10:15am every Monday, Tuesday, Wednesday, Thursday and Friday |
-/// | 0 15 10 ? * 6L    | Fire at 10:15am on the last Friday of every month       |
-/// | 15 10 ? * 6#3     | Fire at 10:15am on the third Friday of every month      |
-/// |-----------------------------------------------------------------------------|
-///
 class CronExpression {
   const CronExpression(
     this.seconds,
@@ -99,7 +10,6 @@ class CronExpression {
     this.dayOfWeek,
   );
 
-  /// The cron expression string
   final SimpleField? seconds;
   final SimpleField minutes;
   final SimpleField hours;
@@ -107,23 +17,22 @@ class CronExpression {
   final MonthField month;
   final DayOfWeekField dayOfWeek;
 
-  /// Returns a human readable string representation of the cron expression.
   String toHumanReadableString() {
     var text = "";
     if (seconds != null) {
-      text += seconds!.toHumanReadableString("second");
+      text += seconds!.toHumanReadableString("秒");
 
       if (!minutes.isWildcard) {
-        text += " past ";
-        text += minutes.toHumanReadableString("minute");
+        text += " 过 ";
+        text += minutes.toHumanReadableString("分钟");
       }
     } else {
-      text += minutes.toHumanReadableString("minute");
+      text += minutes.toHumanReadableString("分钟");
     }
 
     if (!hours.isWildcard) {
-      text += " past ";
-      text += hours.toHumanReadableString("hour");
+      text += " 过 ";
+      text += hours.toHumanReadableString("小时");
     }
 
     if (!dayOfMonth.isWildcard) {
@@ -132,7 +41,7 @@ class CronExpression {
     }
 
     if (!month.isWildcard) {
-      text += " in ";
+      text += " 在 ";
       text += month.toHumanReadableString();
     }
 
@@ -144,7 +53,6 @@ class CronExpression {
     return text.capitalize;
   }
 
-  /// Parses a cron expression from a string.
   static CronExpression? parse(String expression) {
     final parts = expression.split(" ");
     if (parts.length < 5 || parts.length > 6) {
@@ -182,13 +90,11 @@ class CronExpression {
   }
 }
 
-/// A part of a cron field.
 abstract class CronPart {
   const CronPart();
 
   bool valid(int min, int max) => true;
 
-  /// Parses a part from a string.
   static CronPart? parse(String value) {
     return WildcardPart.parse(value) ??
         ValuePart.parse(value) ??
@@ -243,7 +149,7 @@ class RangePart extends CronPart {
 class IncrementPart extends CronPart {
   const IncrementPart(this.part, this.increment);
 
-  final CronPart part; // Can be a value, range or wildcard
+  final CronPart part;
   final int increment;
 
   @override
@@ -269,17 +175,6 @@ class IncrementPart extends CronPart {
   }
 }
 
-/// A field in a cron expression.
-/// This is used for seconds, minutes and hours.
-///
-/// |---------------------------------------------|
-/// | Field   | Required | Range | Allowed Values |
-/// | Seconds | NO       | 0-59  | * / , -        |
-/// | Minutes | YES      | 0-59  | * / , -        |
-/// | Hours   | YES      | 0-23  | * / , -        |
-/// |---------------------------------------------|
-///
-/// See [CronExpression] for more information.
 class SimpleField {
   const SimpleField(this.parts);
 
@@ -289,26 +184,26 @@ class SimpleField {
 
   String humanReadablePart(String field, CronPart part) {
     if (part is WildcardPart) {
-      return "every $field";
+      return "每 $field";
     } else if (part is ValuePart) {
       return "$field ${part.value}";
     } else if (part is RangePart) {
-      return "every $field from ${part.start.value} through ${part.end.value}";
+      return "每 $field 从 ${part.start.value} 到 ${part.end.value}";
     } else if (part is IncrementPart) {
       final subPart = part.part;
       if (subPart is WildcardPart) {
-        return "every ${part.increment.ordinal} $field";
+        return "每 ${part.increment.ordinal} $field";
       } else if (subPart is ValuePart) {
-        return "every ${part.increment.ordinal} $field starting at $field ${subPart.value}";
+        return "每 ${part.increment.ordinal} $field 从 $field ${subPart.value} 开始";
       } else if (subPart is RangePart) {
-        return "every ${part.increment.ordinal} $field from ${subPart.start.value} through ${subPart.end.value}";
+        return "每 ${part.increment.ordinal} $field 从 ${subPart.start.value} 到 ${subPart.end.value}";
       }
     }
     return "";
   }
 
   String toHumanReadableString(String field) {
-    return parts.map((part) => humanReadablePart(field, part)).join(", and ");
+    return parts.map((part) => humanReadablePart(field, part)).join(", 和 ");
   }
 
   static SimpleField? parse(String? value, int min, int max) {
@@ -331,15 +226,6 @@ class SimpleField {
   }
 }
 
-/// Day of the month field.
-/// This is used for the day of the month field.
-///
-/// |--------------------------------------------------|
-/// | Field        | Required | Range | Allowed Values |
-/// | Day of Month | YES      | 1-31  | * / , - ? L W  |
-/// |--------------------------------------------------|
-///
-/// See [CronExpression] for more information.
 abstract class DayOfMonthField {
   const DayOfMonthField();
 
@@ -355,7 +241,6 @@ abstract class DayOfMonthField {
   }
 }
 
-/// Day of the month field without L and W.
 class SimpleDayOfMonthField extends DayOfMonthField {
   const SimpleDayOfMonthField(this.parts);
 
@@ -366,19 +251,19 @@ class SimpleDayOfMonthField extends DayOfMonthField {
 
   String _humanReadablePart(CronPart part) {
     if (part is WildcardPart) {
-      return "every day";
+      return "每天";
     } else if (part is ValuePart) {
-      return "on the ${part.value.ordinal} day of the month";
+      return "在每月的第 ${part.value.ordinal} 天";
     } else if (part is RangePart) {
-      return "every day from the ${part.start.value.ordinal} through the ${part.end.value.ordinal} day of the month";
+      return "每月从第 ${part.start.value.ordinal} 天到第 ${part.end.value.ordinal} 天";
     } else if (part is IncrementPart) {
       final subPart = part.part;
       if (subPart is WildcardPart) {
-        return "every ${part.increment.ordinal} day of the month";
+        return "每 ${part.increment.ordinal} 天";
       } else if (subPart is ValuePart) {
-        return "every ${part.increment.ordinal} day of the month starting on the ${subPart.value.ordinal}";
+        return "每 ${part.increment.ordinal} 天 从第 ${subPart.value.ordinal} 天开始";
       } else if (subPart is RangePart) {
-        return "every ${part.increment.ordinal} day of the month from the ${subPart.start.value.ordinal} through the ${subPart.end.value.ordinal} day of the month";
+        return "每 ${part.increment.ordinal} 天 从第 ${subPart.start.value.ordinal} 天到第 ${subPart.end.value.ordinal} 天";
       }
     }
     return "";
@@ -386,7 +271,7 @@ class SimpleDayOfMonthField extends DayOfMonthField {
 
   @override
   String toHumanReadableString() {
-    return parts.map(_humanReadablePart).join(", and ");
+    return parts.map(_humanReadablePart).join(", 和 ");
   }
 
   static SimpleDayOfMonthField? parse(String? value) {
@@ -398,7 +283,6 @@ class SimpleDayOfMonthField extends DayOfMonthField {
   }
 }
 
-/// Day of the month field with L.
 class LastDayOfMonthField extends DayOfMonthField {
   const LastDayOfMonthField(this.part);
 
@@ -407,9 +291,9 @@ class LastDayOfMonthField extends DayOfMonthField {
   @override
   String toHumanReadableString() {
     if (part == null) {
-      return "on the last day of the month";
+      return "在每月的最后一天";
     }
-    return "on the ${part!.value.ordinal} to last day of the month";
+    return "在每月倒数第 ${part!.value.ordinal} 天";
   }
 
   static LastDayOfMonthField? parse(String? value) {
@@ -430,7 +314,6 @@ class LastDayOfMonthField extends DayOfMonthField {
   }
 }
 
-/// Day of the month field with W.
 class NearestWeekdayOfMonthField extends DayOfMonthField {
   const NearestWeekdayOfMonthField(this.part);
 
@@ -438,7 +321,7 @@ class NearestWeekdayOfMonthField extends DayOfMonthField {
 
   @override
   String toHumanReadableString() {
-    return "on the nearest weekday to the ${part.value.ordinal} day of the month";
+    return "在每月的第 ${part.value.ordinal} 天的最近工作日";
   }
 
   static NearestWeekdayOfMonthField? parse(String? value) {
@@ -456,46 +339,36 @@ class NearestWeekdayOfMonthField extends DayOfMonthField {
   }
 }
 
-/// Day of the month field with L and W.
 class LastNearestWeekdayOfMonthField extends DayOfMonthField {
   const LastNearestWeekdayOfMonthField();
 
   @override
   String toHumanReadableString() {
-    return "on the nearest weekday to the last day of the month";
+    return "在每月最后一天的最近工作日";
   }
 
   static LastNearestWeekdayOfMonthField? parse(String? value) =>
       value == "LW" ? const LastNearestWeekdayOfMonthField() : null;
 }
 
-/// Month field.
-/// This is used for the month field.
-///
-/// |-------------------------------------------------------|
-/// | Field   | Required | Range           | Allowed Values |
-/// | Month   | YES      | 1-12 or JAN-DEC | * / , -        |
-/// |-------------------------------------------------------|
-///
-/// See [CronExpression] for more information.
 class MonthField {
   const MonthField(this.parts);
 
   final List<CronPart> parts;
 
   static const _monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "一月",
+    "二月",
+    "三月",
+    "四月",
+    "五月",
+    "六月",
+    "七月",
+    "八月",
+    "九月",
+    "十月",
+    "十一月",
+    "十二月",
   ];
 
   bool get isWildcard => parts.length == 1 && parts[0] is WildcardPart;
@@ -518,26 +391,26 @@ class MonthField {
 
   String _humanReadablePart(CronPart part) {
     if (part is WildcardPart) {
-      return "of every month";
+      return "每个月";
     } else if (part is ValuePart) {
       return _monthNames[part.value - 1];
     } else if (part is RangePart) {
-      return "every month from ${_monthNames[part.start.value - 1]} through ${_monthNames[part.end.value - 1]}";
+      return "每月从 ${_monthNames[part.start.value - 1]} 到 ${_monthNames[part.end.value - 1]}";
     } else if (part is IncrementPart) {
       final subPart = part.part;
       if (subPart is WildcardPart) {
-        return "every ${part.increment.ordinal} month";
+        return "每 ${part.increment.ordinal} 个月";
       } else if (subPart is ValuePart) {
-        return "every ${part.increment.ordinal} month starting in ${_monthNames[subPart.value - 1]}";
+        return "每 ${part.increment.ordinal} 个月 从 ${_monthNames[subPart.value - 1]} 开始";
       } else if (subPart is RangePart) {
-        return "every ${part.increment.ordinal} month from ${_monthNames[subPart.start.value - 1]} through ${_monthNames[subPart.end.value - 1]}";
+        return "每 ${part.increment.ordinal} 个月 从 ${_monthNames[subPart.start.value - 1]} 到 ${_monthNames[subPart.end.value - 1]}";
       }
     }
     return "";
   }
 
   String toHumanReadableString() {
-    return parts.map(_humanReadablePart).join(", and ");
+    return parts.map(_humanReadablePart).join(", 和 ");
   }
 
   static MonthField? parse(String? value) {
@@ -549,15 +422,6 @@ class MonthField {
   }
 }
 
-/// Day of the week field.
-/// This is used for the day of the week field.
-///
-/// |------------------------------------------------------------|
-/// | Field        | Required | Range           | Allowed Values |
-/// | Day of Week  | YES      | 0-7 or SUN-SAT  | * / , - ? L #  |
-/// |------------------------------------------------------------|
-///
-/// See [CronExpression] for more information.
 abstract class DayOfWeekField {
   const DayOfWeekField();
 
@@ -572,20 +436,19 @@ abstract class DayOfWeekField {
   }
 }
 
-/// Day of the week field without L, # and ?.
 class SimpleDayOfWeekField extends DayOfWeekField {
   const SimpleDayOfWeekField(this.parts);
 
   final List<CronPart> parts;
 
   static const _dayNames = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期天",
   ];
 
   @override
@@ -604,19 +467,19 @@ class SimpleDayOfWeekField extends DayOfWeekField {
 
   String _humanReadablePart(CronPart part) {
     if (part is WildcardPart) {
-      return "every day of the week";
+      return "每周的每一天";
     } else if (part is ValuePart) {
-      return "on ${_dayNames[part.value - 1]}";
+      return "在 ${_dayNames[part.value - 1]}";
     } else if (part is RangePart) {
-      return "from ${_dayNames[part.start.value - 1]} through ${_dayNames[part.end.value - 1]}";
+      return "从 ${_dayNames[part.start.value - 1]} 到 ${_dayNames[part.end.value - 1]}";
     } else if (part is IncrementPart) {
       final subPart = part.part;
       if (subPart is WildcardPart) {
-        return "every ${part.increment.ordinal} day of the week";
+        return "每 ${part.increment.ordinal} 天";
       } else if (subPart is ValuePart) {
-        return "every ${part.increment.ordinal} day of the week starting on ${_dayNames[subPart.value - 1]}";
+        return "每 ${part.increment.ordinal} 天 从 ${_dayNames[subPart.value - 1]} 开始";
       } else if (subPart is RangePart) {
-        return "every ${part.increment.ordinal} day of the week from ${_dayNames[subPart.start.value - 1]} through ${_dayNames[subPart.end.value - 1]}";
+        return "每 ${part.increment.ordinal} 天 从 ${_dayNames[subPart.start.value - 1]} 到 ${_dayNames[subPart.end.value - 1]}";
       }
     }
     return "";
@@ -624,7 +487,7 @@ class SimpleDayOfWeekField extends DayOfWeekField {
 
   @override
   String toHumanReadableString() {
-    return parts.map(_humanReadablePart).join(", and ");
+    return parts.map(_humanReadablePart).join(", 和 ");
   }
 
   static SimpleDayOfWeekField? parse(String? value) {
@@ -636,13 +499,12 @@ class SimpleDayOfWeekField extends DayOfWeekField {
   }
 }
 
-/// Day of the week field with L.
 class LastDayOfWeekField extends DayOfWeekField {
   const LastDayOfWeekField();
 
   @override
   String toHumanReadableString() {
-    return "on Sunday";
+    return "在星期天";
   }
 
   static LastDayOfWeekField? parse(String? value) {
@@ -656,7 +518,6 @@ class LastDayOfWeekField extends DayOfWeekField {
   }
 }
 
-/// Day of the week field with #.
 class NthDayOfWeekField extends DayOfWeekField {
   const NthDayOfWeekField(this.part, this.nth);
 
@@ -664,18 +525,18 @@ class NthDayOfWeekField extends DayOfWeekField {
   final ValuePart nth;
 
   static const _dayNames = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期天",
   ];
 
   @override
   String toHumanReadableString() {
-    return "on the ${nth.value.ordinal} ${_dayNames[part.value - 1]}";
+    return "在每月的第 ${nth.value.ordinal} 个 ${_dayNames[part.value - 1]}";
   }
 
   static NthDayOfWeekField? parse(String? value) {

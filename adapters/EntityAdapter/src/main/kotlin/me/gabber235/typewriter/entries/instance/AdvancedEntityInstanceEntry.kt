@@ -12,7 +12,7 @@ import org.bukkit.Location
 
 @Entry(
     "shared_advanced_entity_instance",
-    "An advanced instance of an entity",
+    "实体的高级实例",
     Colors.YELLOW,
     "material-symbols:settings-account-box"
 )
@@ -32,7 +32,7 @@ class SharedAdvancedEntityInstanceEntry(
     override val activity: Ref<out SharedEntityActivityEntry> = emptyRef(),
 ) : SharedAdvancedEntityInstance
 
-@Entry("group_advanced_entity_instance", "An advanced instance of an entity", Colors.YELLOW, "material-symbols:settings-account-box")
+@Entry("group_advanced_entity_instance", "实体的高级实例", Colors.YELLOW, "material-symbols:settings-account-box")
 /**
  * The `Group Advanced Entity Instance` entry is an entity instance
  * that has the activity shared between a group of players viewing the instance.
@@ -52,7 +52,7 @@ class GroupAdvancedEntityInstanceEntry(
 
 @Entry(
     "individual_advanced_entity_instance",
-    "An advanced instance of an entity",
+    "实体的高级实例",
     Colors.YELLOW,
     "material-symbols:settings-account-box"
 )

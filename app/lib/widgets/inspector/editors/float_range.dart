@@ -35,7 +35,7 @@ class FloatRangeEditor extends HookConsumerWidget {
       field: field,
       trailing: const [
         InfoHeaderAction(
-          tooltip: "Max is included in the range.",
+          tooltip: "最大值包含在范围内。",
           icon: TWIcons.inclusive,
           color: Color(0xFF0ccf92),
           url: "",
@@ -45,13 +45,13 @@ class FloatRangeEditor extends HookConsumerWidget {
         children: [
           CordPropertyEditor(
             path: "$path.start",
-            label: "Min",
+            label: "最小值",
             color: Colors.red,
           ),
           const Iconify(TWIcons.range),
           CordPropertyEditor(
             path: "$path.end",
-            label: "Max",
+            label: "最大值",
             color: Colors.green,
           ),
         ],

@@ -37,7 +37,7 @@ class DuplicateListItemAction extends HookConsumerWidget {
     return IconButton(
       icon: const Iconify(TWIcons.duplicate, size: 12),
       color: Colors.green,
-      tooltip: "Duplicate $name",
+      tooltip: "复制 $name",
       onPressed: () => _duplicate(ref.passing),
     );
   }

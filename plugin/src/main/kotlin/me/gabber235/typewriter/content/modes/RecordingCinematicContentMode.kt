@@ -59,21 +59,21 @@ class RecordingCinematicComponent<T : Any>(
     override fun items(player: Player): Map<Int, IntractableItem> {
         if (frameFetcher() > (context.endFrame ?: 0)) {
             val item = ItemStack(Material.BARRIER).meta {
-                name = "<red><b>Cannot Start Recording"
+                name = "<red><b>无法开始录制"
                 loreString = """
-                    |<line> <gray>Recording cannot start 
-                    |<line> <gray>because the frame is out of range.
+                    |<line> <gray>无法开始录制
+                    |<line> <gray>因为帧超出了范围。
                     |
-                    |<line> <gray>Make sure that the cinematic frame
-                    |<line> <gray>is before the end frame of the segment.
+                    |<line> <gray>请确保过场动画帧
+                    |<line> <gray>在片段的结束帧之前。
                 """.trimMargin()
             } onInteract {}
             return mapOf(slot to item)
         }
 
         val item = ItemStack(Material.BOOK).meta {
-            name = "<green><b>Start Recording"
-            loreString = "<line> <gray>Click to start recording the cinematic."
+            name = "<green><b>开始录制"
+            loreString = "<line> <gray>点击开始录制过场动画。"
         } onInteract {
             ContentModeTrigger(context, modeCreator(context, player, frameFetcher(), klass)) triggerFor player
         }
@@ -104,11 +104,11 @@ abstract class RecordingCinematicContentMode<T : Any>(
         if (startFrame == null || endFrame == null) {
             return failure(
                 """
-                |Missing startFrame or endFrame in context.
-                |Context: $context
+                |上下文中缺少startFrame或endFrame。
+                |上下文：$context
                 |
-                |RecordingCinematicContentMode can only be used for segments of a cinematic.
-                |Report this to the adapter developer.
+                |RecordingCinematicContentMode只能用于过场动画的片段。
+                |请将此问题报告给适配器开发者。
             """.trimMargin()
             )
         }
@@ -119,10 +119,10 @@ abstract class RecordingCinematicContentMode<T : Any>(
         if (result.isFailure) {
             return failure(
                 """
-                |Failed to get asset from field value (${context.fieldValue}):
+                |无法从字段值获取资源（${context.fieldValue}）：
                 |${result.exceptionOrNull()?.message}
                 |
-                |It is likely that you forgot to publish the asset before using it in a content mode.
+                |很可能是你在使用内容模式前忘记发布资源了。
             """.trimMargin()
             )
         }
@@ -131,7 +131,7 @@ abstract class RecordingCinematicContentMode<T : Any>(
 
 
         val page =
-            findCinematicPageById(context.pageId) ?: return failure("No cinematic page found with id ${context.pageId}")
+            findCinematicPageById(context.pageId) ?: return failure("未找到ID为${context.pageId}的过场动画页面")
 
         val entryId = context.entryId
 
@@ -154,13 +154,13 @@ abstract class RecordingCinematicContentMode<T : Any>(
                     else -> "green"
                 }
 
-                title = "Starting recording in <$color><bold>$secondsLeft</bold></$color>"
+                title = "将在<$color><bold>$secondsLeft</bold></$color>后开始录制"
                 progress = 1f - (frame - initialFrame) / (startFrame - initialFrame).toFloat()
                 return@bossBar
             }
 
             val secondsLeft = (endFrame - frame) / 20
-            title = "Recording ends in <bold>$secondsLeft</bold>"
+            title = "录制将在<bold>$secondsLeft</bold>后结束"
             progress = (frame - frames.first) / (frames.last - frames.first).toFloat()
         }
         return ok(Unit)
@@ -172,7 +172,7 @@ abstract class RecordingCinematicContentMode<T : Any>(
 
         // Load in the old tape if it exists
         val asset = asset
-            ?: throw IllegalStateException("No asset found for recording cinematic after setup, this should not happen. Asset: '${context.fieldValue}'")
+            ?: throw IllegalStateException("在设置后未找到用于录制过场动画的资源，这不应该发生。资源：'${context.fieldValue}'")
         val oldTapeData = if (assetManager.containsAsset(asset)) assetManager.fetchAsset(asset) else null
         if (oldTapeData != null) {
             tape = gson.fromJson(oldTapeData, tape.javaClass)

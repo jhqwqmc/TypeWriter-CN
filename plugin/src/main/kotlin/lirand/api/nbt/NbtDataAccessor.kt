@@ -20,7 +20,7 @@ class NbtDataAccessor(@PublishedApi internal val nbtData: NbtData) {
 	 */
 	inline operator fun <reified T : Any> get(key: String): T {
 		return getOrNull(key)
-			?: error("There is no value under the \"$key\" key or its type is not specified generic type")
+			?: error("在键\"$key\"下没有值，或者其类型未指定为通用类型。")
 	}
 
 	/**

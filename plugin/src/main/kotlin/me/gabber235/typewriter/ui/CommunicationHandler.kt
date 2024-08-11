@@ -29,7 +29,7 @@ class CommunicationHandler : KoinComponent {
     private val hostName: String by config(
         "hostname",
         "127.0.0.1",
-        comment = "服务器的主机名。 将其更改为您的服务器 IP。"
+        comment = "服务器的主机名。 将其更改为你的服务器 IP。"
     )
     private val panelPort: Int by config(
         "panel.port",
@@ -49,7 +49,7 @@ class CommunicationHandler : KoinComponent {
     )
     private val auth: String by config(
         "websocket.auth", "session", comment = """
-        |使用的身份验证。 如果您不知道自己在做什么，请保持不变。
+        |使用的身份验证。 如果你不知道自己在做什么，请保持不变。
         |可能的值：none（不推荐）、session
     """.trimMargin()
     ) // Possible values: none, session

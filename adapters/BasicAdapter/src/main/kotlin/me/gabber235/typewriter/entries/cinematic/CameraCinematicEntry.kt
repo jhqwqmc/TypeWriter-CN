@@ -480,7 +480,7 @@ private fun List<PathPoint>.transform(
 
     val allocatedDuration = sumOf { it.duration.orElse(0) }
     if (allocatedDuration > totalDuration) {
-        throw IllegalArgumentException("路径点的总时长大于电影的总时长。")
+        throw IllegalArgumentException("路径点的总时长大于过场动画的总时长。")
     }
 
     val remainingDuration = totalDuration - allocatedDuration
@@ -490,7 +490,7 @@ private fun List<PathPoint>.transform(
 
     if (leftSegments == 0) {
         if (remainingDuration > 0) {
-            logger.warning("路径点的总时长小于电影的总时长。剩余时长将为静止帧。")
+            logger.warning("路径点的总时长小于过场动画的总时长。剩余时长将为静止帧。")
         }
 
         var currentFrame = 0

@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.entries.CustomTriggeringActionEntry
 import org.bukkit.entity.Player
 
 //<code-block:custom_triggering_action_entry>
-@Entry("example_custom_triggering_action", "An example custom triggering entry.", Colors.RED, "material-symbols:touch-app-rounded")
+@Entry("example_custom_triggering_action", "自定义触发条目的示例。", Colors.RED, "material-symbols:touch-app-rounded")
 class ExampleCustomTriggeringActionEntry(
     override val id: String = "",
     override val name: String = "",

@@ -64,9 +64,9 @@ class SelectedRoadNodeContentMode(
         val pathsComponent = +SelectedNodePathsComponent(::selectedNode, ::network)
         bossBar {
             var suffix = editorComponent.state.message
-            if (!pathsComponent.isPathsLoaded) suffix += " <gray><i>(calculating edges)</i></gray>"
+            if (!pathsComponent.isPathsLoaded) suffix += " <gray><i>（计算边缘）</i></gray>"
 
-            title = "Editing <gray>${selectedNode?.id}</gray> node$suffix"
+            title = "正在编辑<gray>${selectedNode?.id}</gray>节点$suffix"
             color = when {
                 editorComponent.state == RoadNetworkEditorState.Dirty -> BossBar.Color.RED
                 !pathsComponent.isPathsLoaded -> BossBar.Color.PURPLE
@@ -267,8 +267,8 @@ class RemoveNodeComponent(
 ) : ItemComponent {
     override fun item(player: Player): Pair<Int, IntractableItem> {
         return slot to (ItemStack(Material.REDSTONE_BLOCK).meta {
-            name = "<red><b>Remove Node"
-            loreString = "<line> <gray>Careful! This action is irreversible."
+            name = "<red><b>移除节点"
+            loreString = "<line> <gray>小心！此操作不可逆。"
         } onInteract {
             onRemove()
         })
@@ -359,12 +359,12 @@ class NodeRadiusComponent(
 
     override fun item(player: Player): Pair<Int, IntractableItem> {
         val item = if (scrolling != null) ItemStack(Material.CALIBRATED_SCULK_SENSOR).meta {
-            name = "<yellow><b>Selecting Radius"
-            loreString = "<line> <gray>Right click to set the radius of the node."
+            name = "<yellow><b>选择半径"
+            loreString = "<line> <gray>右键点击以设置节点的半径。"
             unClickable()
         } else ItemStack(Material.SCULK_SENSOR).meta {
-            name = "<yellow><b>Change Radius"
-            loreString = "<line> <gray>Current radius: <white>${nodeFetcher()?.radius}"
+            name = "<yellow><b>更改半径"
+            loreString = "<line> <gray>当前半径：<white>${nodeFetcher()?.radius}"
             unClickable()
         }
         return slot to (item onInteract {
@@ -431,12 +431,12 @@ private class ModificationComponent(
         val network = networkFetcher()
 
         map[5] = ItemStack(Material.EMERALD).meta {
-            name = "<green><b>Add Fast Travel Connection"
+            name = "<green><b>添加快速旅行连接"
             loreString = """
-                    |<line> <gray>Click on a unconnected node to <green>add a fast travel connection</green> to it.
-                    |<line> <gray>Click on a modified node to <red>remove the connection</red>.
+                    |<line> <gray>点击一个未连接的节点以<green>添加一个快速旅行连接</green>到它。
+                    |<line> <gray>点击一个已修改的节点以<red>移除连接</red>。
                     |
-                    |<line> <gray>If you only want to connect one way, hold <red>Shift</red> while clicking.
+                    |<line> <gray>如果你只想单向连接，请在点击时按住<red>Shift</red>。
                     |""".trimMargin()
             unClickable()
         } onInteract {}
@@ -444,12 +444,12 @@ private class ModificationComponent(
         val hasEdges = network.edges.any { it.start == node.id }
         if (hasEdges) {
             map[6] = ItemStack(Material.REDSTONE).meta {
-                name = "<red><b>Remove Edge"
+                name = "<red><b>移除边缘"
                 loreString = """
-                    |<line> <gray>Click on a connected node to <red>force remove the edge</red> between them.
-                    |<line> <gray>Click on a modified node to allow the edge to be added again.
+                    |<line> <gray>点击一个已连接的节点以<red>强制移除它们之间的边</red>。
+                    |<line> <gray>点击一个已修改的节点以允许再次添加边。
                     |
-                    |<line> <gray>If you only want to remove one way, hold <red>Shift</red> while clicking.
+                    |<line> <gray>如果你只想单向移除，请在点击时按住<red>Shift</red>。
                 """.trimMargin()
                 unClickable()
             } onInteract {

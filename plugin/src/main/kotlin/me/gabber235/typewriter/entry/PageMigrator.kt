@@ -55,7 +55,7 @@ fun File.migrateIfNecessary(run: Int = 0) {
 			| 这可能需要一段时间，请稍候。
 			|
 			| 如果迁移失败，请向开发者报告。
-			| 您的文件将备份到文件夹“plugins/Typewriter/backup”。
+			| 你的文件将备份到文件夹“plugins/Typewriter/backup”。
 			| -------------- 迁移 --------------
 		""".trimMargin()
         )

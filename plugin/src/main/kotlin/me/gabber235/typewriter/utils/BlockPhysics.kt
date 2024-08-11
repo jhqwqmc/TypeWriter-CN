@@ -1125,7 +1125,7 @@ class BlockIterator(start: Vector, direction: Vector, yOffset: Double, maxDistan
     }
 
     override fun remove() {
-        throw UnsupportedOperationException("[BlockIterator] doesn't support block removal")
+        throw UnsupportedOperationException("[BlockIterator] 不支持方块移除")
     }
 
     /**

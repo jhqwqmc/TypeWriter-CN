@@ -61,7 +61,7 @@ class Interaction(val player: Player) : KoinComponent {
                 // Wait for the remainder or the tick
                 val wait = TICK_MS - (endTime - startTime) - AVERAGE_SCHEDULING_DELAY_MS
                 if (wait > 0) delay(wait)
-                else logger.fine("The interaction for ${player.name} is running behind! Took ${endTime - startTime}ms")
+                else logger.fine("玩家${player.name}的交互运行延迟！耗时${endTime - startTime}毫秒")
             }
         }
     }

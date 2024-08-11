@@ -194,7 +194,7 @@ class ObjectEditor<T : Any>(val klass: KClass<T>, val name: String) {
     infix fun <A : Annotation> StaticModifierComputer<A>.with(annotation: A) {
         modifiers.add { _, info ->
             this.computeModifier(annotation, info).onFailure {
-                logger.warning("Failed to compute modifier for ${this.annotationClass::class.simpleName} with annotation $annotation: $it")
+                logger.warning("无法为${this.annotationClass::class.simpleName}计算修饰符，注解$annotation: $it")
                 return@add null
             }.getOrNull()
         }

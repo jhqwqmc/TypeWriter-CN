@@ -162,7 +162,7 @@ class RuntimeTypeAdapterFactory<T : Any> private constructor(
 						= labelToDelegate[label] as? TypeAdapter<R>?
 					?: throw NonExistentSubtypeException(
 						label,
-						"无法反序列化名为 $label 的 $baseType 子类型； 您是否忘记注册子类型？"
+						"无法反序列化名为 $label 的 $baseType 子类型； 你是否忘记注册子类型？"
 					)
 				return delegate.fromJsonTree(jsonElement)
 			}
@@ -175,7 +175,7 @@ class RuntimeTypeAdapterFactory<T : Any> private constructor(
 						= subtypeToDelegate[srcType] as TypeAdapter<R>?
 					?: throw NonExistentSubtypeException(
 						srcType.name,
-						"无法序列化${srcType.name}； 您是否忘记注册子类型？"
+						"无法序列化${srcType.name}； 你是否忘记注册子类型？"
 					)
 				val jsonObject = delegate.toJsonTree(value).asJsonObject
 				if (maintainType) {

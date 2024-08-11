@@ -61,10 +61,10 @@ class NbtRootEncoder(
 ) : AbstractNbtEncoder(nbt) {
 
 	override fun encodeValue(value: Any) {
-		check(redirectKey != null) { "redirectKey must be specified" }
+		check(redirectKey != null) { "必须指定redirectKey" }
 
 		val dataType = NbtDataType.getFor(value)
-		require(dataType != null) { "Unknown data type of provided value" }
+		require(dataType != null) { "提供的值的数据类型未知" }
 
 		nbtData[redirectKey, dataType] = value
 	}
@@ -81,7 +81,7 @@ class NbtRootEncoder(
 
 	@Suppress("UNCHECKED_CAST")
 	override fun consumeStructure(descriptor: SerialDescriptor, nbtList: List<Any>) {
-		check(redirectKey != null) { "redirectKey must be specified" }
+		check(redirectKey != null) { "必须指定redirectKey" }
 
 		nbtData[redirectKey, getNbtDataType(descriptor) as NbtDataType<Any>] = nbtList
 	}

@@ -35,8 +35,8 @@ void main() {
     },
   };
 
-  group("Get field from entry", () {
-    test("When a entry is parsed expect its fields to be able to be fetched",
+  group("从条目获取字段", () {
+    test("当解析条目时，期望能够获取其字段",
         () {
       final entry = Entry(rawDynamicEntry);
 
@@ -60,7 +60,7 @@ void main() {
       expect(entry.get("complex_map.key2.inner_list.1.name"), "test_b");
     });
 
-    test("When a key is not found, null is returned", () {
+    test("当找不到键时，返回 null", () {
       final entry = Entry(rawDynamicEntry);
       expect(entry.get("not_found"), null);
       expect(entry.get("simple_list.4"), null);
@@ -69,7 +69,7 @@ void main() {
       expect(entry.get("simple_map.key3"), null);
     });
 
-    test("When a key is not found, a default value is returned", () {
+    test("当找不到键时，返回默认值", () {
       final entry = Entry(rawDynamicEntry);
       expect(entry.get("not_found", "default"), "default");
       expect(entry.get("simple_list.4", "default"), "default");
@@ -79,8 +79,8 @@ void main() {
     });
   });
 
-  group("Get all fields from entry", () {
-    test("When a path is fetched, all values should be returned", () {
+  group("从条目中获取所有字段", () {
+    test("获取路径时，应返回所有值", () {
       final entry = Entry(rawDynamicEntry);
       expect(entry.getAll("simple_list.*"), [1, 2, 3]);
       expect(entry.getAll("simple_map.*"), ["value1", "value2"]);
@@ -96,8 +96,8 @@ void main() {
     });
   });
 
-  group("Copy entry with new value", () {
-    test("When a dynamic entry is updated, the new value is returned", () {
+  group("复制具有新值的条目", () {
+    test("更新动态条目时，返回新值", () {
       final entry = Entry(rawDynamicEntry);
       var newEntry = entry.copyWith("simple_list.1", 4);
       expect(newEntry.get("simple_list.1"), 4);
@@ -113,13 +113,13 @@ void main() {
       expect(newEntry.get("complex_map.key2.inner_list.1.name"), "new_name");
     });
 
-    test("When an list is updated, expect the new list to be returned", () {
+    test("更新列表时，期望返回新列表", () {
       final entry = Entry(rawDynamicEntry);
       final newEntry = entry.copyWith("simple_list", [4, 5, 6]);
       expect(newEntry.get("simple_list"), [4, 5, 6]);
     });
 
-    test("When an map is updated, expect the new map to be returned", () {
+    test("更新地图时，期望返回新地图", () {
       final entry = Entry(rawDynamicEntry);
       final newEntry = entry
           .copyWith("simple_map", {"key1": "new_value", "key2": "new_value"});
@@ -129,7 +129,7 @@ void main() {
       });
     });
 
-    test("When an entry is updated, expect the original entry to be unchanged",
+    test("更新条目时，期望原始条目保持不变",
         () {
       final entry = Entry(rawDynamicEntry);
       // ignore: cascade_invocations
@@ -138,7 +138,7 @@ void main() {
     });
 
     test(
-        "When an entry is updated with a non-existent path, expect the path to be created",
+        "当用不存在的路径更新条目时，期望该路径被创建",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry = entry.copyWith("new_path.1.something", "new_value");
@@ -146,7 +146,7 @@ void main() {
     });
 
     test(
-        "When an entry is updated with a non-existent path with wildcard, expect nothing to happen",
+        "当用带有通配符的不存在路径更新条目时，期望什么都不会发生",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry = entry.copyWith("new_path.*.something", "new_value");
@@ -154,9 +154,9 @@ void main() {
     });
   });
 
-  group("Copy Mapped", () {
+  group("复制已映射", () {
     test(
-        "When copying while modifying simple static field expect the field to change",
+        "在修改简单静态字段时复制，期望字段会改变",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry = entry.copyMapped("simple_list.1", (value) => value + 1);
@@ -179,7 +179,7 @@ void main() {
     });
 
     test(
-        "When copying while modifying complex static field expect the field to change",
+        "在修改复杂静态字段时复制，期望字段会改变",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry =
@@ -203,7 +203,7 @@ void main() {
     });
 
     test(
-        "When copying while modifying simple dynamic field expect the field to change",
+        "在修改简单动态字段时复制，期望字段会改变",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry =
@@ -222,7 +222,7 @@ void main() {
     });
 
     test(
-        "When copying while modifying complex dynamic field expect the field to change",
+        "在修改复杂动态字段时复制，期望字段会改变",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry =
@@ -241,7 +241,7 @@ void main() {
     });
 
     test(
-        "When copying while modifying fields with multiple *'s and a final field expect the fields to change",
+        "在修改带有多个*和最终字段的字段时复制，期望字段会改变",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry = entry.copyMapped(
@@ -258,7 +258,7 @@ void main() {
     });
 
     test(
-        "When copying while modifying simple dynamic field to null expect the field to be removed",
+        "在修改简单动态字段为null时复制，期望字段被移除",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry = entry.copyMapped(
@@ -274,7 +274,7 @@ void main() {
     });
 
     test(
-        "When copying while modifying complex dynamic field to null expect the field to be removed",
+        "在修改复杂动态字段为null时复制，期望字段被移除",
         () {
       final entry = Entry(rawDynamicEntry);
       final newEntry = entry.copyMapped(
@@ -293,20 +293,20 @@ void main() {
     });
   });
 
-  group("New Paths", () {
-    test("Static path returns only that path", () {
+  group("新路径", () {
+    test("静态路径仅返回该路径", () {
       final entry = Entry(rawDynamicEntry);
       final paths = entry.newPaths("simple_map.key1");
 
       expect(paths, ["simple_map.key1"]);
     });
-    test("Simple list returns path with next index", () {
+    test("简单列表返回带有下一个索引的路径", () {
       final entry = Entry(rawDynamicEntry);
       final paths = entry.newPaths("simple_list.*");
 
       expect(paths, ["simple_list.3"]);
     });
-    test("Complex list with fixed ending returns all paths", () {
+    test("带有固定结尾的复杂列表返回所有路径", () {
       final entry = Entry(rawDynamicEntry);
       final paths = entry.newPaths("complex_list.*.name");
 
@@ -316,13 +316,13 @@ void main() {
         "complex_list.2.name",
       ]);
     });
-    test("Simple map with wildcard ending returns all paths", () {
+    test("带有通配符结尾的简单映射返回所有路径", () {
       final entry = Entry(rawDynamicEntry);
       final paths = entry.newPaths("simple_map.*");
 
       expect(paths, ["simple_map.key1", "simple_map.key2"]);
     });
-    test("Complex map with ending list returns next index", () {
+    test("带有结尾列表的复杂映射返回下一个索引", () {
       final entry = Entry(rawDynamicEntry);
       final paths = entry.newPaths("complex_map.*.inner_list.*");
 
@@ -331,7 +331,7 @@ void main() {
         "complex_map.key2.inner_list.3",
       ]);
     });
-    test("Multi wildcard path with fixed ending returns all paths", () {
+    test("带有固定结尾的多通配符路径返回所有路径", () {
       final entry = Entry(rawDynamicEntry);
       final paths = entry.newPaths("complex_map.*.inner_list.*.name");
 

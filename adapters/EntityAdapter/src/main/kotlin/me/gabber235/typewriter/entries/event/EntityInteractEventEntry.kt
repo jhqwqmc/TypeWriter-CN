@@ -11,7 +11,7 @@ import me.gabber235.typewriter.events.AsyncEntityDefinitionInteract
 
 @Entry(
     "entity_interact_event",
-    "When the player clicks on an entity",
+    "当玩家点击一个实体时",
     Colors.YELLOW,
     "fa6-solid:people-robbery"
 )

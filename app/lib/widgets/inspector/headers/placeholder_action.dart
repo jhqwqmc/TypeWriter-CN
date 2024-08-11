@@ -27,7 +27,7 @@ class PlaceholderHeaderAction extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return const InfoHeaderAction(
       tooltip:
-          "支持 %player_name% 等占位符。单击以了解更多信息。",
+          "支持 %player_name% 等占位符。点击以了解更多信息。",
       icon: TWIcons.subscript,
       color: Color(0xFF00b300),
       url: "https://github.com/PlaceholderAPI/PlaceholderAPI/wiki",

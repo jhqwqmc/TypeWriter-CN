@@ -94,7 +94,7 @@ class AdapterLoaderImpl : AdapterLoader, KoinComponent {
                 |${"-".repeat(15)}{ 未加载适配器 }${"-".repeat(15)}
                 |
                 |未加载任何适配器。
-                |您应该至少加载 BasicAdapter。
+                |你应该至少加载 BasicAdapter。
                 |
                 |${"-".repeat(50)}
                 """.trimMargin()

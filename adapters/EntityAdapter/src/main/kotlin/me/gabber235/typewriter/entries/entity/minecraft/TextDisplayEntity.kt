@@ -22,7 +22,7 @@ import me.tofaa.entitylib.meta.display.TextDisplayMeta
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("text_display_definition", "A text display entity", Colors.ORANGE, "material-symbols:text-ad-rounded")
+@Entry("text_display_definition", "文本展示实体", Colors.ORANGE, "material-symbols:text-ad-rounded")
 @Tags("text_display_definition")
 /**
  * The `TextDisplayDefinition` class is an entry that represents a text display entity.
@@ -43,7 +43,7 @@ class TextDisplayDefinition(
 
 @Entry(
     "text_display_instance",
-    "An instance of a text display entity",
+    "文本展示实体的实例",
     Colors.YELLOW,
     "material-symbols:text-ad-rounded"
 )

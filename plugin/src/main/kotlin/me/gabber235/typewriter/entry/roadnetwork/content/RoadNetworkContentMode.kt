@@ -42,20 +42,20 @@ class RoadNetworkContentMode(context: ContentContext, player: Player) : ContentM
     private val network get() = editorComponent.network
 
     override suspend fun setup(): Result<Unit> {
-        val entryId = context.entryId ?: return failure("No entry id found for RoadNetworkContentMode")
+        val entryId = context.entryId ?: return failure("未找到RoadNetworkContentMode的条目ID")
 
         ref = Ref(entryId, RoadNetworkEntry::class)
-        ref.get() ?: return failure("No entry '$entryId' found for RoadNetworkContentMode")
+        ref.get() ?: return failure("未找到RoadNetworkContentMode的条目'$entryId'")
 
         editorComponent = +RoadNetworkEditorComponent(ref)
 
         bossBar {
             val componentState = editorComponent.state
             var suffix = ""
-            if (highlighting) suffix += " <yellow>(highlighting)</yellow>"
+            if (highlighting) suffix += " <yellow>（高亮）</yellow>"
             suffix += componentState.message
 
-            title = "Editing Road Network$suffix"
+            title = "正在编辑道路网络$suffix"
             color = when {
                 componentState == RoadNetworkEditorState.Dirty -> BossBar.Color.RED
                 componentState is RoadNetworkEditorState.Calculating -> BossBar.Color.PURPLE
@@ -188,17 +188,17 @@ private class NetworkAddNodeComponent(
 ) : ContentComponent, ItemsComponent {
     override fun items(player: Player): Map<Int, IntractableItem> {
         val addNodeItem = ItemStack(Material.DIAMOND).meta {
-            name = "<green><b>Add Node"
-            loreString = "<line> <gray>Click to add a new node to the road network"
+            name = "<green><b>添加节点"
+            loreString = "<line> <gray>点击即可将新节点添加到道路网络"
         } onInteract {
             if (it.type.isClick) onAdd()
         }
 
         val addNegativeNodeItem = ItemStack(Material.NETHERITE_INGOT).meta {
-            name = "<red><b>Add Negative Node"
+            name = "<red><b>添加负节点"
             loreString = """
-                |<line> <gray>Click to add a new negative node to the road network
-                |<line> <gray>Blocking pathfinding through its radius
+                |<line> <gray>点击以向道路网络添加一个新的负节点
+                |<line> <gray>通过其半径阻止路径查找
                 """.trimMargin()
         } onInteract {
             if (it.type.isClick) onAddNegative()
@@ -220,8 +220,8 @@ private class NetworkHighlightComponent(
 ) : ItemComponent {
     override fun item(player: Player): Pair<Int, IntractableItem> {
         val item = ItemStack(Material.GLOWSTONE_DUST).meta {
-            name = "<yellow><b>Highlight Nodes"
-            loreString = "<line> <gray>Click to highlight all nodes"
+            name = "<yellow><b>高亮节点"
+            loreString = "<line> <gray>点击以高亮所有节点"
         } onInteract {
             if (!it.type.isClick) return@onInteract
             onHighlight()
@@ -237,8 +237,8 @@ private class NetworkRecalculateAllEdgesComponent(
 ) : ItemComponent {
     override fun item(player: Player): Pair<Int, IntractableItem> {
         val item = ItemStack(Material.REDSTONE).meta {
-            name = "<red><b>Recalculate Edges"
-            loreString = "<line> <gray>Click to recalculate all edges, this might take a while."
+            name = "<red><b>重新计算边缘"
+            loreString = "<line> <gray>点击以重新计算所有边缘，这可能需要一些时间。"
         } onInteract {
             if (!it.type.isClick) return@onInteract
             onRecalculate()

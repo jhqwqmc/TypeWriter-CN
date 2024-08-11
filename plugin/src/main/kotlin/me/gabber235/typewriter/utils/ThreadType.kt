@@ -30,7 +30,7 @@ enum class ThreadType {
                 SYNC -> plugin.minecraftDispatcher
                 ASYNC -> plugin.asyncDispatcher
                 DISPATCHERS_ASYNC -> Dispatchers.IO
-                else -> throw IllegalStateException("Unknown thread type: $this")
+                else -> throw IllegalStateException("未知的线程类型：$this")
             }
         ) {
             block()

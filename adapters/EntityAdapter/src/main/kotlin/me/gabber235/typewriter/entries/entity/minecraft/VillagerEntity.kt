@@ -25,7 +25,7 @@ import org.bukkit.Location
 import org.bukkit.entity.Player
 
 
-@Entry("villager_definition", "A villager entity", Colors.ORANGE, "material-symbols:diamond")
+@Entry("villager_definition", "村民实体", Colors.ORANGE, "material-symbols:diamond")
 @Tags("villager_definition")
 /**
  * The `VillagerDefinition` class is an entry that shows up as a villager in-game.
@@ -44,7 +44,7 @@ class VillagerDefinition(
     override fun create(player: Player): FakeEntity = VillagerEntity(player)
 }
 
-@Entry("villager_instance", "An instance of a villager entity", Colors.YELLOW, "material-symbols:diamond")
+@Entry("villager_instance", "村民实体的实例", Colors.YELLOW, "material-symbols:diamond")
 class VillagerInstance(
     override val id: String = "",
     override val name: String = "",

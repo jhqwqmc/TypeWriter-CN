@@ -17,7 +17,7 @@ object ContentEditorModifierComputer : StaticModifierComputer<ContentEditor> {
     override fun computeModifier(annotation: ContentEditor, info: FieldInfo): Result<FieldModifier?> {
         val contentMode = annotation.capturer
         val name = contentMode.qualifiedName
-            ?: return failure("ContentEditor ${contentMode.jvmName} does not have a qualified name! It must be a non-local non-anonymous class.")
+            ?: return failure("ContentEditor ${contentMode.jvmName} 没有合格名称！它必须是一个非本地的非匿名类。")
 
         return ok(FieldModifier.DynamicModifier("contentMode", name))
     }

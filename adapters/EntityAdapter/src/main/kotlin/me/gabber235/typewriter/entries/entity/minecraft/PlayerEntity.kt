@@ -34,7 +34,7 @@ import org.bukkit.Location
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("player_definition", "A player entity", Colors.ORANGE, "material-symbols:account-box")
+@Entry("player_definition", "玩家实体", Colors.ORANGE, "material-symbols:account-box")
 @Tags("player_definition")
 /**
  * The `PlayerDefinition` class is an entry that represents a player entity.
@@ -54,7 +54,7 @@ class PlayerDefinition(
     override fun create(player: Player): FakeEntity = PlayerEntity(player, displayName)
 }
 
-@Entry("player_instance", "An instance of a player entity", Colors.YELLOW, "material-symbols:account-box")
+@Entry("player_instance", "玩家实体的实例", Colors.YELLOW, "material-symbols:account-box")
 /**
  * The `PlayerInstance` class is an entry that represents an instance of a player entity.
  */

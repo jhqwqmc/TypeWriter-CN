@@ -19,7 +19,7 @@ import org.bukkit.event.EventHandler
 
 @Entry(
     "region_audience",
-    "Filter players based on if they are in a region",
+    "根据玩家是否在某个区域进行筛选",
     Colors.MEDIUM_SEA_GREEN,
     "gis:location-man"
 )
@@ -34,7 +34,7 @@ class RegionAudienceEntry(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
-    @Help("The region to filter players based on")
+    @Help("根据区域筛选玩家")
     val region: String = "",
     override val inverted: Boolean = false,
 ) : AudienceFilterEntry, Invertible {

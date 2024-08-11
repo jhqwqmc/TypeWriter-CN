@@ -8,7 +8,7 @@ import me.gabber235.typewriter.entry.entries.ArtifactEntry
 import org.koin.java.KoinJavaComponent
 
 //<code-block:artifact_entry>
-@Entry("example_artifact", "An example artifact entry.", Colors.BLUE, "material-symbols:home-storage-rounded")
+@Entry("example_artifact", "示例工件条目。", Colors.BLUE, "material-symbols:home-storage-rounded")
 class ExampleArtifactEntry(
     override val id: String = "",
     override val name: String = "",

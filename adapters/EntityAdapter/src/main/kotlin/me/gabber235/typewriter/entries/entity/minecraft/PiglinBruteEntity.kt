@@ -22,7 +22,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("piglin_brute_definition", "A piglin brute entity", Colors.ORANGE, "mdi:axe")
+@Entry("piglin_brute_definition", "猪灵蛮兵实体", Colors.ORANGE, "mdi:axe")
 @Tags("piglin_brute_definition")
 /**
  * The `PiglinBruteDefinition` class is an entry that shows up as a piglin brute in-game.
@@ -41,7 +41,7 @@ class PiglinBruteDefinition(
     override fun create(player: Player): FakeEntity = PiglinBruteEntity(player)
 }
 
-@Entry("piglin_brute_instance", "An instance of a piglin brute entity", Colors.YELLOW, "mdi:axe")
+@Entry("piglin_brute_instance", "猪灵蛮兵实体的实例", Colors.YELLOW, "mdi:axe")
 class PiglinBruteInstance(
     override val id: String = "",
     override val name: String = "",

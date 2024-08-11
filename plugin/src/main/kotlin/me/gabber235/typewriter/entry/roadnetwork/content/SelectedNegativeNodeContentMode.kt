@@ -40,7 +40,7 @@ class SelectedNegativeNodeContentMode(
         bossBar {
             val suffix = editorComponent.state.message
 
-            title = "Editing <gray>${selectedNode?.id}</gray> node$suffix"
+            title = "正在编辑<gray>${selectedNode?.id}</gray>节点$suffix"
             color = when {
                 editorComponent.state == RoadNetworkEditorState.Dirty -> BossBar.Color.RED
                 else -> BossBar.Color.GREEN

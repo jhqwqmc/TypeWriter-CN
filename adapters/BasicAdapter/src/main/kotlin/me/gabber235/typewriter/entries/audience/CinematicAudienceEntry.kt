@@ -20,7 +20,7 @@ import org.bukkit.event.EventHandler
 
 @Entry(
     "cinematic_audience",
-    "Filters an audience based on if they are in a cinematic",
+    "根据观众是否在过场动画中来过滤他们",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:movie"
 )
@@ -36,7 +36,7 @@ class CinematicAudienceEntry(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
-    @Help("When not set it will filter based on if any cinematic is active.")
+    @Help("当未设置时，它将根据是否有任何过场动画处于活动状态进行过滤。")
     @Page(PageType.CINEMATIC)
     @SerializedName("cinematic")
     val pageId: String = "",

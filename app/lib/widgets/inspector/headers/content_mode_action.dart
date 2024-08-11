@@ -49,8 +49,8 @@ class ContentModeHeaderAction extends HookConsumerWidget {
     if (entryId == null) {
       Toasts.showError(
         ref,
-        "No Entry Selected",
-        description: "An entry must be selected to capture a field.",
+        "未选择条目",
+        description: "必须选择一个条目才能捕获字段。",
       );
       return;
     }
@@ -63,8 +63,8 @@ class ContentModeHeaderAction extends HookConsumerWidget {
     if (pageId == null) {
       Toasts.showError(
         ref,
-        "No Page Selected",
-        description: "A page must be selected to capture a field.",
+        "未选择页面",
+        description: "必须选择一个页面才能捕获字段。",
       );
       return;
     }
@@ -104,7 +104,7 @@ class ContentModeHeaderAction extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final header = Header.maybeOf(context);
     return HeaderButton(
-      tooltip: "Request Content Mode",
+      tooltip: "请求内容模式",
       icon: TWIcons.camera,
       onTap: () => _requestContentMode(ref.passing, header),
     );

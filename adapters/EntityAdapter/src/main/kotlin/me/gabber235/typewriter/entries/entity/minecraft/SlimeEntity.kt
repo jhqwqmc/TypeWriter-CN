@@ -20,7 +20,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("slime_definition", "A slime entity", Colors.ORANGE, "ph:slime-fill")
+@Entry("slime_definition", "史莱姆实体", Colors.ORANGE, "ph:slime-fill")
 @Tags("slime_definition")
 /**
  * The `SlimeDefinition` class is an entry that represents a slime entity.
@@ -39,7 +39,7 @@ class SlimeDefinition(
     override fun create(player: Player): FakeEntity = SlimeEntity(player)
 }
 
-@Entry("slime_instance", "An instance of a slime entity", Colors.YELLOW, "ph:slime-fill")
+@Entry("slime_instance", "史莱姆实体的实例", Colors.YELLOW, "ph:slime-fill")
 /**
  * The `SlimeInstance` class is an entry that represents an instance of a slime entity.
  *

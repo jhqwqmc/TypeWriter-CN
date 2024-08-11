@@ -48,7 +48,7 @@ class PointToPointGPS(
         previousStart = startPair
 
         if (startPair.second?.isEmpty() == true || endPair.second?.isEmpty() == true) {
-            return@switchContext failure("Could not find a path between $start and $end. The network is not connected.")
+            return@switchContext failure("无法找到从 $start 到 $end 的路径。网络未连接。")
         }
 
         if (startPair.first == endPair.first) return@switchContext ok(emptyList())
@@ -59,12 +59,12 @@ class PointToPointGPS(
 
         val nodes = ComputedMap { id: RoadNodeId ->
             network.nodes.firstOrNull { it.id == id }
-                ?: throw IllegalStateException("Could not find node $id in the network, possible nodes: ${network.nodes.map { it.id }}, edges: ${network.edges}, start: $startPair, end: $endPair")
+                ?: throw IllegalStateException("在网络中找不到节点 $id ，可能的节点：${network.nodes.map { it.id }}，边：${network.edges}，起点： $startPair ，终点： $endPair ")
         }
         val path = findPath(nodes, network.edges, previousPath, startPair.first, endPair.first)
         if (path.isFailure) {
             return@switchContext path.exceptionOrNull()?.let { failure(it) }
-                ?: failure("Could not find a path between $start and $end.")
+                ?: failure("无法找到从 $start 到 $end 的路径。")
         }
         previousPath = path.getOrThrow()
         ok(previousPath.map { edge ->
@@ -119,12 +119,12 @@ class PointToPointGPS(
 
 
                 val next = nodes[edge.end]
-                    ?: throw IllegalStateException("Could not find node ${edge.end} in the network, possible nodes: ${nodes.keys}")
+                    ?: throw IllegalStateException("在网络中找不到节点${edge.end}，可能的节点：${nodes.keys}")
                 insertInspecting(end.location, startEndDistance, edge, next, current, inspecting)
             }
         }
 
-        return failure("Could not find a path between $start and $end during search. The network is not connected.")
+        return failure("在搜索过程中无法找到从 $start 到 $end 的路径。网络未连接。")
     }
 
     private fun findPathFromEnd(
@@ -161,12 +161,12 @@ class PointToPointGPS(
                 if (visited.containsKey(edge.start)) continue
 
                 val next = nodes[edge.start]
-                    ?: throw IllegalStateException("Could not find node ${edge.start} in the network, possible nodes: ${nodes.keys}")
+                    ?: throw IllegalStateException("在网络中找不到节点${edge.start}，可能的节点：${nodes.keys}")
                 insertInspecting(start.location, startEndDistance, edge, next, current, inspecting)
             }
         }
 
-        return failure("Could not find a path between $start and $end during search. The network is not connected.")
+        return failure("在搜索过程中无法找到从 $start 到 $end 的路径。网络未连接。")
     }
 
     private fun insertInspecting(

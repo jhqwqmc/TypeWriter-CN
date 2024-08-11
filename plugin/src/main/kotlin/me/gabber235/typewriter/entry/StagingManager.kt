@@ -150,17 +150,17 @@ class StagingManagerImpl : StagingManager, KoinComponent {
     }
 
     override fun moveEntry(entryId: String, fromPage: String, toPage: String): Result<String> {
-        val from = pages[fromPage] ?: return failure("Page '$fromPage' does not exist")
-        val to = pages[toPage] ?: return failure("Page '$toPage' does not exist")
+        val from = pages[fromPage] ?: return failure("页面 '$fromPage' 不存在")
+        val to = pages[toPage] ?: return failure("页面 '$toPage' 不存在")
 
         val entry = from["entries"].asJsonArray.find { it.asJsonObject["id"].asString == entryId }
-            ?: return failure("Entry does not exist in page '$fromPage'")
+            ?: return failure("条目在页面 '$fromPage' 中不存在")
 
         from["entries"].asJsonArray.remove(entry)
         to["entries"].asJsonArray.add(entry)
 
         autoSaver()
-        return ok("Successfully moved entry")
+        return ok("成功移动条目")
     }
 
     override fun createEntry(pageId: String, data: JsonObject): Result<String> {
@@ -354,14 +354,14 @@ fun Ref<out Entry>.fieldValue(path: String, value: Any) {
 
     val pageId = pageId
     if (pageId == null) {
-        logger.warning("No pageId found for $this. Did you forgot to publish?")
+        logger.warning("未找到 $this 的 pageId 。你是否忘记发布了？")
         return
     }
 
     val json = gson.toJsonTree(value)
     val result = stagingManager.updateEntryField(pageId, id, path, json)
     if (result.isFailure) {
-        logger.warning("Failed to update field: ${result.exceptionOrNull()}")
+        logger.warning("更新字段失败：${result.exceptionOrNull()}")
         return
     }
 

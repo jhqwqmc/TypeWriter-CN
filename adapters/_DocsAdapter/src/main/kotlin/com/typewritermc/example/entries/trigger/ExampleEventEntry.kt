@@ -9,7 +9,7 @@ import org.bukkit.event.HandlerList
 import org.bukkit.event.player.PlayerEvent
 
 //<code-block:event_entry>
-@Entry("example_event", "An example event entry.", Colors.YELLOW, "material-symbols:bigtop-updates")
+@Entry("example_event", "事件条目示例。", Colors.YELLOW, "material-symbols:bigtop-updates")
 class ExampleEventEntry(
     override val id: String = "",
     override val name: String = "",

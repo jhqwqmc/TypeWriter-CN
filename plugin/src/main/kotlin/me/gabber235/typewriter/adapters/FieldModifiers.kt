@@ -171,7 +171,7 @@ fun computeFieldModifiers(field: Field, info: FieldInfo) {
         if (result.isSuccess) {
             result.getOrNull()
         } else {
-            logger.warning("Failed to compute modifier ${computer::class.simpleName} for field ${field.name} in ${field.declaringClass.simpleName}: ${result.exceptionOrNull()?.message}")
+            logger.warning("无法为${field.declaringClass.simpleName}中的字段${field.name}计算修饰符${computer::class.simpleName}：${result.exceptionOrNull()?.message}")
             null
         }
     }.forEach { it.appendModifier(info) }

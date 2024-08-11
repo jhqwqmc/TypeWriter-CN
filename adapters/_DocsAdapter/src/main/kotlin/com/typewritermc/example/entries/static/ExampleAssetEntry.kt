@@ -8,7 +8,7 @@ import me.gabber235.typewriter.entry.entries.AssetEntry
 import org.koin.java.KoinJavaComponent
 
 //<code-block:asset_entry>
-@Entry("example_asset", "An example asset entry.", Colors.BLUE, "material-symbols:home-storage-rounded")
+@Entry("example_asset", "资源条目示例。", Colors.BLUE, "material-symbols:home-storage-rounded")
 class ExampleAssetEntry(
     override val id: String = "",
     override val name: String = "",

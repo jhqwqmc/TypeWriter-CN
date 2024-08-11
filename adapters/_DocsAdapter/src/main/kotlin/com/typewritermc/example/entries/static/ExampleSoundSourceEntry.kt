@@ -6,7 +6,7 @@ import me.gabber235.typewriter.entry.entries.SoundSourceEntry
 import net.kyori.adventure.sound.Sound
 
 //<code-block:sound_source_entry>
-@Entry("example_sound_source", "An example sound source entry.", Colors.BLUE, "ic:round-spatial-audio-off")
+@Entry("example_sound_source", "示例声源条目。", Colors.BLUE, "ic:round-spatial-audio-off")
 class ExampleSoundSourceEntry(
     override val id: String = "",
     override val name: String = "",

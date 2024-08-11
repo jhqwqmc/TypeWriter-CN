@@ -44,7 +44,7 @@ class ErrorConnectPage extends HookConsumerWidget {
             ),
           ),
           Text(
-            "与服务器通信时出错。\n请检查您的连接并重试。",
+            "与服务器通信时出错。\n请检查你的连接并重试。",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20, color: Colors.grey),
           ),

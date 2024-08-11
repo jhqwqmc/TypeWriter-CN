@@ -18,7 +18,7 @@ import org.koin.core.component.inject
 import java.util.*
 
 
-private val noneTracked by snippet("quest.tracked.none", "<gray>None tracked</gray>")
+private val noneTracked by snippet("quest.tracked.none", "<gray>未跟踪</gray>")
 
 object PlaceholderExpansion : PlaceholderExpansion(), KoinComponent {
     private val plugin: Plugin by inject()

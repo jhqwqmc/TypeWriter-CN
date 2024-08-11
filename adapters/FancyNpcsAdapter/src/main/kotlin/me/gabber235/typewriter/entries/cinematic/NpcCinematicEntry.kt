@@ -26,7 +26,7 @@ import org.koin.core.qualifier.named
 import org.koin.java.KoinJavaComponent
 
 interface NpcCinematicEntry : PrimaryCinematicEntry {
-    @Help("Recorded segments of the NPC's interactions")
+    @Help("录制NPC互动片段")
     @Segments(Colors.PINK, "fa6-solid:person-walking")
     val recordedSegments: List<NpcRecordedSegment>
 }
@@ -34,7 +34,7 @@ interface NpcCinematicEntry : PrimaryCinematicEntry {
 class NpcRecordedSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("The artifact for the recorded interactions data")
+    @Help("记录交互数据的工件")
     val artifact: Ref<FancyNpcMovementArtifact> = emptyRef(),
 ) : Segment
 

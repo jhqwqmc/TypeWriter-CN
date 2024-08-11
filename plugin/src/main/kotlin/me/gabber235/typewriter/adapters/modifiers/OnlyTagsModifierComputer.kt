@@ -17,11 +17,11 @@ object OnlyTagsModifierComputer : StaticModifierComputer<OnlyTags> {
         innerCompute(annotation, info)?.let { return ok(it) }
 
         if (info !is CustomField) {
-            return failure("OnlyTags annotation can only be used on Refs (including in lists or maps)!")
+            return failure("OnlyTags注解只能用于Refs（包括列表或映射中的Refs）！")
         }
 
         if (info.editor != "entryReference") {
-            return failure("OnlyTags annotation can only be used on Refs (including in lists or maps)!")
+            return failure("OnlyTags注解只能用于Refs（包括列表或映射中的Refs）！")
         }
 
         return ok(FieldModifier.DynamicModifier("only_tags", annotation.tags.joinToString(",")))

@@ -134,3 +134,4 @@ plugin/qodana.yaml
 code_generator/EntityEyeHeightProperty.kt
 code_generator/EntityHeightProperty.kt
 code_generator/EntityWidthProperty.kt
+/.vscode

@@ -20,7 +20,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("witch_definition", "A witch entity", Colors.ORANGE, "game-icons:pointy-hat")
+@Entry("witch_definition", "女巫实体", Colors.ORANGE, "game-icons:pointy-hat")
 @Tags("witch_definition")
 /**
  * The `WitchDefinition` class is an entry that shows up as a witch in-game.
@@ -39,7 +39,7 @@ class WitchDefinition(
     override fun create(player: Player): FakeEntity = WitchEntity(player)
 }
 
-@Entry("witch_instance", "An instance of a witch entity", Colors.YELLOW, "game-icons:pointy-hat")
+@Entry("witch_instance", "女巫实体的实例", Colors.YELLOW, "game-icons:pointy-hat")
 class WitchInstance(
     override val id: String = "",
     override val name: String = "",

@@ -18,11 +18,11 @@ object NegativeModifierComputer : StaticModifierComputer<Negative> {
         innerCompute(annotation, info)?.let { return ok(it) }
 
         if (info !is PrimitiveField) {
-            return failure("Negative annotation can only be used on numbers (including in lists or maps)!")
+            return failure("负注解只能用于数字（包括列表或映射中的数字）！")
         }
 
         if (info.type != PrimitiveFieldType.INTEGER && info.type != PrimitiveFieldType.DOUBLE) {
-            return failure("Negative annotation can only be used on numbers (including in lists or maps)!")
+            return failure("负注解只能用于数字（包括列表或映射中的数字）！")
         }
 
         return ok(FieldModifier.StaticModifier("negative"))

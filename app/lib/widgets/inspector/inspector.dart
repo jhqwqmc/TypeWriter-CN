@@ -188,14 +188,14 @@ class NoBlueprintEntryInspector extends HookConsumerWidget {
         const SizedBox(height: 12),
         Text(
           """
-          |The blueprint for this entry does not exist.
+          |此条目的蓝图不存在。
           |
-          |This can happen if the adapter for this entry is no longer installed.
-          |Or if the adapter removed the entry type.
+          |如果不再安装此条目的适配器，则会发生这种情况。
+          |或者如果适配器删除了条目类型。
           |
-          |To fix this, you can either:
-          | - Install the adapter again.
-          | - Remove the entry.
+          |要解决此问题，你可以：
+          | - 再次安装适配器。
+          | - 删除条目。
         """
               .trimMargin(),
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(),

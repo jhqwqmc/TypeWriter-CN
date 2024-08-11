@@ -24,8 +24,8 @@ import java.util.*
 import java.util.concurrent.ConcurrentLinkedQueue
 import kotlin.math.min
 
-private val darkenLimit by snippet("chat.darken-limit", 12, "The amount of messages displayed in the chat history during a dialogue")
-private val spacing by snippet("chat.spacing", 3, "The amount of padding between the dialogue and the chat history")
+private val darkenLimit by snippet("chat.darken-limit", 12, "对话期间在聊天记录中显示的消息数量")
+private val spacing by snippet("chat.spacing", 3, "对话与聊天记录之间的填充量")
 
 class ChatHistoryHandler :
     PacketListenerAbstract(PacketListenerPriority.HIGH), Listener {

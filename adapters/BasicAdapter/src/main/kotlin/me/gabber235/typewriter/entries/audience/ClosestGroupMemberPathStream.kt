@@ -12,7 +12,7 @@ import me.gabber235.typewriter.entry.roadnetwork.gps.PathStreamDisplay
 
 @Entry(
     "closest_group_member_path_stream",
-    "A Path Stream to the Closest Group Member",
+    "到最近组成员的路径流",
     Colors.GREEN,
     "material-symbols:conversion-path"
 )

@@ -22,7 +22,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("zombie_definition", "A zombie entity", Colors.ORANGE, "game-icons:shambling-zombie")
+@Entry("zombie_definition", "僵尸实体", Colors.ORANGE, "game-icons:shambling-zombie")
 @Tags("zombie_definition")
 /**
  * The `ZombieDefinition` class is an entry that shows up as a zombie in-game.
@@ -41,7 +41,7 @@ class ZombieDefinition(
     override fun create(player: Player): FakeEntity = ZombieEntity(player)
 }
 
-@Entry("zombie_instance", "An instance of a zombie entity", Colors.YELLOW, "game-icons:shambling-zombie")
+@Entry("zombie_instance", "僵尸实体的实例", Colors.YELLOW, "game-icons:shambling-zombie")
 class ZombieInstance(
     override val id: String = "",
     override val name: String = "",

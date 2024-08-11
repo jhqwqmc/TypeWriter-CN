@@ -32,7 +32,7 @@ fun Inventory.getSerializableNbtData(title: String? = null): NbtData {
 
 fun NbtData.deserializeItemStack(): ItemStack {
 	return ItemStack(
-		Material.matchMaterial(tag["id"]) ?: error("Invalid material id"),
+		Material.matchMaterial(tag["id"]) ?: error("无效的材料ID"),
 		tag.getOrDefault<Byte>("Count") { 1 }.toInt(),
 		tag.get<NbtData>("tag"),
 	)

@@ -19,7 +19,7 @@ import org.bukkit.entity.Player
 import java.time.Duration
 
 //<code-block:dialogue_entry>
-@Entry("example_dialogue", "An example dialogue entry.", Colors.BLUE, "material-symbols:chat-rounded")
+@Entry("example_dialogue", "对话条目示例。", Colors.BLUE, "material-symbols:chat-rounded")
 class ExampleDialogueEntry(
     override val id: String = "",
     override val name: String = "",
@@ -30,7 +30,7 @@ class ExampleDialogueEntry(
     @MultiLine
     @Placeholder
     @Colored
-    @Help("The text to display to the player.")
+    @Help("向玩家显示的文本。")
     val text: String = "",
 ) : DialogueEntry
 //</code-block:dialogue_entry>

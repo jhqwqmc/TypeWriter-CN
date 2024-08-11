@@ -486,7 +486,7 @@ extension PageX on Page {
     showConfirmationDialogue(
       context: context,
       title: "删除条目",
-      content: "您确定要删除此条目吗？",
+      content: "你确定要删除此条目吗？",
       confirmText: "删除",
       onConfirm: () {
         final entry = ref.read(entryProvider(pageName, entryId));

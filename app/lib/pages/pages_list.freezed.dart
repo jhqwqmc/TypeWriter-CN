@@ -12,7 +12,7 @@ part of 'pages_list.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    '看起来您使用 `MyClass._()` 构造了您的类。此构造函数仅供 freezed 使用，您不需要它，也不会使用它。\n请查看此处的文档以获取更多信息：https://github.com/rroussselGit/freezed#adding-getters-and-methods-to-our-models');
+    '看起来你使用 `MyClass._()` 构造了你的类。此构造函数仅供 freezed 使用，你不需要它，也不会使用它。\n请查看此处的文档以获取更多信息：https://github.com/rroussselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PageData {

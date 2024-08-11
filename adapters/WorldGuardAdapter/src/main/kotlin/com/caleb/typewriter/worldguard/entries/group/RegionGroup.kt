@@ -9,7 +9,7 @@ import me.gabber235.typewriter.entry.entries.GroupEntry
 import me.gabber235.typewriter.entry.entries.GroupId
 import org.bukkit.entity.Player
 
-@Entry("region_group", "All players grouped by WorldGuard regions", Colors.MYRTLE_GREEN, "fa6-solid:object-group")
+@Entry("region_group", "所有玩家按 WorldGuard 区域分组", Colors.MYRTLE_GREEN, "fa6-solid:object-group")
 /**
  * The `WorldGuardRegionGroup` is a group that includes all the players in a specific WorldGuard region.
  * Only the given region will be considered for the group.
@@ -21,7 +21,7 @@ import org.bukkit.entity.Player
 class RegionGroup(
     override val id: String = "",
     override val name: String = "",
-    @Help("The names of regions to consider for the group")
+    @Help("要考虑的区域名称")
     val regions: List<String> = emptyList(),
 ) : GroupEntry {
     override fun groupId(player: Player): GroupId? {

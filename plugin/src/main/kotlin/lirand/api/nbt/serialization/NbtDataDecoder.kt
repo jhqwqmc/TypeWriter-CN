@@ -34,7 +34,7 @@ abstract class AbstractNbtDecoder(protected val nbt: Nbt) : AbstractDecoder() {
 		nextNullable = null
 
 		return NbtDataType.getForTag(value)?.decode(value)
-			?: throw SerializationException("NbtDataType not found for current value")
+			?: throw SerializationException("当前值未找到NbtDataType")
 	}
 
 	abstract fun next(): Any
@@ -119,7 +119,7 @@ class NbtDataDecoder(
 		val names = (0 until descriptor.elementsCount).map { descriptor.getElementName(it) }.distinct()
 		for (key in nbtData.keys) {
 			if (key !in names) {
-				throw SerializationException("Unknown key: $key")
+				throw SerializationException("未知的键：$key")
 			}
 		}
 	}

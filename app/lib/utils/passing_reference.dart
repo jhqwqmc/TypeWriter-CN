@@ -10,7 +10,7 @@ class PassingRef {
     this.container,
   }) : assert(
           providerRef != null || widgetRef != null || container != null,
-          "At least one reference must be provided",
+          "必须提供至少一个引用",
         );
 
   final Ref<dynamic>? providerRef;

@@ -7,7 +7,7 @@ import me.gabber235.typewriter.entry.entries.GroupEntry
 import me.gabber235.typewriter.entry.entries.GroupId
 import org.bukkit.entity.Player
 
-@Entry("permission_group", "Groups grouped by permission", Colors.MYRTLE_GREEN, "fa6-solid:key")
+@Entry("permission_group", "按权限分组的组", Colors.MYRTLE_GREEN, "fa6-solid:key")
 /**
  * The `Permission Group` is a group for which a player has a certain permission.
  * To determine if a player is part of this group, the permissions of the player are checked.

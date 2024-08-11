@@ -7,5 +7,5 @@ softdepend:
   - floodgate
 depend: [ packetevents ]
 authors: [ gabber235 ]
-description: Minecraft's Real Quest Plugin
+description: Minecraft真实任务插件
 libraries: ${libraries}

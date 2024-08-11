@@ -77,7 +77,7 @@ fun WrapperEntity.metas(editor: Metas.() -> Unit) {
     val meta = entityMeta
     val metas = Metas(meta).apply(editor)
     if (!metas.hasBeenHandled) {
-        throw IllegalStateException(metas.error ?: "No meta was handled")
+        throw IllegalStateException(metas.error ?: "没有处理元数据")
     }
 }
 

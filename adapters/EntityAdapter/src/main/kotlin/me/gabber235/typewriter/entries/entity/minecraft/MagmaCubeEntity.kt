@@ -20,7 +20,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("magma_cube_definition", "A magma cube entity", Colors.ORANGE, "ph:magma-cube-fill")
+@Entry("magma_cube_definition", "岩浆怪实体", Colors.ORANGE, "ph:magma-cube-fill")
 @Tags("magma_cube_definition")
 /**
  * The `MagmaCubeDefinition` class is an entry that represents a magma cube entity.
@@ -39,7 +39,7 @@ class MagmaCubeDefinition(
     override fun create(player: Player): FakeEntity = MagmaCubeEntity(player)
 }
 
-@Entry("magma_cube_instance", "An instance of a magma cube entity", Colors.YELLOW, "ph:magma-cube-fill")
+@Entry("magma_cube_instance", "岩浆怪实体的实例", Colors.YELLOW, "ph:magma-cube-fill")
 /**
  * The `MagmaCubeInstance` class is an entry that represents an instance of a magma cube entity.
  *

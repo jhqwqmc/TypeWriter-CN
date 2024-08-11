@@ -9,7 +9,7 @@ import me.gabber235.typewriter.entry.entries.*
 import org.bukkit.entity.Player
 
 //<code-block:cinematic_entry>
-@Entry("example_cinematic", "An example cinematic entry", Colors.BLUE, "material-symbols:cinematic-blur")
+@Entry("example_cinematic", "过场动画条目示例", Colors.BLUE, "material-symbols:cinematic-blur")
 class ExampleCinematicEntry(
     override val id: String = "",
     override val name: String = "",
@@ -25,7 +25,7 @@ class ExampleCinematicEntry(
 
 @Entry(
     "example_with_segment_sizes",
-    "An example cinematic entry with segment sizes",
+    "具有片段大小的过场动画条目示例",
     Colors.BLUE,
     "material-symbols:cinematic-blur"
 )

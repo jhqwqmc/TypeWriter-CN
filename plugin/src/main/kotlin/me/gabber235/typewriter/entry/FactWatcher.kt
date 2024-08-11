@@ -27,7 +27,7 @@ class FactWatcher(
     fun refreshFact(ref: Ref<ReadableFactEntry>) {
         val old = factCache[ref] ?: return
         val fact =
-            ref.get().logErrorIfNull("Tracking a fact $ref which does not have an entry associated with it.") ?: return
+            ref.get().logErrorIfNull("正在跟踪一个没有关联条目的变量 $ref 。") ?: return
         val new = fact.readForPlayersGroup(player).value
         if (old != new) {
             factCache[ref] = new
@@ -118,7 +118,7 @@ fun Player.listenForFacts(
     facts: List<Ref<ReadableFactEntry>>,
     listener: (Player, Ref<ReadableFactEntry>) -> Unit
 ): FactListenerSubscription {
-    val watcher = factWatcher ?: throw IllegalStateException("Player is not in an interaction")
+    val watcher = factWatcher ?: throw IllegalStateException("玩家未处于互动状态")
     return watcher.addListener(facts, listener)
 }
 

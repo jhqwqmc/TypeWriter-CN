@@ -26,7 +26,7 @@ class RemoveHeaderAction extends HookConsumerWidget {
       onPressed: () => showConfirmationDialogue(
         context: context,
         title: "移除$name？",
-        content: "您确定要删除该物品吗？",
+        content: "你确定要删除该物品吗？",
         onConfirm: onRemove,
       ),
     );

@@ -6,7 +6,7 @@ import me.gabber235.typewriter.entry.entries.SpeakerEntry
 import me.gabber235.typewriter.utils.Sound
 
 //<code-block:speaker_entry>
-@Entry("example_speaker", "An example speaker entry.", Colors.BLUE, "ic:round-spatial-audio-off")
+@Entry("example_speaker", "演讲者条目示例。", Colors.BLUE, "ic:round-spatial-audio-off")
 class ExampleSpeakerEntry(
     override val id: String = "",
     override val name: String = "",
