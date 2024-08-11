@@ -59,6 +59,7 @@ const config = {
                 },
                 blog: {
                     showReadingTime: true,
+                    onUntruncatedBlogPosts: 'ignore',
                     editUrl:
                         'https://github.com/gabber235/TypeWriter/tree/develop/documentation/',
                 },
@@ -72,6 +73,12 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            announcementBar: {
+                id: 'support_us',
+                content:
+                  'TypeWriter 0.5.0 is out!',
+                isCloseable: true,
+              },
             mermaid: {
                 theme: { light: 'base', dark: 'base' },
                 options: {
