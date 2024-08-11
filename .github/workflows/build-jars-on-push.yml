@@ -1,9 +1,6 @@
 name: Build Jars on Push
 
-on:
-  push:
-    branches:
-      - feature/**
+on: [workflow_dispatch]
 
 jobs:
   changes:

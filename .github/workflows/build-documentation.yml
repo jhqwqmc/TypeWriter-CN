@@ -1,12 +1,6 @@
 name: Deploy to GitHub Pages
 
-on:
-  push:
-    branches:
-      - develop
-    paths:
-      - "documentation/**"
-  workflow_dispatch:
+on: [workflow_dispatch]
 
 jobs:
   deploy:
