@@ -262,6 +262,6 @@ private val EntityDataMatcher.eyeHeight: Double
             EntityDataMatcher(EntityTypes.ZOMBIFIED_PIGLIN, isBaby = true) -> 0.96999997
             EntityDataMatcher(EntityTypes.ZOMBIFIED_PIGLIN, isBaby = false) -> 1.79
 //</editor-fold>
-            else -> throw IllegalArgumentException("Could not find eye height for $this, please report this on the TypeWriter Discord!")
+            else -> throw IllegalArgumentException("无法找到 $this 的眼睛高度，请在TypeWriter Discord上报告这个问题！")
         }
     }

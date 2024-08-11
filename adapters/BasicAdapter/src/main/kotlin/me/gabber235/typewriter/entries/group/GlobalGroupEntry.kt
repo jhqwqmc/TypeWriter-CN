@@ -6,7 +6,7 @@ import me.gabber235.typewriter.entry.entries.GroupEntry
 import me.gabber235.typewriter.entry.entries.GroupId
 import org.bukkit.entity.Player
 
-@Entry("global_group", "One group with all the online players", Colors.MYRTLE_GREEN, "fa6-solid:globe")
+@Entry("global_group", "一个包含所有在线玩家的组", Colors.MYRTLE_GREEN, "fa6-solid:globe")
 /**
  * The `Global Group` is a group that includes all the online players.
  *

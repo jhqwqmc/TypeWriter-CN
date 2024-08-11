@@ -19,13 +19,13 @@ import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
 
-@Entry("set_fake_block_cinematic", "Set a fake block", Colors.CYAN, "mingcute:cube-3d-fill")
+@Entry("set_fake_block_cinematic", "设置一个假方块", Colors.CYAN, "mingcute:cube-3d-fill")
 class SetFakeBlockCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
     @Segments(icon = "mingcute:cube-3d-fill")
-    @Help("The segments that will be displayed in the cinematic")
+    @Help("将在过场动画中的片段显示")
     val segments: List<SetFakeBlockSegment> = emptyList(),
 ) : CinematicEntry {
     override fun create(player: Player): CinematicAction {

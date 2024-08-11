@@ -21,7 +21,7 @@ import org.bukkit.potion.PotionEffectType
 
 @Entry(
     "potion_effect_cinematic",
-    "Apply different potion effects to the player during a cinematic",
+    "在过场动画期间对玩家应用不同的药水效果",
     Colors.CYAN,
     "fa6-solid:flask-vial"
 )
@@ -51,15 +51,15 @@ class PotionEffectCinematicEntry(
 data class PotionEffectSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("The type of potion effect to apply")
+    @Help("要应用的药水效果类型")
     val potionEffectType: PotionEffectType = PotionEffectType.BLINDNESS,
-    @Help("The strength of the potion effect")
+    @Help("药水效果的强度")
     val strength: Int = 1,
-    @Help("Whether the potion effect should be ambient")
+    @Help("药水效果是否为环境效果")
     val ambient: Boolean = false,
-    @Help("Whether the potion effect should have particles")
+    @Help("药水效果是否有粒子效果")
     val particles: Boolean = false,
-    @Help("Whether the potion effect should display an icon")
+    @Help("药水效果是否显示图标")
     val icon: Boolean = false,
 ) : Segment
 

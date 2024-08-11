@@ -16,12 +16,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("item_data", "Item of an ItemDisplay.", Colors.RED, "mdi:tools")
+@Entry("item_data", "物品展示实体的物品。", Colors.RED, "mdi:tools")
 @Tags("item_data")
 class ItemData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Item for the ItemDisplay.")
+    @Help("物品展示实体的物品。")
     val item: Item  = Item.Empty,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : DisplayEntityData<ItemProperty> {
@@ -37,6 +37,6 @@ data class ItemProperty(val item: Item) : EntityProperty {
 fun applyItemData(entity: WrapperEntity, property: ItemProperty, player: Player) {
     entity.metas {
         meta<ItemDisplayMeta> { item = SpigotConversionUtil.fromBukkitItemStack(property.item.build(player)) }
-        error("Could not apply ItemData to ${entity.entityType} entity.")
+        error("无法将 ItemData 应用于 ${entity.entityType} 实体。")
     }
 }

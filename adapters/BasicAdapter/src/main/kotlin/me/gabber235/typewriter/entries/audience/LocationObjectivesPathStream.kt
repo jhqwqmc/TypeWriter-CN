@@ -14,7 +14,7 @@ import me.gabber235.typewriter.entries.quest.LocationObjectiveEntry
 
 @Entry(
     "location_objectives_path_stream",
-    "A Path Stream to tracked Location Objectives",
+    "跟踪位置目标的路径流",
     Colors.GREEN,
     "material-symbols:conversion-path"
 )

@@ -9,7 +9,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("skin_data", "Skin data for players", Colors.RED, "ant-design:skin-filled")
+@Entry("skin_data", "玩家的皮肤数据", Colors.RED, "ant-design:skin-filled")
 @Tags("skin_data", "player_data")
 class SkinData(
     override val id: String = "",

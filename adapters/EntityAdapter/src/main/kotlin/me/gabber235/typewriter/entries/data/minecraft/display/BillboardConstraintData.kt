@@ -14,12 +14,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("billboard_constraint_data", "Constraints for a billboard", Colors.RED, "material-symbols:aspect_ratio")
+@Entry("billboard_constraint_data", "billboards的限制", Colors.RED, "material-symbols:aspect_ratio")
 @Tags("billboard_constraint_data")
 class BillboardConstraintData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Billboard Constraint")
+    @Help("billboards限制")
     val constraint: BillboardConstraints = BillboardConstraints.CENTER,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : DisplayEntityData<BillboardConstraintProperty> {
@@ -36,7 +36,7 @@ data class BillboardConstraintProperty(val constraint: BillboardConstraints) : E
 fun applyBillboardConstraintData(entity: WrapperEntity, property: BillboardConstraintProperty) {
     entity.metas {
         meta<AbstractDisplayMeta> { billboardConstraints = property.constraint }
-        error("Could not apply BillboardConstraintData to ${entity.entityType} entity.")
+        error("无法将 BillboardConstraintData 应用于 ${entity.entityType} 实体。")
     }
 }
 

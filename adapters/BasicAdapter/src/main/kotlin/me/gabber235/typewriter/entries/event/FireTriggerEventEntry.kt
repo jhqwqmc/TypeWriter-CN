@@ -6,7 +6,7 @@ import me.gabber235.typewriter.entry.Ref
 import me.gabber235.typewriter.entry.TriggerableEntry
 import me.gabber235.typewriter.entry.entries.FireTriggerEventEntry
 
-@Entry("fire_trigger_event", "Trigger the event when a player runs `/tw fire <entry id/name> [player]`", Colors.YELLOW, "mingcute:firework-fill")
+@Entry("fire_trigger_event", "当玩家运行`/tw fire <entry id/name> [player]`时触发事件", Colors.YELLOW, "mingcute:firework-fill")
 /**
  * The `FireTriggerEventEntry` is an event that fires its triggers when the player runs `/tw fire <entry id/name> [player]`
  *

@@ -16,7 +16,7 @@ import java.util.*
 
 @Entry(
     "objective_lines",
-    "Display all the current objectives",
+    "显示所有当前目标",
     Colors.ORANGE_RED,
     "fluent:clipboard-task-list-ltr-24-filled"
 )
@@ -29,7 +29,7 @@ import java.util.*
 class ObjectiveLinesEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The format for the line. Use &lt;objective&gt; to replace with the objective name.")
+    @Help("行的格式。使用&lt;objective&gt;替换目标名称。")
     @Colored
     @Placeholder
     @MultiLine

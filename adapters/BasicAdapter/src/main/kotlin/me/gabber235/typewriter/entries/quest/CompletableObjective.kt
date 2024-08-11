@@ -23,7 +23,7 @@ private val completedObjectiveDisplay by snippet(
 
 @Entry(
     "completable_objective",
-    "An objective that can show a completed stage",
+    "一个可以显示已完成阶段的目标",
     Colors.BLUE_VIOLET,
     "fluent:clipboard-checkmark-16-filled"
 )
@@ -42,9 +42,9 @@ class CompletableObjective(
     override val name: String = "",
     override val quest: Ref<QuestEntry> = emptyRef(),
     override val children: List<Ref<out AudienceEntry>> = emptyList(),
-    @Help("The criteria need to be met for the objective to be able to be shown.")
+    @Help("需要满足的条件才能显示目标。")
     val showCriteria: List<Criteria> = emptyList(),
-    @Help("The criteria to display the objective as completed.")
+    @Help("将目标显示为已完成的条件。")
     val completedCriteria: List<Criteria> = emptyList(),
     override val display: String = "",
     override val priorityOverride: Optional<Int> = Optional.empty(),

@@ -15,12 +15,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("llama_variant_data", "The variant of the Llama.", Colors.RED, "mdi:llama")
+@Entry("llama_variant_data", "羊驼的变种。", Colors.RED, "mdi:llama")
 @Tags("llama_data", "variant_data")
 class LlamaVariantData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The variant of the Llama.")
+    @Help("羊驼的变种。")
     val variant: LlamaMeta.Variant = LlamaMeta.Variant.CREAMY,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<LlamaVariantProperty> {
@@ -36,6 +36,6 @@ data class LlamaVariantProperty(val variant: LlamaMeta.Variant) : EntityProperty
 fun applyLlamaVariantData(entity: WrapperEntity, property: LlamaVariantProperty) {
     entity.metas {
         meta<LlamaMeta> { variant = property.variant }
-        error("Could not apply LlamaVariantData to ${entity.entityType} entity.")
+        error("无法将 LlamaVariantData 应用于 ${entity.entityType} 实体。")
     }
 }

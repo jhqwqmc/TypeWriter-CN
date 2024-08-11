@@ -16,7 +16,7 @@ import java.util.*
 
 @Entry(
     "timed_activity",
-    "Allows child activities for a limited amount of time",
+    "允许子活动在有限的时间内进行",
     Colors.PALATINATE_BLUE,
     "fa6-solid:hourglass"
 )
@@ -32,13 +32,13 @@ import java.util.*
 class TimedActivityEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The duration child activities will be active for.")
+    @Help("子活动将活跃的时间长度。")
     val duration: Duration = Duration.ofSeconds(10),
-    @Help("The cooldown time before the activity can be activated again.")
+    @Help("活动再次激活前的冷却时间。")
     val cooldown: Duration = Duration.ofSeconds(1),
-    @Help("The activity that will be used when the duration is active.")
+    @Help("在持续时间内将要使用的活动。")
     val activeActivity: Ref<out EntityActivityEntry> = emptyRef(),
-    @Help("The activity that will be used when it is on cooldown.")
+    @Help("在冷却时间内将要使用的活动。")
     val cooldownActivity: Ref<out EntityActivityEntry> = emptyRef(),
 ) : GenericEntityActivityEntry {
     override fun create(

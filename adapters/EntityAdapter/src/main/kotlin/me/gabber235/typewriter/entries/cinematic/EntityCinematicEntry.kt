@@ -44,7 +44,7 @@ import org.koin.core.qualifier.named
 import org.koin.java.KoinJavaComponent
 import kotlin.reflect.KClass
 
-@Entry("entity_cinematic", "Use an animated entity in a cinematic", Colors.PINK, "material-symbols:identity-platform")
+@Entry("entity_cinematic", "在过场动画中使用一个动画实体", Colors.PINK, "material-symbols:identity-platform")
 /**
  * The `Entity Cinematic` entry that plays a recorded animation on an Entity back on the player.
  *
@@ -56,7 +56,7 @@ class EntityCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
-    @Help("The entity that will be used in the cinematic")
+    @Help("将在过场动画中使用的实体")
     val definition: Ref<EntityDefinitionEntry> = emptyRef(),
     @Segments(Colors.PINK, "fa6-solid:person-walking")
     val segments: List<EntityRecordedSegment> = emptyList(),
@@ -67,7 +67,7 @@ class EntityCinematicEntry(
 
 @Entry(
     "entity_cinematic_artifact",
-    "The artifact for the recorded interactions data",
+    "记录交互数据的工件",
     Colors.PINK,
     "fa6-solid:person-walking"
 )
@@ -88,7 +88,7 @@ class EntityCinematicArtifact(
 data class EntityRecordedSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("The artifact for the recorded interactions data")
+    @Help("记录交互数据的工件")
     @ContentEditor(EntityCinematicViewing::class)
     val artifact: Ref<EntityCinematicArtifact> = emptyRef(),
 ) : Segment

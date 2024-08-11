@@ -11,7 +11,7 @@ import org.bukkit.Location
 
 @Entry(
     "direct_location_path_stream",
-    "A Path Stream to a Direct Location",
+    "通向直接位置的路径流",
     Colors.GREEN,
     "material-symbols:conversion-path"
 )

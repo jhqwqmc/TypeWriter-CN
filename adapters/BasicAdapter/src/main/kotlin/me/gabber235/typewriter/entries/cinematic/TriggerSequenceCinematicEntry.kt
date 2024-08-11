@@ -14,7 +14,7 @@ import me.gabber235.typewriter.entry.entries.EntryTrigger
 import me.gabber235.typewriter.entry.entries.Segment
 import org.bukkit.entity.Player
 
-@Entry("trigger_sequence_cinematic", "A sequence of triggers to run", Colors.PURPLE, "fa-solid:play")
+@Entry("trigger_sequence_cinematic", "一系列要运行的触发器", Colors.PURPLE, "fa-solid:play")
 /**
  * The `Trigger Sequence Cinematic` entry that runs a sequence of triggers. It is very powerful but also very dangerous.
  *
@@ -33,7 +33,7 @@ class TriggerSequenceCinematicEntry(
     override val criteria: List<Criteria> = emptyList(),
     @Segments
     @InnerMax(Max(1))
-    @Help("The sequence of triggers to run")
+    @Help("要运行的触发器序列")
     val segments: List<TriggerSequenceSegment> = emptyList(),
 ) : CinematicEntry {
     override fun create(player: Player): CinematicAction {

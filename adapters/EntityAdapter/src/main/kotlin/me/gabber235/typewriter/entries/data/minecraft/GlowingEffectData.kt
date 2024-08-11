@@ -13,11 +13,11 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("glowing_effect_data", "If the entity is glowing", Colors.RED, "bi:lightbulb-fill")
+@Entry("glowing_effect_data", "实体是否发光", Colors.RED, "bi:lightbulb-fill")
 class GlowingEffectData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Whether the entity is glowing.")
+    @Help("实体是否发光。")
     val glowing: Boolean = false,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : GenericEntityData<GlowingEffectProperty> {
@@ -33,6 +33,6 @@ data class GlowingEffectProperty(val glowing: Boolean = false) : EntityProperty 
 fun applyGlowingEffectData(entity: WrapperEntity, property: GlowingEffectProperty) {
     entity.metas {
         meta<EntityMeta> { setHasGlowingEffect(property.glowing) }
-        error("Could not apply GlowingEffectData to ${entity.entityType} entity.")
+        error("无法将 GlowingEffectData 应用于 ${entity.entityType} 实体。")
     }
 }

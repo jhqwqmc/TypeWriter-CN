@@ -15,7 +15,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "tab_list_header_footer",
-    "Set the header and footer of the tab list",
+    "设置标签列表的头部和尾部",
     Colors.DARK_ORANGE,
     "mdi:page-layout-header"
 )
@@ -27,9 +27,9 @@ import kotlin.reflect.KClass
 class TabListHeaderFooterEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The lines to display in the header of the tab list")
+    @Help("在标签列表头部显示的行")
     val header: List<Ref<out AudienceEntry>> = emptyList(),
-    @Help("The lines to display in the footer of the tab list")
+    @Help("在标签列表尾部显示的行")
     val footer: List<Ref<out AudienceEntry>> = emptyList(),
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : AudienceFilterEntry, PriorityEntry {

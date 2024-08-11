@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "item_in_slot_fact",
-    "Check if a specific item is in a specific slot for the player",
+    "检查玩家的特定槽位中是否有特定物品",
     Colors.PURPLE,
     "fa6-solid:hand-holding"
 )
@@ -30,9 +30,9 @@ class ItemInSlotFact(
     override val name: String = "",
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
-    @Help("The item to check for.")
+    @Help("要检查的物品。")
     val item: Item = Item.Empty,
-    @Help("The slot to check.")
+    @Help("要检查的槽位。")
     val slot: Int = 0,
 ) : ReadableFactEntry {
     override fun readSinglePlayer(player: Player): FactData {

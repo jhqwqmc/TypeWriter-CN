@@ -20,7 +20,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("hoglin_definition", "A hoglin entity", Colors.ORANGE, "icon-park-outline:pig")
+@Entry("hoglin_definition", "疣猪兽实体", Colors.ORANGE, "icon-park-outline:pig")
 @Tags("hoglin_definition")
 /**
  * The `HoglinDefinition` class is an entry that shows up as a hoglin in-game.
@@ -39,7 +39,7 @@ class HoglinDefinition(
     override fun create(player: Player): FakeEntity = HoglinEntity(player)
 }
 
-@Entry("hoglin_instance", "An instance of a hoglin entity", Colors.YELLOW, "icon-park-outline:pig")
+@Entry("hoglin_instance", "疣猪兽实体的实例", Colors.YELLOW, "icon-park-outline:pig")
 class HoglinInstance(
     override val id: String = "",
     override val name: String = "",

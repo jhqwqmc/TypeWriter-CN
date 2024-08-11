@@ -20,7 +20,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "hit_box_definition",
-    "A hit box for an entity to allow interaction with a different entity",
+    "为实体设置一个碰撞箱并允许与另一个实体进行交互",
     Colors.ORANGE,
     "mdi:cube-outline"
 )
@@ -34,11 +34,11 @@ class HitBoxDefinition(
     override val id: String = "",
     override val name: String = "",
     val baseEntity: Ref<EntityDefinitionEntry> = emptyRef(),
-    @Help("The offset of the hit box relative to the base entity.")
+    @Help("相对于基础实体的碰撞箱偏移量。")
     val offset: Vector = Vector.ZERO,
-    @Help("The width of the hit box.")
+    @Help("碰撞箱的宽度。")
     val width: Double = 1.0,
-    @Help("The height of the hit box.")
+    @Help("碰撞箱的高度。")
     val height: Double = 1.0,
 ) : EntityDefinitionEntry {
     override val displayName: String get() = baseEntity.get()?.displayName ?: ""
@@ -47,7 +47,7 @@ class HitBoxDefinition(
 
     override fun create(player: Player): FakeEntity {
         val entity = baseEntity.get()?.create(player)
-            ?: throw IllegalStateException("A base entity must be specified for entry $name ($id)")
+            ?: throw IllegalStateException("必须为条目$name ($id)指定一个基础实体。")
         return HitBoxEntity(player, entity, offset, width, height)
     }
 }

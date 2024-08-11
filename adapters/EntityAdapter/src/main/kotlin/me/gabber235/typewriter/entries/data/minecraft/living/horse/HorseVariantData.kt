@@ -14,12 +14,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("horse_variant_dat", "The variant of the horse.", Colors.RED, "mdi:horse")
+@Entry("horse_variant_dat", "马的变种。", Colors.RED, "mdi:horse")
 
 class HorseVariantData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The variant of the horse.")
+    @Help("马的变种。")
     val color: HorseMeta.Color = HorseMeta.Color.WHITE,
     val marking: HorseMeta.Marking = HorseMeta.Marking.NONE,
     override val priorityOverride: Optional<Int> = Optional.empty(),
@@ -36,6 +36,6 @@ data class HorseVariantProperty(val variant: HorseMeta.Variant) : EntityProperty
 fun applyHorseVariantData(entity: WrapperEntity, property: HorseVariantProperty) {
     entity.metas {
         meta<HorseMeta> { variant = property.variant }
-        error("Could not apply HorseVariantData to ${entity.entityType} entity.")
+        error("无法将 HorseVariantData 应用于 ${entity.entityType} 实体。")
     }
 }

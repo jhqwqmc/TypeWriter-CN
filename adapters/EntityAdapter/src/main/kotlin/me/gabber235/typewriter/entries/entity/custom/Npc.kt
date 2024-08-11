@@ -16,7 +16,7 @@ import org.bukkit.Location
 import org.bukkit.entity.Player
 
 
-@Entry("npc_definition", "A simplified premade npc", Colors.ORANGE, "material-symbols:account-box")
+@Entry("npc_definition", "简化的预制 NPC", Colors.ORANGE, "material-symbols:account-box")
 @Tags("npc_definition")
 /**
  * The `NpcDefinition` class is an entry that represents a simplified premade npc.
@@ -34,7 +34,7 @@ class NpcDefinition(
     override val name: String = "",
     override val displayName: String = "",
     override val sound: Sound = Sound.EMPTY,
-    @Help("The skin of the npc.")
+    @Help("NPC的皮肤。")
     val skin: SkinProperty = SkinProperty(),
     @OnlyTags("generic_entity_data", "living_entity_data", "lines", "player_data")
     override val data: List<Ref<EntityData<*>>> = emptyList(),
@@ -45,7 +45,7 @@ class NpcDefinition(
     }
 }
 
-@Entry("npc_instance", "An instance of a simplified premade npc", Colors.YELLOW, "material-symbols:account-box")
+@Entry("npc_instance", "简化的预制 NPC 实例", Colors.YELLOW, "material-symbols:account-box")
 /**
  * The `NpcInstance` class is an entry that represents an instance of a simplified premade npc.
  */

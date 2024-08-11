@@ -13,11 +13,11 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("on_fire_data", "If the entity is on fire", Colors.RED, "bi:fire")
+@Entry("on_fire_data", "实体是否着火", Colors.RED, "bi:fire")
 class OnFireData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Whether the entity is on fire.")
+    @Help("实体是否着火。")
     val onFire: Boolean = false,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : GenericEntityData<OnFireProperty> {
@@ -33,6 +33,6 @@ data class OnFireProperty(val onFire: Boolean = false) : EntityProperty {
 fun applyOnFireData(entity: WrapperEntity, property: OnFireProperty) {
     entity.metas {
         meta<EntityMeta> { isOnFire = property.onFire }
-        error("Could not apply OnFireData to ${entity.entityType} entity.")
+        error("无法将 OnFireData 应用于 ${entity.entityType} 实体。")
     }
 }

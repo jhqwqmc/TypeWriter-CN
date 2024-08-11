@@ -15,12 +15,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("cat_variant_data", "The variant of a cat.", Colors.RED, "mdi:cat")
+@Entry("cat_variant_data", "猫的变种。", Colors.RED, "mdi:cat")
 @Tags("cat_data", "cat_variant_data")
 class CatVariantData (
     override val id: String = "",
     override val name: String = "",
-    @Help("The variant of the cat.")
+    @Help("猫的变种。")
     val catVariant: CatMeta.Variant = CatMeta.Variant.TABBY,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<CatVariantProperty> {
@@ -36,6 +36,6 @@ data class CatVariantProperty(val catVariant: CatMeta.Variant) : EntityProperty 
 fun applyCatVariantData(entity: WrapperEntity, property: CatVariantProperty) {
     entity.metas {
         meta<CatMeta> { variant = property.catVariant }
-        error("Could not apply CatVariantData to ${entity.entityType} entity.")
+        error("无法将 CatVariantData 应用于 ${entity.entityType} 实体。")
     }
 }

@@ -16,12 +16,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("collar_color_data", "The color of the cat's or wolfs collar", Colors.RED, "fluent:paint-bucket-16-filled")
+@Entry("collar_color_data", "猫或狼的项圈颜色", Colors.RED, "fluent:paint-bucket-16-filled")
 @Tags("cat_data", "wolf_data", "collar_color_data")
 class CollarColorData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The color of the cat's collar.")
+    @Help("猫或狼的项圈颜色。")
     val catCollarColor: DyeColor = DyeColor.RED,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<CollarColorProperty> {
@@ -38,6 +38,6 @@ fun applyCollarColorData(entity: WrapperEntity, property: CollarColorProperty) {
     entity.metas {
         meta<CatMeta> { collarColor = property.collarColor }
         meta<WolfMeta> { collarColor = property.collarColor.ordinal }
-        error("Could not apply CatCollarColorData to ${entity.entityType} entity.")
+        error("无法将 CatCollarColorData 应用于 ${entity.entityType} 实体。")
     }
 }

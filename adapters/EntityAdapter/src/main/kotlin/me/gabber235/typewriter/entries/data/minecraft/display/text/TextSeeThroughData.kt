@@ -13,13 +13,13 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("text_see_through_data", "If a TextDisplay is see through.", Colors.RED, "mdi:texture")
+@Entry("text_see_through_data", "文本展示实体是否透明。", Colors.RED, "mdi:texture")
 @Tags("text_see_through_data")
 
 class TextSeeThroughData(
     override val id: String = "",
     override val name: String = "",
-    @Help("If text is see through.")
+    @Help("文字是否透明。")
     val seeThrough: Boolean = false,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : TextDisplayEntityData<SeeThroughProperty> {
@@ -36,6 +36,6 @@ data class SeeThroughProperty(val seeThrough: Boolean) : EntityProperty {
 fun applySeeThroughData(entity: WrapperEntity, property: SeeThroughProperty) {
     entity.metas {
         meta<TextDisplayMeta> { isSeeThrough = property.seeThrough }
-        error("Could not apply SeeThroughData to ${entity.entityType} entity.")
+        error("无法将 SeeThroughData 应用于 ${entity.entityType} 实体。")
     }
 }

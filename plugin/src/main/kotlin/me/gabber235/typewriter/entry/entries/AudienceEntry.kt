@@ -39,7 +39,7 @@ interface AudienceFilterEntry : AudienceEntry {
 }
 
 interface Invertible {
-    @Help("The audience will be the players that do not match the criteria.")
+    @Help("观众将是不符合标准的玩家。")
     val inverted: Boolean
 }
 
@@ -49,13 +49,13 @@ interface TickableDisplay {
 
 enum class AudienceDisplayState(val displayName: String, val color: String) {
     // When the player is in the audience
-    IN_AUDIENCE("In Audience", "green"),
+    IN_AUDIENCE("在观众中", "green"),
 
     // When the player is not passing the audience filter
-    BLOCKED("Blocked", "red"),
+    BLOCKED("已阻止", "red"),
 
     // When all the parents block the player
-    NOT_CONSIDERED("Not Considered", "gray"),
+    NOT_CONSIDERED("未考虑", "gray"),
     ;
 }
 

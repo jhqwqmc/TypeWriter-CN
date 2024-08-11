@@ -16,7 +16,7 @@ import org.bukkit.inventory.EntityEquipment
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("equipment_data", "Equipment data", Colors.RED, "game-icons:chest-armor")
+@Entry("equipment_data", "装备数据", Colors.RED, "game-icons:chest-armor")
 @Tags("equipment_data")
 class EquipmentData(
     override val id: String = "",

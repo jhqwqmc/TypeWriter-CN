@@ -16,7 +16,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "quest_status_fact",
-    "The status of a specific quest",
+    "特定任务的状态",
     Colors.PURPLE,
     "solar:mailbox-bold"
 )

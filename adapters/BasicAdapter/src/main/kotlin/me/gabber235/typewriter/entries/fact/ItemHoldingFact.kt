@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "item_holding_fact",
-    "The amount of a specific item the player is currently holding",
+    "玩家当前持有的特定物品的数量",
     Colors.PURPLE,
     "fa6-solid:hand-holding"
 )
@@ -32,7 +32,7 @@ class ItemHoldingFact(
     override val name: String = "",
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
-    @Help("The item to check for.")
+    @Help("要检查的物品。")
     val item: Item = Item.Empty,
 ) : ReadableFactEntry {
     override fun readSinglePlayer(player: Player): FactData {

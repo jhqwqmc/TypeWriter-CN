@@ -9,7 +9,7 @@ import me.gabber235.typewriter.utils.Item
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.CraftItemEvent
 
-@Entry("craft_item_event", "Called when a player crafts an item", Colors.YELLOW, "mdi:hammer-wrench")
+@Entry("craft_item_event", "当玩家制作物品时调用", Colors.YELLOW, "mdi:hammer-wrench")
 /**
  * The `Craft Item Event` is triggered when a player crafts an item.
  * This can be from a crafting table, a furnace, smiting table, campfire, or any other crafting method.
@@ -21,7 +21,7 @@ class CraftItemEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The item that was crafted.")
+    @Help("制作的物品。")
     val craftedItem: Item = Item.Empty,
 ): EventEntry
 

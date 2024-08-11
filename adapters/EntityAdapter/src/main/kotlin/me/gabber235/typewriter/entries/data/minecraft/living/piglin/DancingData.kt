@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "dancing_data",
-    "Whether an entity is dancing",
+    "实体是否在跳舞",
     Colors.RED,
     "streamline:travel-wayfinder-man-arm-raises-2-man-raise-arm-scaning-detect-posture-security"
 )
@@ -24,7 +24,7 @@ import kotlin.reflect.KClass
 class DancingData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Whether the piglin is dancing.")
+    @Help("实体是否在跳舞。")
     val dancing: Boolean = false,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<DancingProperty> {
@@ -40,6 +40,6 @@ data class DancingProperty(val dancing: Boolean) : EntityProperty {
 fun applyDancingData(entity: WrapperEntity, property: DancingProperty) {
     entity.metas {
         meta<PiglinMeta> { isDancing = property.dancing }
-        error("Could not apply DancingData to ${entity.entityType} entity.")
+        error("无法将 DancingData 应用于 ${entity.entityType} 实体。")
     }
 }

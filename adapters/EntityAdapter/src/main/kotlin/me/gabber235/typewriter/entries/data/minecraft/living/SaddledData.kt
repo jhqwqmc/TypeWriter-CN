@@ -15,12 +15,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("saddled_data", "If the entity has a saddle.", Colors.RED, "game-icons:saddle")
+@Entry("saddled_data", "实体是否有一个鞍。", Colors.RED, "game-icons:saddle")
 @Tags("horse_data", "pig_data", "saddled_data")
 class SaddledData (
     override val id: String = "",
     override val name: String = "",
-    @Help("If the entity has a saddle.")
+    @Help("实体是否有一个鞍。")
     val saddled: Boolean = false,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<SaddledProperty> {
@@ -37,6 +37,6 @@ fun applySaddledData(entity: WrapperEntity, property: SaddledProperty) {
     entity.metas {
         meta<BaseHorseMeta> { isSaddled = property.saddled }
         meta<PigMeta> { setHasSaddle(property.saddled) }
-        error("Could not apply BaseHorseSaddledData to ${entity.entityType} entity.")
+        error("无法将 BaseHorseSaddledData 应用于 ${entity.entityType} 实体。")
     }
 }

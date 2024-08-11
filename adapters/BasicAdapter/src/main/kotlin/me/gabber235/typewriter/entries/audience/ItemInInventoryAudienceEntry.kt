@@ -20,7 +20,7 @@ import org.bukkit.event.player.PlayerPickupItemEvent
 
 @Entry(
     "item_in_inventory_audience",
-    "Filters an audience based on if they have a specific item in their inventory",
+    "根据玩家的物品栏中是否拥有特定的物品来过滤观众",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:bag-personal"
 )
@@ -34,7 +34,7 @@ class ItemInInventoryAudienceEntry(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
-    @Help("The item to check for in the inventory.")
+    @Help("在物品栏中检查的物品。")
     val item: Item = Item.Empty,
     override val inverted: Boolean = false,
 ) : AudienceFilterEntry, Invertible {

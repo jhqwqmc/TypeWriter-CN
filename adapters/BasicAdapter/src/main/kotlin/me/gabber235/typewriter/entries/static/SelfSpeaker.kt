@@ -8,7 +8,7 @@ import me.gabber235.typewriter.entry.entries.SpeakerEntry
 import me.gabber235.typewriter.utils.Sound
 import java.util.*
 
-@Entry("self_speaker", "The player themself", Colors.ORANGE, "bi:person-fill")
+@Entry("self_speaker", "玩家自身", Colors.ORANGE, "bi:person-fill")
 /**
  * The `Self Speaker` is a speaker that represents the player themselves.
  * This speaker is used to display messages from the player's perspective.
@@ -22,7 +22,7 @@ class SelfSpeaker(
     override val id: String = "",
     override val name: String = "",
     override val sound: Sound = Sound.EMPTY,
-    @Help("Overrides the display name of the speaker")
+    @Help("覆盖演讲者的显示名称")
     val overrideName: Optional<String> = Optional.empty(),
 ) : SpeakerEntry, SoundSourceEntry {
     override val displayName: String

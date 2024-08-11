@@ -24,7 +24,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("cat_definition", "A cat entity", Colors.ORANGE, "ph:cat-fill")
+@Entry("cat_definition", "猫实体", Colors.ORANGE, "ph:cat-fill")
 @Tags("cat_definition")
 /**
  * The `CatDefinition` class is an entry that represents a cat entity.
@@ -43,7 +43,7 @@ class CatDefinition(
     override fun create(player: Player): FakeEntity = CatEntity(player)
 }
 
-@Entry("cat_instance", "An instance of a cat entity", Colors.YELLOW, "ph:cat-fill")
+@Entry("cat_instance", "猫实体的实例", Colors.YELLOW, "ph:cat-fill")
 /**
  * The `Cat Instance` class is an entry that represents an instance of a cat entity.
  *

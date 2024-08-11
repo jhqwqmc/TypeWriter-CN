@@ -14,14 +14,14 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("block_data", "Block of a BlockDisplay.", Colors.RED, "mage:box-3d-fill")
+@Entry("block_data", "方块展示实体的方块。", Colors.RED, "mage:box-3d-fill")
 
 @Tags("block_data")
 
 class BlockData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Block ID")
+    @Help("方块ID")
     val blockId: Int = 0,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : DisplayEntityData<BlockProperty> {
@@ -37,6 +37,6 @@ data class BlockProperty(val blockId: Int) : EntityProperty {
 fun applyBlockData(entity: WrapperEntity, property: BlockProperty) {
     entity.metas {
         meta<BlockDisplayMeta> { blockId = property.blockId }
-        error("Could not apply BlockData to ${entity.entityType} entity.")
+        error("无法将 BlockData 应用于 ${entity.entityType} 实体。")
     }
 }

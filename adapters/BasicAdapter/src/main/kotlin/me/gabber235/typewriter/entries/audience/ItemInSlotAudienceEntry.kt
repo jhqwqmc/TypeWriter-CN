@@ -19,7 +19,7 @@ import org.bukkit.event.player.PlayerSwapHandItemsEvent
 
 @Entry(
     "item_in_slot_audience",
-    "Filters an audience based on if they have a specific item in a specific slot",
+    "根据玩家在特定槽位中是否拥有特定的物品来过滤观众",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:hand"
 )
@@ -33,9 +33,9 @@ class ItemInSlotAudienceEntry(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
-    @Help("The item to check for.")
+    @Help("要检查的物品。")
     val item: Item = Item.Empty,
-    @Help("The slot to check.")
+    @Help("要检查的槽位。")
     val slot: Int = 0,
     override val inverted: Boolean = false,
 ) : AudienceFilterEntry, Invertible {

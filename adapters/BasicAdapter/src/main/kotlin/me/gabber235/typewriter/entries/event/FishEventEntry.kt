@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.player.PlayerFishEvent
 import java.util.*
 
-@Entry("on_fish", "When the a player caught a fish or an item", Colors.YELLOW, "mdi:fish")
+@Entry("on_fish", "当玩家钓到鱼或物品时", Colors.YELLOW, "mdi:fish")
 /**
  * The `Player Fish Event` is triggered when a player catches a fish or an item.
  *
@@ -22,9 +22,9 @@ class FishEventEntry (
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The item the player must be holding when the fish or item is caught.")
+    @Help("玩家在钓到鱼或物品时必须持有的物品。")
     val itemInHand: Item = Item.Empty,
-    @Help("The item that the player caught.")
+    @Help("玩家钓到的物品。")
     val caught: Item = Item.Empty,
 ) : EventEntry
 

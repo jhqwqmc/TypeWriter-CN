@@ -14,12 +14,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("marker_data", "Whether the entity is a marker", Colors.RED, "mdi:marker")
+@Entry("marker_data", "实体是否是一个标记", Colors.RED, "mdi:marker")
 @Tags("marker_data", "armor_stand_data")
 class MarkerData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Whether the entity is a marker.")
+    @Help("实体是否是一个标记。")
     val marker: Boolean = false,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<MarkerProperty> {
@@ -35,6 +35,6 @@ data class MarkerProperty(val marker: Boolean) : EntityProperty {
 fun applyMarkerData(entity: WrapperEntity, property: MarkerProperty) {
     entity.metas {
         meta<ArmorStandMeta> { isMarker = property.marker }
-        error("Could not apply MarkerData to ${entity.entityType} entity.")
+        error("无法将 MarkerData 应用于 ${entity.entityType}实体。")
     }
 }

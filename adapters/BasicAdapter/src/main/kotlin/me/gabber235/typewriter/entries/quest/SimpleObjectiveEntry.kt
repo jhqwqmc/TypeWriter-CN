@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.ObjectiveEntry
 import me.gabber235.typewriter.entry.entries.QuestEntry
 import java.util.*
 
-@Entry("objective", "An objective definition", Colors.BLUE_VIOLET, "streamline:target-solid")
+@Entry("objective", "目标定义", Colors.BLUE_VIOLET, "streamline:target-solid")
 /**
  * The `Objective` entry is a tasks that the player can complete.
  * It is mainly for displaying the progress to a player.

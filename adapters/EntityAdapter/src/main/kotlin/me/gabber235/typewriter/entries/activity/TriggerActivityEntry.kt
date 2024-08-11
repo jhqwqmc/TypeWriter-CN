@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.entries.EntityActivityEntry
 import me.gabber235.typewriter.entry.entries.GenericEntityActivityEntry
 import me.gabber235.typewriter.entry.triggerFor
 
-@Entry("trigger_activity", "Triggers a sequence when the activity active or inactive", Colors.PALATINATE_BLUE, "fa-solid:play")
+@Entry("trigger_activity", "当活动激活或停用时触发一个序列", Colors.PALATINATE_BLUE, "fa-solid:play")
 /**
  * The `Trigger Activity` entry is an activity that triggers a sequence when the activity starts or stops.
  *
@@ -22,11 +22,11 @@ import me.gabber235.typewriter.entry.triggerFor
 class TriggerActivityEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The activity to use when this is active.")
+    @Help("活动激活时使用的活动。")
     val activity: Ref<out EntityActivityEntry> = emptyRef(),
-    @Help("The sequence to trigger when the activity starts.")
+    @Help("活动开始时触发的序列。")
     val onStart: Ref<TriggerableEntry> = emptyRef(),
-    @Help("The sequence to trigger when the activity stops.")
+    @Help("活动停止时触发的序列。")
     val onStop: Ref<TriggerableEntry> = emptyRef(),
 ) : GenericEntityActivityEntry {
     override fun create(context: ActivityContext, currentLocation: LocationProperty): EntityActivity<ActivityContext> {

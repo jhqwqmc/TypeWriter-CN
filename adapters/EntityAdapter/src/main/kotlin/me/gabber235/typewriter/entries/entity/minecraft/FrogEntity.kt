@@ -20,7 +20,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("frog_definition", "A frog entity", Colors.ORANGE, "ph:frog-fill")
+@Entry("frog_definition", "青蛙实体", Colors.ORANGE, "ph:frog-fill")
 @Tags("frog_definition")
 /**
  * The `FrogDefinition` class is an entry that represents a frog entity.
@@ -39,7 +39,7 @@ class FrogDefinition(
     override fun create(player: Player): FakeEntity = FrogEntity(player)
 }
 
-@Entry("frog_instance", "An instance of a frog entity", Colors.YELLOW, "ph:frog-fill")
+@Entry("frog_instance", "青蛙实体的实例", Colors.YELLOW, "ph:frog-fill")
 /**
  * The `FrogInstance` class is an entry that represents an instance of a frog entity.
  *

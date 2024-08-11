@@ -13,7 +13,7 @@ import org.koin.java.KoinJavaComponent
 
 @Entry(
     "direct_entity_instance_path_stream",
-    "A Path Stream to a Direct Entity Instance",
+    "到直接实体实例的路径流",
     Colors.GREEN,
     "material-symbols:conversion-path"
 )

@@ -15,12 +15,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("custom_name_data", "The custom name of the entity", Colors.RED, "cbi:abc")
+@Entry("custom_name_data", "实体的自定义名称", Colors.RED, "cbi:abc")
 
 class CustomNameData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The custom name of the entity.")
+    @Help("实体的自定义名称。")
     val customName: String = "",
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : GenericEntityData<CustomNameProperty> {
@@ -44,6 +44,6 @@ fun applyCustomNameData(entity: WrapperEntity, property: CustomNameProperty) {
             isCustomNameVisible = true
             customName = property.customName.asMini()
         }
-        error("Could not apply CustomNameData to ${entity.entityType} entity.")
+        error("无法将 CustomNameData 应用于 ${entity.entityType} 实体。")
     }
 }

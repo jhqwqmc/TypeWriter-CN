@@ -9,7 +9,7 @@ import java.time.Duration
 import java.util.*
 import kotlin.random.Random
 
-@Entry("random_look_activity", "A random look activity", Colors.BLUE, "fa6-solid:eye")
+@Entry("random_look_activity", "一个随机观察活动", Colors.BLUE, "fa6-solid:eye")
 /**
  * The `Random Look Activity` is used to make the entity look in random directions.
  *
@@ -21,7 +21,7 @@ class RandomLookActivityEntry(
     override val name: String = "",
     val pitchRange: ClosedFloatingPointRange<Float> = -90f..90f,
     val yawRange: ClosedFloatingPointRange<Float> = -180f..180f,
-    @Help("The duration between each look")
+    @Help("每次观察之间的持续时间")
     val duration: Duration = Duration.ofSeconds(2),
 ) : GenericEntityActivityEntry {
     override fun create(context: ActivityContext, currentLocation: LocationProperty): EntityActivity<ActivityContext> {

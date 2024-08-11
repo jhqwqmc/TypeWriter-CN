@@ -12,7 +12,7 @@ import me.gabber235.typewriter.entry.roadnetwork.gps.MultiPathStreamDisplay
 
 @Entry(
     "group_members_path_stream",
-    "A Path Stream to Group Members",
+    "组成员的路径流",
     Colors.GREEN,
     "material-symbols:conversion-path"
 )

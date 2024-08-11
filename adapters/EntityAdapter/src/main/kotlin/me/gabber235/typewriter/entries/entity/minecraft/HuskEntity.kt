@@ -22,7 +22,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("husk_definition", "A husk entity", Colors.ORANGE, "game-icons:shambling-zombie")
+@Entry("husk_definition", "尸壳实体", Colors.ORANGE, "game-icons:shambling-zombie")
 @Tags("husk_definition")
 /**
  * The `HuskDefinition` class is an entry that shows up as a husk in-game.
@@ -41,7 +41,7 @@ class HuskDefinition(
     override fun create(player: Player): FakeEntity = HuskEntity(player)
 }
 
-@Entry("husk_instance", "An instance of a husk entity", Colors.YELLOW, "game-icons:shambling-zombie")
+@Entry("husk_instance", "尸壳实体的实例", Colors.YELLOW, "game-icons:shambling-zombie")
 class HuskInstance(
     override val id: String = "",
     override val name: String = "",

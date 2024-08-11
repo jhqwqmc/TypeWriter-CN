@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.SidebarEntry
 import me.gabber235.typewriter.entry.ref
 import java.util.*
 
-@Entry("sidebar", "Display a sidebar for players", Colors.DARK_ORANGE, "mdi:page-layout-sidebar-right")
+@Entry("sidebar", "为玩家显示侧边栏", Colors.DARK_ORANGE, "mdi:page-layout-sidebar-right")
 /**
  * The `SidebarEntry` is a display that shows a sidebar to players.
  *

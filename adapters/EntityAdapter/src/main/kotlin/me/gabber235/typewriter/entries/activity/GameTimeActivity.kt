@@ -14,7 +14,7 @@ import me.gabber235.typewriter.entry.entries.GenericEntityActivityEntry
 import me.gabber235.typewriter.utils.logErrorIfNull
 import java.util.*
 
-@Entry("game_time_activity", "A game time activity", Colors.PALATINATE_BLUE, "bi:clock-fill")
+@Entry("game_time_activity", "游戏时间活动", Colors.PALATINATE_BLUE, "bi:clock-fill")
 /**
  * The `GameTimeActivityEntry` is an activity that activates child activities at specific times in the game.
  *
@@ -80,7 +80,7 @@ class GameTimeActivity(
 ) : SingleChildActivity<ActivityContext>(startLocation) {
     override fun currentChild(context: ActivityContext): Ref<out EntityActivityEntry> {
         val world =
-            server.getWorld(world).logErrorIfNull("Could not find world '$world'") ?: return defaultActivity
+            server.getWorld(world).logErrorIfNull("无法找到世界'$world'") ?: return defaultActivity
 
         val worldTime = world.time % 24000
         return activities.firstOrNull { it.contains(worldTime) }

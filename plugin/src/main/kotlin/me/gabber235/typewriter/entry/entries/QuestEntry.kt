@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Tags("quest")
 interface QuestEntry : AudienceFilterEntry, PlaceholderEntry {
-    @Help("The name to display to the player.")
+    @Help("向玩家显示的名称。")
     @Colored
     @Placeholder
     val displayName: String
@@ -54,13 +54,13 @@ val showingObjectiveDisplay by snippet("quest.objective.showing", "<white><displ
 
 @Tags("objective")
 interface ObjectiveEntry : AudienceFilterEntry, PlaceholderEntry, PriorityEntry {
-    @Help("The quest that the objective is a part of.")
+    @Help("目标所属的任务。")
     val quest: Ref<QuestEntry>
 
-    @Help("The criteria need to be met for the objective to be able to be shown.")
+    @Help("需要满足条件才能显示目标。")
     val criteria: List<Criteria>
 
-    @Help("The name to display to the player.")
+    @Help("向玩家显示的名称。")
     @Colored
     @Placeholder
     val display: String

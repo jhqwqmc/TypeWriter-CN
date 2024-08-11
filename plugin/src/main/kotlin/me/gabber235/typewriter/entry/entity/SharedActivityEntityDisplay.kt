@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
-val entityShowRange by config("entity.show-range", 50.0, "The range at which entities are shown")
+val entityShowRange by config("entity.show-range", 50.0, "实体显示的范围")
 
 class SharedActivityEntityDisplay(
     private val ref: Ref<out EntityInstanceEntry>,

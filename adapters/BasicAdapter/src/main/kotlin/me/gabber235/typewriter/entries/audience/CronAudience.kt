@@ -15,7 +15,7 @@ import java.time.LocalDateTime
 
 @Entry(
     "cron_audience",
-    "Filters an audience based if the time matches a cron expression",
+    "根据时间是否匹配cron表达式过滤观众",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:calendar-clock"
 )
@@ -30,7 +30,7 @@ class CronAudience(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<out AudienceEntry>> = emptyList(),
-    @Help("The cron expression to filter the audience by.")
+    @Help("用于过滤观众的cron表达式。")
     // The <Link to="https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html">Cron Expression</Link> when the fact expires.
     val cron: CronExpression = CronExpression.default(),
 ) : AudienceFilterEntry {

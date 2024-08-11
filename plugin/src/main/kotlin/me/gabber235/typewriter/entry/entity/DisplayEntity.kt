@@ -67,7 +67,7 @@ fun List<Pair<PropertySupplier<*>, Int>>.toCollectors(): List<PropertyCollector<
 
             val companion = type.companionObjectInstance
             if (companion !is PropertyCollectorSupplier<*>) {
-                error("${type.simpleName} needs to have a companion object that implements PropertyCollectorSupplier")
+                error("${type.simpleName}需要有一个实现PropertyCollectorSupplier的伴生对象")
             }
 
             val comp = companion as PropertyCollectorSupplier<in EntityProperty>

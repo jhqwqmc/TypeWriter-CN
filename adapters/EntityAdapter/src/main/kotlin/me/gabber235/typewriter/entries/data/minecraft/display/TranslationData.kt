@@ -14,12 +14,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("translation_data", "Translate the Display.", Colors.RED, "material-symbols:move-selection-up-rounded")
+@Entry("translation_data", "展示实体的平移", Colors.RED, "material-symbols:move-selection-up-rounded")
 @Tags("translation_data")
 class TranslationData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The translation vector.")
+    @Help("平移向量。")
     val vector: Vector = Vector(0.0, 0.0, 0.0),
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : DisplayEntityData<TranslationProperty> {
@@ -35,6 +35,6 @@ data class TranslationProperty(val vector: Vector) : EntityProperty {
 fun applyTranslationData(entity: WrapperEntity, property: TranslationProperty) {
     entity.metas {
         meta<AbstractDisplayMeta> { translation = property.vector.toPacketVector3f() }
-        error("Could not apply TranslationData to ${entity.entityType} entity.")
+        error("无法将 TranslationData 应用于 ${entity.entityType} 实体。")
     }
 }

@@ -21,7 +21,7 @@ import org.bukkit.entity.Player
 import java.time.Duration
 import java.util.*
 
-@Entry("in_dialogue_activity", "An in dialogue activity", Colors.PALATINATE_BLUE, "bi:chat-square-quote-fill")
+@Entry("in_dialogue_activity", "对话中的活动", Colors.PALATINATE_BLUE, "bi:chat-square-quote-fill")
 /**
  * The `InDialogueActivityEntry` is an activity that activates child activities when a player is in a dialogue with the NPC.
  *
@@ -33,7 +33,7 @@ import java.util.*
 class InDialogueActivityEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("When a player is considered to be idle in the same dialogue")
+    @Help("当玩家在同一个对话中被认为是空闲时")
     /**
      * The duration a player can be idle in the same dialogue before the activity deactivates.
      *
@@ -45,9 +45,9 @@ class InDialogueActivityEntry(
      * </Admonition>
      */
     val dialogueIdleDuration: Duration = Duration.ofSeconds(30),
-    @Help("The activity that will be used when the npc is in a dialogue")
+    @Help("NPC在对话中时将要使用的活动")
     val talkingActivity: Ref<out EntityActivityEntry> = emptyRef(),
-    @Help("The activity that will be used when the npc is not in a dialogue")
+    @Help("NPC不在对话中时将要使用的活动")
     val idleActivity: Ref<out EntityActivityEntry> = emptyRef(),
 ) : GenericEntityActivityEntry {
     override fun create(
@@ -75,7 +75,7 @@ class InDialogueActivity(
 
     override fun currentChild(context: ActivityContext): Ref<out EntityActivityEntry> {
         val definition =
-            context.instanceRef.get()?.definition.logErrorIfNull("Could not find definition, this should not happen. Please report this on the TypeWriter Discord!")
+            context.instanceRef.get()?.definition.logErrorIfNull("未找到定义，这不应该发生。请在TypeWriter Discord上报告这个问题！")
                 ?: return idleActivity
         val inDialogue = context.viewers.filter { it.speakersInDialogue.any { it.id == definition.id } }
 

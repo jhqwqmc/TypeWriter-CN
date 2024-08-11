@@ -13,11 +13,11 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("arrow_count_data", "The amount of arrows in a entity", Colors.RED, "mdi:arrow-projectile")
+@Entry("arrow_count_data", "实体中的箭矢数量", Colors.RED, "mdi:arrow-projectile")
 class ArrowCountData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The amount of arrows in a entity.")
+    @Help("实体中的箭矢数量。")
     val arrowCount: Int = 0,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : GenericEntityData<ArrowCountProperty> {
@@ -33,6 +33,6 @@ data class ArrowCountProperty(val arrowCount: Int) : EntityProperty {
 fun applyArrowCountData(entity: WrapperEntity, property: ArrowCountProperty) {
     entity.metas {
         meta<LivingEntityMeta> { arrowCount = property.arrowCount }
-        error("Could not apply ArrowCountData to ${entity.entityType} entity.")
+        error("无法将 ArrowCountData 应用于 ${entity.entityType} 实体。")
     }
 }

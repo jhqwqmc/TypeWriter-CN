@@ -15,12 +15,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("chested_horse_chest_meta", "If the horse has a chest.", Colors.RED, "mdi:horse")
+@Entry("chested_horse_chest_meta", "马是否有一个箱子。", Colors.RED, "mdi:horse")
 @Tags("chested_horse_data", "chested_horse_chest_meta")
 class ChestedHorseChestData (
     override val id: String = "",
     override val name: String = "",
-    @Help("If the horse has a chest.")
+    @Help("马是否有一个箱子。")
     val chestedHorse: Boolean = false,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<ChestedHorseChestProperty> {
@@ -36,6 +36,6 @@ data class ChestedHorseChestProperty(val chestedHorse: Boolean) : EntityProperty
 fun applyChestedHorseChestData(entity: WrapperEntity, property: ChestedHorseChestProperty) {
     entity.metas {
         meta<ChestedHorseMeta> { isHasChest = property.chestedHorse }
-        error("Could not apply ChestedHorseChestData to ${entity.entityType} entity.")
+        error("无法将 ChestedHorseChestData 应用于 ${entity.entityType} 实体。")
     }
 }

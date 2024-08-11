@@ -24,7 +24,7 @@ private const val SCOREBOARD_OBJECTIVE = "typewriter"
 
 @Tags("sidebar")
 interface SidebarEntry : AudienceFilterEntry, PlaceholderEntry, PriorityEntry {
-    @Help("The title of the sidebar")
+    @Help("侧边栏的标题")
     @Colored
     @Placeholder
     val title: String

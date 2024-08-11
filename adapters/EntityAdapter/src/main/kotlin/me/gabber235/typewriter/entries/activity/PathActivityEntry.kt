@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.roadnetwork.RoadNetworkManager
 import me.gabber235.typewriter.entry.roadnetwork.gps.PointToPointGPS
 import org.koin.java.KoinJavaComponent
 
-@Entry("path_activity", "Moving along a predefined path", Colors.BLUE, "material-symbols:conversion-path")
+@Entry("path_activity", "沿着预定路径移动", Colors.BLUE, "material-symbols:conversion-path")
 /**
  * The `Path Activity` is an activity that moves along a predefined path.
  * The entity will move to each location in the set in order.
@@ -25,7 +25,7 @@ class PathActivityEntry(
     override val name: String = "",
     override val roadNetwork: Ref<RoadNetworkEntry> = emptyRef(),
     override val nodes: List<RoadNodeId> = emptyList(),
-    @Help("The activity that will be used when the entity is at the final location.")
+    @Help("当实体到达最终位置时将使用的活动。")
     val idleActivity: Ref<out EntityActivityEntry> = emptyRef(),
 ): GenericEntityActivityEntry, RoadNodeCollectionEntry {
     override fun create(context: ActivityContext, currentLocation: LocationProperty): EntityActivity<ActivityContext> {
@@ -52,9 +52,9 @@ private class PathActivity(
         }
 
         val targetNodeId = nodes.getOrNull(currentLocationIndex)
-            ?: throw IllegalStateException("Could not find any node in the nodes list for the path activity.")
+            ?: throw IllegalStateException("在路径活动的节点列表中找不到任何节点。")
         val targetNode = network.nodes.find { it.id == targetNodeId }
-            ?: throw IllegalStateException("Could not find any node in the nodes list for the path activity.")
+            ?: throw IllegalStateException("在路径活动的节点列表中找不到任何节点。")
 
         activity?.dispose(context)
         activity = NavigationActivity(
@@ -78,7 +78,7 @@ private class PathActivity(
         val closestNode = network.nodes
             .filter { it.id in nodes }
             .minByOrNull { it.location.distanceSquared(startLocation.toLocation()) }
-            ?: throw IllegalStateException("Could not find any node in the nodes list for the patrol activity.")
+            ?: throw IllegalStateException("在巡逻活动的节点列表中找不到任何节点。")
 
         val index = nodes.indexOf(closestNode.id)
         currentLocationIndex = (index + 1)

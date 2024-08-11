@@ -14,7 +14,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("self_npc_definition", "The definition of the self NPC", Colors.ORANGE, "mdi:account")
+@Entry("self_npc_definition", "对自身NPC的定义", Colors.ORANGE, "mdi:account")
 /**
  * The `Self NPC Definition` entry that defines a player entity with the skin of the viewer.
  *
@@ -24,7 +24,7 @@ import java.util.*
 class SelfNpcDefinition(
     override val id: String = "",
     override val name: String = "",
-    @Help("Overrides the display name of the speaker")
+    @Help("覆盖演讲者的显示名称")
     val overrideName: Optional<String> = Optional.empty(),
     override val sound: Sound = Sound.EMPTY,
     @OnlyTags("generic_entity_data", "living_entity_data", "player_data")

@@ -13,7 +13,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.java.KoinJavaComponent
 
 
-@Entry("patrol_activity", "Moving around a set of locations", Colors.BLUE, "fa6-solid:route")
+@Entry("patrol_activity", "在一组位置之间移动", Colors.BLUE, "fa6-solid:route")
 /**
  * The `PatrolActivity` is an activity that makes the entity move around a set of locations.
  * The entity will move to each location in the set in order.
@@ -47,9 +47,9 @@ private class PatrolActivity(
 
     fun refreshActivity(context: ActivityContext, network: RoadNetwork) {
         val targetNodeId = nodes.getOrNull(currentLocationIndex)
-            ?: throw IllegalStateException("Could not find any node in the nodes list for the patrol activity.")
+            ?: throw IllegalStateException("在巡逻活动的节点列表中找不到任何节点。")
         val targetNode = network.nodes.find { it.id == targetNodeId }
-            ?: throw IllegalStateException("Could not find any node in the nodes list for the patrol activity.")
+            ?: throw IllegalStateException("在巡逻活动的节点列表中找不到任何节点。")
 
         activity?.dispose(context)
         activity = NavigationActivity(PointToPointGPS(
@@ -72,7 +72,7 @@ private class PatrolActivity(
         val closestNode = network.nodes
             .filter { it.id in nodes }
             .minByOrNull { it.location.distanceSqrt(startLocation.toLocation()) ?: Double.MAX_VALUE }
-            ?: throw IllegalStateException("Could not find any node in the nodes list for the patrol activity.")
+            ?: throw IllegalStateException("在巡逻活动的节点列表中找不到任何节点。")
 
         val index = nodes.indexOf(closestNode.id)
         currentLocationIndex = (index + 1) % nodes.size

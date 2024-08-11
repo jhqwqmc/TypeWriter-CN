@@ -14,13 +14,13 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("scale_data", "Scale of a Display.", Colors.RED, "mdi:resize")
+@Entry("scale_data", "展示实体的缩放。", Colors.RED, "mdi:resize")
 @Tags("scale_data")
 
 class ScaleData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The scale vector.")
+    @Help("缩放向量。")
     val scale: Vector = Vector(1.0, 1.0, 1.0),
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : DisplayEntityData<ScaleProperty> {
@@ -37,6 +37,6 @@ data class ScaleProperty(val scale: Vector) : EntityProperty {
 fun applyScaleData(entity: WrapperEntity, property: ScaleProperty) {
     entity.metas {
         meta<AbstractDisplayMeta> { scale = property.scale.toPacketVector3f() }
-        error("Could not apply ScaleData to ${entity.entityType} entity.")
+        error("无法将 ScaleData 应用于 ${entity.entityType} 实体。")
     }
 }

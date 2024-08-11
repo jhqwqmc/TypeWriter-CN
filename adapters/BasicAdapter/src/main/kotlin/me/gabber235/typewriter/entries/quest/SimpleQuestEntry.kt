@@ -17,7 +17,7 @@ import me.gabber235.typewriter.events.AsyncQuestStatusUpdate
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 
-@Entry("quest", "A quest definition", Colors.MEDIUM_PURPLE, "material-symbols:book-2")
+@Entry("quest", "任务定义", Colors.MEDIUM_PURPLE, "material-symbols:book-2")
 /**
  * The `Quest` entry is a collection of tasks that the player can complete.
  * It is mainly for displaying the progress to a player.
@@ -36,10 +36,10 @@ class SimpleQuestEntry(
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
     override val displayName: String,
-    @Help("When the criteria is met, it considers the quest to be active.")
+    @Help("当满足条件时，认为任务处于活跃状态。")
     val activeCriteria: List<Criteria>,
 
-    @Help("When the criteria is met, it considers the quest to be completed.")
+    @Help("当满足条件时，认为任务已完成。")
     val completedCriteria: List<Criteria>,
 ) : QuestEntry {
     override val facts: List<Ref<ReadableFactEntry>>

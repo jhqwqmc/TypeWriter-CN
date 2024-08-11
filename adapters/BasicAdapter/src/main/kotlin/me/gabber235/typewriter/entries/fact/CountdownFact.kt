@@ -15,7 +15,7 @@ import kotlin.math.max
 
 @Entry(
     "countdown_fact",
-    "A fact that counts down from the set value",
+    "一个从设定值开始倒计时的变量",
     Colors.BLUE,
     "material-symbols:person-pin"
 )

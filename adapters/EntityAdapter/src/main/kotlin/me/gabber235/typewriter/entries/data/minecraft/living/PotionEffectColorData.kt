@@ -13,11 +13,11 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("potion_effect_color_data", "The color of the potion effect particles", Colors.RED, "bi:droplet-fill")
+@Entry("potion_effect_color_data", "药水效果粒子的颜色", Colors.RED, "bi:droplet-fill")
 class PotionEffectColorData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The color of the potion effect particles.")
+    @Help("药水效果粒子的颜色。")
     val color: Int = 0,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : GenericEntityData<PotionEffectColorProperty> {
@@ -33,6 +33,6 @@ data class PotionEffectColorProperty(val color: Int) : EntityProperty {
 fun applyPotionEffectColorData(entity: WrapperEntity, property: PotionEffectColorProperty) {
     entity.metas {
         meta<LivingEntityMeta> { potionEffectColor = property.color }
-        error("Could not apply PotionEffectColorData to ${entity.entityType} entity.")
+        error("无法将 PotionEffectColorData 应用于 ${entity.entityType} 实体。")
     }
 }

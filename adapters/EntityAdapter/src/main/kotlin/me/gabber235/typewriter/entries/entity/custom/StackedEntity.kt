@@ -13,7 +13,7 @@ import me.gabber235.typewriter.entry.entries.EntityProperty
 import me.gabber235.typewriter.utils.Sound
 import org.bukkit.entity.Player
 
-@Entry("stacked_entity_definition", "A stacking of entities", Colors.ORANGE, "ic:baseline-stacked-bar-chart")
+@Entry("stacked_entity_definition", "实体的堆叠", Colors.ORANGE, "ic:baseline-stacked-bar-chart")
 /**
  * The `StackedEntityDefinition` class is an entry that represents a stacking of entities.
  *
@@ -31,7 +31,7 @@ import org.bukkit.entity.Player
 class StackedEntityDefinition(
     override val id: String = "",
     override val name: String = "",
-    @Help("The entities that will be stacked on top of each other. First entity will be the bottom entity.")
+    @Help("将相互堆叠的实体。第一个实体将是底部实体。")
     val definitions: List<Ref<EntityDefinitionEntry>> = emptyList(),
 ) : EntityDefinitionEntry {
     override val displayName: String get() = definitions.firstOrNull()?.get()?.displayName ?: ""

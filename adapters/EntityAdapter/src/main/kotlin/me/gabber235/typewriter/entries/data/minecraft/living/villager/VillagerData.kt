@@ -20,16 +20,16 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("villager_data", "A villager data", Colors.RED, "material-symbols:diamond")
+@Entry("villager_data", "村民数据", Colors.RED, "material-symbols:diamond")
 @Tags("villager_data", "zombie_villager_data")
 class VillagerData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The type of villager")
+    @Help("村民的类型")
     val villagerType: VillagerTypeData = VillagerTypeData.PLAINS,
-    @Help("Profession of the villager")
+    @Help("村民的职业")
     val profession: VillagerProfessionData = VillagerProfessionData.NONE,
-    @Help("The level of the villager")
+    @Help("村民的等级")
     val level: VillagerMeta.Level = VillagerMeta.Level.NOVICE,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<VillagerProperty> {
@@ -59,7 +59,7 @@ fun applyVillagerData(entity: WrapperEntity, property: VillagerProperty) {
         meta<ZombieVillagerMeta> {
             this.villagerData = villagerData
         }
-        error("Could not apply VillagerData to ${entity.entityType} entity.")
+        error("无法将 VillagerData 应用于 ${entity.entityType} 实体。")
     }
 }
 

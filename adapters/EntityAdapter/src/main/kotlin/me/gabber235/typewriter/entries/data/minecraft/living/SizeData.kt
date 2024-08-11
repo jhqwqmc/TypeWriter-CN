@@ -14,12 +14,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("size_data", "Size of the entity", Colors.RED, "mdi:resize")
+@Entry("size_data", "实体的大小", Colors.RED, "mdi:resize")
 @Tags("size_data", "slime_data", "magma_cube_data")
 class SizeData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The size of the entity.")
+    @Help("实体的大小。")
     val size: Int = 1,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<SizeProperty> {
@@ -36,6 +36,6 @@ fun applySizeData(entity: WrapperEntity, property: SizeProperty) {
     entity.metas {
          meta<SlimeMeta> { size = property.size }
          meta<MagmaCubeMeta> { size = property.size }
-        error("Could not apply SizeData to ${entity.entityType} entity.")
+        error("无法将 SizeData 应用于 ${entity.entityType} 实体。")
     }
 }

@@ -122,14 +122,14 @@ interface GenericEntityActivityEntry : SharedEntityActivityEntry, IndividualEnti
 }
 
 class WrongActivityContextException(context: ActivityContext, expected: KClass<out ActivityContext>, entry: EntityActivityEntry) : IllegalStateException("""
-    |The activity context for ${entry.name} is not of the expected type.
-    |Expected: $expected
-    |Actual: $context
+    |${entry.name}的活动上下文不是预期的类型。
+    |预期类型：$expected
+    |实际类型：$context
     |
-    |This happens when you try to mix shared and individual activities.
-    |For example, you can't use a shared activity on an individual entity.
-    |And you can't use an individual activity on a shared entity.
+    |当你尝试混合共享和个体活动时会发生这种情况。
+    |例如，你不能在个体实体上使用共享活动。
+    |同样，你也不能在共享实体上使用个体活动。
     |
-    |To fix this, you need to make sure that the activity matches the entity visibility.
-    |If you need more help, please join the TypeWriter Discord! https://discord.gg/gs5QYhfv9x
+    |要解决此问题，你需要确保活动与实体的可见性匹配。
+    |如果你需要更多帮助，请加入TypeWriter Discord！https://discord.gg/gs5QYhfv9x
 """.trimMargin())

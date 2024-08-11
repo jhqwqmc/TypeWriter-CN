@@ -14,12 +14,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("rabbit_type_data", "The type of the rabbit", Colors.RED, "mdi:rabbit")
+@Entry("rabbit_type_data", "兔子的种类", Colors.RED, "mdi:rabbit")
 @Tags("rabbit_data", "rabbit_type_data")
 class RabbitTypeData (
     override val id: String = "",
     override val name: String = "",
-    @Help("The type of the rabbit.")
+    @Help("兔子的种类。")
     val rabbitType: RabbitMeta.Type = RabbitMeta.Type.BROWN,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<RabbitTypeProperty> {
@@ -35,6 +35,6 @@ data class RabbitTypeProperty(val rabbitType: RabbitMeta.Type) : EntityProperty 
 fun applyRabbitTypeData(entity: WrapperEntity, property: RabbitTypeProperty) {
     entity.metas {
         meta<RabbitMeta> { type = property.rabbitType }
-        error("Could not apply RabbitTypeData to ${entity.entityType} entity.")
+        error("无法将 RabbitTypeData 应用于 ${entity.entityType} 实体。")
     }
 }

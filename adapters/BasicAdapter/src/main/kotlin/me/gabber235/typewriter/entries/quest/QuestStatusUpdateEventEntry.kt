@@ -12,7 +12,7 @@ import java.util.*
 
 @Entry(
     "quest_status_update_event",
-    "Triggered when a quest status is updated for a player",
+    "当玩家的任务状态更新时触发",
     Colors.YELLOW,
     "mdi:notebook-edit"
 )
@@ -28,11 +28,11 @@ class QuestStatusUpdateEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("When not set it will trigger for all quests.")
+    @Help("如果未设置，它将对所有任务触发。")
     val quest: Ref<QuestEntry> = emptyRef(),
-    @Help("When not set it will trigger for all statuses.")
+    @Help("如果未设置，它将对所有状态触发。")
     val from: Optional<QuestStatus> = Optional.empty(),
-    @Help("The status the quest is updated to.")
+    @Help("任务更新到的状态。")
     val to: QuestStatus
 ) : EventEntry
 

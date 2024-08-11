@@ -11,7 +11,7 @@ import me.gabber235.typewriter.entry.entries.GenericEntityActivityEntry
 import java.time.Duration
 import java.util.*
 
-@Entry("player_close_by_activity", "A player close by activity", Colors.PALATINATE_BLUE, "material-symbols-light:frame-person")
+@Entry("player_close_by_activity", "一个附近有玩家的活动", Colors.PALATINATE_BLUE, "material-symbols-light:frame-person")
 /**
  * The `PlayerCloseByActivityEntry` is an activity that activates child activities when a viewer is close by.
  *
@@ -28,13 +28,13 @@ import java.util.*
 class PlayerCloseByActivityEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The range in which the player has to be close by to activate the activity.")
+    @Help("玩家必须在该范围内才能激活活动。")
     val range: Double = 10.0,
-    @Help("The maximum duration a player can be idle in the same range before the activity deactivates.")
+    @Help("玩家在同一范围内空闲的最大持续时间，超过此时间活动将停用。")
     val maxIdleDuration: Duration = Duration.ofSeconds(30),
-    @Help("The activity that will be used when there is a player close by.")
+    @Help("当有玩家在附近时将要使用的活动。")
     val closeByActivity: Ref<out EntityActivityEntry> = emptyRef(),
-    @Help("The activity that will be used when there is no player close by.")
+    @Help("当没有玩家在附近时将要使用的活动。")
     val idleActivity: Ref<out EntityActivityEntry> = emptyRef(),
 ) : GenericEntityActivityEntry {
     override fun create(

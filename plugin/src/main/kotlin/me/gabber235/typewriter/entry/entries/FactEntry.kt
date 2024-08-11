@@ -20,7 +20,7 @@ interface FactEntry : StaticEntry {
     @Help("用于跟踪该变量用途的注释。")
     val comment: String
 
-    @Help("The group that this fact is for.")
+    @Help("此变量所属的组。")
     val group: Ref<GroupEntry>
 
     fun identifier(player: Player): FactId? {
@@ -85,7 +85,7 @@ interface CachableFactEntry : ReadableFactEntry, WritableFactEntry {
     }
 
     override fun readSinglePlayer(player: Player): FactData {
-        throw UnsupportedOperationException("This method should not be used directly. Use readForPlayer instead.")
+        throw UnsupportedOperationException("不应直接使用此方法。请使用readForPlayer。")
     }
 
     fun read(id: FactId): FactData {

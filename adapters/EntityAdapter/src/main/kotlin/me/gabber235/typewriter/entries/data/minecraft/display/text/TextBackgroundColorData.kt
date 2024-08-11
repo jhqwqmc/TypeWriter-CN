@@ -15,12 +15,12 @@ import java.util.*
 import kotlin.reflect.KClass
 
 @Entry(
-    "background_color_data", "Background color for a TextDisplay.", Colors.RED, "fluent:video-background-effect-32-filled")
+    "background_color_data", "文本展示实体的背景颜色。", Colors.RED, "fluent:video-background-effect-32-filled")
 @Tags("background_color_data")
 class TextBackgroundColorData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Background Color Of the TextDisplay.")
+    @Help("文本展示实体的背景颜色。")
     val color: Color = Color.BLACK_BACKGROUND,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : TextDisplayEntityData<BackgroundColorProperty> {
@@ -37,6 +37,6 @@ data class BackgroundColorProperty(val color: Color) : EntityProperty {
 fun applyBackgroundColorData(entity: WrapperEntity, property: BackgroundColorProperty) {
     entity.metas {
         meta<TextDisplayMeta> { backgroundColor = property.color.color }
-        error("Could not apply BackgroundColorData to ${entity.entityType} entity.")
+        error("无法将 BackgroundColorData 应用于 ${entity.entityType} 实体。")
     }
 }

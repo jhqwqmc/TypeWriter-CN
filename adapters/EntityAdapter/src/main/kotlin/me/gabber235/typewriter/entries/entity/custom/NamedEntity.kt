@@ -35,7 +35,7 @@ val namePlateOffset by snippet("entity.name.offset", 0.2)
 
 @Entry(
     "named_entity_definition",
-    "An entity with a name above it's head and the indicator",
+    "一个头顶有名字和指示器的实体",
     Colors.ORANGE,
     "mdi:account-tag"
 )
@@ -57,7 +57,7 @@ class NamedEntityDefinition(
 
     override fun create(player: Player): FakeEntity {
         val entity = baseEntity.get()?.create(player)
-            ?: throw IllegalStateException("A base entity must be specified for entry $name ($id)")
+            ?: throw IllegalStateException("必须为条目$name ($id)指定一个基础实体")
         return NamedEntity(player, displayName, entity, ref())
     }
 }

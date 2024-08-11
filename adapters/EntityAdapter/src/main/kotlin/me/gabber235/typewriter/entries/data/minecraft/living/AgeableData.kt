@@ -17,12 +17,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("ageable_data", "An ageable data", Colors.RED, "material-symbols:child-care")
+@Entry("ageable_data", "年龄数据", Colors.RED, "material-symbols:child-care")
 @Tags("ageable_data", "zoglin_data", "zombie_data")
 class AgeableData(
     override val id: String = "",
     override val name: String = "",
-    @Help("Whether the entity is a baby.")
+    @Help("实体是否是幼年。")
     val baby: Boolean = false,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : EntityData<AgableProperty> {
@@ -41,6 +41,6 @@ fun applyAgeableData(entity: WrapperEntity, property: AgableProperty) {
         meta<ZoglinMeta> { isBaby = property.baby }
         meta<ZombieMeta> { isBaby = property.baby }
         meta<PiglinMeta> { isBaby = property.baby }
-        error("Could not apply AgeableData to ${entity.entityType} entity.")
+        error("无法将 AgeableData 应用于 ${entity.entityType} 实体。")
     }
 }

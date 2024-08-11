@@ -35,6 +35,6 @@ data class RearingProperty(val rearing: Boolean) : EntityProperty {
 fun applyRearingData(entity: WrapperEntity, property: RearingProperty) {
     entity.metas {
         meta<BaseHorseMeta> { isRearing = property.rearing }
-        error("Could not apply HorseRearingData to ${entity.entityType} entity.")
+        error("无法将 HorseRearingData 应用于 ${entity.entityType} 实体。")
     }
 }

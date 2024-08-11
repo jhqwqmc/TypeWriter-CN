@@ -16,7 +16,7 @@ import java.util.*
 
 private val locationActivityRange by snippet("entity.activity.target_location.range", 1.0)
 
-@Entry("target_location_activity", "A location activity", Colors.BLUE, "mdi:map-marker-account")
+@Entry("target_location_activity", "一个位置活动", Colors.BLUE, "mdi:map-marker-account")
 /**
  * The `TargetLocationActivityEntry` is an activity that makes the entity navigate to a specific location.
  *
@@ -30,7 +30,7 @@ class TargetLocationActivityEntry(
     override val name: String = "",
     val roadNetwork: Ref<RoadNetworkEntry> = emptyRef(),
     val targetLocation: Location = Location(null, 0.0, 0.0, 0.0),
-    @Help("The activity that will be used when the entity is at the target location.")
+    @Help("当实体在目标位置时将要使用的活动。")
     val idleActivity: Ref<out EntityActivityEntry> = emptyRef(),
 ) : GenericEntityActivityEntry {
     override fun create(

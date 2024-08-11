@@ -20,7 +20,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("enderman_definition", "A enderman entity", Colors.ORANGE, "gravity-ui:sphere")
+@Entry("enderman_definition", "末影人实体", Colors.ORANGE, "gravity-ui:sphere")
 @Tags("enderman_definition")
 /**
  * The `EndermanDefinition` class is an entry that shows up as a enderman in-game.
@@ -39,7 +39,7 @@ class EndermanDefinition(
     override fun create(player: Player): FakeEntity = EndermanEntity(player)
 }
 
-@Entry("enderman_instance", "An instance of a enderman entity", Colors.YELLOW, "gravity-ui:sphere")
+@Entry("enderman_instance", "末影人实体的实例", Colors.YELLOW, "gravity-ui:sphere")
 class EndermanInstance(
     override val id: String = "",
     override val name: String = "",

@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent
 
 @Entry(
     "game_time_audience",
-    "Filters an audience based on the game time",
+    "根据游戏时间过滤观众",
     Colors.MEDIUM_SEA_GREEN,
     "bi:clock-fill"
 )
@@ -66,7 +66,7 @@ class GameTimeAudienceFilter(
     override fun tick() {
         val world = server.getWorld(world)
         if (world == null) {
-            logger.warning("World '${this.world}' does not exist, $ref will not work.")
+            logger.warning("世界'${this.world}'不存在，$ref 将无法工作。")
             return
         }
 

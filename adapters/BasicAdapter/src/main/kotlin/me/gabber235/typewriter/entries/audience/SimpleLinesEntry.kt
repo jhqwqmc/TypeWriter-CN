@@ -10,7 +10,7 @@ import me.gabber235.typewriter.entry.entries.LinesEntry
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("simple_lines", "Statically determined lines of text", Colors.ORANGE_RED, "bi:layout-text-sidebar")
+@Entry("simple_lines", "静态确定的文本行", Colors.ORANGE_RED, "bi:layout-text-sidebar")
 /**
  * The `SimpleSidebarLinesEntry` is a display that shows lines.
  *
@@ -22,7 +22,7 @@ import java.util.*
 class SimpleLinesEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The lines to display on the sidebar. Separate lines with a newline character.")
+    @Help("要在侧边栏上显示的行。使用换行符分隔行。")
     @Colored
     @Placeholder
     @MultiLine

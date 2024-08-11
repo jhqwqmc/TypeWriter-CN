@@ -22,7 +22,7 @@ import me.gabber235.typewriter.utils.Sound
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-@Entry("cow_definition", "A cow entity", Colors.ORANGE, "fa6-solid:cow")
+@Entry("cow_definition", "牛实体", Colors.ORANGE, "fa6-solid:cow")
 @Tags("cow_definition")
 /**
  * The `CowDefinition` class is an entry that shows up as a cow in-game.
@@ -41,7 +41,7 @@ class CowDefinition(
     override fun create(player: Player): FakeEntity = CowEntity(player)
 }
 
-@Entry("cow_instance", "An instance of a cow entity", Colors.YELLOW, "fa6-solid:cow")
+@Entry("cow_instance", "牛实体的实例", Colors.YELLOW, "fa6-solid:cow")
 class CowInstance(
     override val id: String = "",
     override val name: String = "",
