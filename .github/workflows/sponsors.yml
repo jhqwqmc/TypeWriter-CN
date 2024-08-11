@@ -1,9 +1,5 @@
 name: Generate Sponsors README
-on:
-  workflow_dispatch:
-  schedule:
-    # This is a cron schedule, it will run every day at 15:30. You can change this to whatever you want.x
-    - cron: 30 15 * * 0-6
+on: [workflow_dispatch]
 jobs:
   deploy:
     runs-on: ubuntu-latest
