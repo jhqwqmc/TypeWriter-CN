@@ -386,12 +386,13 @@ String _longestEntryName(_LongestEntryNameRef ref) {
   final entryIds = ref.watch(_cinematicEntryIdsProvider);
   final names = entryIds
           .map((entryId) => ref.watch(entryNameProvider(entryId)))
-          .where((element) => true)
+          .where((element) => element != null)
+          .cast<String>()
           .toList() +
       ["追踪时长"];
   return names.isEmpty
       ? ""
-      : names.reduce((a, b) => a.length > b.length ? a : b);
+      : names.reduce((a, b) => (a?.length ?? 0) > (b?.length ?? 0) ? a : b);
 }
 
 @riverpod
