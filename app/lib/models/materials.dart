@@ -6,21 +6,21 @@ part "materials.freezed.dart";
 part "materials.g.dart";
 
 enum MaterialProperty {
-  item(TWIcons.magicWand, Colors.blue, "物品"),
-  block(TWIcons.cube, Colors.green, "方块"),
-  solid(TWIcons.square, Colors.brown, "固体"),
-  transparent(TWIcons.squareOutline, Colors.white, "透明"),
-  intractable(TWIcons.handPointUp, Colors.pink, "其他"),
-  occluding(TWIcons.eye, Colors.black, "不透明"),
-  record(TWIcons.recordVinyl, Colors.grey, "唱片"),
-  tool(TWIcons.hammer, Colors.teal, "工具"),
-  weapon(TWIcons.swords, Colors.red, "武器"),
-  armor(TWIcons.armor, Colors.blue, "盔甲"),
-  flammable(TWIcons.fire, Colors.red, "易燃"),
-  burnable(TWIcons.wallFire, Colors.orange, "可燃"),
-  edible(TWIcons.burger, Colors.yellow, "食物"),
-  fuel(TWIcons.gasPump, Colors.purple, "燃料"),
-  ore(TWIcons.ore, Colors.amber, "矿石"),
+  item(TWIcons.magicWand, Colors.blue, "Item"),
+  block(TWIcons.cube, Colors.green, "Block"),
+  solid(TWIcons.square, Colors.brown, "Solid"),
+  transparent(TWIcons.squareOutline, Colors.white, "Transparent"),
+  intractable(TWIcons.handPointUp, Colors.pink, "Intractable"),
+  occluding(TWIcons.eye, Colors.black, "Occluding"),
+  record(TWIcons.recordVinyl, Colors.grey, "Record"),
+  tool(TWIcons.hammer, Colors.teal, "Tool"),
+  weapon(TWIcons.swords, Colors.red, "Weapon"),
+  armor(TWIcons.armor, Colors.blue, "Armor"),
+  flammable(TWIcons.fire, Colors.red, "Flammable"),
+  burnable(TWIcons.wallFire, Colors.orange, "Burnable"),
+  edible(TWIcons.burger, Colors.yellow, "Edible"),
+  fuel(TWIcons.gasPump, Colors.purple, "Fuel"),
+  ore(TWIcons.ore, Colors.amber, "Ore"),
   ;
 
   const MaterialProperty(this.icon, this.color, this.name);

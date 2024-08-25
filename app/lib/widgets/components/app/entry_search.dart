@@ -94,7 +94,7 @@ Fuzzy<EntryDefinition> _fuzzyEntries(_FuzzyEntriesRef ref) {
         blueprint: blueprint,
         entry: entry,
       );
-    }).whereNotNull();
+    }).where((element) => true);
   }).toList();
 
   return Fuzzy(

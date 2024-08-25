@@ -163,7 +163,7 @@ List<Segment> _allSegments(_AllSegmentsRef ref, String entryId) {
   final paths = ref.watch(_segmentPathsProvider(entryId));
   return paths.keys
       .map((path) => ref.watch(_segmentsProvider(entryId, path)))
-      .whereNotNull()
+      .where((element) => true)
       .expand((x) => x)
       .toList();
 }
@@ -386,7 +386,7 @@ String _longestEntryName(_LongestEntryNameRef ref) {
   final entryIds = ref.watch(_cinematicEntryIdsProvider);
   final names = entryIds
           .map((entryId) => ref.watch(entryNameProvider(entryId)))
-          .whereNotNull()
+          .where((element) => true)
           .toList() +
       ["追踪时长"];
   return names.isEmpty
@@ -534,7 +534,7 @@ int _totalSequenceFrames(_TotalSequenceFramesRef ref) {
   final entryIds = ref.watch(_cinematicEntryIdsProvider);
   final frames = entryIds
       .map((entryId) => ref.watch(_endingFrameProvider(entryId)))
-      .whereNotNull()
+      .where((element) => true)
       .toList();
   return frames.map((frame) => frame).maxOrNull ?? 0;
 }
