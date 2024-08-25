@@ -392,7 +392,7 @@ String _longestEntryName(_LongestEntryNameRef ref) {
       ["追踪时长"];
   return names.isEmpty
       ? ""
-      : names.reduce((a, b) => (a?.length ?? 0) > (b?.length ?? 0) ? a : b);
+      : names.reduce((a, b) => a.length > b.length ? a : b);
 }
 
 @riverpod
