@@ -269,7 +269,7 @@ class Entry {
       }
     }
     if (item is List) {
-      item.replaceRange(0, item.length, item.map(mapper).where((element) => true));
+      item.replaceRange(0, item.length, item.map(mapper).where((element) => element != null).toList());
     }
   }
 
@@ -287,7 +287,7 @@ class Entry {
       }
     }
     if (item is List) {
-      final index = last.asInt;
+      final index = int.tryParse(last);
       if (index == null || index < 0 || index >= item.length) {
         return;
       }
