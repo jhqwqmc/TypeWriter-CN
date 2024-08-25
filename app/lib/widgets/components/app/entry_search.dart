@@ -94,8 +94,8 @@ Fuzzy<EntryDefinition> _fuzzyEntries(_FuzzyEntriesRef ref) {
         blueprint: blueprint,
         entry: entry,
       );
-    }).where((element) => true);
-  }).toList();
+    }).where((element) => element != null).toList();
+  }).toList().cast<EntryDefinition>();
 
   return Fuzzy(
     definitions,
@@ -105,11 +105,7 @@ Fuzzy<EntryDefinition> _fuzzyEntries(_FuzzyEntriesRef ref) {
           .map((e) => e.score)
           .sum
           .compareTo(b.matches.map((e) => e.score).sum),
-      // tokenize: true,
-      // verbose: true,
       keys: [
-        // The names of entries are like "test.some_entry".
-        // We want to give the last part more priority since it is more specific.
         WeightedKey(
           name: "name-suffix",
           getter: (definition) => definition.entry.name.split(".").last,
