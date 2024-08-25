@@ -269,7 +269,7 @@ class Entry {
       }
     }
     if (item is List) {
-      item.replaceRange(0, item.length, item.map(mapper).where((element) => element != null));
+      item.replaceRange(0, item.length, item.map(mapper).where((element) => true));
     }
   }
 
