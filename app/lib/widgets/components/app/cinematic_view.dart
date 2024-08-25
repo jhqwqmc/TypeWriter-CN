@@ -163,7 +163,7 @@ List<Segment> _allSegments(_AllSegmentsRef ref, String entryId) {
   final paths = ref.watch(_segmentPathsProvider(entryId));
   return paths.keys
       .map((path) => ref.watch(_segmentsProvider(entryId, path)))
-      .where((element) => true)392:10
+      .where((element) => true)
       .expand((x) => x)
       .toList();
 }
