@@ -73,7 +73,7 @@
   },
   "custom_triggering_action_entry": {
     "file": "src\\main\\kotlin\\com\\typewritermc\\example\\entries\\trigger\\ExampleCustomTriggeringActionEntry.kt",
-    "content": "@Entry(\"example_custom_triggering_action\", \"An example custom triggering entry.\", Colors.RED, \"material-symbols:touch-app-rounded\")\nclass ExampleCustomTriggeringActionEntry(\n    override val id: String = \"\",\n    override val name: String = \"\",\n    override val criteria: List<Criteria> = emptyList(),\n    override val modifiers: List<Modifier> = emptyList(),\n    @SerializedName(\"triggers\")\n    override val customTriggers: List<Ref<TriggerableEntry>> = emptyList(),\n) : CustomTriggeringActionEntry {\n    override fun execute(player: Player) {\n        super.execute(player) // This will apply the modifiers.\n        // Do something with the player\n        player.triggerCustomTriggers() // Can be called later to trigger the next entries.\n    }\n}"
+    "content": "@Entry(\n    \"example_custom_triggering_action\",\n    \"An example custom triggering entry.\",\n    Colors.RED,\n    \"material-symbols:touch-app-rounded\"\n)\nclass ExampleCustomTriggeringActionEntry(\n    override val id: String = \"\",\n    override val name: String = \"\",\n    override val criteria: List<Criteria> = emptyList(),\n    override val modifiers: List<Modifier> = emptyList(),\n    @SerializedName(\"triggers\")\n    override val customTriggers: List<Ref<TriggerableEntry>> = emptyList(),\n) : CustomTriggeringActionEntry {\n    override fun execute(player: Player) {\n        super.execute(player) // This will apply the modifiers.\n        // Do something with the player\n        player.triggerCustomTriggers() // Can be called later to trigger the next entries.\n    }\n}"
   },
   "dialogue_entry": {
     "file": "src\\main\\kotlin\\com\\typewritermc\\example\\entries\\trigger\\ExampleDialogueEntry.kt",
@@ -91,8 +91,8 @@
     "file": "src\\main\\kotlin\\com\\typewritermc\\example\\entries\\trigger\\ExampleEventEntry.kt",
     "content": "// Must be scoped to be public\n@EntryListener(ExampleEventEntry::class)\nfun onEvent(event: SomeBukkitEvent, query: Query<ExampleEventEntry>) {\n    // Do something\n    val entries = query.find() // Find all the entries of this type, for more information see the Query section\n    // Do something with the entries, for example trigger them\n    entries triggerAllFor event.player\n}"
   },
-  "adapter": {
-    "file": "src\\main\\kotlin\\com\\typewritermc\\example\\ExampleAdapter.kt",
-    "content": "import me.gabber235.typewriter.adapters.Adapter\nimport me.gabber235.typewriter.adapters.TypewriterAdapter\n\n@Adapter(\"Example\", \"An example adapter for documentation purposes\", \"0.0.1\")\nobject ExampleAdapter : TypewriterAdapter() {\n    override fun initialize() {\n        // Do something when the adapter is initialized\n    }\n\n    override fun shutdown() {\n        // Do something when the adapter is shutdown\n    }\n}"
+  "initializer": {
+    "file": "src\\main\\kotlin\\com\\typewritermc\\example\\ExampleInitializer.kt",
+    "content": "import com.typewritermc.core.extension.Initializable\nimport com.typewritermc.core.extension.annotations.Initializer\n\n@Initializer\nobject ExampleInitializer : Initializable {\n    override fun initialize() {\n        // Do something when the extension is initialized\n    }\n\n    override fun shutdown() {\n        // Do something when the extension is shutdown\n    }\n}"
   }
 }

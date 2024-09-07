@@ -121,9 +121,9 @@ const config = {
                     },
                     {
                         type: 'docSidebar',
+                        label: 'Extensions',
                         sidebarId: 'adapters',
                         position: 'left',
-                        label: 'Adapters',
                     },
                     {
                         type: 'docSidebar',

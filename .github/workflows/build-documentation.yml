@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Documentation
 
 on: [workflow_dispatch]
 
@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: sudo apt update && sudo apt install libvips-dev -y
       - uses: actions/setup-node@v3
         with:
           node-version: 18

@@ -120,11 +120,13 @@ class EntryInspector extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final object = ref.watch(
-      inspectingEntryDefinitionProvider.select((def) => def?.blueprint.fields),
+    final objectBlueprint = ref.watch(
+      inspectingEntryDefinitionProvider.select(
+        (def) => def?.blueprint.dataBlueprint,
+      ),
     );
 
-    if (object == null) {
+    if (objectBlueprint == null) {
       return const NoBlueprintEntryInspector();
     }
 
@@ -139,7 +141,7 @@ class EntryInspector extends HookConsumerWidget {
           const Divider(),
           ObjectEditor(
             path: "",
-            object: object,
+            objectBlueprint: objectBlueprint,
             ignoreFields: ["id", "name", ...ignoreFields],
             defaultExpanded: true,
           ),
@@ -181,7 +183,11 @@ class NoBlueprintEntryInspector extends HookConsumerWidget {
           direction: Axis.horizontal,
           alignment: WrapAlignment.start,
           children: [
-            EntryType(type: entry.type, url: "", color: Colors.redAccent),
+            EntryBlueprintDisplay(
+              blueprintId: entry.blueprintId,
+              url: "",
+              color: Colors.redAccent,
+            ),
             EntryIdentifier(id: entry.id),
           ],
         ),

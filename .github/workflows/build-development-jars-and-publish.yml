@@ -24,44 +24,38 @@ jobs:
           full_version="${version}-beta-${run_number}"
           echo $full_version > version.txt
           echo "version=$full_version" >> $GITHUB_OUTPUT
-      - name: Build Plugin
-        uses: ./.github/actions/build-plugin
-      - name: Build Basic Adapter
-        uses: ./.github/actions/build-adapter
+      - name: Build Engine
+        uses: ./.github/actions/build-engine
+#  ----------------------------------------------------------------------------------------------------
+      - name: Test Extensions
+        uses: gradle/gradle-build-action@v2
         with:
-          adapter: BasicAdapter
-      - name: Build Citizens Adapter
-        uses: ./.github/actions/build-adapter
+          arguments: test --scan
+          build-root-directory: ./extensions
+#  ----------------------------------------------------------------------------------------------------
+      - name: Publish Engine to Beta Maven Repository
+        uses: gradle/gradle-build-action@v2
         with:
-          adapter: CitizensAdapter
-      - name: Build CombatLogX Adapter
-        uses: ./.github/actions/build-adapter
+          arguments: publishAllPublicationsToTypewriterBetaRepository -PTypewriterBetaUsername=${{ secrets.MAVEN_USERNAME }} -PTypewriterBetaPassword=${{ secrets.MAVEN_PASSWORD }} --scan
+          build-root-directory: ./engine
+      - name: Publish All Extensions to Beta Maven Repository
+        uses: gradle/gradle-build-action@v2
         with:
-          adapter: CombatLogXAdapter
-      - name: Build MythicMobs Adapter
-        uses: ./.github/actions/build-adapter
+          arguments: publishAllPublicationsToTypewriterBetaRepository -PTypewriterBetaUsername=${{ secrets.MAVEN_USERNAME }} -PTypewriterBetaPassword=${{ secrets.MAVEN_PASSWORD }} --scan
+          build-root-directory: ./extensions
+      - name: Publish Module-Plugin to Beta Maven Repository
+        uses: gradle/gradle-build-action@v2
         with:
-          adapter: MythicMobsAdapter
-      - name: Build EntityAdapter
-        uses: ./.github/actions/build-adapter
+          arguments: publishAllPublicationsToTypewriterBetaRepository -PTypewriterBetaUsername=${{ secrets.MAVEN_USERNAME }} -PTypewriterBetaPassword=${{ secrets.MAVEN_PASSWORD }} --scan
+          build-root-directory: ./module-plugin
+#  ----------------------------------------------------------------------------------------------------
+      # Has to be after the publish, because it needs to delete the slim jars and only keep the shadowed jars for the modrinth upload
+      - name: Build Extensions
+        uses: gradle/gradle-build-action@v2
         with:
-          adapter: EntityAdapter
-      - name: Build RPGRegions Adapter
-        uses: ./.github/actions/build-adapter
-        with:
-          adapter: RPGRegionsAdapter
-      - name: Build SuperiorSkyblock Adapter
-        uses: ./.github/actions/build-adapter
-        with:
-          adapter: SuperiorSkyblockAdapter
-      - name: Build Vault Adapter
-        uses: ./.github/actions/build-adapter
-        with:
-          adapter: VaultAdapter
-      - name: Build WorldGuard Adapter
-        uses: ./.github/actions/build-adapter
-        with:
-          adapter: WorldGuardAdapter
+          arguments: buildRelease --scan
+          build-root-directory: ./extensions
+#  ----------------------------------------------------------------------------------------------------
       - name: Publish Modrinth
         uses: Kir-Antipov/mc-publish@v3.3
         id: publish
@@ -70,16 +64,15 @@ jobs:
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           modrinth-featured: false
           files: |
-            plugin/build/libs/typewriter.jar
-            adapters/**/build/libs/*.jar
-          name: "Typewriter v${{ steps.vars.outputs.version }} Development Build"
+            engine/engine-paper/build/libs/Typewriter.jar
+            extensions/**/build/libs/*.jar
+          name: "Typewriter v${{ steps.vars.outputs.version }} Build"
           version: "${{ steps.vars.outputs.version }}"
           version-type: "beta"
           loaders: |
             paper
-            purpur
           game-versions: |
-            [1.21]
+            [1.21, 1.21.1]
           dependencies: |
             packetevents
 
@@ -89,22 +82,23 @@ jobs:
         env:
           HANGAR_API_TOKEN: ${{ secrets.HANGAR_API_TOKEN }}
         with:
-          arguments: publishPluginPublicationToHangar --scan
-          build-root-directory: ./plugin
+          arguments: engine-paper:publishPluginPublicationToHangar --scan
+          build-root-directory: ./engine
       - name: Add Tag
-        uses: laputansoft/github-tag-action@v4.6
+        uses: mathieudutour/github-tag-action@v6.2
         with:
-          github_token: ${{ env.github-token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: false
-          tag: "v${{ steps.vars.outputs.version }}"
+          custom_tag: "${{ steps.vars.outputs.version }}"
+          release_branches: develop
       - name: Notify Discord
         uses: sarisia/actions-status-discord@v1
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
-          title: Published Development Build
+          title: Published Beta Build
           description: |
-            I have published a development build of Typewriter.
+            I have published a beta build of Typewriter.
             Version: ${{ steps.vars.outputs.version }}
             [Download](https://modrinth.com/plugin/typewriter/version/${{ steps.publish.outputs.modrinth-version }})
       - name: Notify Winston

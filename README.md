@@ -20,7 +20,7 @@ Typewriter 的强大之处在于它可以通过适配器进行扩展。
 没有他们的支持，这个项目是不可能实现的。
 如果你在服务器上使用 Typewriter 并从中获利，请考虑 [赞助](https://github.com/sponsors/gabber235) 该项目。
 
-<!-- sponsors --><a href="https://github.com/PixellPioneer"><img src="https://github.com/PixellPioneer.png" width="60px" alt="PixelPioneer" /></a><!-- sponsors -->
+<!-- sponsors --><!-- sponsors -->
 
 ### 示例
 

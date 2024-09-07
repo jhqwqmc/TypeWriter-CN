@@ -1,8 +1,8 @@
 import "package:flutter_test/flutter_test.dart";
 import "package:hooks_riverpod/hooks_riverpod.dart";
-import "package:typewriter/models/adapter.dart";
 import "package:typewriter/models/book.dart";
 import "package:typewriter/models/entry.dart";
+import "package:typewriter/models/entry_blueprint.dart";
 import "package:typewriter/models/page.dart";
 import "package:typewriter/utils/passing_reference.dart";
 
@@ -22,29 +22,29 @@ const testEntryData = {
   ],
 };
 
-const entryBlueprintFields = ObjectField(
+const entryBlueprintFields = ObjectBlueprint(
   fields: {
-    "id": FieldInfo.primitive(type: PrimitiveFieldType.string),
-    "name": FieldInfo.primitive(type: PrimitiveFieldType.string),
-    "type": FieldInfo.primitive(type: PrimitiveFieldType.string),
-    "simpleMap": FieldInfo.map(
-      key: FieldInfo.primitive(type: PrimitiveFieldType.string),
-      value: FieldInfo.primitive(type: PrimitiveFieldType.string),
+    "id": DataBlueprint.primitive(type: PrimitiveType.string),
+    "name": DataBlueprint.primitive(type: PrimitiveType.string),
+    "type": DataBlueprint.primitive(type: PrimitiveType.string),
+    "simpleMap": DataBlueprint.map(
+      key: DataBlueprint.primitive(type: PrimitiveType.string),
+      value: DataBlueprint.primitive(type: PrimitiveType.string),
     ),
-    "simpleList": FieldInfo.list(
-      type: FieldInfo.primitive(type: PrimitiveFieldType.string),
+    "simpleList": DataBlueprint.list(
+      type: DataBlueprint.primitive(type: PrimitiveType.string),
     ),
-    "complexMap": FieldInfo.map(
-      key: FieldInfo.primitive(type: PrimitiveFieldType.string),
-      value: FieldInfo.map(
-        key: FieldInfo.primitive(type: PrimitiveFieldType.string),
-        value: FieldInfo.primitive(type: PrimitiveFieldType.string),
+    "complexMap": DataBlueprint.map(
+      key: DataBlueprint.primitive(type: PrimitiveType.string),
+      value: DataBlueprint.map(
+        key: DataBlueprint.primitive(type: PrimitiveType.string),
+        value: DataBlueprint.primitive(type: PrimitiveType.string),
       ),
     ),
-    "complexList": FieldInfo.list(
-      type: FieldInfo.map(
-        key: FieldInfo.primitive(type: PrimitiveFieldType.string),
-        value: FieldInfo.primitive(type: PrimitiveFieldType.string),
+    "complexList": DataBlueprint.list(
+      type: DataBlueprint.map(
+        key: DataBlueprint.primitive(type: PrimitiveType.string),
+        value: DataBlueprint.primitive(type: PrimitiveType.string),
       ),
     ),
   },
@@ -53,42 +53,40 @@ const entryBlueprintFields = ObjectField(
 void main() {
   test("When creating an entry expect the entry to be created", () async {
     final container = ProviderContainer();
-    await container.read(bookProvider.notifier).createPage("test_page");
+    final page =
+        await container.read(bookProvider.notifier).createPage("test_page");
 
-    final page = container.read(pageProvider("test_page"));
-
-    expect(page, isNotNull, reason: "The page has not been created");
-    expect(page!.entries.length, 0);
+    expect(page.entries.length, 0);
 
     final entry = Entry(testEntryData);
 
     await page.createEntry(container.passing, entry);
 
-    final newPage = container.read(pageProvider("test_page"));
+    final newPage = container.read(pageProvider(page.id));
 
     expect(newPage!.entries.length, 1);
     expect(newPage.entries[0].id, "test");
   });
 
-  test("When creating an entry form a blueprint expect the entry to be created", () async {
+  test("When creating an entry form a blueprint expect the entry to be created",
+      () async {
     final container = ProviderContainer();
-    await container.read(bookProvider.notifier).createPage("test_page");
+    final page =
+        await container.read(bookProvider.notifier).createPage("test_page");
 
-    final page = container.read(pageProvider("test_page"));
-
-    expect(page, isNotNull, reason: "The page has not been created");
-    expect(page!.entries.length, 0);
+    expect(page.entries.length, 0);
 
     const entry = EntryBlueprint(
+      id: "test",
       name: "test_type",
       description: "Some test",
-      adapter: "test_adapter",
-      fields: entryBlueprintFields,
+      extension: "Test",
+      dataBlueprint: entryBlueprintFields,
     );
 
     await page.createEntryFromBlueprint(container.passing, entry);
 
-    final newPage = container.read(pageProvider("test_page"));
+    final newPage = container.read(pageProvider(page.id));
 
     expect(newPage!.entries.length, 1);
     expect(newPage.entries[0].id, isNot("test"));
