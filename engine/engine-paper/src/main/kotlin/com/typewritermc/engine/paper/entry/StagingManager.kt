@@ -157,7 +157,7 @@ class StagingManagerImpl : StagingManager, KoinComponent {
     override fun deletePage(pageId: String): Result<String> {
         pages.remove(pageId) ?: return failure("页面不存在")
 
-        autoSaver()页面“$fromPageId”不存在
+        autoSaver()
         return ok("成功删除名为 $pageId 的页面")
     }
 
