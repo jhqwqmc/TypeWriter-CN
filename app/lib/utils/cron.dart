@@ -50,7 +50,7 @@ class CronExpression {
       text += dayOfWeek.toHumanReadableString();
     }
 
-    return text.capitalize;
+    return text.titleCase();
   }
 
   static CronExpression? parse(String expression) {

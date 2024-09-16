@@ -12,6 +12,7 @@ import com.typewritermc.engine.paper.logger
 import com.typewritermc.engine.paper.plugin
 import com.typewritermc.engine.paper.utils.config
 import com.typewritermc.engine.paper.utils.logErrorIfNull
+import com.typewritermc.engine.paper.utils.optionalConfig
 import org.bukkit.entity.Player
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -36,13 +37,14 @@ class CommunicationHandler : KoinComponent {
         8080,
         comment = "Web面板的端口。 确保此端口已打开。"
     )
-    private val BASE_URL get() = "http://${hostName}:${panelPort}/#"
+    private val panelAppendPort: Boolean? by optionalConfig("panel.append_port")
+
     private val enabled: Boolean by config(
         "enabled",
         false,
         comment = "是否启用 Web 面板和 Web 套接字。"
     )
-    private val port: Int by config(
+    private val webSocketPort: Int by config(
         "websocket.port",
         9092,
         comment = "Websocket 服务器的端口。 确保此端口已打开。"
@@ -52,7 +54,11 @@ class CommunicationHandler : KoinComponent {
         |使用的身份验证。 如果你不知道自己在做什么，请保持不变。
         |可能的值：none（不推荐）、session
     """.trimMargin()
-    ) // Possible values: none, session
+    )
+    private val websocketHostname: String? by optionalConfig("websocket.hostname")
+    private val websocketAppendPort: Boolean? by optionalConfig("websocket.append_port")
+
+
     val authenticationEnabled: Boolean
         get() = auth == "session"
 
@@ -67,7 +73,7 @@ class CommunicationHandler : KoinComponent {
         panelHost.initialize()
         val config = Configuration().apply {
             hostname = "0.0.0.0"
-            port = this@CommunicationHandler.port
+            port = this@CommunicationHandler.webSocketPort
             setAuthorizationListener(this@CommunicationHandler::authenticate)
         }
 
@@ -159,12 +165,15 @@ class CommunicationHandler : KoinComponent {
     }
 
     fun generateUrl(playerId: UUID?): String {
-        if (auth == "none") return "$BASE_URL/connect?host=$hostName&port=$port"
-        if (auth == "session") {
-            val token = generateSessionToken(playerId)
-            return "$BASE_URL/connect?host=$hostName&port=$port&token=$token"
-        }
-        return ""
+        var url: String = if (hostName.startsWith("http")) hostName
+        else "http://${hostName}"
+
+        if (panelAppendPort != false) url += ":${panelPort}"
+        url += "/#/connect?host=${websocketHostname ?: hostName}"
+        if (websocketAppendPort != false) url += "&port=${webSocketPort}"
+        if (auth == "session") url += "&token=${generateSessionToken(playerId)}"
+
+        return url
     }
 
     fun getPlayer(client: SocketIOClient): Player? {

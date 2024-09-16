@@ -97,8 +97,7 @@ class _FieldSelector extends HookConsumerWidget {
             children: [
               for (final MapEntry(key: id, value: dataBlueprint)
                   in objectBlueprint.fields.entries)
-                if (showAll || selected.contains(id))
-                    _chip(id, dataBlueprint),
+                if (showAll || selected.contains(id)) _chip(id, dataBlueprint),
             ].animate(interval: 40.ms).fadeIn(duration: 250.ms).scaleXY(
                   begin: 0.6,
                   end: 1.0,
@@ -112,18 +111,18 @@ class _FieldSelector extends HookConsumerWidget {
   }
 
   Widget _chip(String id, DataBlueprint dataBlueprint) {
-      if (dataBlueprint is! CustomBlueprint) return const SizedBox();
-      final shapeBlueprint = dataBlueprint.shape;
-      if (shapeBlueprint is! ObjectBlueprint) return const SizedBox();
-      if (!shapeBlueprint.fields.containsKey("value")) return const SizedBox();
-      final valueBlueprint = shapeBlueprint.fields["value"];
-      if (valueBlueprint == null) return const SizedBox();
-      return _ItemChip(
-        key: ValueKey(id),
-        path: "$path.$id",
-        id: id,
-        dataBlueprint: valueBlueprint,
-      );
+    if (dataBlueprint is! CustomBlueprint) return const SizedBox();
+    final shapeBlueprint = dataBlueprint.shape;
+    if (shapeBlueprint is! ObjectBlueprint) return const SizedBox();
+    if (!shapeBlueprint.fields.containsKey("value")) return const SizedBox();
+    final valueBlueprint = shapeBlueprint.fields["value"];
+    if (valueBlueprint == null) return const SizedBox();
+    return _ItemChip(
+      key: ValueKey(id),
+      path: "$path.$id",
+      id: id,
+      dataBlueprint: valueBlueprint,
+    );
   }
 }
 
@@ -145,17 +144,17 @@ class _ItemChip extends HookConsumerWidget {
 
     final foregroundColor = enabled
         ? Theme.of(context).colorScheme.primary
-        : Theme.of(context).colorScheme.onSurface.withOpacity(0.7);
+        : Theme.of(context).colorScheme.onSurface.withValues(alpha:0.7);
 
     return InputChip(
-      label: Text(id.capitalize, style: TextStyle(color: foregroundColor)),
+      label: Text(id.titleCase(), style: TextStyle(color: foregroundColor)),
       avatar: Iconify(
         dataBlueprint.get("icon"),
         size: 14,
         color: foregroundColor,
       ),
-      backgroundColor: Theme.of(context).colorScheme.onSurface.withOpacity(0.1),
-      selectedColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+      backgroundColor: Theme.of(context).colorScheme.onSurface.withValues(alpha:0.1),
+      selectedColor: Theme.of(context).colorScheme.primary.withValues(alpha:0.1),
       side: BorderSide.none,
       showCheckmark: false,
       selected: enabled,
