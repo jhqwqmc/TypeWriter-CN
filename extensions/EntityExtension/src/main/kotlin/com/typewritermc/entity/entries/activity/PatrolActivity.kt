@@ -48,9 +48,9 @@ private class PatrolActivity(
 
     fun refreshActivity(context: ActivityContext, network: RoadNetwork) {
         val targetNodeId = nodes.getOrNull(currentLocationIndex)
-            ?: throw IllegalStateException("在巡逻活动的节点列表中找不到任何节点。")
+            ?: return
         val targetNode = network.nodes.find { it.id == targetNodeId }
-            ?: throw IllegalStateException("在巡逻活动的节点列表中找不到任何节点。")
+            ?: return
 
         activity?.dispose(context)
         activity = NavigationActivity(PointToPointGPS(
@@ -73,7 +73,7 @@ private class PatrolActivity(
         val closestNode = network.nodes
             .filter { it.id in nodes }
             .minByOrNull { it.location.distanceSqrt(startLocation.toBukkitLocation()) ?: Double.MAX_VALUE }
-            ?: throw IllegalStateException("在巡逻活动的节点列表中找不到任何节点。")
+            ?: return
 
         val index = nodes.indexOf(closestNode.id)
         currentLocationIndex = (index + 1) % nodes.size

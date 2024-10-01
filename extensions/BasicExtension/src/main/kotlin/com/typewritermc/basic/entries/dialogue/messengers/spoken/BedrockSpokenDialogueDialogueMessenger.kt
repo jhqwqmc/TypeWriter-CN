@@ -1,5 +1,6 @@
 package com.typewritermc.basic.entries.dialogue.messengers.spoken
 
+import com.github.retrooper.packetevents.protocol.packettype.PacketType.Play
 import com.typewritermc.basic.entries.dialogue.SpokenDialogueEntry
 import com.typewritermc.core.extension.annotations.Messenger
 import com.typewritermc.engine.paper.entry.dialogue.DialogueMessenger

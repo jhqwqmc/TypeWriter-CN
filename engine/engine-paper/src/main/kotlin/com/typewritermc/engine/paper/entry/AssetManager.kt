@@ -31,7 +31,7 @@ class AssetManager : KoinComponent {
     suspend fun fetchAsset(entry: AssetEntry): String? {
         val result = storage.fetchAsset(entry.path)
         if (result.isFailure) {
-            plugin.logger.severe("无法获取资源 ${entry.path}")
+            plugin.logger.severe("获取资产 ${entry.path} 失败：${result.exceptionOrNull()?.message}")
             return null
         }
         return result.getOrNull()

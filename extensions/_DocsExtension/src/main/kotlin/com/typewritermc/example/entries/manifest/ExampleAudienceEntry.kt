@@ -13,8 +13,8 @@ import org.bukkit.event.EventHandler
 //<code-block:audience_entry>
 @Entry("example_audience", "观众条目示例。", Colors.GREEN, "material-symbols:chat-rounded")
 class ExampleAudienceEntry(
-    override val id: String,
-    override val name: String,
+    override val id: String = "",
+    override val name: String = "",
 ) : AudienceEntry {
     override fun display(): AudienceDisplay {
         return ExampleAudienceDisplay()

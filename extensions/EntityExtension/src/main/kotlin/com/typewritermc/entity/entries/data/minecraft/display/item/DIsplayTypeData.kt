@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("Display_type_data", "物品展示实体的显示类型。", Colors.RED, "mdi:tools")
+@Entry("display_type_data", "物品展示实体的显示类型。", Colors.RED, "mdi:tools")
 @Tags("item_display_data")
 class DisplayTypeData(
     override val id: String = "",

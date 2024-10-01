@@ -28,7 +28,7 @@ class FactWatcher(
     fun refreshFact(ref: Ref<ReadableFactEntry>) {
         val old = factCache[ref] ?: return
         val fact =
-            ref.get().logErrorIfNull("正在跟踪一个没有关联条目的变量 $ref 。") ?: return
+            ref.get() ?: return
         val new = fact.readForPlayersGroup(player).value
         if (old != new) {
             factCache[ref] = new

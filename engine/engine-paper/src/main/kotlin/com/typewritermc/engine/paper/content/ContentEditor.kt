@@ -15,7 +15,6 @@ import com.typewritermc.engine.paper.utils.msg
 import com.typewritermc.engine.paper.utils.playSound
 import lirand.api.extensions.events.unregister
 import lirand.api.extensions.server.registerEvents
-import lirand.api.extensions.world.clearAll
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -74,7 +73,7 @@ class ContentEditor(
         val removedSlots = previousSlots - currentSlots
         SYNC.switchContext {
             newSlots.forEach { slot ->
-                val originalItem = player.inventory.getItem(slot) ?: return@forEach
+                val originalItem = player.inventory.getItem(slot) ?: ItemStack.empty()
                 cachedOriginalItems.putIfAbsent(slot, originalItem)
             }
             items.forEach { (slot, item) ->
@@ -114,6 +113,10 @@ class ContentEditor(
 
     suspend fun dispose() {
         unregister()
+        cachedOriginalItems.forEach { (slot, item) ->
+            player.inventory.setItem(slot, item)
+        }
+        cachedOriginalItems.clear()
         val cache = stack.toList()
         stack.clear()
         cache.forEach { it.dispose() }
@@ -123,9 +126,7 @@ class ContentEditor(
         }
     }
 
-    fun isInLastMode(): Boolean {
-        return stack.size == 1
-    }
+    fun isInLastMode(): Boolean = stack.size == 1
 
     @EventHandler
     fun onInventoryClick(event: InventoryClickEvent) {
@@ -133,7 +134,7 @@ class ContentEditor(
         if (event.clickedInventory != player.inventory) return
         val item = items[event.slot] ?: return
         item.action(
-            ItemInteraction(ItemInteractionType.INVENTORY_CLICK, event.slot)
+            ItemInteraction(ItemInteractionType.INVENTORY_CLICK, event.slot),
         )
         event.isCancelled = true
     }
@@ -179,9 +180,10 @@ class ContentEditor(
 }
 
 private val Player.content: ContentEditor?
-    get() = with(KoinJavaComponent.get<InteractionHandler>(InteractionHandler::class.java)) {
-        interaction?.content
-    }
+    get() =
+        with(KoinJavaComponent.get<InteractionHandler>(InteractionHandler::class.java)) {
+            interaction?.content
+        }
 
 val Player.isInContent: Boolean
     get() = content != null

@@ -342,7 +342,7 @@ class _TreeCategory extends HookConsumerWidget {
                         width: 6,
                         margin: EdgeInsets.only(left: showFull ? 14 : 10),
                         decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha:0.2),
+                          color: Colors.black.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(2),
                         ),
                       ),
@@ -717,7 +717,7 @@ class AddPageDialogue extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final nameController = useTextEditingController();
+    final name = useState("");
     final isNameValid = useState(false);
     final type = useState(fixedType ?? PageType.sequence);
     final chapterController = useTextEditingController(text: chapter);
@@ -737,8 +737,7 @@ class AddPageDialogue extends HookConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ValidatedTextField<String>(
-            value: nameController.text,
-            controller: nameController,
+            value: name.value,
             name: "页面名称",
             icon: TWIcons.book,
             validator: (value) {
@@ -751,6 +750,7 @@ class AddPageDialogue extends HookConsumerWidget {
               FilteringTextInputFormatter.singleLineFormatter,
               FilteringTextInputFormatter.allow(RegExp("[a-z0-9_]")),
             ],
+            onChanged: (value) => name.value = value,
           ),
           if (fixedType == null) ...[
             const SizedBox(height: 12),
@@ -826,7 +826,7 @@ class AddPageDialogue extends HookConsumerWidget {
                   final navigator = Navigator.of(context);
                   final pageId = await _addPage(
                     ref,
-                    nameController.text,
+                    name.value,
                     type.value,
                     chapterController.text,
                     int.tryParse(priorityController.text) ?? 0,
@@ -894,11 +894,6 @@ class RenamePageDialogue extends HookConsumerWidget {
           FilteringTextInputFormatter.allow(RegExp("[a-z0-9_]")),
         ],
         onChanged: (value) => name.value = value,
-        onSubmitted: (value) async {
-          final navigator = Navigator.of(context);
-          await _renamePage(ref, value);
-          navigator.pop(true);
-        },
       ),
       actions: [
         TextButton.icon(
@@ -1082,9 +1077,10 @@ Future<bool> showPageDeletionDialogue(
   PassingRef ref,
   String pageId,
 ) {
+  final pageName = ref.read(pageProvider(pageId))?.pageName ?? "页面";
   return showConfirmationDialogue(
     context: context,
-    title: "删除${pageId.formatted}？",
+    title: "删除 ${pageName.formatted}?",
     content:
         "这将删除该页面及其所有内容。\n此操作无法撤消。",
     delayConfirm: 3.seconds,

@@ -8,7 +8,7 @@ import com.typewritermc.engine.paper.entry.entries.GroupEntry
 import com.typewritermc.engine.paper.entry.entries.GroupId
 import org.bukkit.entity.Player
 
-@Entry("balance_audience", "按经济分组的观众", Colors.MYRTLE_GREEN, "fa6-solid:balance-scale")
+@Entry("balance_audience", "按经济分组的观众", Colors.MYRTLE_GREEN, "streamline:justice-scale-2-solid")
 /**
  * The `Balance Audience` is an group for which a player's balance meets a certain condition.
  * To determine if a player is part of this group, the balance of the player is checked for each condition.

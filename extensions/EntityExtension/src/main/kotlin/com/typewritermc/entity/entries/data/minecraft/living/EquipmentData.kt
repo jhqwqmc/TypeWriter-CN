@@ -7,8 +7,7 @@ import com.typewritermc.core.extension.annotations.Entry
 import com.typewritermc.core.extension.annotations.Tags
 import com.typewritermc.engine.paper.entry.entries.*
 import com.typewritermc.engine.paper.extensions.packetevents.toPacketItem
-import com.typewritermc.engine.paper.utils.Item
-import me.tofaa.entitylib.wrapper.WrapperEntity
+import com.typewritermc.engine.paper.utils.item.Item
 import me.tofaa.entitylib.wrapper.WrapperLivingEntity
 import org.bukkit.entity.Player
 import org.bukkit.inventory.EntityEquipment
@@ -21,12 +20,23 @@ class EquipmentData(
     override val id: String = "",
     override val name: String = "",
     val equipment: Map<EquipmentSlot, Item> = emptyMap(),
-    override val priorityOverride: Optional<Int>,
+    override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : LivingEntityData<EquipmentProperty> {
     override fun type(): KClass<EquipmentProperty> = EquipmentProperty::class
 
     override fun build(player: Player): EquipmentProperty =
         EquipmentProperty(equipment.mapValues { (_, item) -> item.build(player).toPacketItem() })
+}
+
+@Entry("viewer_equipment_data", "The equipment of the viewer", Colors.RED, "mdi:account-multiple-outline")
+class ViewerEquipmentData(
+    override val id: String = "",
+    override val name: String = "",
+    override val priorityOverride: Optional<Int> = Optional.empty(),
+) : LivingEntityData<EquipmentProperty> {
+    override fun type(): KClass<EquipmentProperty> = EquipmentProperty::class
+
+    override fun build(player: Player): EquipmentProperty = player.equipment.toProperty()
 }
 
 data class EquipmentProperty(val data: Map<EquipmentSlot, ItemStack>) : EntityProperty {
@@ -80,9 +90,6 @@ private class EquipmentCollector(
         return EquipmentProperty(data)
     }
 }
-
-fun org.bukkit.inventory.ItemStack.toProperty(equipmentSlot: EquipmentSlot) =
-    EquipmentProperty(equipmentSlot, this.toPacketItem())
 
 fun applyEquipmentData(entity: WrapperLivingEntity, property: EquipmentProperty) {
     property.data.forEach { (slot, item) ->

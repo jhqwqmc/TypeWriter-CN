@@ -1,14 +1,14 @@
 use crate::{
-    check_is_contributor,
+    check_is_support,
     clickup::{create_task_in_clickup, TaskPriority, TaskSize, TaskType},
     Context, WinstonError,
 };
 use poise::{
-    serenity_prelude::{CreateEmbed, CreateMessage, EditThread},
+    serenity_prelude::{CreateEmbed, CreateMessage},
     CreateReply,
 };
 
-#[poise::command(slash_command, ephemeral, check = "check_is_contributor")]
+#[poise::command(slash_command, ephemeral, check = "check_is_support")]
 pub async fn create_task(
     ctx: Context<'_>,
     #[description = "The title of the task"] title: String,

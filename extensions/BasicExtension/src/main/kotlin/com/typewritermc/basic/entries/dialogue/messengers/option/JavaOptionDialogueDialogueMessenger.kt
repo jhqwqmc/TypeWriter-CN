@@ -1,13 +1,12 @@
 package com.typewritermc.basic.entries.dialogue.messengers.option
 
+import com.typewritermc.basic.entries.dialogue.Option
+import com.typewritermc.basic.entries.dialogue.OptionDialogueEntry
+import com.typewritermc.core.entries.Ref
+import com.typewritermc.core.extension.annotations.Messenger
 import com.typewritermc.core.utils.around
 import com.typewritermc.core.utils.loopingDistance
 import com.typewritermc.engine.paper.entry.Modifier
-import com.typewritermc.core.entries.Ref
-import com.typewritermc.basic.entries.dialogue.Option
-import com.typewritermc.basic.entries.dialogue.OptionDialogueEntry
-import com.typewritermc.basic.entries.dialogue.messengers.spoken.spokenMaxLineLength
-import com.typewritermc.core.extension.annotations.Messenger
 import com.typewritermc.engine.paper.entry.TriggerableEntry
 import com.typewritermc.engine.paper.entry.dialogue.*
 import com.typewritermc.engine.paper.entry.entries.DialogueEntry
@@ -52,7 +51,11 @@ private val unselectedOption: String by snippet(
 
 val optionMaxLineLength: Int by snippet("dialogue.option.maxLineLength", 40)
 
-private val delayOptionShow: Int by snippet("dialogue.option.delay", 100, "The delay in milliseconds between each option being shown.")
+private val delayOptionShow: Int by snippet(
+    "dialogue.option.delay",
+    100,
+    "The delay in milliseconds between each option being shown."
+)
 
 @Messenger(OptionDialogueEntry::class)
 class JavaOptionDialogueDialogueMessenger(player: Player, entry: OptionDialogueEntry) :
@@ -70,13 +73,21 @@ class JavaOptionDialogueDialogueMessenger(player: Player, entry: OptionDialogueE
     private var usableOptions: List<Option> = emptyList()
     private var speakerDisplayName = ""
     private var parsedText = ""
-    private var lastPlayTime = Duration.ZERO
+    private var playTime = Duration.ZERO
+    private var totalDuration = Duration.ZERO
 
     override val triggers: List<Ref<out TriggerableEntry>>
         get() = entry.triggers + (selected?.triggers ?: emptyList())
 
     override val modifiers: List<Modifier>
         get() = entry.modifiers + (selected?.modifiers ?: emptyList())
+
+    override var isCompleted: Boolean
+        get() = playTime >= totalDuration
+        set(value) {
+            playTime = if (!value) Duration.ZERO
+            else totalDuration
+        }
 
     override fun init() {
         usableOptions =
@@ -89,9 +100,14 @@ class JavaOptionDialogueDialogueMessenger(player: Player, entry: OptionDialogueE
         speakerDisplayName = entry.speakerDisplayName.parsePlaceholders(player)
         parsedText = entry.text.parsePlaceholders(player)
 
+        val rawText = parsedText.stripped()
+        val typingDuration = typingDurationType.totalDuration(rawText, typeDuration)
+        val optionsShowingDuration = Duration.ofMillis(usableOptions.size * delayOptionShow.toLong())
+        totalDuration = typingDuration + optionsShowingDuration
+
         super.init()
         confirmationKey.listen(this, player.uniqueId) {
-            state = MessengerState.FINISHED
+            completeOrFinish()
         }
     }
 
@@ -106,34 +122,31 @@ class JavaOptionDialogueDialogueMessenger(player: Player, entry: OptionDialogueE
         var newIndex = (index + dif) % usableOptions.size
         while (newIndex < 0) newIndex += usableOptions.size
         selectedIndex = newIndex
-        displayMessage(lastPlayTime)
+        displayMessage(playTime)
     }
 
-    override fun tick(playTime: Duration) {
-        super.tick(playTime)
-        val isFirst = lastPlayTime == Duration.ZERO
-        lastPlayTime = playTime
+    override fun tick(context: TickContext) {
+        super.tick(context)
+        val isFirst = playTime == Duration.ZERO
+        playTime += context.deltaTime
         if (state != MessengerState.RUNNING) return
 
         // When there are no options, just go to the next dialogue
         if (usableOptions.isEmpty()) {
+            isCompleted = true
             state = MessengerState.FINISHED
             return
         }
 
-        val rawText = parsedText.stripped()
-        val typingDuration = typingDurationType.totalDuration(rawText, typeDuration)
-        val optionsShowingDuration = Duration.ofMillis(usableOptions.size * delayOptionShow.toLong())
-        val totalDuration = typingDuration + optionsShowingDuration
         if (playTime.toTicks() % 100 > 0 && playTime > totalDuration * 1.1 && !isFirst) {
             // Only update periodically to avoid spamming the player
             return
         }
-        displayMessage(playTime, rawText)
+        displayMessage(playTime)
     }
 
-    private fun displayMessage(playTime: Duration, rawMessage: String? = null) {
-        val rawText = rawMessage ?: parsedText.stripped()
+    private fun displayMessage(playTime: Duration) {
+        val rawText = parsedText.stripped()
 
         val typePercentage =
             if (typeDuration.isZero) {
@@ -141,7 +154,12 @@ class JavaOptionDialogueDialogueMessenger(player: Player, entry: OptionDialogueE
             } else typingDurationType.calculatePercentage(playTime, typeDuration, rawText)
 
         val resultingLines = rawText.limitLineLength(optionMaxLineLength).lineCount
-        val text = parsedText.asPartialFormattedMini(typePercentage, minLines = resultingLines, padding = "", maxLineLength = optionMaxLineLength)
+        val text = parsedText.asPartialFormattedMini(
+            typePercentage,
+            minLines = resultingLines,
+            padding = "",
+            maxLineLength = optionMaxLineLength
+        )
 
         val message = optionFormat.asMiniWithResolvers(
             Placeholder.parsed("speaker", speakerDisplayName),
@@ -158,8 +176,8 @@ class JavaOptionDialogueDialogueMessenger(player: Player, entry: OptionDialogueE
 
         val lines = mutableListOf<Component>()
 
-        val totalDuration = typingDurationType.totalDuration(rawText, typeDuration)
-        val timeAfterTyping = lastPlayTime - totalDuration
+        val typingDuration = typingDurationType.totalDuration(rawText, typeDuration)
+        val timeAfterTyping = playTime - typingDuration
         val limitedOptions = (timeAfterTyping.toMillis() / delayOptionShow).toInt().coerceAtLeast(0)
 
         val maxOptions = min(4, around.size)

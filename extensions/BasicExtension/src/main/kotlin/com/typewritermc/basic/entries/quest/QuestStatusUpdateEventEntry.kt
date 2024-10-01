@@ -37,7 +37,7 @@ class QuestStatusUpdateEventEntry(
     val quest: Ref<QuestEntry> = emptyRef(),
     @Help("如果未设置，它将对所有状态触发。")
     val from: Optional<QuestStatus> = Optional.empty(),
-    val to: QuestStatus
+    val to: QuestStatus = QuestStatus.INACTIVE,
 ) : EventEntry
 
 @EntryListener(QuestStatusUpdateEventEntry::class)

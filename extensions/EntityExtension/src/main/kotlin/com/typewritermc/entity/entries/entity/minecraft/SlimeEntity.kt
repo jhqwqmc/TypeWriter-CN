@@ -22,7 +22,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.applySizeData
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("slime_definition", "史莱姆实体", Colors.ORANGE, "ph:slime-fill")
+@Entry("slime_definition", "史莱姆实体", Colors.ORANGE, "ion:cube")
 @Tags("slime_definition")
 /**
  * The `SlimeDefinition` class is an entry that represents a slime entity.
@@ -41,7 +41,7 @@ class SlimeDefinition(
     override fun create(player: Player): FakeEntity = SlimeEntity(player)
 }
 
-@Entry("slime_instance", "史莱姆实体的实例", Colors.YELLOW, "ph:slime-fill")
+@Entry("slime_instance", "史莱姆实体的实例", Colors.YELLOW, "ion:cube")
 /**
  * The `SlimeInstance` class is an entry that represents an instance of a slime entity.
  *

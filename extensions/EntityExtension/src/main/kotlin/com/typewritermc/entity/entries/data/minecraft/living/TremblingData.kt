@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("trembling_data", "使下界生物颤抖", Colors.RED, "game-icons:eye-monster")
+@Entry("trembling_data", "使下界生物颤抖", Colors.RED, "solar:hand-shake-bold")
 @Tags("trembling_data")
 class TremblingData(
     override val id: String = "",

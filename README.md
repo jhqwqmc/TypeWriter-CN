@@ -1,82 +1,63 @@
 # Typewriter
 
-###### 此分支为简体中文用户提供更好的使用体验
-###### Minecraft中下一代的任务系统。
+##### 此分支为简体中文用户提供更好的使用体验
+##### Minecraft 中的下一代任务系统
 
 [![Discord](https://img.shields.io/discord/1054708062520360960?label=discord&logo=discord&logoColor=white)](https://discord.gg/HtbKyuDDBw)
 
-Typewriter 是一个用于 **Paper** Minecraft 服务器的插件，允许自定义玩家互动，例如任务、NPC对话、轻松创建分支故事、使用摄像机路径创建过场动画场景、创建具有智能行为的NPC等。
-它可以通过专为该插件设计的网络面板轻松配置。
+Typewriter是一个适用于 Paper Minecraft 服务器的插件，它允许你创建沉浸式和交互式的游戏体验，如自定义任务、NPC 对话、过场动画事件等，同时保持简单而强大的界面。
 
-Typewriter 的强大之处在于它可以通过适配器进行扩展。
-适配器是自包含的模块化组件，允许你为 Typewriter 创建自定义内容。
-一些适配器已经由 Typewriter 的开发人员制作，但任何人都可以创建自己的自定义适配器。
+## 特性
 
-要开始使用 Typewriter，请参阅 [入门指南](#getting-started) 部分。
+- **自定义玩家交互**：创建任务、NPC 对话、分支故事线等。
+- **过场动画片段**：构建动态相机路径、动画 NPC 交互和沉浸式过场动画。
+- **智能 NPC**：自定义 NPC 行为，包括行走、改变外观和与环境互动。
+- **可视化编辑**：使用为易用性而设计的可视化网页面板管理任务、NPC 和交互。
+- **扩展**：通过称为**扩展**的可插拔组件扩展Typewriter的功能。扩展允许你集成自定义插件并创建独特的游戏内内容。
 
-### 赞助商
+## 开始使用
 
-感谢以下赞助商对本项目的支持。
-没有他们的支持，这个项目是不可能实现的。
-如果你在服务器上使用 Typewriter 并从中获利，请考虑 [赞助](https://github.com/sponsors/gabber235) 该项目。
+有关详细的设置说明，请访问 [安装指南](https://docs.typewritermc.com/docs/getting-started/installation)。
+
+### 赞助者
 
 <!-- sponsors --><!-- sponsors -->
 
+感谢以上赞助者对本项目的支持。没有他们的支持，这个项目是不可能的。如果你在你的服务器上使用Typewriter，并从中赚钱，请考虑[赞助](https://github.com/sponsors/gabber235)该项目。
+
 ### 示例
 
-[![过场动画](https://raw.githubusercontent.com/gabber235/TypeWriter/develop/readme/cinematic.gif)](https://youtu.be/1pGBtJleEuQ)
+以下是Typewriter的几个示例：
 
-使用 Typewriter 在原版 Minecraft 中创建的过场动画场景。查看演示 [这里](https://youtu.be/1pGBtJleEuQ)。
+[https://github.com/user-attachments/assets/b5c7ecb7-557b-41ac-ba7b-82c6a46b79a8](https://github.com/user-attachments/assets/b5c7ecb7-557b-41ac-ba7b-82c6a46b79a8)
 
-![逐字对话](https://raw.githubusercontent.com/gabber235/TypeWriter/develop/readme/chat-messages.gif)
+展示了Typewriter提供的几乎所有功能的完整演示。
 
-使用 Typewriter 的对话序列，玩家被要求在多个选项之间进行选择。
+<details><summary><h3>💡显示更多</h3></summary>
 
-![网页面板](https://raw.githubusercontent.com/gabber235/TypeWriter/develop/readme/typewrite-interface-demo.png)
+  ![TW-Dialogue](https://github.com/user-attachments/assets/3790df6a-c5e3-4357-90a6-cb529ae7c65d)
 
-Typewriter 的网络面板，你可以在其中创建任务、NPC等。
-
-### 功能
-
-- 创建自定义玩家互动，包括任务和NPC对话、分支故事等...
-- 使用摄像机移动、对话、动画NPC等创建过场动画场景...
-- 创建具有智能行为的NPC，它们可以在你的世界中行走、改变外观和可见性等...
-- 使用自定义编写的可视化界面配置互动
-- 使用适配器扩展插件，将 Typewriter 与你的自定义插件集成
-
-## 入门指南
-
-要开始使用 Typewriter，只需下载 [插件](https://modrinth.com/plugin/typewriter/versions) 并进行相应配置。
-有关更多信息，请参阅 [安装指南](https://docs.typewritermc.com/docs/installation-guide)。
-
-还请从 [这里](https://modrinth.com/plugin/packetevents/versions?l=paper) 下载 PacketEvents。
-
-然后，使用应用程序根据需要配置你的自定义互动。
-
-你还可以利用预制的适配器或创建自己的自定义适配器来扩展插件的功能。
-有关更多信息，请参阅 [首次互动](https://docs.typewritermc.com/docs/first-interaction)。
+</details>
 
 ## 对于管理员
 
-作为管理员，你可以使用自定义网络面板轻松配置 Typewriter。
-只需输入你想要的互动内容，插件将处理其余部分。
-你还可以利用预制的适配器或创建自己的自定义适配器，以进一步自定义服务器的插件。
+Typewriter使服务器管理员能够轻松创建和管理自定义内容。通过网页面板，你可以轻松配置复杂的交互、NPC 和任务，即使没有先前的编码知识。如果你的服务器有特定的要求，扩展系统允许轻松定制和添加新功能。
 
 ## 对于开发者
 
-Typewriter 可以通过适配器进行扩展。
-适配器是自包含的模块化组件，允许你为 Typewriter 创建自定义内容。
-允许你创建可以在网络面板中使用的自定义构建块，以与你的自定义插件互动。
-要了解更多关于创建适配器或任何其他开发相关问题的信息，请访问 [开发文档](https://docs.typewritermc.com/develop)。
+Typewriter是为了高度可扩展性而构建的。**扩展**系统让开发者能够构建模块化、可重用的组件，这些组件可以无缝地与插件集成。要了解更多关于创建扩展的信息，或任何其他开发相关的问题，请访问 [开发文档](https://docs.typewritermc.com/develop)。
+
+---
 
 ## 许可证
-Typewriter 根据其自己的 [LICENSE](LICENSE) 许可。
+
+Typewriter有自己的 [许可证](LICENSE) 下发布。
 
 基本内容是你可以免费使用该软件，但不能出售/重新分发/修改它。
 唯一的例外是如果你想为项目做出贡献并使其变得更好。
 
-请参阅 [LICENSE](LICENSE) 以查看完整文本。
+请参阅 [许可证](LICENSE) 以查看完整文本。
 
-# 致谢
+## 鸣谢
 
-- [Aarthificial](https://www.youtube.com/@aarthificial) 为基础逻辑提供了灵感。
+- [Aarthificial](https://www.youtube.com/@aarthificial) 为基本逻辑提供了灵感。
