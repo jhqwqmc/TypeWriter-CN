@@ -33,9 +33,18 @@ Typewriter是一个适用于 Paper Minecraft 服务器的插件，它允许你�
 
 展示了Typewriter提供的几乎所有功能的完整演示。
 
-<details><summary><h3>💡显示更多</h3></summary>
+![TW-Panel-demo](https://github.com/user-attachments/assets/7c7442bf-be2c-47d7-9f6d-a60d02836cdf)
 
-  ![TW-Dialogue](https://github.com/user-attachments/assets/3790df6a-c5e3-4357-90a6-cb529ae7c65d)
+面板演示
+
+<details><summary><h3>💡查看更多</h3></summary>
+
+  ![TW-对话](https://github.com/user-attachments/assets/3790df6a-c5e3-4357-90a6-cb529ae7c65d)
+  ![TW-序列](https://github.com/user-attachments/assets/792bc93e-cfa6-4804-8ee0-5cb623a822d1)
+  ![TW-静态](https://github.com/user-attachments/assets/24c30f91-3a8f-4091-916f-ba227539813d)
+  ![TW-面板](https://github.com/user-attachments/assets/c61088b5-19d7-44a4-959a-a7bcd2070720)
+
+
 
 </details>
 

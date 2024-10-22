@@ -300,6 +300,12 @@ void main() {
 
       expect(paths, ["simple_map.key1"]);
     });
+    test("静态不存在路径返回路径", () {
+      final entry = Entry(rawDynamicEntry);
+      final paths = entry.newPaths("non_existing");
+
+      expect(paths, ["non_existing"]);
+    });
     test("简单列表返回带有下一个索引的路径", () {
       final entry = Entry(rawDynamicEntry);
       final paths = entry.newPaths("simple_list.*");
