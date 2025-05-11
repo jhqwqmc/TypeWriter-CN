@@ -50,13 +50,13 @@ class _TickerProviderHookState
               throw FlutterError.fromParts(<DiagnosticsNode>[
                 ErrorSummary("$this 在Ticker仍活跃时被销毁"),
                 ErrorDescription(
-                  "$runtimeType 通过TickerProviderStateMixin创建了Ticker，"
-                  "但在调用mixin的dispose()时，该Ticker仍处于活跃状态。"
+                  "$runtimeType 通过TickerProviderStateMixin创建了Ticker， "
+                  "但在调用mixin的dispose()时，该Ticker仍处于活跃状态。 "
                   "在调用super.dispose()前必须释放所有Ticker。",
                 ),
                 ErrorHint(
-                  "AnimationController使用的Ticker"
-                  "应通过调用AnimationController自身的dispose()来释放。"
+                  "AnimationController使用的Ticker "
+                  "应通过调用AnimationController自身的dispose()来释放。 "
                   "否则会导致ticker泄漏。",
                 ),
                 ticker.describeForError("违规的ticker信息"),

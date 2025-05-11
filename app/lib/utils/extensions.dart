@@ -93,7 +93,7 @@ extension IntExt on int {
     if (this == 1) return "第1";
     if (this == 2) return "第2";
     if (this == 3) return "第3";
-    return "第${this}";
+    return "第$this";
   }
 
   String pluralize(String singular, [String? plural]) =>
