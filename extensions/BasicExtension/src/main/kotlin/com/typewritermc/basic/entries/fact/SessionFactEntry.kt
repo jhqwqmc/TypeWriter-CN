@@ -7,8 +7,8 @@ import com.typewritermc.core.extension.annotations.Entry
 import com.typewritermc.engine.paper.entry.entries.CachableFactEntry
 import com.typewritermc.engine.paper.entry.entries.GroupEntry
 
-@Entry("session_fact", "Saved until a player logouts of the server", Colors.PURPLE, "fa6-solid:user-clock")
-@Deprecated("Doesn't work, use permanent fact with a quit trigger to reset it instead")
+@Entry("session_fact", "保存至玩家退出服务器", Colors.PURPLE, "fa6-solid:user-clock")
+@Deprecated("（此功能无效，请改用带退出触发器的永久持久化变量来重置）")
 /**
  * This [fact](/docs/creating-stories/facts) is stored until the player logs out.
  *

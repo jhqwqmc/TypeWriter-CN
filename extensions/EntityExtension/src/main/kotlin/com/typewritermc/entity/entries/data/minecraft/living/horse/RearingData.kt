@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("rearing_data", "If the entity is rearing.", Colors.RED, "mdi:horse")
+@Entry("rearing_data", "实体是否处于腾跃状态", Colors.RED, "mdi:horse")
 @Tags("rearing_data")
 class RearingData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class RearingProperty(val rearing: Boolean) : EntityProperty {
 fun applyRearingData(entity: WrapperEntity, property: RearingProperty) {
     entity.metas {
         meta<BaseHorseMeta> { isRearing = property.rearing }
-        error("Could not apply HorseRearingData to ${entity.entityType} entity.")
+        error("无法将HorseRearingData应用到${entity.entityType}实体")
     }
 }

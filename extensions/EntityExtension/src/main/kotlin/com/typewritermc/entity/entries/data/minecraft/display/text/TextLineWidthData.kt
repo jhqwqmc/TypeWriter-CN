@@ -12,7 +12,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("text_line_width_data", "LineWidth for a TextDisplay.", Colors.RED, "mdi:format-letter-spacing")
+@Entry("text_line_width_data", "文本展示实体的行宽", Colors.RED, "mdi:format-letter-spacing")
 @Tags("text_line_width_data")
 
 class TextLineWidthData(
@@ -34,6 +34,6 @@ data class LineWidthProperty(val lineWidth: Int) : EntityProperty {
 fun applyLineWidthData(entity: WrapperEntity, property: LineWidthProperty) {
     entity.metas {
         meta<TextDisplayMeta> { lineWidth = property.lineWidth }
-        error("Could not apply LineWidthData to ${entity.entityType} entity.")
+        error("无法将LineWidthData应用到${entity.entityType}实体")
     }
 }

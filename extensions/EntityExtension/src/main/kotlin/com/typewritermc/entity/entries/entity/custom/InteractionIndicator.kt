@@ -48,7 +48,7 @@ class InteractionIndicatorDefinition(
 ) : SimpleEntityDefinition {
     override fun create(player: Player): FakeEntity = StackedEntity(
         player, listOf(
-            definition.get()?.create(player) ?: throw IllegalStateException("Could not find definition for $definition"),
+            definition.get()?.create(player) ?: throw IllegalStateException("找不到${definition}的定义"),
             InteractionIndicatorEntity(player, ref()).apply {
                 consumeProperties(TranslationProperty(Vector(y = namePlateOffset)))
             },

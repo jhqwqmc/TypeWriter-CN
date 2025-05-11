@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.facts.FactData
 import org.bukkit.entity.Player
 import org.koin.java.KoinJavaComponent
 
-@Entry("balance_fact", "The balance of a player's account", Colors.PURPLE, "fa6-solid:money-bill-wave")
+@Entry("balance_fact", "玩家账户余额", Colors.PURPLE, "fa6-solid:money-bill-wave")
 /**
  * A [fact](/docs/creating-stories/facts) that represents a player's balance.
  *

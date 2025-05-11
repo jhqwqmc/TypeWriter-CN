@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "empty_interaction_bound",
-    "An empty interaction bound which does nothing",
+    "无操作的空白交互绑定",
     Colors.MEDIUM_PURPLE,
     "lucide:square-dashed"
 )

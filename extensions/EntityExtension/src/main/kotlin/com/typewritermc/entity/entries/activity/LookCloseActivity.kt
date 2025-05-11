@@ -14,7 +14,7 @@ import kotlin.math.max
 
 private val playerCloseLookRange by snippet("entity.activity.look_close.range", 10.0)
 
-@Entry("look_close_activity", "A look close activity", Colors.BLUE, "fa6-solid:eye")
+@Entry("look_close_activity", "近距离注视活动", Colors.BLUE, "fa6-solid:eye")
 /**
  * The `LookCloseActivityEntry` is an activity that makes the entity look to the player closest to it.
  *

@@ -64,8 +64,8 @@ class NumberEditor extends HookConsumerWidget {
           ],
         ],
         validator: (value) {
-          if (min != null && value < min) return "Value must be at least $min";
-          if (max != null && value > max) return "Value must be at most $max";
+          if (min != null && value < min) return "数值必须至少为$min";
+          if (max != null && value > max) return "数值最多为$max";
           return null;
         },
       ),

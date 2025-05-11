@@ -154,7 +154,7 @@ class VariableEditor extends HookConsumerWidget {
                     ContextMenuRegion(
                       builder: (context) => [
                         ContextMenuTile.button(
-                          title: "Navigate to entry",
+                          title: "导航到条目",
                           icon: TWIcons.pencil,
                           onTap: () {
                             ref
@@ -212,10 +212,10 @@ class VariableEditor extends HookConsumerWidget {
       onTap: () => _removeVariable(ref),
       child: Text.rich(
         TextSpan(
-          text: "Could not find Variable Reference, ",
+          text: "找不到变量引用，",
           children: [
             TextSpan(
-              text: "click to reset to default",
+              text: "点击重置为默认值",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),

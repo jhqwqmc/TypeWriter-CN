@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
-@Entry("boss_bar", "Boss Bar", Colors.GREEN, "carbon:progress-bar")
+@Entry("boss_bar", "Boss栏", Colors.GREEN, "carbon:progress-bar")
 /**
  * The `BossBarEntry` is a display that shows a bar at the top of the screen.
  *
@@ -26,15 +26,15 @@ class BossBarEntry(
     override val name: String = "",
     @Colored
     @Placeholder
-    @Help("The title of the boss bar")
+    @Help("Boss栏标题")
     val title: Var<String> = ConstVar(""),
-    @Help("How filled up the bar is. 0.0 is empty, 1.0 is full.")
+    @Help("Boss栏填充比例（0.0为空，1.0为满）")
     val progress: Var<Double> = ConstVar(1.0),
-    @Help("The color of the boss bar")
+    @Help("Boss栏颜色")
     val color: Var<BossBar.Color> = ConstVar(BossBar.Color.WHITE),
-    @Help("If the bossbar has notches")
+    @Help("是否显示Boss栏刻度")
     val style: Var<BossBar.Overlay> = ConstVar(BossBar.Overlay.PROGRESS),
-    @Help("Any flags to apply to the boss bar")
+    @Help("需要应用于Boss栏的标志")
     val flags: List<BossBar.Flag> = emptyList(),
 ) : AudienceEntry {
     override suspend fun display(): AudienceDisplay {

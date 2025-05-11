@@ -21,7 +21,7 @@ import java.util.*
 
 @Entry(
     "timer_audience",
-    "Triggers an action every specified duration when the player is in the audience",
+    "当玩家在受众中时，每隔指定时间触发一次动作",
     Colors.GREEN,
     "mdi:timer-outline"
 )
@@ -53,7 +53,7 @@ class TimerAudienceDisplay(
     override fun onPlayerAdd(player: Player) {
         val duration = duration.get(player)
         if (duration.isZero || duration.isNegative) {
-            logger.warning("Timer duration must be positive, otherwise it will infinitely trigger.")
+            logger.warning("计时器持续时间必须为正数，否则将无限触发")
             return
         }
         jobs[player.uniqueId] = ThreadType.DISPATCHERS_ASYNC.launch {

@@ -33,11 +33,11 @@ class WritersIndicator extends HookConsumerWidget {
     super.key,
   })  : assert(
           child != null || builder != null,
-          "Either child or builder must be provided",
+          "必须提供child或builder参数",
         ),
         assert(
           !(shift != null && offset != null),
-          "Only one of shift or offset can be provided",
+          "shift和offset参数只能提供一个",
         );
 
   final ProviderBase<List<Writer>> provider;

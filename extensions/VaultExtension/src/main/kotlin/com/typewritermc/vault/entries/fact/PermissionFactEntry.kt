@@ -13,7 +13,7 @@ import net.milkbowl.vault.permission.Permission
 import org.bukkit.entity.Player
 import org.koin.java.KoinJavaComponent
 
-@Entry("permission_fact", "If the player has a permission", Colors.PURPLE, "fa6-solid:user-shield")
+@Entry("permission_fact", "判断玩家是否拥有权限", Colors.PURPLE, "fa6-solid:user-shield")
 /**
  * A [fact](/docs/creating-stories/facts) that checks if the player has a certain permission.
  *

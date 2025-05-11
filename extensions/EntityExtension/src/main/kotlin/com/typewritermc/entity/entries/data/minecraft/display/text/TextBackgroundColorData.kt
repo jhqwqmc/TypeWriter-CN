@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "background_color_data",
-    "Background color for a TextDisplay.",
+    "文本展示实体的背景颜色",
     Colors.RED,
     "fluent:video-background-effect-32-filled"
 )
@@ -41,6 +41,6 @@ data class BackgroundColorProperty(val color: Color) : EntityProperty {
 fun applyBackgroundColorData(entity: WrapperEntity, property: BackgroundColorProperty) {
     entity.metas {
         meta<TextDisplayMeta> { backgroundColor = property.color.color }
-        error("Could not apply BackgroundColorData to ${entity.entityType} entity.")
+        error("无法将BackgroundColorData应用到${entity.entityType}实体")
     }
 }

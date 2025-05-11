@@ -25,7 +25,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "interaction_entity_definition",
-    "An entity that allows quest, responding to player input",
+    "可交互任务实体（响应玩家输入）",
     Colors.BLUE,
     "ic:round-touch-app"
 )
@@ -56,7 +56,7 @@ class InteractionEntityDefinition(
     }
 }
 
-@Entry("interaction_entity_instance", "An instance of an quest entity", Colors.YELLOW, "ic:round-touch-app")
+@Entry("interaction_entity_instance", "任务实体的实例", Colors.YELLOW, "ic:round-touch-app")
 class InteractionEntityInstance(
     override val id: String = "",
     override val name: String = "",

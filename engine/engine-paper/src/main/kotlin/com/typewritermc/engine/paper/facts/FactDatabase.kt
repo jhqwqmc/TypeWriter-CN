@@ -113,10 +113,10 @@ class FactDatabase : KoinComponent {
                 this[modifier.fact] = when (modifier.operator) {
                     ModifierOperator.ADD -> {
                         val entry =
-                            modifier.fact.get().logErrorIfNull("Could not find ${modifier.fact}") ?: return@forEach
+                            modifier.fact.get().logErrorIfNull("找不到${modifier.fact}") ?: return@forEach
 
                         if (entry !is ReadableFactEntry) {
-                            plugin.logger.warning("Tried to add to a non-readable fact: ${modifier.fact}, how do you expect to add if you can't read?")
+                            plugin.logger.warning("尝试对不可读的持久化变量${modifier.fact}进行加法操作，如果无法读取如何执行加法？")
                             return@forEach
                         }
 
@@ -125,10 +125,10 @@ class FactDatabase : KoinComponent {
                     }
                     ModifierOperator.MULTIPLY -> {
                         val entry =
-                            modifier.fact.get().logErrorIfNull("Could not find ${modifier.fact}") ?: return@forEach
+                            modifier.fact.get().logErrorIfNull("找不到${modifier.fact}") ?: return@forEach
 
                         if (entry !is ReadableFactEntry) {
-                            plugin.logger.warning("Tried to multiply a non-readable fact: ${modifier.fact}, how do you expect to multiply if you can't read?")
+                            plugin.logger.warning("尝试对不可读的持久化变量${modifier.fact}进行乘法操作，如果无法读取如何执行乘法？")
                             return@forEach
                         }
 

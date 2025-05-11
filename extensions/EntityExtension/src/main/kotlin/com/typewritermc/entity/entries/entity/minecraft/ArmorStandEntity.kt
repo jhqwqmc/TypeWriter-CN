@@ -19,7 +19,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.armorstand.*
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("armorstand_definition", "A armor_stand entity", Colors.ORANGE, "lucide:person-standing")
+@Entry("armorstand_definition", "盔甲架实体", Colors.ORANGE, "lucide:person-standing")
 @Tags("armor_stand_definition")
 /**
  * The `ArmorStandDefinition` class is an entry that shows up as a armor_stand in-game.
@@ -38,7 +38,7 @@ class ArmorStandDefinition(
     override fun create(player: Player): FakeEntity = ArmorStandEntity(player)
 }
 
-@Entry("armor_stand_instance", "An instance of a armor_stand entity", Colors.YELLOW, "lucide:person-standing")
+@Entry("armor_stand_instance", "盔甲架实体的实例", Colors.YELLOW, "lucide:person-standing")
 class ArmorStandInstance(
     override val id: String = "",
     override val name: String = "",

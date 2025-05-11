@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.triggerAllFor
 import com.typewritermc.engine.paper.utils.item.Item
 import org.bukkit.event.player.PlayerItemConsumeEvent
 
-@Entry("consume_item_event", "triggers when the player consumes food", Colors.YELLOW, "game-icons:eating")
+@Entry("consume_item_event", "当玩家食用食物时触发", Colors.YELLOW, "game-icons:eating")
 class ConsumeItemEventEntry(
     override val id: String = "",
     override val name: String = "",

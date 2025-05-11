@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
-@Entry("criteria_audience", "An audience filter based on criteria", Colors.MEDIUM_SEA_GREEN, "fa-solid:filter")
+@Entry("criteria_audience", "基于条件的受众筛选器", Colors.MEDIUM_SEA_GREEN, "fa-solid:filter")
 /**
  * The `Criteria Audience` entry filters an audience based on criteria.
  *

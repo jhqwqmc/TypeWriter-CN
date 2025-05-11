@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "in_audience_fact",
-    "The fact that the player is in the audience",
+    "判断玩家是否在受众中的持久化变量",
     Colors.PURPLE,
     "material-symbols:person-pin"
 )

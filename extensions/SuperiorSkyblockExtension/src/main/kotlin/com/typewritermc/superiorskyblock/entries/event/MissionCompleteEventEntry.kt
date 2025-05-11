@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.entry.TriggerableEntry
 import com.typewritermc.engine.paper.entry.entries.EventEntry
 import com.typewritermc.engine.paper.entry.triggerAllFor
 
-@Entry("on_mission_complete", "When a player completes a mission", Colors.YELLOW, "fa6-solid:clipboard-check")
+@Entry("on_mission_complete", "当玩家完成任务时", Colors.YELLOW, "fa6-solid:clipboard-check")
 /**
  * The `Mission Complete` event is triggered when a player completes a mission.
  *

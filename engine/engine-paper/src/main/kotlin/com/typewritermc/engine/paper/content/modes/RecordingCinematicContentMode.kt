@@ -61,13 +61,13 @@ class RecordingCinematicComponent<F : Frame<F>>(
         if (frameFetcher() > (context.endFrame ?: 0)) {
             val item = ItemStack(Material.BARRIER).apply {
                 editMeta { meta ->
-                    meta.name = "<red><b>Cannot Start Recording"
+                    meta.name = "<red><b>无法开始录制"
                     meta.loreString = """
-                    |<line> <gray>Recording cannot start 
-                    |<line> <gray>because the frame is out of range.
+                    |<line> <gray>录制无法开始
+                    |<line> <gray>因为帧数超出范围
                     |
-                    |<line> <gray>Make sure that the cinematic frame
-                    |<line> <gray>is before the end frame of the segment.
+                    |<line> <gray>请确保过场动画帧数
+                    |<line> <gray>在片段的结束帧之前
                 """.trimMargin()
                 }
             } onInteract {}
@@ -76,8 +76,8 @@ class RecordingCinematicComponent<F : Frame<F>>(
 
         val item = ItemStack(Material.BOOK).apply {
             editMeta { meta ->
-                meta.name = "<green><b>Start Recording"
-                meta.loreString = "<line> <gray>Click to start recording the cinematic."
+                meta.name = "<green><b>开始录制"
+                meta.loreString = "<line> <gray>点击开始录制过场动画"
             }
         } onInteract {
             ContentModeTrigger(context, modeCreator(context, player, klass, frameFetcher())).triggerFor(
@@ -113,11 +113,11 @@ abstract class RecordingCinematicContentMode<F : Frame<F>>(
         if (startFrame == null || endFrame == null) {
             return failure(
                 """
-                |Missing startFrame or endFrame in context.
-                |Context: $context
+                |上下文中缺少startFrame或endFrame
+                |上下文：$context
                 |
-                |RecordingCinematicContentMode can only be used for segments of a cinematic.
-                |Report this to the extension developer.
+                |RecordingCinematicContentMode只能用于过场动画的片段
+                |请将此问题报告给扩展开发者
             """.trimMargin()
             )
         }
@@ -128,10 +128,10 @@ abstract class RecordingCinematicContentMode<F : Frame<F>>(
         if (result.isFailure) {
             return failure(
                 """
-                |Failed to get asset from field value (${context.fieldValue}):
+                |无法从字段值获取资源(${context.fieldValue})：
                 |${result.exceptionOrNull()?.message}
                 |
-                |It is likely that you forgot to publish the asset before using it in a content mode.
+                |您可能在使用内容模式前忘记发布资源
             """.trimMargin()
             )
         }
@@ -163,13 +163,13 @@ abstract class RecordingCinematicContentMode<F : Frame<F>>(
                     else -> "green"
                 }
 
-                title = "Starting recording in <$color><bold>$secondsLeft</bold></$color>"
+                title = "<$color><bold>$secondsLeft</bold></$color>秒后开始录制"
                 progress = 1f - (frame - initialFrame) / (startFrame - initialFrame).toFloat()
                 return@bossBar
             }
 
             val secondsLeft = (endFrame - frame) / 20
-            title = "Recording ends in <bold>$secondsLeft</bold>"
+            title = "<bold>$secondsLeft</bold>秒后录制结束"
             progress = (frame - frames.first) / (frames.last - frames.first).toFloat()
         }
         return ok(Unit)
@@ -181,7 +181,7 @@ abstract class RecordingCinematicContentMode<F : Frame<F>>(
 
         // Load in the old tape if it exists
         val asset = asset
-            ?: throw IllegalStateException("No asset found for recording cinematic after setup, this should not happen. Asset: '${context.fieldValue}'")
+            ?: throw IllegalStateException("设置后未找到录制过场动画的资源，这不应该发生。资源：'${context.fieldValue}'")
         val oldTapeData = if (assetManager.containsAsset(asset)) assetManager.fetchAsset(asset) else null
         if (oldTapeData != null) {
             recorder = Recorder.create(gson, klass, oldTapeData).apply {

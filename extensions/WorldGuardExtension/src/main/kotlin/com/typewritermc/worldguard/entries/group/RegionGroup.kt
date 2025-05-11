@@ -8,7 +8,7 @@ import com.typewritermc.engine.paper.entry.entries.GroupEntry
 import com.typewritermc.engine.paper.entry.entries.GroupId
 import org.bukkit.entity.Player
 
-@Entry("region_group", "All players grouped by WorldGuard regions", Colors.MYRTLE_GREEN, "fa6-solid:object-group")
+@Entry("region_group", "按WorldGuard区域划分的所有玩家组", Colors.MYRTLE_GREEN, "fa6-solid:object-group")
 /**
  * The `WorldGuardRegionGroup` is a group that includes all the players in a specific WorldGuard region.
  * Only the given region will be considered for the group.

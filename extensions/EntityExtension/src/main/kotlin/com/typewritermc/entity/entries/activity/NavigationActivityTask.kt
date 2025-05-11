@@ -102,7 +102,7 @@ private sealed interface NavigationActivityTaskState {
         private val job: Job = ThreadType.DISPATCHERS_ASYNC.launch {
             val result = gps.findPath()
             path = if (result.isFailure) {
-                logger.severe("Failed to find path: ${result.exceptionOrNull()}")
+                logger.severe("寻路失败：${result.exceptionOrNull()}")
                 emptyList()
             } else {
                 result.getOrThrow()
@@ -250,7 +250,7 @@ private sealed interface NavigationActivityTaskState {
                 location,
                 BukkitBlockGetter(
                     location.toBukkitLocation().world
-                        ?: throw IllegalStateException("Trying to navigate in ${location.world} which is not loaded, how did you manage to do that?")
+                        ?: throw IllegalStateException("尝试在未加载的世界 ${location.world} 中导航，你是怎么做到的？")
                 ),
                 false,
             )

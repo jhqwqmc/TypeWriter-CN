@@ -60,13 +60,13 @@ class CoordinateEditor extends HookConsumerWidget {
             children: [
               CordPropertyEditor(
                 path: path.join("yaw"),
-                label: "Yaw",
+                label: "偏航角",
                 color: Colors.deepPurpleAccent,
               ),
               const SizedBox(width: 8),
               CordPropertyEditor(
                 path: path.join("pitch"),
-                label: "Pitch",
+                label: "俯仰角",
                 color: Colors.amberAccent,
               ),
             ],

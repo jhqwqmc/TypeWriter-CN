@@ -14,7 +14,7 @@ import com.typewritermc.engine.paper.entry.temporal.isPlayingTemporal
 import com.typewritermc.engine.paper.facts.FactData
 import org.bukkit.entity.Player
 
-@Entry("in_cinematic_fact", "If the player is in a cinematic", Colors.PURPLE, "eos-icons:storage-class")
+@Entry("in_cinematic_fact", "判断玩家是否处于过场动画中", Colors.PURPLE, "eos-icons:storage-class")
 /**
  * The 'In Cinematic Fact' is a fact that returns 1 if the player has an active cinematic, and 0 if not.
  *
@@ -30,7 +30,7 @@ class InCinematicFactEntry(
     override val name: String = "",
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
-    @Help("When not set, it will filter based when any cinematic is active.")
+    @Help("未设置时，将根据是否有任何过场动画处于活动状态进行判断")
     @Page(PageType.CINEMATIC)
     @SerializedName("cinematic")
     val pageId: String = "",

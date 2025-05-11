@@ -20,7 +20,7 @@ import org.bukkit.potion.PotionEffectType
 
 @Entry(
     "potion_effect_cinematic",
-    "Apply different potion effects to the player during a cinematic",
+    "在过场动画期间对玩家施加不同的药水效果",
     Colors.CYAN,
     "fa6-solid:flask-vial"
 )
@@ -55,7 +55,7 @@ data class PotionEffectSegment(
     val strength: Var<Int> = ConstVar(1),
     val ambient: Boolean = false,
     val particles: Boolean = false,
-    @Help("Whether the icon should be displayed in the top left corner of the screen.")
+    @Help("是否在屏幕左上角显示图标")
     val icon: Boolean = false,
 ) : Segment
 

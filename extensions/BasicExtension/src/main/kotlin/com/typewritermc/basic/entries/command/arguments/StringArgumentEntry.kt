@@ -14,7 +14,7 @@ import com.typewritermc.core.interaction.InteractionContextBuilder
 import com.typewritermc.engine.paper.entry.TriggerableEntry
 import kotlin.reflect.KClass
 
-@Entry("word_argument", "A single word argument", Colors.RED, "fa6-solid:font")
+@Entry("word_argument", "单字参数", Colors.RED, "fa6-solid:font")
 @ContextKeys(WordArgumentContextKeys::class)
 /**
  * The `Word Argument` entry is an argument that takes a single word.
@@ -38,7 +38,7 @@ enum class WordArgumentContextKeys(override val klass: KClass<*>) : EntryContext
     VALUE(String::class)
 }
 
-@Entry("string_argument", "A string argument", Colors.RED, "bxs:quote-right")
+@Entry("string_argument", "字符串参数", Colors.RED, "bxs:quote-right")
 @ContextKeys(StringArgumentContextKeys::class)
 /**
  * The `String Argument` entry is an argument that takes a string.
@@ -63,7 +63,7 @@ enum class StringArgumentContextKeys(override val klass: KClass<*>) : EntryConte
     VALUE(String::class)
 }
 
-@Entry("greedy_string_argument", "A greedy string argument", Colors.RED, "fa6-solid:text-width")
+@Entry("greedy_string_argument", "贪婪字符串参数", Colors.RED, "fa6-solid:text-width")
 @ContextKeys(GreedyStringArgumentContextKeys::class)
 /**
  * The `Greedy String Argument` entry is an argument that takes a greedy string.

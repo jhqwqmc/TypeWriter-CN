@@ -24,7 +24,7 @@ import org.bukkit.event.player.PlayerInteractEvent
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("on_interact_with_block", "When the player interacts with a block", Colors.YELLOW, "mingcute:finger-tap-fill")
+@Entry("on_interact_with_block", "当玩家与方块交互时", Colors.YELLOW, "mingcute:finger-tap-fill")
 @ContextKeys(InteractBlockContextKeys::class)
 /**
  * The `Interact Block Event` is triggered when a player interacts with a block by right-clicking it.
@@ -40,9 +40,9 @@ class InteractBlockEventEntry(
     @MaterialProperties(BLOCK)
     val block: Material = Material.AIR,
     val location: Optional<Var<Position>> = Optional.empty(),
-    @Help("The item the player must be holding when the block is interacted with.")
+    @Help("与方块交互时玩家必须持有的物品")
     val itemInHand: Var<Item> = ConstVar(Item.Empty),
-    @Help("The hand the player must be holding the item in")
+    @Help("玩家必须持有该物品的手")
     val hand: HoldingHand = HoldingHand.BOTH,
     val interactionType: InteractionType = InteractionType.ALL,
     val shiftType: ShiftType = ShiftType.ANY,

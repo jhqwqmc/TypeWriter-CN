@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "inventory_item_count_fact",
-    "The amount of a specific item in the player's inventory",
+    "玩家物品栏中特定物品的数量",
     Colors.PURPLE,
     "fa6-solid:bag-shopping"
 )

@@ -20,15 +20,15 @@ import com.typewritermc.engine.paper.utils.toPosition
 import org.bukkit.event.player.PlayerInteractEvent
 import java.util.*
 
-@Entry("interact_event_entry", "triggers when a player clicks", Colors.YELLOW, "hugeicons:touch-interaction-02")
+@Entry("interact_event_entry", "当玩家点击时触发", Colors.YELLOW, "hugeicons:touch-interaction-02")
 class InteractEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     val location: Optional<Var<Position>> = Optional.empty(),
-    @Help("The item the player must be holding when the block is interacted with.")
+    @Help("与方块交互时玩家必须持有的物品  ")
     val itemInHand: Var<Item> = ConstVar(Item.Empty),
-    @Help("The hand the player must be holding the item in")
+    @Help("玩家必须持有该物品的手")
     val hand: HoldingHand = HoldingHand.BOTH,
     override val cancel: Var<Boolean> = ConstVar(false),
     val interactionType: InteractionType = InteractionType.ALL,

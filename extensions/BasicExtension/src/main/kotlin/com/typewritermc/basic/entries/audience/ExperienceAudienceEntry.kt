@@ -20,7 +20,7 @@ import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.reflect.KClass
 
-@Entry("experience_audience", "Sets the level and experience for a player to a certain value.", Colors.GREEN, "icon-park-solid:experiment")
+@Entry("experience_audience", "将玩家的等级和经验值设置为特定值", Colors.GREEN, "icon-park-solid:experiment")
 /**
  * The `ExpAudienceEntry` is an audience that displays the experience of the player from a value and level requirement.
  *
@@ -50,7 +50,7 @@ class ExperienceAudienceEntry(
     override val name: String = "",
     val experience: Var<Int> = ConstVar(0),
     @Default("\"L^2 + L*10\"")
-    @Help("Can be mathematical expression. The expression may contain the variable L, which will be replaced with the player's level.")
+    @Help("可以是数学表达式。表达式中可包含变量L，该变量将被替换为玩家的当前等级。")
     val levelRequirement: String = "L^2 + L*10",
     override val priorityOverride: Optional<Int> = Optional.empty()
 ) : AudienceFilterEntry, PriorityEntry {
@@ -149,7 +149,7 @@ private class PlayerExpDisplay(
         return when (val expressionResult = expression.tryEval(context)) {
             is com.mthaler.aparser.util.Try.Success -> expressionResult.value.toInt()
             is com.mthaler.aparser.util.Try.Failure -> {
-                logger.warning("Could not evaluate expression '$levelRequirement' for player for level $level")
+                logger.warning("无法为等级${level}的玩家计算表达式'$levelRequirement'")
                 return 1
             }
         }

@@ -21,7 +21,7 @@ import org.koin.java.KoinJavaComponent
 
 @Entry(
     "command_interaction_bound",
-    "Interaction Bound for when the player types a command",
+    "当玩家输入命令时的交互绑定",
     Colors.MEDIUM_PURPLE,
     "gravity-ui:square-dashed-text"
 )

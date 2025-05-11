@@ -22,11 +22,11 @@ class RemoveHeaderAction extends HookConsumerWidget {
     return IconButton(
       icon: const Iconify(TWIcons.trash, size: 12),
       color: Theme.of(context).colorScheme.error,
-      tooltip: "Remove $name",
+      tooltip: "移除$name",
       onPressed: () => showConfirmationDialogue(
         context: context,
-        title: "Remove $name?",
-        content: "Are you sure you want to remove this item?",
+        title: "确定要移除$name吗？",
+        content: "确定要移除此项吗？",
         onConfirm: onRemove,
       ),
     );

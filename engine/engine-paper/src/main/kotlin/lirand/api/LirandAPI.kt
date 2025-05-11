@@ -9,7 +9,7 @@ class LirandAPI internal constructor(internal val plugin: Plugin) {
         val instances: Map<Plugin, LirandAPI> get() = _instances
 
         fun register(plugin: Plugin): LirandAPI {
-            check(plugin !in instances) { "Api for this plugin already initialized." }
+            check(plugin !in instances) { "该插件的API已初始化" }
 
             return LirandAPI(plugin)
         }

@@ -15,7 +15,7 @@ import io.lumine.mythic.bukkit.events.MythicMobDeathEvent
 import org.bukkit.entity.Player
 
 
-@Entry("on_mythic_mob_die", "When a player kill a MythicMobs mob.", Colors.YELLOW, "fa6-solid:skull")
+@Entry("on_mythic_mob_die", "当玩家击杀MythicMobs生物时", Colors.YELLOW, "fa6-solid:skull")
 /**
  * The `Mob Death Event` event is triggered when a player kill a mob.
  *
@@ -27,7 +27,7 @@ class MythicMobDeathEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("Only trigger when a specific mob dies.")
+    @Help("仅在特定生物死亡时触发")
     @Regex
     val mobName: String = "",
 ) : EventEntry

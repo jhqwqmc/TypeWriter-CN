@@ -16,7 +16,7 @@ import com.typewritermc.entity.entries.entity.minecraft.PlayerEntity
 import org.bukkit.entity.Player
 
 
-@Entry("npc_definition", "A simplified premade npc", Colors.ORANGE, "material-symbols:account-box")
+@Entry("npc_definition", "简化预设NPC", Colors.ORANGE, "material-symbols:account-box")
 @Tags("npc_definition")
 /**
  * The `NpcDefinition` class is an entry that represents a simplified premade npc.
@@ -34,7 +34,7 @@ class NpcDefinition(
     override val name: String = "",
     override val displayName: Var<String> = ConstVar(""),
     override val sound: Sound = Sound.EMPTY,
-    @Help("The skin of the npc.")
+    @Help("该NPC的皮肤")
     val skin: Var<SkinProperty> = ConstVar(SkinProperty()),
     @OnlyTags("generic_entity_data", "living_entity_data", "lines", "player_data")
     override val data: List<Ref<EntityData<*>>> = emptyList(),
@@ -45,7 +45,7 @@ class NpcDefinition(
     }
 }
 
-@Entry("npc_instance", "An instance of a simplified premade npc", Colors.YELLOW, "material-symbols:account-box")
+@Entry("npc_instance", "简化预设NPC的实例", Colors.YELLOW, "material-symbols:account-box")
 /**
  * The `NpcInstance` class is an entry that represents an instance of a simplified premade npc.
  */

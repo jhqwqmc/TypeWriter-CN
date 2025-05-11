@@ -31,11 +31,11 @@ data class MultiLineDisplayDialogueSegment(
 interface DisplayDialogueSegment : Segment {
     @Placeholder
     @Colored
-    @Help("The text to display to the player.")
+    @Help("向玩家显示的文本")
     val text: Var<String>
 }
 
-@Deprecated("Replaced with RandomVariable")
+@Deprecated("替换为随机变量")
 data class SingleLineRandomDisplayDialogueSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
@@ -46,7 +46,7 @@ data class SingleLineRandomDisplayDialogueSegment(
     }
 }
 
-@Deprecated("Replaced with RandomVariable")
+@Deprecated("替换为随机变量")
 data class MultiLineRandomDisplayDialogueSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
@@ -58,9 +58,9 @@ data class MultiLineRandomDisplayDialogueSegment(
     }
 }
 
-@Deprecated("Replaced with RandomVariable")
+@Deprecated("替换为随机变量")
 interface RandomDisplayDialogueSegment : Segment {
-    @Help("One of the possible texts is chosen randomly, and displayed to the player.")
+    @Help("随机选择其中一个可能的文本并显示给玩家")
     val texts: List<String>
 
     fun toDisplaySegment(): DisplayDialogueSegment

@@ -43,7 +43,7 @@ import org.koin.java.KoinJavaComponent
 import kotlin.math.abs
 import kotlin.reflect.KClass
 
-@Entry("entity_cinematic", "Use an animated entity in a cinematic", Colors.PINK, "material-symbols:identity-platform")
+@Entry("entity_cinematic", "在过场动画中使用动画实体", Colors.PINK, "material-symbols:identity-platform")
 /**
  * The `Entity Cinematic` entry that plays a recorded animation on an Entity back on the player.
  *
@@ -55,7 +55,7 @@ class EntityCinematicEntry(
     override val id: String = "",
     override val name: String = "",
     override val criteria: List<Criteria> = emptyList(),
-    @Help("The entity that will be used in the cinematic")
+    @Help("将在过场动画中使用的实体")
     val definition: Ref<EntityDefinitionEntry> = emptyRef(),
     @Segments(Colors.PINK, "fa6-solid:person-walking")
     val segments: List<EntityRecordedSegment> = emptyList(),
@@ -66,7 +66,7 @@ class EntityCinematicEntry(
 
 @Entry(
     "entity_cinematic_artifact",
-    "The artifact for the recorded interactions data",
+    "记录交互数据的工件",
     Colors.PINK,
     "fa6-solid:person-walking"
 )
@@ -87,7 +87,7 @@ class EntityCinematicArtifact(
 data class EntityRecordedSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("The artifact for the recorded interactions data")
+    @Help("记录交互数据的制品")
     @ContentEditor(EntityCinematicViewing::class)
     val artifact: Ref<EntityCinematicArtifact> = emptyRef(),
 ) : Segment
@@ -221,8 +221,8 @@ class EntityCinematicViewing(context: ContentContext, player: Player) : ContentM
         if (result.isFailure) {
             return failure(
                 """
-                    |You forgot to specify the EntityCinematicArtifact.
-                    |It is required for recording the cinematic.
+                    |您未指定EntityCinematicArtifact
+                    |录制过场动画需要此工件
             """.trimMargin()
             )
         }
@@ -289,7 +289,7 @@ private class FakeProvider<P : EntityProperty>(private val klass: KClass<P>, pri
     override fun type(): KClass<P> = klass
 
     override fun build(player: Player): P {
-        return supplier() ?: throw IllegalStateException("Could not build property $klass")
+        return supplier() ?: throw IllegalStateException("无法构建属性$klass")
     }
 
     override fun canApply(player: Player): Boolean {

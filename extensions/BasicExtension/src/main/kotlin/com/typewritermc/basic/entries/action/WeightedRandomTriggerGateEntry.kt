@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.entry.entries.ConstVar
 import com.typewritermc.engine.paper.entry.entries.Var
 import kotlin.random.Random
 
-@Entry("weighted_random_trigger_gate", "A weighted random trigger gate", Colors.PINK, "jam:dices-f")
+@Entry("weighted_random_trigger_gate", "加权随机触发器", Colors.PINK, "jam:dices-f")
 /**
  * The `Weighted Random Trigger Gate` is a gate that triggers a specified number of entries randomly.
  *
@@ -31,7 +31,7 @@ class WeightedRandomTriggerGateEntry(
     override val modifiers: List<Modifier> = emptyList(),
     @SerializedName("triggers")
     val customTriggers: Map<Ref<TriggerableEntry>, Int> = emptyMap(),
-    @Help("The number of triggers to fire next.")
+    @Help("要触发的下一个触发器数量")
     @Default("1")
     private val amount: Var<Int> = ConstVar(1),
 ) : ActionEntry {

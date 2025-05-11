@@ -15,7 +15,7 @@ import com.typewritermc.quest.ObjectiveEntry
 import com.typewritermc.quest.QuestEntry
 import java.util.*
 
-@Entry("location_objective", "A location objective definition", Colors.BLUE_VIOLET, "streamline:target-solid")
+@Entry("location_objective", "位置目标定义", Colors.BLUE_VIOLET, "streamline:target-solid")
 /**
  * The `LocationObjective` entry is a task that the player can complete by reaching a specific location.
  * It is mainly for displaying the progress to a player.

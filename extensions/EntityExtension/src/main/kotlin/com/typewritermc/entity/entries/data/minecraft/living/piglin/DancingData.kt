@@ -15,7 +15,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "dancing_data",
-    "Whether an entity is dancing",
+    "实体是否在跳舞",
     Colors.RED,
     "streamline:travel-wayfinder-man-arm-raises-2-man-raise-arm-scaning-detect-posture-security"
 )
@@ -38,6 +38,6 @@ data class DancingProperty(val dancing: Boolean) : EntityProperty {
 fun applyDancingData(entity: WrapperEntity, property: DancingProperty) {
     entity.metas {
         meta<PiglinMeta> { isDancing = property.dancing }
-        error("Could not apply DancingData to ${entity.entityType} entity.")
+        error("无法将DancingData应用到${entity.entityType}实体")
     }
 }

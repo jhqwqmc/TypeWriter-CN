@@ -29,7 +29,7 @@ import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerEvent
 import org.bukkit.event.player.PlayerSwapHandItemsEvent
 
-@Entry("skip_cinematic", "Allows players to manually skip the cinematic", Colors.RED, "mdi:skip-next")
+@Entry("skip_cinematic", "允许玩家手动跳过过场动画", Colors.RED, "mdi:skip-next")
 /**
  * The `Skip Cinematic` entry is used to allow players to manually skip the cinematic.
  *
@@ -60,8 +60,8 @@ data class SkipSegment(
 ) : Segment
 
 enum class SkipConfirmationKey(val keybind: String, val bedrockKeybind: String) {
-    SNEAK("<key:key.sneak>", "Sneak"),
-    SWAP_HANDS("<key:key.swapOffhand>", "Swap Offhand"),
+    SNEAK("<key:key.sneak>", "潜行"),
+    SWAP_HANDS("<key:key.swapOffhand>", "切换副手"),
     ;
 
     fun keybind(player: Player): String {

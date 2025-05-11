@@ -118,7 +118,7 @@ extension AppRouterX on AppRouter {
       ref.read(appRouter).push(
             PageEditorRoute(id: pageId),
             onFailure: (e) =>
-                debugPrint("Failed to navigate to page $pageId: $e"),
+                debugPrint("导航到页面 $pageId 失败: $e"),
           ),
     );
   }

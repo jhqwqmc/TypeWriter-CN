@@ -18,7 +18,7 @@ class PanelHost : KoinComponent {
     fun initialize() {
         if (!enabled) {
             // If we are developing the ui we don't want to start the server
-            logger.warning("The panel is disabled while the websocket is enabled. This is only for development purposes. Please enable either both or none.")
+            logger.warning("控制面板在WebSocket启用时被禁用。此设置仅用于开发目的。请同时启用两者或全部禁用。")
             return
         }
         val classLoader = plugin.javaClass.classLoader

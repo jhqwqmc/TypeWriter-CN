@@ -13,7 +13,7 @@ import com.typewritermc.engine.paper.utils.position
 
 @Entry(
     "player_world_activity",
-    "Spawns the entity in the world the player is in",
+    "在玩家所在的世界生成实体",
     Colors.PALATINATE_BLUE,
     "material-symbols:globe-asia"
 )

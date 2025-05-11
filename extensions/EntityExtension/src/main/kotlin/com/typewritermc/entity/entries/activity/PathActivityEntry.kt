@@ -14,7 +14,7 @@ import com.typewritermc.roadnetwork.*
 import com.typewritermc.roadnetwork.gps.PointToPointGPS
 import org.koin.java.KoinJavaComponent
 
-@Entry("path_activity", "Moving along a predefined path", Colors.BLUE, "material-symbols:conversion-path")
+@Entry("path_activity", "沿预定路径移动", Colors.BLUE, "material-symbols:conversion-path")
 /**
  * The `Path Activity` is an activity that moves along a predefined path.
  * The entity will move to each location in the set in order.
@@ -28,7 +28,7 @@ class PathActivityEntry(
     override val name: String = "",
     override val roadNetwork: Ref<RoadNetworkEntry> = emptyRef(),
     override val nodes: List<RoadNodeId> = emptyList(),
-    @Help("The activity that will be used when the entity is at the final location.")
+    @Help("当实体到达终点位置时将使用的活动")
     val idleActivity: Ref<out EntityActivityEntry> = emptyRef(),
 ) : GenericEntityActivityEntry, RoadNodeCollectionEntry {
     override fun create(context: ActivityContext, currentLocation: PositionProperty): EntityActivity<ActivityContext> {

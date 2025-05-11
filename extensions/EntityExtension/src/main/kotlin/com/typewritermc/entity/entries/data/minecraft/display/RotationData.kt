@@ -21,7 +21,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "pre_rotation_data",
-    "Rotation applied before other transformations",
+    "在其他变换前应用的旋转",
     Colors.RED,
     "icon-park-outline:rotation-one"
 )
@@ -49,7 +49,7 @@ data class PreRotationProperty(val quaternion: Quaternion4f) : EntityProperty {
 
 @Entry(
     "post_rotation_data",
-    "Rotation applied after other transformations",
+    "在其他变换后应用的旋转",
     Colors.RED,
     "icon-park-outline:rotation-one"
 )
@@ -103,13 +103,13 @@ fun Vector.toQuaternion(): Quaternion4f {
 fun applyPreRotationData(entity: WrapperEntity, rotation: PreRotationProperty) {
     entity.metas {
         meta<AbstractDisplayMeta> { leftRotation = rotation.quaternion }
-        error("Could not apply TranslationData to ${entity.entityType} entity.")
+        error("无法将TranslationData应用到${entity.entityType}实体")
     }
 }
 
 fun applyPostRotationData(entity: WrapperEntity, rotation: PostRotationProperty) {
     entity.metas {
         meta<AbstractDisplayMeta> { rightRotation = rotation.quaternion }
-        error("Could not apply TranslationData to ${entity.entityType} entity.")
+        error("无法将TranslationData应用到${entity.entityType}实体")
     }
 }

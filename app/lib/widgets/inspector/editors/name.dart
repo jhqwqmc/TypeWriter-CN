@@ -24,7 +24,7 @@ class NameField extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SectionTitle(title: "Name"),
+        const SectionTitle(title: "名称"),
         const SizedBox(height: 1),
         WritersIndicator(
           provider: fieldWritersProvider("name"),
@@ -41,7 +41,7 @@ class NameField extends HookConsumerWidget {
               snakeCaseFormatter(),
               FilteringTextInputFormatter.allow(RegExp("[a-z0-9_.]")),
             ],
-            hintText: "Enter a name",
+            hintText: "输入名称",
             icon: TWIcons.signature,
           ),
         ),

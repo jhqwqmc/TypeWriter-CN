@@ -13,7 +13,7 @@ import com.typewritermc.engine.paper.entry.entries.Var
 import com.typewritermc.engine.paper.utils.toTicks
 import java.time.Duration
 
-@Entry("burn_player_action", "Burns the player for a certain amount of time", Colors.RED, "mdi:fire")
+@Entry("burn_player_action", "使玩家燃烧指定时长", Colors.RED, "mdi:fire")
 /**
  * The `Burn Player Action` is an action that burns the player for a certain amount of time.
  *

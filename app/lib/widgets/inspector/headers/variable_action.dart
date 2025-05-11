@@ -102,7 +102,7 @@ class VariableHeaderAction extends HookConsumerWidget {
     final data = variableData(value);
     if (data == null) {
       return HeaderButton(
-        tooltip: "Replace with Variable",
+        tooltip: "替换为变量",
         icon: TWIcons.variable,
         color: Colors.green,
         onTap: () => _createVariable(ref.passing),
@@ -110,7 +110,7 @@ class VariableHeaderAction extends HookConsumerWidget {
     }
 
     return HeaderButton(
-      tooltip: "Remove Variable",
+      tooltip: "移除变量",
       icon: TWIcons.x,
       color: Colors.red,
       onTap: () => _removeVariable(ref.passing),

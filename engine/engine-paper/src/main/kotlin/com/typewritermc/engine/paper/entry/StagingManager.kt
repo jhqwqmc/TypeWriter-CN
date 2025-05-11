@@ -105,20 +105,20 @@ class StagingManagerImpl : StagingManager, KoinComponent {
     }
 
     override fun createPage(data: JsonObject): Result<String> {
-        if (!data.has("id")) return failure("Id is required")
-        if (!data.has("name")) return failure("Name is required")
+        if (!data.has("id")) return failure("ID为必填项")
+        if (!data.has("name")) return failure("名称为必填项")
         val idJson = data["id"]
-        if (!idJson.isJsonPrimitive || !idJson.asJsonPrimitive.isString) return failure("Id must be a string")
+        if (!idJson.isJsonPrimitive || !idJson.asJsonPrimitive.isString) return failure("ID必须是字符串")
         val id = idJson.asString
 
-        if (pages.containsKey(id)) return failure("Page with that id already exists")
+        if (pages.containsKey(id)) return failure("该ID的页面已存在")
 
         // Add the version of this page to track migrations
         data.addProperty("version", plugin.pluginMeta.version)
 
         _pages?.put(id, data)
         autoSaver()
-        return ok("Successfully created page with name $id")
+        return ok("成功创建名称为${id}的页面")
     }
 
     override fun renamePage(pageId: String, newName: String): Result<String> {
@@ -127,7 +127,7 @@ class StagingManagerImpl : StagingManager, KoinComponent {
         page.addProperty("name", newName)
 
         autoSaver()
-        return ok("Successfully renamed page from $pageId to $newName")
+        return ok("成功将页面从${pageId}重命名为$newName")
     }
 
     override fun changePageValue(pageId: String, path: String, value: JsonElement): Result<String> {
@@ -136,28 +136,28 @@ class StagingManagerImpl : StagingManager, KoinComponent {
         page.changePathValue(path, value)
 
         autoSaver()
-        return ok("Successfully updated field")
+        return ok("成功更新字段")
     }
 
     override fun deletePage(pageId: String): Result<String> {
-        _pages?.remove(pageId) ?: return failure("Page does not exist")
+        _pages?.remove(pageId) ?: return failure("页面不存在")
 
         autoSaver()
-        return ok("Successfully deleted page with name $pageId")
+        return ok("成功删除名称为${pageId}的页面")
     }
 
     override fun moveEntry(entryId: String, fromPageId: String, toPageId: String): Result<String> {
-        val from = pages[fromPageId] ?: return failure("Page '$fromPageId' does not exist")
-        val to = pages[toPageId] ?: return failure("Page '$toPageId' does not exist")
+        val from = pages[fromPageId] ?: return failure("页面'$fromPageId'不存在")
+        val to = pages[toPageId] ?: return failure("页面'$toPageId'不存在")
 
         val entry = from["entries"].asJsonArray.find { it.asJsonObject["id"].asString == entryId }
-            ?: return failure("Entry does not exist in page '$fromPageId'")
+            ?: return failure("页面'$fromPageId'中不存在该条目")
 
         from["entries"].asJsonArray.remove(entry)
         to["entries"].asJsonArray.add(entry)
 
         autoSaver()
-        return ok("Successfully moved entry")
+        return ok("成功移动条目")
     }
 
     override fun createEntry(pageId: String, data: JsonObject): Result<String> {
@@ -168,7 +168,7 @@ class StagingManagerImpl : StagingManager, KoinComponent {
         page.add("entries", entries)
 
         autoSaver()
-        return ok("Successfully created entry with id ${data["id"]}")
+        return ok("成功创建ID为${data["id"]}的条目")
     }
 
     override fun updateEntryField(
@@ -180,26 +180,26 @@ class StagingManagerImpl : StagingManager, KoinComponent {
         // Update the page
         val page = getPage(pageId) onFail { return it }
         val entries = page["entries"].asJsonArray
-        val entry = entries.find { it.asJsonObject["id"].asString == entryId } ?: return failure("Entry does not exist")
+        val entry = entries.find { it.asJsonObject["id"].asString == entryId } ?: return failure("条目不存在")
 
         // Update the entry
         entry.createPath(path)
         entry.changePathValue(path, value)
 
         autoSaver()
-        return ok("Successfully updated field")
+        return ok("成功更新字段")
     }
 
     override fun updateEntry(pageId: String, data: JsonObject): Result<String> {
         val page = getPage(pageId) onFail { return it }
-        val entries = page["entries"] as? JsonArray ?: return failure("Page does not have any entries")
-        val entryId = data["id"]?.asString ?: return failure("Entry does not have an id")
+        val entries = page["entries"] as? JsonArray ?: return failure("页面没有任何条目")
+        val entryId = data["id"]?.asString ?: return failure("条目没有ID")
 
         entries.removeAll { entry -> entry.asJsonObject["id"]?.asString == entryId }
         entries.add(data)
 
         autoSaver()
-        return ok("Successfully updated entry with id ${data["id"]}")
+        return ok("成功更新ID为${data["id"]}的条目")
     }
 
     override fun reorderEntry(pageId: String, entryId: String, newIndex: Int): Result<String> {
@@ -207,8 +207,8 @@ class StagingManagerImpl : StagingManager, KoinComponent {
         val entries = page["entries"].asJsonArray
         val oldIndex = entries.indexOfFirst { it.asJsonObject["id"].asString == entryId }
 
-        if (oldIndex == -1) return failure("Entry does not exist")
-        if (oldIndex == newIndex) return ok("Entry is already at the correct index")
+        if (oldIndex == -1) return failure("条目不存在")
+        if (oldIndex == newIndex) return ok("条目已在正确索引位置")
 
         val correctIndex = if (oldIndex < newIndex) newIndex - 1 else newIndex
 
@@ -217,30 +217,30 @@ class StagingManagerImpl : StagingManager, KoinComponent {
         entries[oldIndex] = entryAtNewIndex
 
         autoSaver()
-        return ok("Successfully reordered entry")
+        return ok("成功重新排序条目")
     }
 
     override fun deleteEntry(pageId: String, entryId: String): Result<String> {
         val page = getPage(pageId) onFail { return it }
         val entries = page["entries"].asJsonArray
-        val entry = entries.find { it.asJsonObject["id"].asString == entryId } ?: return failure("Entry does not exist")
+        val entry = entries.find { it.asJsonObject["id"].asString == entryId } ?: return failure("条目不存在")
 
         entries.remove(entry)
 
         autoSaver()
-        return ok("Successfully deleted entry with id $entryId")
+        return ok("成功删除ID为${entryId}的条目")
     }
 
     override fun findEntryPage(entryId: String): Result<String> {
         val page = pages.values.find { page ->
             page["entries"].asJsonArray.any { entry -> entry.asJsonObject["id"].asString == entryId }
-        } ?: return failure("Entry does not exist")
+        } ?: return failure("条目不存在")
 
         return ok(page["name"].asString)
     }
 
     private fun getPage(id: String): Result<JsonObject> {
-        val page = pages[id] ?: return failure("Page '$id' does not exist")
+        val page = pages[id] ?: return failure("页面'$id'不存在")
         return ok(page)
     }
 
@@ -270,8 +270,8 @@ class StagingManagerImpl : StagingManager, KoinComponent {
 
     // Save the page to the file
     override suspend fun publish(): Result<String> {
-        if (stagingState != STAGING) return failure("Can only publish when in staging")
-        if (this._pages == null) return failure("Pages are not loaded yet")
+        if (stagingState != STAGING) return failure("只能在暂存状态下发布")
+        if (this._pages == null) return failure("页面尚未加载")
         stagingState = PUBLISHING
         autoSaver.cancel()
         return DISPATCHERS_ASYNC.switchContext {
@@ -290,7 +290,7 @@ class StagingManagerImpl : StagingManager, KoinComponent {
                 val deletedPages = publishedFiles.filter { it.nameWithoutExtension !in stagingPages }
                 if (deletedPages.isNotEmpty()) {
                     logger.info(
-                        "Deleting ${deletedPages.size} pages, as they are no longer in staging. (${
+                        "正在删除${deletedPages.size}个页面，因为它们不再处于暂存状态。 (${
                             deletedPages.joinToString(
                                 ", "
                             ) { it.nameWithoutExtension }
@@ -303,11 +303,11 @@ class StagingManagerImpl : StagingManager, KoinComponent {
                 stagingDir.deleteRecursively()
                 plugin.reload()
                 stagingState = PUBLISHED
-                ok("Successfully published the staging state")
+                ok("成功发布暂存状态")
             } catch (e: Exception) {
                 e.printStackTrace()
                 stagingState = STAGING
-                failure("Failed to publish the staging state")
+                failure("发布暂存状态失败")
             }
         }
     }
@@ -406,14 +406,14 @@ fun Ref<out Entry>.fieldValue(path: String, value: Any, type: Type) {
 
     val pageId = pageId
     if (pageId == null) {
-        logger.warning("No pageId found for $this. Did you forgot to publish?")
+        logger.warning("找不到${this}的pageId。您忘记发布了吗？")
         return
     }
 
     val json = gson.toJsonTree(value, type)
     val result = stagingManager.updateEntryField(pageId, id, path, json)
     if (result.isFailure) {
-        logger.warning("Failed to update field: ${result.exceptionOrNull()}")
+        logger.warning("更新字段失败: ${result.exceptionOrNull()}")
         return
     }
 

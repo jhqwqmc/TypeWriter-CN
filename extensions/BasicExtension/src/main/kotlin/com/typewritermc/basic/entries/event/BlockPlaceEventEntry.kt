@@ -18,7 +18,7 @@ import org.bukkit.event.block.BlockPlaceEvent
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("on_place_block", "When the player places a block", Colors.YELLOW, "fluent:cube-add-20-filled")
+@Entry("on_place_block", "当玩家放置方块时", Colors.YELLOW, "fluent:cube-add-20-filled")
 @ContextKeys(BlockPlaceContextKeys::class)
 /**
  * The `Block Place Event` is called when a block is placed in the world.

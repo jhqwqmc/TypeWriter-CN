@@ -18,7 +18,7 @@ import com.typewritermc.engine.paper.utils.toPosition
 import org.bukkit.event.player.PlayerRespawnEvent
 import kotlin.reflect.KClass
 
-@Entry("player_respawn_event", "When a player respawns after death", Colors.YELLOW, "material-symbols:refresh-rounded")
+@Entry("player_respawn_event", "当玩家死亡后重生时", Colors.YELLOW, "material-symbols:refresh-rounded")
 /**
  * The `Player Respawn Event` is fired when a player respawns after death.
  *

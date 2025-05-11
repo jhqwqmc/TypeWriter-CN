@@ -66,7 +66,7 @@ class MinecraftSoundIdsFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Sounds";
+  String get title => "音效";
 
   @override
   List<SearchElement> fetch(PassingRef ref, String query) {
@@ -147,7 +147,7 @@ class MinecraftSoundIdSearchElement extends SearchElement {
   @override
   String description(BuildContext context) {
     if (sound.value.length > 1) {
-      return "${sound.category.formatted} (${sound.value.length} Sound ${sound.value.length.pluralize("track")})";
+      return "${sound.category.formatted} (${sound.value.length}个音效${sound.value.length.pluralize("track")})";
     } else {
       return sound.category.formatted;
     }
@@ -157,7 +157,7 @@ class MinecraftSoundIdSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Select",
+        "选择",
         TWIcons.check,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
@@ -404,13 +404,13 @@ class _Selector extends HookConsumerWidget {
         builder: (context) => [
           if (select != null)
             ContextMenuTile.button(
-              title: "Select Sound",
+              title: "选择音效",
               icon: TWIcons.checkSquare,
               onTap: select,
             ),
           if (unselect != null)
             ContextMenuTile.button(
-              title: "Remove Sound",
+              title: "移除音效",
               icon: TWIcons.squareMinus,
               onTap: unselect,
               color: Colors.redAccent,
@@ -455,7 +455,7 @@ class _EmptySelector extends HookConsumerWidget {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    "Select a sound",
+                    "选择音效",
                     style: Theme.of(context).inputDecorationTheme.hintStyle,
                   ),
                 ],
@@ -494,7 +494,7 @@ class _LoadingSelector extends HookConsumerWidget {
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                "Loading Sounds...",
+                "正在加载音效...",
                 style: Theme.of(context).inputDecorationTheme.hintStyle,
               ),
             ),
@@ -527,7 +527,7 @@ class _ErrorSelector extends HookConsumerWidget {
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                "Failed to load sound",
+                "加载音效失败",
                 style: Theme.of(context)
                     .inputDecorationTheme
                     .hintStyle

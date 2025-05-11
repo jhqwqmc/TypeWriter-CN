@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("text_opacity_data", "Opacity for a TextDisplay.", Colors.RED, "mdi:opacity")
+@Entry("text_opacity_data", "文本展示实体的不透明度", Colors.RED, "mdi:opacity")
 @Tags("text_opacity_data")
 class TextOpacityData(
     override val id: String = "",
@@ -38,6 +38,6 @@ data class TextOpacityProperty(val opacity: Byte) : EntityProperty {
 fun applyTextOpacityData(entity: WrapperEntity, property: TextOpacityProperty) {
     entity.metas {
         meta<TextDisplayMeta> { textOpacity = property.opacity }
-        error("Could not apply TextOpacityData to ${entity.entityType} entity.")
+        error("无法将TextOpacityData应用到${entity.entityType}实体")
     }
 }

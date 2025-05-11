@@ -32,9 +32,9 @@ class _TickerProviderHookState
       // Setup TickerMode notifier before we vend the first ticker.
       _updateTickerModeNotifier();
     }
-    assert(_tickerModeNotifier != null, "TickerMode was not initialized");
+    assert(_tickerModeNotifier != null, "TickerMode未初始化");
     _tickers ??= <Ticker>{};
-    final result = Ticker(onTick, debugLabel: "created by $context")
+    final result = Ticker(onTick, debugLabel: "由 $context 创建")
       ..muted = !_tickerModeNotifier!.value;
     _tickers!.add(result);
     return result;
@@ -48,25 +48,25 @@ class _TickerProviderHookState
           for (final ticker in _tickers!) {
             if (ticker.isActive) {
               throw FlutterError.fromParts(<DiagnosticsNode>[
-                ErrorSummary("$this was disposed with an active Ticker."),
+                ErrorSummary("$this 在Ticker仍活跃时被销毁"),
                 ErrorDescription(
-                  "$runtimeType created a Ticker via its TickerProviderStateMixin, but at the time "
-                  "dispose() was called on the mixin, that Ticker was still active. All Tickers must "
-                  "be disposed before calling super.dispose().",
+                  "$runtimeType 通过TickerProviderStateMixin创建了Ticker，"
+                  "但在调用mixin的dispose()时，该Ticker仍处于活跃状态。"
+                  "在调用super.dispose()前必须释放所有Ticker。",
                 ),
                 ErrorHint(
-                  "Tickers used by AnimationControllers "
-                  "should be disposed by calling dispose() on the AnimationController itself. "
-                  "Otherwise, the ticker will leak.",
+                  "AnimationController使用的Ticker"
+                  "应通过调用AnimationController自身的dispose()来释放。"
+                  "否则会导致ticker泄漏。",
                 ),
-                ticker.describeForError("The offending ticker was"),
+                ticker.describeForError("违规的ticker信息"),
               ]);
             }
           }
         }
         return true;
       }(),
-      "Ticker was not disposed",
+      "Ticker未被释放",
     );
     _tickerModeNotifier?.removeListener(_updateTickers);
     _tickerModeNotifier = null;

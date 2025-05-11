@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("baseplate_data", "An baseplate data", Colors.RED, "memory:tile-caution-thin")
+@Entry("baseplate_data", "基座数据", Colors.RED, "memory:tile-caution-thin")
 @Tags("baseplate_data", "armor_stand_data")
 class BaseplateData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class BaseplateProperty(val hasBaseplate: Boolean) : EntityProperty {
 fun applyBaseplateData(entity: WrapperEntity, property: BaseplateProperty) {
     entity.metas {
         meta<ArmorStandMeta> { isHasNoBasePlate = !property.hasBaseplate }
-        error("Could not apply BaseplateData to ${entity.entityType} entity.")
+        error("无法将BaseplateData应用到${entity.entityType}实体")
     }
 }

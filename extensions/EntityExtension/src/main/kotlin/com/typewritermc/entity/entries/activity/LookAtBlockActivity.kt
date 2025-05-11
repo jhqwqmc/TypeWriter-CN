@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.EntityActivityEntry
 import com.typewritermc.engine.paper.entry.entries.EntityProperty
 import com.typewritermc.engine.paper.entry.entries.GenericEntityActivityEntry
 
-@Entry("look_at_block_activity", "A look at block activity", Colors.BLUE, "fa6-solid:cube")
+@Entry("look_at_block_activity", "注视方块活动", Colors.BLUE, "fa6-solid:cube")
 /**
  * The `LookAtBlockActivityEntry` makes the entity look at a specific block.
  *
@@ -23,7 +23,7 @@ class LookAtBlockActivityEntry(
     override val id: String = "",
     override val name: String = "",
     val blockPosition: Position = Position.ORIGIN,
-    @Help("The activity that supplies the x, y, z of the block to look at.")
+    @Help("提供要注视方块的x、y、z坐标的活动")
     val childActivity: Ref<out EntityActivityEntry> = emptyRef()
 ) : GenericEntityActivityEntry {
     override fun create(

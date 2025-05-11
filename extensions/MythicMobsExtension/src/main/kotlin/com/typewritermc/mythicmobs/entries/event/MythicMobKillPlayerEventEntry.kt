@@ -17,7 +17,7 @@ import org.bukkit.event.entity.PlayerDeathEvent
 import java.util.*
 
 
-@Entry("mythicmobs_kill_player_event", "MythicMob Kill Player Event", Colors.YELLOW, "fa6-solid:skull")
+@Entry("mythicmobs_kill_player_event", "MythicMob击杀玩家事件", Colors.YELLOW, "fa6-solid:skull")
 /**
  * The `MythicMob Kill Player Event` event is triggered when MythicMob kills a player.
  *
@@ -28,7 +28,7 @@ class MythicMobKillPlayerEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The type of the MythicMob that killed the player")
+    @Help("击杀玩家的MythicMob类型")
     @Placeholder
     @Regex
     val mythicMobType: Optional<String> = Optional.empty(),

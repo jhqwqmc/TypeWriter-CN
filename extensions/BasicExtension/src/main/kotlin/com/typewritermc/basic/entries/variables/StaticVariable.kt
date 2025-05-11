@@ -8,7 +8,7 @@ import com.typewritermc.engine.paper.entry.entries.VariableEntry
 
 @Entry(
     "static_variable",
-    "A variable with a single static value",
+    "具有单一静态值的变量",
     Colors.GREEN,
     "streamline:setting-line"
 )
@@ -25,6 +25,6 @@ class StaticVariable(
 ) : VariableEntry {
     override fun <T : Any> get(context: VarContext<T>): T {
         return value.get(context.klass)
-            ?: throw IllegalStateException("Could not find value for static value: ${value.data} binding to ${context.klass.qualifiedName}")
+            ?: throw IllegalStateException("找不到静态值：${value.data} 绑定到 ${context.klass.qualifiedName} 的值")
     }
 }

@@ -18,7 +18,7 @@ import org.bukkit.event.EventHandler
 
 @Entry(
     "tracked_quest_audience",
-    "Filters an audience based on if they have a quest tracked",
+    "根据是否追踪任务筛选受众",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:notebook-heart"
 )
@@ -35,7 +35,7 @@ class TrackedQuestAudience(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
-    @Help("When not set, it will filter based on if any quest is tracked.")
+    @Help("未设置时，将基于是否追踪任何任务进行筛选")
     val quest: Ref<QuestEntry> = emptyRef(),
     override val inverted: Boolean = false,
 ) : AudienceFilterEntry, Invertible {

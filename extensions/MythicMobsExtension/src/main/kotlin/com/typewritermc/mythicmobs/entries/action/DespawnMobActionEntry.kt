@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.utils.ThreadType.SYNC
 import io.lumine.mythic.bukkit.MythicBukkit
 
 
-@Entry("despawn_mythicmobs_mob", "Despawn a mob from MythicMobs", Colors.ORANGE, "fluent:crown-subtract-24-filled")
+@Entry("despawn_mythicmobs_mob", "从MythicMobs中移除生物", Colors.ORANGE, "fluent:crown-subtract-24-filled")
 /**
  * The `Despawn Mob Action` action removes MythicMobs mobs from the world.
  *

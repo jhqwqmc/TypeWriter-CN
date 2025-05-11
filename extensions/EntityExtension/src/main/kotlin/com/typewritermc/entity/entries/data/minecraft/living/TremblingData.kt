@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("trembling_data", "Makes nether mobs tremble", Colors.RED, "solar:hand-shake-bold")
+@Entry("trembling_data", "使下界生物颤抖", Colors.RED, "solar:hand-shake-bold")
 @Tags("trembling_data")
 class TremblingData(
     override val id: String = "",
@@ -36,6 +36,6 @@ fun applyTremblingData(entity: WrapperEntity, property: TremblingProperty) {
     entity.metas {
         meta<BasePiglinMeta> { isImmuneToZombification = property.trembling.not() }
         meta<HoglinMeta> { isImmuneToZombification = property.trembling.not() }
-        error("Could not apply TremblingData to ${entity.entityType} entity.")
+        error("无法将TremblingData应用到${entity.entityType}实体")
     }
 }

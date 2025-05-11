@@ -18,7 +18,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "hit_box_definition",
-    "A hit box for an entity to allow quest with a different entity",
+    "为实体设置可交互碰撞箱（允许与不同实体进行任务交互）",
     Colors.ORANGE,
     "mdi:cube-outline"
 )
@@ -42,7 +42,7 @@ class HitBoxDefinition(
 
     override fun create(player: Player): FakeEntity {
         val entity = baseEntity.get()?.create(player)
-            ?: throw IllegalStateException("A base entity must be specified for entry $name ($id)")
+            ?: throw IllegalStateException("条目$name ($id)必须指定基础实体")
         return HitBoxEntity(player, entity, offset, width, height)
     }
 }

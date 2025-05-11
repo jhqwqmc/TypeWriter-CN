@@ -16,7 +16,7 @@ import net.milkbowl.vault.economy.Economy
 import org.bukkit.entity.Player
 import org.koin.java.KoinJavaComponent
 
-@Entry("withdraw_balance", "Withdraw Balance", Colors.RED, "majesticons:money-minus")
+@Entry("withdraw_balance", "提取余额", Colors.RED, "majesticons:money-minus")
 /**
  * The `Withdraw Balance Action` is used to withdraw money from a user's balance.
  *
@@ -30,7 +30,7 @@ class WithdrawBalanceActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The amount of money to withdraw.")
+    @Help("提取的金额数量")
     private val amount: Var<Double> = ConstVar(0.0),
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

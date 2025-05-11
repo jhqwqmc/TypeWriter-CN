@@ -21,7 +21,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.horse.*
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("trader_llama_definition", "A trader llama entity", Colors.ORANGE, "mingcute:exchange-dollar-fill")
+@Entry("trader_llama_definition", "行商羊驼实体", Colors.ORANGE, "mingcute:exchange-dollar-fill")
 @Tags("trader_llama_definition")
 /**
  * The `TraderLlamaDefinition` class is an entry that represents a trader llama entity.
@@ -40,7 +40,7 @@ class TraderLlamaDefinition(
     override fun create(player: Player): FakeEntity = TraderLlamaEntity(player)
 }
 
-@Entry("trader_llama_instance", "An instance of a trader llama entity", Colors.YELLOW, "mingcute:exchange-dollar-fill")
+@Entry("trader_llama_instance", "行商羊驼实体的实例", Colors.YELLOW, "mingcute:exchange-dollar-fill")
 /**
  * The `TraderLlamaInstance` class is an entry that represents an instance of a trader llama entity.
  *

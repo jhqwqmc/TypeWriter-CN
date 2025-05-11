@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.ActionEntry
 import com.typewritermc.engine.paper.entry.entries.ActionTrigger
 import org.bukkit.entity.Player
 
-@Entry("island_set_member_limit", "Set a player's island's member limit", Colors.RED, "fa6-solid:people-group")
+@Entry("island_set_member_limit", "设置玩家岛屿的成员上限", Colors.RED, "fa6-solid:people-group")
 /**
  * The `Island Set Member Limit Action` is an action that sets the member limit of an island.
  *
@@ -27,7 +27,7 @@ class IslandSetMemberLimitActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The new limit to set the island's member limit to")
+    @Help("将岛屿成员上限设置为的新限制值")
     val size: Int = 0
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

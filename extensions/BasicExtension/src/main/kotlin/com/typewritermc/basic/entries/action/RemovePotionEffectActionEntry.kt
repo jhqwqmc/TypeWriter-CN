@@ -16,7 +16,7 @@ import org.bukkit.potion.PotionEffectType
 
 @Entry(
     "remove_potion_effect",
-    "Remove a potion effect from the player",
+    "移除玩家身上的药水效果",
     Colors.RED,
     "mdi:flask-empty-off"
 )

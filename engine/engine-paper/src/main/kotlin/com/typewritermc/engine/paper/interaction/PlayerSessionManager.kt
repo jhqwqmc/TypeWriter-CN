@@ -86,7 +86,7 @@ class PlayerSessionManager : Listener, KoinComponent {
             try {
                 event.player.session?.addToSchedule(event)
             } catch (e: Exception) {
-                logger.severe("An error occurred while handling event ${event}: ${e.message}")
+                logger.severe("处理事件${event}时发生错误：${e.message}")
                 e.printStackTrace()
             }
         }

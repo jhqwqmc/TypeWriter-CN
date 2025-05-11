@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("frog_variant_data", "Frog Variant Data", Colors.GREEN, "icon-park-solid:frog")
+@Entry("frog_variant_data", "青蛙变种数据", Colors.GREEN, "icon-park-solid:frog")
 @Tags("frog_data")
 class FrogData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class FrogVariantProperty(val frogVariant: FrogMeta.Variant) : EntityProper
 fun applyFrogVariantData(entity: WrapperEntity, property: FrogVariantProperty) {
     entity.metas {
         meta<FrogMeta> { variant = property.frogVariant }
-        error("Could not apply FrogVariantData to ${entity.entityType} entity.")
+        error("无法将FrogVariantData应用到${entity.entityType}实体")
     }
 }

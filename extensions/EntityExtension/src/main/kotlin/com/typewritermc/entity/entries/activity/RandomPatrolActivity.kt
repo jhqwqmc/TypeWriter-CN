@@ -10,7 +10,7 @@ import com.typewritermc.roadnetwork.RoadNetworkEntry
 import com.typewritermc.roadnetwork.RoadNodeCollectionEntry
 import com.typewritermc.roadnetwork.RoadNodeId
 
-@Entry("random_patrol_activity", "Moving around a set of locations randomly", Colors.BLUE, "fa6-solid:shuffle")
+@Entry("random_patrol_activity", "在多个位置之间随机移动", Colors.BLUE, "fa6-solid:shuffle")
 /**
  * The `RandomPatrolActivity` is an activity that makes the entity move randomly around a set of locations.
  * The entity will move to each location in a random order.

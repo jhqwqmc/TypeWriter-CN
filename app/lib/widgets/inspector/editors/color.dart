@@ -64,7 +64,7 @@ class ColorEditor extends HookConsumerWidget {
                   focus: focus,
                   controller: hexController,
                   icon: TWIcons.hashtag,
-                  hintText: "Hex Code",
+                  hintText: "十六进制代码",
                   inputFormatters: [
                     UpperCaseTextFormatter(),
                     FilteringTextInputFormatter.allow(RegExp(kValidHexPattern)),

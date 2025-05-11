@@ -20,7 +20,7 @@ val spokenFormat: String by snippet(
 		|
 		|<message>
 		|
-		|<next_color>${" ".repeat(20)} Press<white> <confirmation_key> </white>to <finish_text>
+		|<next_color>${" ".repeat(20)} 按<white> <confirmation_key> </white><finish_text>
 		|<gray><st>${" ".repeat(60)}</st>
 		""".trimMargin()
 )

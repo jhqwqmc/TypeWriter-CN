@@ -13,7 +13,7 @@ import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.math.BigDecimal
 
-@Entry("island_bank_withdraw", "Withdraw into a player's Island bank", Colors.RED, "fa6-solid:piggy-bank")
+@Entry("island_bank_withdraw", "从玩家的岛屿银行取出", Colors.RED, "fa6-solid:piggy-bank")
 /**
  * The `Island Bank Withdraw` action allows you to withdraw money from the player's Island bank.
  *

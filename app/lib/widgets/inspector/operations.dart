@@ -31,7 +31,7 @@ class Operations extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SectionTitle(title: "Operations"),
+        const SectionTitle(title: "操作"),
         const SizedBox(height: 8),
         for (final action in actions) ...[
           if (action is ContextMenuDivider) const Divider(),
@@ -85,7 +85,7 @@ class _LinkWithEntry extends HookConsumerWidget {
         page.linkWith(ref.passing, entryId!, path);
       },
       icon: const Iconify(TWIcons.plus),
-      label: const Text("Link with ..."),
+      label: const Text("链接到..."),
       color: Colors.blue,
     );
   }
@@ -111,7 +111,7 @@ class _LinkWithDuplicate extends HookConsumerWidget {
         await page.linkWithDuplicate(ref.passing, entryId!, path);
       },
       icon: const Iconify(TWIcons.duplicate),
-      label: const Text("Link with Duplicate"),
+      label: const Text("链接到副本"),
       color: Colors.blue,
     );
   }
@@ -131,7 +131,7 @@ class _DuplicateEntry extends HookConsumerWidget {
         page.duplicateEntry(ref.passing, entryId!);
       },
       icon: const Iconify(TWIcons.duplicate),
-      label: const Text("Duplicate"),
+      label: const Text("复制"),
       color: Colors.blue,
     );
   }
@@ -152,7 +152,7 @@ class _MoveEntry extends HookConsumerWidget {
         );
       },
       icon: const Iconify(TWIcons.moveEntry),
-      label: const Text("Move Entry"),
+      label: const Text("移动条目"),
       color: Theme.of(context).colorScheme.primary,
     );
   }
@@ -172,7 +172,7 @@ class _ReplaceWithBlueprint extends HookConsumerWidget {
         page.replaceWithConfirmation(context, ref.passing, entryId!);
       },
       icon: const Iconify(TWIcons.replace),
-      label: const Text("Replace with ..."),
+      label: const Text("替换为..."),
       color: Colors.orange,
     );
   }
@@ -192,7 +192,7 @@ class DeleteEntry extends HookConsumerWidget {
         page.deleteEntryWithConfirmation(context, ref.passing, entryId!);
       },
       icon: const Iconify(TWIcons.trash),
-      label: const Text("Delete Entry"),
+      label: const Text("删除条目"),
       color: Theme.of(context).colorScheme.error,
     );
   }

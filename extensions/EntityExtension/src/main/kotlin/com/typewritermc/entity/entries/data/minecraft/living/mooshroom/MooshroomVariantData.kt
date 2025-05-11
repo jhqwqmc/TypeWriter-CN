@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("mooshroom_variant_data", "Mooshroom variant data", Colors.RED, "fa6-solid:mushroom")
+@Entry("mooshroom_variant_data", "蘑菇牛变种数据", Colors.RED, "fa6-solid:mushroom")
 @Tags("mooshroom_variant_data", "mooshroom_data")
 class MooshroomVariantData(
     override val id: String = "",
@@ -37,6 +37,6 @@ fun applyMooshroomVariantData(entity: WrapperEntity, property: MooshroomVariantP
         meta<MooshroomMeta> {
             this.variant = property.variant
         }
-        error("Could not apply MooshroomVariantData to ${entity.entityType} entity.")
+        error("无法将MooshroomVariantData应用到${entity.entityType}实体")
     }
 }

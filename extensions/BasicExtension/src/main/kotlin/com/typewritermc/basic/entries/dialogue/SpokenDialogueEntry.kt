@@ -18,7 +18,7 @@ import com.typewritermc.engine.paper.utils.isFloodgate
 import org.bukkit.entity.Player
 import java.time.Duration
 
-@Entry("spoken", "Display a animated message to the player", "#1E88E5", "mingcute:message-4-fill")
+@Entry("spoken", "向玩家显示动画消息", "#1E88E5", "mingcute:message-4-fill")
 /**
  * The `Spoken Dialogue Action` is an action that displays an animated message to the player. This action provides you with the ability to display a message with a specified speaker, text, and duration.
  *
@@ -37,7 +37,7 @@ class SpokenDialogueEntry(
     @Colored
     @MultiLine
     val text: Var<String> = ConstVar(""),
-    @Help("The duration it takes to type out the message.")
+    @Help("消息打字显示的持续时间")
     val duration: Var<Duration> = ConstVar(Duration.ZERO),
 ) : DialogueEntry {
     override fun messenger(player: Player, context: InteractionContext): DialogueMessenger<SpokenDialogueEntry> {

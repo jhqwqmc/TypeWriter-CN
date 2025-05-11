@@ -110,8 +110,8 @@ class ManifestView extends HookConsumerWidget {
 
     if (entryIds.isEmpty) {
       return EmptyScreen(
-        title: "There are no manifest entries on this page.",
-        buttonText: "Add Entry",
+        title: "此页面没有清单条目",
+        buttonText: "添加条目",
         onButtonPressed: () => ref.read(searchProvider.notifier).asBuilder()
           ..fetchNewEntry()
           ..nonGenericAddEntry()

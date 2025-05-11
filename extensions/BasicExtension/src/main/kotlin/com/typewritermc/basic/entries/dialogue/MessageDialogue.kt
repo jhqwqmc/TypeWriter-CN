@@ -17,7 +17,7 @@ import com.typewritermc.engine.paper.entry.entries.SpeakerEntry
 import com.typewritermc.engine.paper.entry.entries.Var
 import org.bukkit.entity.Player
 
-@Entry("message", "Display a single message to the player", "#1c4da3", "ic:baseline-comment-bank")
+@Entry("message", "向玩家显示单条消息", "#1c4da3", "ic:baseline-comment-bank")
 /**
  * The `Message Dialogue Action` is an action that displays a single message to the player. This action provides you with the ability to show a message to the player in response to specific events.
  *

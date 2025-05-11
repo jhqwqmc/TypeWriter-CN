@@ -13,7 +13,7 @@ import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.math.BigDecimal
 
-@Entry("island_bank_deposit", "Deposit into a player's Island bank", Colors.RED, "fa6-solid:piggy-bank")
+@Entry("island_bank_deposit", "存入玩家的岛屿银行", Colors.RED, "fa6-solid:piggy-bank")
 /**
  * The `Island Bank Deposit Action` is used to deposit money into the player's Island bank.
  *

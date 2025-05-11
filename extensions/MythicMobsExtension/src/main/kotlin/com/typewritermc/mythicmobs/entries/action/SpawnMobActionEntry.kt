@@ -22,7 +22,7 @@ import io.lumine.mythic.core.skills.placeholders.PlaceholderExecutor.parsePlaceh
 import org.bukkit.entity.Player
 
 
-@Entry("spawn_mythicmobs_mob", "Spawn a mob from MythicMobs", Colors.ORANGE, "fa6-solid:dragon")
+@Entry("spawn_mythicmobs_mob", "生成MythicMobs生物", Colors.ORANGE, "fa6-solid:dragon")
 /**
  * The `Spawn Mob Action` action spawn MythicMobs mobs to the world.
  *

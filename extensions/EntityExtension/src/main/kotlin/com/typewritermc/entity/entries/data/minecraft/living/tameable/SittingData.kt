@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("sitting_data", "Have a tameable entity sit", Colors.RED, "pepicons-pop:folding-stool")
+@Entry("sitting_data", "使可驯服实体坐下", Colors.RED, "pepicons-pop:folding-stool")
 @Tags("sitting_data")
 class SittingData(
     override val id: String = "",
@@ -34,6 +34,6 @@ data class SittingProperty(val sitting: Boolean) : EntityProperty {
 fun applySittingData(entity: WrapperEntity, property: SittingProperty) {
     entity.metas {
         meta<TameableMeta> { isSitting = property.sitting }
-        error("Could not apply SittingData to ${entity.entityType} entity.")
+        error("无法将SittingData应用到${entity.entityType}实体")
     }
 }

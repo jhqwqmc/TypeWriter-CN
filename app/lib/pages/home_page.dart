@@ -30,12 +30,12 @@ class HomePage extends HookConsumerWidget {
             ),
           ),
           Text(
-            "Your journey starts here",
+            "您的旅程从这里开始",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
           ),
           Text(
-            "Run the following command on your server to start editing",
+            "在您的服务器上运行以下命令以开始编辑",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20,
@@ -83,21 +83,21 @@ class _ConnectButtons extends HookConsumerWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("Connect to"),
+          title: const Text("连接到"),
           content: TextField(
             controller: controller,
             decoration: const InputDecoration(
-              hintText: "Fill in the url to connect to",
+              hintText: "填写要连接的URL",
             ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text("Cancel"),
+              child: const Text("取消"),
             ),
             FilledButton.icon(
               icon: const Iconify(TWIcons.externalLink),
-              label: const Text("Connect"),
+              label: const Text("连接"),
               onPressed: () => Navigator.of(context).pop(controller.text),
             ),
           ],
@@ -116,7 +116,7 @@ class _ConnectButtons extends HookConsumerWidget {
     final token = uri.queryParameters["token"] ?? "";
     final secure = uri.queryParameters["secure"] == "true";
 
-    debugPrint("Connecting to $hostname:$port with token $token");
+    debugPrint("正在连接到 $hostname:$port (使用令牌 $token)");
 
     if (hostname == null) {
       return;
@@ -133,13 +133,13 @@ class _ConnectButtons extends HookConsumerWidget {
         FilledButton.icon(
           color: Colors.green,
           icon: const Iconify(TWIcons.home),
-          label: const Text("Connect Localhost"),
+          label: const Text("连接本地主机"),
           onPressed: () => connectTo(ref, "localhost", 9092),
         ),
         const SizedBox(width: 24),
         FilledButton.icon(
           icon: const Iconify(TWIcons.connect),
-          label: const Text("Connect Custom"),
+          label: const Text("连接自定义地址"),
           onPressed: () => customConnectToPopup(context, ref),
         ),
       ],

@@ -36,7 +36,7 @@ class EntryListeners : KoinComponent, Reloadable {
         try {
             method.invoke(null, *parameters.toTypedArray())
         } catch (e: Exception) {
-            logger.severe("Failed to invoke entry listener ${method.name} for event ${event::class.simpleName}")
+            logger.severe("调用条目监听器${method.name}处理事件${event::class.simpleName}失败")
             e.printStackTrace()
         }
     }
@@ -54,14 +54,14 @@ class EntryListeners : KoinComponent, Reloadable {
         }
         activeEntryListeners.forEach {
             val method = it.method
-            val eventClass = findEventFromMethod(method).logErrorIfNull("Could not find bukkit event class for ${method.name}") ?: return@forEach
+            val eventClass = findEventFromMethod(method).logErrorIfNull("找不到${method.name}对应的Bukkit事件类") ?: return@forEach
 
             listener.listen(plugin, eventClass, it.priority.toBukkitPriority(), it.ignoreCancelled) { event ->
                 onEvent(event, it, ParameterGenerator.getGenerators(method.parameters), method)
             }
         }
 
-        logger.info("Loaded ${activeEntryListeners.size} entry listeners")
+        logger.info("已加载${activeEntryListeners.size}个条目监听器")
     }
 
     private fun findEventFromMethod(method: Method): KClass<out Event>? {
@@ -136,7 +136,7 @@ sealed interface ParameterGenerator {
         fun getGenerators(parameters: Array<Parameter>): List<ParameterGenerator> {
             return parameters.map { parameter ->
                 getGenerator(parameter)
-                    ?: throw IllegalArgumentException("There is no way to create a parameter for ${parameter.name} (${parameter.type}) in ${parameter.declaringExecutable}")
+                    ?: throw IllegalArgumentException("无法为${parameter.declaringExecutable}中的${parameter.name}(${parameter.type})创建参数")
             }
         }
     }

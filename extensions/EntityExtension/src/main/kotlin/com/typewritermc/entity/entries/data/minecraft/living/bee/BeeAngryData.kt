@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "bee_angry_data",
-    "Whether a bee is angry",
+    "蜜蜂是否处于愤怒状态",
     Colors.RED,
     "carbon:bee"
 )
@@ -40,6 +40,6 @@ data class AngryProperty(val angry: Boolean) : EntityProperty {
 fun applyBeeAngryData(entity: WrapperEntity, property: AngryProperty) {
     entity.metas {
         meta<BeeMeta> { isAngry = property.angry }
-        error("Could not apply BeeAngryData to ${entity.entityType} entity.")
+        error("无法将BeeAngryData应用到${entity.entityType}实体")
     }
 }

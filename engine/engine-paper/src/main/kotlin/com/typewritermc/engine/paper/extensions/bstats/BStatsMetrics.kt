@@ -31,7 +31,7 @@ object BStatsMetrics {
             entries.groupBy {
                 it::class.findAnnotation<com.typewritermc.core.extension.annotations.Entry>()?.name
                     ?: it::class.simpleName
-                    ?: "Unknown"
+                    ?: "未知"
             }.mapValues { it.value.size }.toMap()
         })
     }

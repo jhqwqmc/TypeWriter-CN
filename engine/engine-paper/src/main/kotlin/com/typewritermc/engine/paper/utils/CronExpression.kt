@@ -226,7 +226,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, val withS
 		if (parts.size != expectedParts) {
 			throw IllegalArgumentException(
 				String.format(
-					"Invalid cron expression [%s], expected %s field, got %s",
+					"无效的cron表达式[%s]，预期%s字段，得到%s",
 					expression,
 					expectedParts,
 					parts.size
@@ -332,7 +332,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, val withS
 			for (rangePart: String in rangeParts) {
 				val m = CRON_FIELD_REGEXP.matcher(rangePart)
 				if (!m.matches()) {
-					throw IllegalArgumentException("Invalid cron field '$rangePart' for field [$fieldType]")
+					throw IllegalArgumentException("字段[$fieldType]的cron部分'$rangePart'无效")
 				}
 				val startNummer = m.group("start")
 				val modifier = m.group("mod")
@@ -361,7 +361,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, val withS
 				} else if (m.group("last") != null) {
 					part.modifier = m.group("last")
 				} else {
-					throw IllegalArgumentException("Invalid cron part: $rangePart")
+					throw IllegalArgumentException("无效的cron部分: $rangePart")
 				}
 				if (increment != null) {
 					part.incrementModifier = incrementModifier
@@ -376,9 +376,9 @@ class CronExpression @JvmOverloads constructor(val expression: String, val withS
 
 		protected open fun validatePart(part: FieldPart) {
 			if (part.modifier != null) {
-				throw IllegalArgumentException(String.format("Invalid modifier [%s]", part.modifier))
+				throw IllegalArgumentException(String.format("无效的修饰符[%s]", part.modifier))
 			} else if (part.incrementModifier != null && "/" != part.incrementModifier) {
-				throw IllegalArgumentException(String.format("Invalid increment modifier [%s]", part.incrementModifier))
+				throw IllegalArgumentException(String.format("无效的增量修饰符[%s]", part.incrementModifier))
 			}
 		}
 
@@ -386,14 +386,14 @@ class CronExpression @JvmOverloads constructor(val expression: String, val withS
 			if (part.from != -1 && part.from < fieldType.from || part.to != -1 && (part.to > fieldType.to)) {
 				throw IllegalArgumentException(
 					String.format(
-						"Invalid interval [%s-%s], must be %s<=_<=%s", part.from, part.to, fieldType.from,
+						"无效的区间[%s-%s]，必须满足%s<=_<=%s", part.from, part.to, fieldType.from,
 						fieldType.to
 					)
 				)
 			} else if ((part.from != -1 && part.to != -1) && part.from > part.to) {
 				throw IllegalArgumentException(
 					String.format(
-						"Invalid interval [%s-%s].  Rolling periods are not supported (ex. 5-1, only 1-5) since this won't give a deterministic result. Must be %s<=_<=%s",
+						"无效的区间[%s-%s]。不支持回滚周期（例如5-1，仅支持1-5），因其无法给出确定性结果。必须满足%s<=_<=%s",
 						part.from, part.to, fieldType.from, fieldType.to
 					)
 				)
@@ -512,11 +512,11 @@ class CronExpression @JvmOverloads constructor(val expression: String, val withS
 
 		override fun validatePart(part: FieldPart) {
 			if (part.modifier != null && listOf("L", "?").indexOf(part.modifier) == -1) {
-				throw IllegalArgumentException(String.format("Invalid modifier [%s]", part.modifier))
+				throw IllegalArgumentException(String.format("无效的修饰符[%s]", part.modifier))
 			} else if (part.incrementModifier != null && listOf("/", "#")
 					.indexOf(part.incrementModifier) == -1
 			) {
-				throw IllegalArgumentException(String.format("Invalid increment modifier [%s]", part.incrementModifier))
+				throw IllegalArgumentException(String.format("无效的增量修饰符[%s]", part.incrementModifier))
 			}
 		}
 	}
@@ -547,9 +547,9 @@ class CronExpression @JvmOverloads constructor(val expression: String, val withS
 
 		override fun validatePart(part: FieldPart) {
 			if (part.modifier != null && listOf("L", "W", "?").indexOf(part.modifier) == -1) {
-				throw IllegalArgumentException(String.format("Invalid modifier [%s]", part.modifier))
+				throw IllegalArgumentException(String.format("无效的修饰符[%s]", part.modifier))
 			} else if (part.incrementModifier != null && "/" != part.incrementModifier) {
-				throw IllegalArgumentException(String.format("Invalid increment modifier [%s]", part.incrementModifier))
+				throw IllegalArgumentException(String.format("无效的增量修饰符[%s]", part.incrementModifier))
 			}
 		}
 
@@ -576,7 +576,7 @@ class CronExpression @JvmOverloads constructor(val expression: String, val withS
 
 		private fun checkIfDateTimeBarrierIsReached(nextTime: ZonedDateTime, dateTimeBarrier: ZonedDateTime) {
 			if (nextTime.isAfter(dateTimeBarrier)) {
-				throw IllegalArgumentException("No next execution time could be determined that is before the limit of $dateTimeBarrier")
+				throw IllegalArgumentException("无法确定在${dateTimeBarrier}限制前的下一次执行时间")
 			}
 		}
 	}

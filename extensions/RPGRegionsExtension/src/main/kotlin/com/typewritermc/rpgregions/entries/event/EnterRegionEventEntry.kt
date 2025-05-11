@@ -14,7 +14,7 @@ import lirand.api.extensions.server.server
 import net.islandearth.rpgregions.api.events.RegionsEnterEvent
 
 
-@Entry("on_enter_rpg_region", "When a player enters a RPGRegions region", Colors.YELLOW, "fa6-solid:door-open")
+@Entry("on_enter_rpg_region", "当玩家进入RPGRegions区域时", Colors.YELLOW, "fa6-solid:door-open")
 /**
  * The `Enter Region Event` is triggered when a player enters a region.
  *
@@ -27,7 +27,7 @@ class EnterRegionEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("Make sure that this is the region ID, not the region's display name.")
+    @Help("请确保使用区域ID而非显示名称")
     // The region to check for. Make sure that this is the region ID, not the region's display name.
     val region: String = "",
 ) : EventEntry

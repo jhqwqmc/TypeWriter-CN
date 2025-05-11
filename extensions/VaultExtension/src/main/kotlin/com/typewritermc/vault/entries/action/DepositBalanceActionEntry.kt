@@ -15,7 +15,7 @@ import net.milkbowl.vault.economy.Economy
 import org.bukkit.entity.Player
 import org.koin.java.KoinJavaComponent
 
-@Entry("deposit_balance", "Deposit Balance", Colors.RED, "majesticons:money-plus")
+@Entry("deposit_balance", "存入余额", Colors.RED, "majesticons:money-plus")
 /**
  * The `Deposit Balance Action` is used to deposit money into a user's balance.
  *

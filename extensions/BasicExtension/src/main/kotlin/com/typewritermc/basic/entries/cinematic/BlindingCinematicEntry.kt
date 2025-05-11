@@ -15,7 +15,7 @@ import com.typewritermc.engine.paper.extensions.packetevents.sendPacketTo
 import com.typewritermc.engine.paper.utils.isFloodgate
 import org.bukkit.entity.Player
 
-@Entry("blinding_cinematic", "Blind the player so the screen looks black", Colors.CYAN, "heroicons-solid:eye-off")
+@Entry("blinding_cinematic", "使玩家屏幕变黑（致盲效果）", Colors.CYAN, "heroicons-solid:eye-off")
 /**
  * The `Blinding Cinematic` entry is used to blind the player so the screen looks black.
  *

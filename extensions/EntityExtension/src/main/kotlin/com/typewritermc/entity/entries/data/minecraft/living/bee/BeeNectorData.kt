@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "bee_nectar_data",
-    "Whether a bee is nectar",
+    "蜜蜂是否携带花蜜",
     Colors.RED,
     "carbon:bee"
 )
@@ -40,6 +40,6 @@ data class NectarProperty(val nectar: Boolean) : EntityProperty {
 fun applyBeeNectarData(entity: WrapperEntity, property: NectarProperty) {
     entity.metas {
         meta<BeeMeta> { setHasNectar(property.nectar) }
-        error("Could not apply BeeAngryData to ${entity.entityType} entity.")
+        error("无法将BeeAngryData应用到${entity.entityType}实体")
     }
 }

@@ -14,7 +14,7 @@ import com.typewritermc.engine.paper.utils.ThreadType.DISPATCHERS_ASYNC
 import org.bukkit.entity.Player
 import java.time.Duration
 
-@Entry("delayed_action", "Delay an action for a certain amount of time", Colors.RED, "fa-solid:hourglass")
+@Entry("delayed_action", "延迟执行一个动作", Colors.RED, "fa-solid:hourglass")
 /**
  * The `Delayed Action Entry` is an entry that fires its triggers after a specified duration. This entry provides you with the ability to create time-based actions and events.
  *
@@ -29,7 +29,7 @@ class DelayedActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The duration before the next triggers are fired.")
+    @Help("触发下一个动作前的等待时间。")
     private val duration: Var<Duration> = ConstVar(Duration.ZERO),
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

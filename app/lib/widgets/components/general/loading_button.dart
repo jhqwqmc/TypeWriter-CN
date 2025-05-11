@@ -42,7 +42,7 @@ class LoadingButton extends HookWidget {
                 scaffold.showSnackBar(
                   const SnackBar(
                     content: Text(
-                      "An error occurred, please report on the Typewriter Discord)",
+                      "发生错误，请到Typewriter Discord反馈",
                     ),
                   ),
                 );

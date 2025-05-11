@@ -41,7 +41,7 @@ class GlobalContextKeyEditor extends HookConsumerWidget {
 
     if (keys.isEmpty) {
       return Admonition.warning(
-        child: Text("No extension has a global key. Try using an entry key."),
+        child: Text("没有扩展具有全局键，请尝试使用条目键"),
       );
     }
 

@@ -13,7 +13,7 @@ import com.typewritermc.roadnetwork.gps.MultiPathStreamDisplay
 
 @Entry(
     "location_objectives_path_stream",
-    "A Path Stream to tracked Location Objectives",
+    "追踪位置目标的路径流",
     Colors.GREEN,
     "material-symbols:conversion-path"
 )

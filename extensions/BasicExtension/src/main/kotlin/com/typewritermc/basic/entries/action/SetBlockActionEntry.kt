@@ -19,7 +19,7 @@ import io.github.retrooper.packetevents.util.SpigotConversionUtil.toBukkitLocati
 import org.bukkit.Material
 import org.bukkit.entity.Player
 
-@Entry("set_block", "Set a block at a location", Colors.RED, "fluent:cube-add-20-filled")
+@Entry("set_block", "在指定位置设置方块", Colors.RED, "fluent:cube-add-20-filled")
 /**
  * The `SetBlockActionEntry` is an action that sets a block at a specific location.
  *

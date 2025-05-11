@@ -41,7 +41,7 @@ class ClientSynchronizer : KoinComponent {
             ack.sendAckData(extensionJson.toString())
         }
 
-        ack.sendAckData("No data found")
+        ack.sendAckData("未找到数据")
     }
 
     fun handleCreatePage(client: SocketIOClient, data: String, ack: AckRequest) {
@@ -137,7 +137,7 @@ class ClientSynchronizer : KoinComponent {
     fun handleUpdateWriter(client: SocketIOClient, data: String, ack: AckRequest) {
         writers.updateWriter(client.sessionId.toString(), data)
         communicationHandler.server.broadcastWriters(writers)
-        ack.sendResult(Result.success("Writer updated"))
+        ack.sendResult(Result.success("写入器已更新"))
     }
 
     fun handleContentModeRequest(client: SocketIOClient, data: String, ack: AckRequest) {
@@ -147,7 +147,7 @@ class ClientSynchronizer : KoinComponent {
         if (player == null) {
             // If we have authentication enabled, we don't want to fallback as it could be a security issue.
             if (communicationHandler.authenticationEnabled) {
-                ack.sendResult(Result.failure(Exception("Could not determine player")))
+                ack.sendResult(Result.failure(Exception("无法确定玩家")))
                 return
             }
 
@@ -156,21 +156,21 @@ class ClientSynchronizer : KoinComponent {
 
             val onlinePlayers = server.onlinePlayers
             if (onlinePlayers.isEmpty()) {
-                ack.sendResult(Result.failure(Exception("No players online to start content mode")))
+                ack.sendResult(Result.failure(Exception("没有在线玩家可启动内容模式")))
                 return
             }
 
             if (onlinePlayers.size > 1) {
-                ack.sendResult(Result.failure(Exception("Could not determine player to record")))
+                ack.sendResult(Result.failure(Exception("无法确定要记录的玩家")))
                 return
             }
 
             player = onlinePlayers.first()
-            logger.warning("Could not determine player from session, using ${player.name}")
+            logger.warning("无法从会话确定玩家，使用${player.name}")
         }
 
         if (player == null) {
-            ack.sendResult(Result.failure(Exception("Could not determine player")))
+            ack.sendResult(Result.failure(Exception("无法确定玩家")))
             return
         }
 
@@ -181,17 +181,17 @@ class ClientSynchronizer : KoinComponent {
             val constructor = clazz.getConstructor(ContentContext::class.java, Player::class.java)
             val mode = constructor.newInstance(context, player)
             if (mode !is ContentMode) {
-                ack.sendResult(Result.failure(Exception("Content mode class ${request.contentModeClassName} does not implement ContentMode")))
+                ack.sendResult(Result.failure(Exception("内容模式类${request.contentModeClassName}未实现ContentMode")))
                 return
             }
 
             ContentModeTrigger(context, mode).triggerFor(player, context())
         } catch (e: ClassNotFoundException) {
-            ack.sendResult(Result.failure(Exception("Could not find content mode class ${request.contentModeClassName}")))
+            ack.sendResult(Result.failure(Exception("找不到内容模式类${request.contentModeClassName}")))
             e.printStackTrace()
             return
         } catch (e: NoSuchMethodException) {
-            ack.sendResult(Result.failure(Exception("Could not find constructor (ContentContext, Player) for content mode class ${request.contentModeClassName}")))
+            ack.sendResult(Result.failure(Exception("找不到内容模式类${request.contentModeClassName}的(ContentContext, Player)构造函数")))
             e.printStackTrace()
             return
         }

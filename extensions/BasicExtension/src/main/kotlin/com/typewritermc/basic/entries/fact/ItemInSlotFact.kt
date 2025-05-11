@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "item_in_slot_fact",
-    "Check if a specific item is in a specific slot for the player",
+    "检查玩家特定槽位是否存在指定物品",
     Colors.PURPLE,
     "fa6-solid:hand-holding"
 )

@@ -19,7 +19,7 @@ import net.kyori.adventure.title.Title
 import java.time.Duration
 import java.util.*
 
-@Entry("show_title", "Show a title to a player", Colors.RED, "fluent:align-center-vertical-32-filled")
+@Entry("show_title", "向玩家显示标题", Colors.RED, "fluent:align-center-vertical-32-filled")
 /**
  * The `Show Title Action` is an action that shows a title to a player. You can specify the subtitle, and durations if needed.
  *
@@ -39,7 +39,7 @@ class ShowTitleActionEntry(
     @Placeholder
     @Colored
     val subtitle: Var<String> = ConstVar(""),
-    @Help("Optional duration settings for the title. Duration of the title: Fade in, how long it stays, fade out.")
+    @Help("可选的标题持续时间设置：淡入时长、保持时长、淡出时长。")
     val durations: Optional<TitleDurations> = Optional.empty(),
 ) : ActionEntry {
     override fun ActionTrigger.execute() {
@@ -66,10 +66,10 @@ class ShowTitleActionEntry(
 }
 
 data class TitleDurations(
-    @Help("The duration of the fade in effect.")
+    @Help("淡入效果的持续时间。")
     val fadeIn: Duration = Duration.ofSeconds(1),
-    @Help("The duration that it stays.")
+    @Help("标题保持显示的持续时间。")
     val stay: Duration = Duration.ofSeconds(1),
-    @Help("The duration of the fade out effect.")
+    @Help("淡出效果的持续时间。")
     val fadeOut: Duration = Duration.ofSeconds(1),
 )

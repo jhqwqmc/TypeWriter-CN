@@ -16,7 +16,7 @@ import kotlin.reflect.safeCast
 
 @Entry(
     "player_world_position_variable",
-    "Absolute Position in the players world",
+    "玩家世界中的绝对坐标",
     Colors.GREEN,
     "material-symbols:person-pin-circle-rounded"
 )
@@ -36,11 +36,11 @@ class PlayerWorldPositionVariable(
     override fun <T : Any> get(context: VarContext<T>): T {
         val player = context.player
         val data = context.getData<PlayerWorldPositionVariableData>()
-            ?: throw IllegalStateException("Could not find data for ${context.klass}, data: ${context.data}")
+            ?: throw IllegalStateException("找不到 ${context.klass} 的数据，数据：${context.data}")
         val position = data.coordinate.toPosition(player.position.world)
 
         return context.klass.safeCast(position)
-            ?: throw IllegalStateException("Could not cast position to ${context.klass}, PlayerWorldPositionVariable is only compatible with Position fields")
+            ?: throw IllegalStateException("无法将坐标转换为 ${context.klass}，PlayerWorldPositionVariable 仅兼容 Position 类型字段")
     }
 }
 

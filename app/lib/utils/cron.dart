@@ -111,19 +111,19 @@ class CronExpression {
   String toHumanReadableString() {
     var text = "";
     if (seconds != null) {
-      text += seconds!.toHumanReadableString("second");
+      text += seconds!.toHumanReadableString("秒");
 
       if (!minutes.isWildcard) {
-        text += " past ";
-        text += minutes.toHumanReadableString("minute");
+        text += " 的 ";
+        text += minutes.toHumanReadableString("分钟");
       }
     } else {
-      text += minutes.toHumanReadableString("minute");
+      text += minutes.toHumanReadableString("分钟");
     }
 
     if (!hours.isWildcard) {
-      text += " past ";
-      text += hours.toHumanReadableString("hour");
+      text += " 的 ";
+      text += hours.toHumanReadableString("小时");
     }
 
     if (!dayOfMonth.isWildcard) {
@@ -132,7 +132,7 @@ class CronExpression {
     }
 
     if (!month.isWildcard) {
-      text += " in ";
+      text += " 在 ";
       text += month.toHumanReadableString();
     }
 
@@ -289,26 +289,26 @@ class SimpleField {
 
   String humanReadablePart(String field, CronPart part) {
     if (part is WildcardPart) {
-      return "every $field";
+      return "每$field";
     } else if (part is ValuePart) {
       return "$field ${part.value}";
     } else if (part is RangePart) {
-      return "every $field from ${part.start.value} through ${part.end.value}";
+      return "从${part.start.value}到${part.end.value}的每$field";
     } else if (part is IncrementPart) {
       final subPart = part.part;
       if (subPart is WildcardPart) {
-        return "every ${part.increment.ordinal} $field";
+        return "每${part.increment.ordinal}$field";
       } else if (subPart is ValuePart) {
-        return "every ${part.increment.ordinal} $field starting at $field ${subPart.value}";
+        return "从$field ${subPart.value}开始每${part.increment.ordinal}$field";
       } else if (subPart is RangePart) {
-        return "every ${part.increment.ordinal} $field from ${subPart.start.value} through ${subPart.end.value}";
+        return "从${subPart.start.value}到${subPart.end.value}每${part.increment.ordinal}$field";
       }
     }
     return "";
   }
 
   String toHumanReadableString(String field) {
-    return parts.map((part) => humanReadablePart(field, part)).join(", and ");
+    return parts.map((part) => humanReadablePart(field, part)).join("和");
   }
 
   static SimpleField? parse(String? value, int min, int max) {
@@ -366,19 +366,19 @@ class SimpleDayOfMonthField extends DayOfMonthField {
 
   String _humanReadablePart(CronPart part) {
     if (part is WildcardPart) {
-      return "every day";
+      return "每天";
     } else if (part is ValuePart) {
-      return "on the ${part.value.ordinal} day of the month";
+      return "每月${part.value.ordinal}日";
     } else if (part is RangePart) {
-      return "every day from the ${part.start.value.ordinal} through the ${part.end.value.ordinal} day of the month";
+      return "从每月${part.start.value.ordinal}日到${part.end.value.ordinal}日";
     } else if (part is IncrementPart) {
       final subPart = part.part;
       if (subPart is WildcardPart) {
-        return "every ${part.increment.ordinal} day of the month";
+        return "每${part.increment.ordinal}天";
       } else if (subPart is ValuePart) {
-        return "every ${part.increment.ordinal} day of the month starting on the ${subPart.value.ordinal}";
+        return "从每月${subPart.value.ordinal}日开始每${part.increment.ordinal}天";
       } else if (subPart is RangePart) {
-        return "every ${part.increment.ordinal} day of the month from the ${subPart.start.value.ordinal} through the ${subPart.end.value.ordinal} day of the month";
+        return "从每月${subPart.start.value.ordinal}日到${subPart.end.value.ordinal}日每${part.increment.ordinal}天";
       }
     }
     return "";
@@ -386,7 +386,7 @@ class SimpleDayOfMonthField extends DayOfMonthField {
 
   @override
   String toHumanReadableString() {
-    return parts.map(_humanReadablePart).join(", and ");
+    return parts.map(_humanReadablePart).join("和");
   }
 
   static SimpleDayOfMonthField? parse(String? value) {
@@ -407,9 +407,9 @@ class LastDayOfMonthField extends DayOfMonthField {
   @override
   String toHumanReadableString() {
     if (part == null) {
-      return "on the last day of the month";
+      return "每月最后一天";
     }
-    return "on the ${part!.value.ordinal} to last day of the month";
+    return "每月倒数第${part!.value.ordinal}天";
   }
 
   static LastDayOfMonthField? parse(String? value) {
@@ -438,7 +438,7 @@ class NearestWeekdayOfMonthField extends DayOfMonthField {
 
   @override
   String toHumanReadableString() {
-    return "on the nearest weekday to the ${part.value.ordinal} day of the month";
+    return "每月${part.value.ordinal}日最近的工作日";
   }
 
   static NearestWeekdayOfMonthField? parse(String? value) {
@@ -462,7 +462,7 @@ class LastNearestWeekdayOfMonthField extends DayOfMonthField {
 
   @override
   String toHumanReadableString() {
-    return "on the nearest weekday to the last day of the month";
+    return "每月最后一天最近的工作日";
   }
 
   static LastNearestWeekdayOfMonthField? parse(String? value) =>
@@ -484,18 +484,18 @@ class MonthField {
   final List<CronPart> parts;
 
   static const _monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "一月",
+    "二月",
+    "三月",
+    "四月",
+    "五月",
+    "六月",
+    "七月",
+    "八月",
+    "九月",
+    "十月",
+    "十一月",
+    "十二月",
   ];
 
   bool get isWildcard => parts.length == 1 && parts[0] is WildcardPart;
@@ -518,26 +518,26 @@ class MonthField {
 
   String _humanReadablePart(CronPart part) {
     if (part is WildcardPart) {
-      return "of every month";
+      return "每月";
     } else if (part is ValuePart) {
       return _monthNames[part.value - 1];
     } else if (part is RangePart) {
-      return "every month from ${_monthNames[part.start.value - 1]} through ${_monthNames[part.end.value - 1]}";
+      return "从${_monthNames[part.start.value - 1]}到${_monthNames[part.end.value - 1]}";
     } else if (part is IncrementPart) {
       final subPart = part.part;
       if (subPart is WildcardPart) {
-        return "every ${part.increment.ordinal} month";
+        return "每${part.increment.ordinal}个月";
       } else if (subPart is ValuePart) {
-        return "every ${part.increment.ordinal} month starting in ${_monthNames[subPart.value - 1]}";
+        return "从${_monthNames[subPart.value - 1]}开始每${part.increment.ordinal}个月";
       } else if (subPart is RangePart) {
-        return "every ${part.increment.ordinal} month from ${_monthNames[subPart.start.value - 1]} through ${_monthNames[subPart.end.value - 1]}";
+        return "从${_monthNames[subPart.start.value - 1]}到${_monthNames[subPart.end.value - 1]}每${part.increment.ordinal}个月";
       }
     }
     return "";
   }
 
   String toHumanReadableString() {
-    return parts.map(_humanReadablePart).join(", and ");
+    return parts.map(_humanReadablePart).join("和");
   }
 
   static MonthField? parse(String? value) {
@@ -579,13 +579,13 @@ class SimpleDayOfWeekField extends DayOfWeekField {
   final List<CronPart> parts;
 
   static const _dayNames = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期日",
   ];
 
   @override
@@ -604,19 +604,19 @@ class SimpleDayOfWeekField extends DayOfWeekField {
 
   String _humanReadablePart(CronPart part) {
     if (part is WildcardPart) {
-      return "every day of the week";
+      return "每周每天";
     } else if (part is ValuePart) {
-      return "on ${_dayNames[part.value - 1]}";
+      return "每周${_dayNames[part.value - 1]}";
     } else if (part is RangePart) {
-      return "from ${_dayNames[part.start.value - 1]} through ${_dayNames[part.end.value - 1]}";
+      return "从${_dayNames[part.start.value - 1]}到${_dayNames[part.end.value - 1]}";
     } else if (part is IncrementPart) {
       final subPart = part.part;
       if (subPart is WildcardPart) {
-        return "every ${part.increment.ordinal} day of the week";
+        return "每${part.increment.ordinal}天";
       } else if (subPart is ValuePart) {
-        return "every ${part.increment.ordinal} day of the week starting on ${_dayNames[subPart.value - 1]}";
+        return "从${_dayNames[subPart.value - 1]}开始每${part.increment.ordinal}天";
       } else if (subPart is RangePart) {
-        return "every ${part.increment.ordinal} day of the week from ${_dayNames[subPart.start.value - 1]} through ${_dayNames[subPart.end.value - 1]}";
+        return "从${_dayNames[subPart.start.value - 1]}到${_dayNames[subPart.end.value - 1]}每${part.increment.ordinal}天";
       }
     }
     return "";
@@ -624,7 +624,7 @@ class SimpleDayOfWeekField extends DayOfWeekField {
 
   @override
   String toHumanReadableString() {
-    return parts.map(_humanReadablePart).join(", and ");
+    return parts.map(_humanReadablePart).join("和");
   }
 
   static SimpleDayOfWeekField? parse(String? value) {
@@ -642,7 +642,7 @@ class LastDayOfWeekField extends DayOfWeekField {
 
   @override
   String toHumanReadableString() {
-    return "on Sunday";
+    return "每周日";
   }
 
   static LastDayOfWeekField? parse(String? value) {
@@ -664,18 +664,18 @@ class NthDayOfWeekField extends DayOfWeekField {
   final ValuePart nth;
 
   static const _dayNames = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期日",
   ];
 
   @override
   String toHumanReadableString() {
-    return "on the ${nth.value.ordinal} ${_dayNames[part.value - 1]}";
+    return "每月第${nth.value.ordinal}个${_dayNames[part.value - 1]}";
   }
 
   static NthDayOfWeekField? parse(String? value) {

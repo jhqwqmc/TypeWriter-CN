@@ -38,7 +38,7 @@ import java.util.concurrent.ConcurrentHashMap
 private val pathStreamRefreshTime by snippet(
     "path_stream.refresh_time",
     1700,
-    "The time in milliseconds between a new stream being calculated.",
+    "重新计算路径流的时间间隔（毫秒）",
 )
 
 class PathStreamDisplay(

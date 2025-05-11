@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.VariableEntry
 import com.typewritermc.engine.paper.entry.entries.getData
 import kotlin.reflect.cast
 
-@Entry("fact_value_variable", "A variable that returns the value of a fact", Colors.GREEN, "solar:hashtag-square-bold")
+@Entry("fact_value_variable", "返回持久化变量值的变量", Colors.GREEN, "solar:hashtag-square-bold")
 @GenericConstraint(Int::class)
 @VariableData(FactValueVariableData::class)
 /**

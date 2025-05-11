@@ -33,7 +33,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "balance_change_event",
-    "Triggers when the player's balance changes",
+    "当玩家余额变动时触发",
     Colors.YELLOW,
     "fluent:wallet-credit-card-28-filled"
 )

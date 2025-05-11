@@ -15,11 +15,11 @@ import org.bukkit.entity.Pose
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("pose_data", "The pose of the entity", Colors.RED, "bi:person-arms-up")
+@Entry("pose_data", "实体的姿势", Colors.RED, "bi:person-arms-up")
 class PoseData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The pose of the entity.")
+    @Help("设置实体的姿势状态")
     val pose: EntityPose = EntityPose.STANDING,
     override val priorityOverride: Optional<Int> = Optional.empty(),
 ) : GenericEntityData<PoseProperty> {
@@ -47,6 +47,6 @@ fun EntityPose.toProperty() = PoseProperty(this)
 fun applyPoseData(entity: WrapperEntity, property: PoseProperty) {
     entity.metas {
         meta<EntityMeta> { pose = property.pose }
-        error("Could not apply PoseData to ${entity.entityType} entity.")
+        error("无法将PoseData应用到${entity.entityType}实体")
     }
 }

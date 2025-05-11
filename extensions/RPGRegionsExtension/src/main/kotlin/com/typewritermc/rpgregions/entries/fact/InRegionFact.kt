@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.facts.FactData
 import net.islandearth.rpgregions.api.RPGRegionsAPI
 import org.bukkit.entity.Player
 
-@Entry("in_rpg_region_fact", "If the player is in a RPGRegions region", Colors.PURPLE, "fa6-solid:road-barrier")
+@Entry("in_rpg_region_fact", "如果玩家处于RPGRegions区域中", Colors.PURPLE, "fa6-solid:road-barrier")
 /**
  * A [fact](/docs/creating-stories/facts) that checks if the player is in a specific region. The value will be `0` if the player is not in the region, and `1` if the player is in the region.
  *
@@ -26,7 +26,7 @@ class InRegionFact(
     override val name: String = "",
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
-    @Help("Make sure that this is the region ID, not the region's display name.")
+    @Help("请确保使用区域ID而非显示名称")
     val region: String = "",
 ) : ReadableFactEntry {
     override fun readSinglePlayer(player: Player): FactData {

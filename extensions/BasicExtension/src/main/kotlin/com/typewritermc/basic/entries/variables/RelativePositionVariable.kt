@@ -13,7 +13,7 @@ import kotlin.reflect.safeCast
 
 @Entry(
     "relative_position_variable",
-    "A variable that returns the position relative to the player",
+    "返回相对于玩家位置的变量",
     Colors.GREEN,
     "streamline:target-solid"
 )
@@ -36,7 +36,7 @@ class RelativePositionVariable(
     override fun <T : Any> get(context: VarContext<T>): T {
         val player = context.player
         val data = context.getData<RelativePositionVariableData>()
-            ?: throw IllegalStateException("Could not find data for ${context.klass}, data: ${context.data}")
+            ?: throw IllegalStateException("找不到 ${context.klass} 的数据，数据：${context.data}")
 
         val basePosition = player.position
 
@@ -51,7 +51,7 @@ class RelativePositionVariable(
             )
 
         return context.klass.safeCast(position)
-            ?: throw IllegalStateException("Could not cast position to ${context.klass}, RelativePositionVariable is only compatible with Position fields")
+            ?: throw IllegalStateException("无法将位置转换为 ${context.klass}，RelativePositionVariable 仅与 Position 类型字段兼容")
     }
 }
 
@@ -63,6 +63,6 @@ data class RelativePositionVariableData(
     @WithRotation
     val coordinate: Coordinate = Coordinate.ORIGIN,
 
-    @Help("Select which parts of the position will use absolute values")
+    @Help("选择位置的哪些部分将使用绝对值")
     val absolute: List<CoordinatePart> = emptyList(),
 )

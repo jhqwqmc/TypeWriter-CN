@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.utils.limitLineLength
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("constrained_lines", "A lines entry that can be constrained", Colors.ORANGE_RED, "eos-icons:constraint")
+@Entry("constrained_lines", "可以限制的行条目", Colors.ORANGE_RED, "eos-icons:constraint")
 /**
  * The `ConstrainedLines` constraints the child lines to a certain width.
  * This is useful for displaying long lines of text.

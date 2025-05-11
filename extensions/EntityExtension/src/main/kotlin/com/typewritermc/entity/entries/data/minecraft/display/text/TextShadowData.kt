@@ -12,7 +12,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("text_shadow_data", "If text in TextDisplay has shadow.", Colors.RED, "mdi:box-shadow")
+@Entry("text_shadow_data", "文本展示实体中的文本是否有阴影", Colors.RED, "mdi:box-shadow")
 @Tags("text_shadow_data")
 class TextShadowData(
     override val id: String = "",
@@ -41,6 +41,6 @@ fun applyShadowData(
 ) {
     entity.metas {
         meta<TextDisplayMeta> { isShadow = property.shadow }
-        error("Could not apply ShadowData to ${entity.entityType} entity.")
+        error("无法将ShadowData应用到${entity.entityType}实体")
     }
 }

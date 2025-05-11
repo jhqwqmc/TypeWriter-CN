@@ -14,7 +14,7 @@ import org.bukkit.inventory.EntityEquipment
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("equipment_data", "Equipment data", Colors.RED, "game-icons:chest-armor")
+@Entry("equipment_data", "装备数据", Colors.RED, "game-icons:chest-armor")
 @Tags("equipment_data")
 class EquipmentData(
     override val id: String = "",
@@ -28,7 +28,7 @@ class EquipmentData(
         EquipmentProperty(equipment.mapValues { (_, item) -> item.get(player).build(player).toPacketItem() })
 }
 
-@Entry("viewer_equipment_data", "The equipment of the viewer", Colors.RED, "mdi:account-multiple-outline")
+@Entry("viewer_equipment_data", "观察者的装备", Colors.RED, "mdi:account-multiple-outline")
 class ViewerEquipmentData(
     override val id: String = "",
     override val name: String = "",

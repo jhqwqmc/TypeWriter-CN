@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import com.typewritermc.engine.paper.entry.triggerAllFor
 import com.typewritermc.engine.paper.entry.triggerEntriesFor
 
-@Entry("on_island_invite", "When a player is invited to a Skyblock island", Colors.YELLOW, "fa6-solid:envelope")
+@Entry("on_island_invite", "当玩家被邀请至空岛时", Colors.YELLOW, "fa6-solid:envelope")
 /**
  * The `Island Invite Event` is an event that is triggered when a player is invited to an island.
  *

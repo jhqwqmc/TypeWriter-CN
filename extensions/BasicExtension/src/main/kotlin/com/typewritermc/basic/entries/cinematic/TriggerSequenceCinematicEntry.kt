@@ -19,7 +19,7 @@ import com.typewritermc.engine.paper.entry.temporal.SimpleCinematicAction
 import com.typewritermc.engine.paper.interaction.interactionContext
 import org.bukkit.entity.Player
 
-@Entry("trigger_sequence_cinematic", "A sequence of triggers to run", Colors.PURPLE, "fa-solid:play")
+@Entry("trigger_sequence_cinematic", "要运行的触发器序列", Colors.PURPLE, "fa-solid:play")
 /**
  * The `Trigger Sequence Cinematic` entry that runs a sequence of triggers. It is very powerful but also very dangerous.
  *

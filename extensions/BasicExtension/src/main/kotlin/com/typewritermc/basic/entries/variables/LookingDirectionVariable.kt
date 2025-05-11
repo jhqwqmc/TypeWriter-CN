@@ -11,7 +11,7 @@ import kotlin.reflect.cast
 
 @Entry(
     "looking_direction_variable",
-    "A variable that returns the direction the player is looking at",
+    "返回玩家当前朝向的变量",
     Colors.GREEN,
     "mingcute:look-left-fill"
 )

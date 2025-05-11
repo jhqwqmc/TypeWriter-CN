@@ -19,7 +19,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "dye_color_data",
-    "Color a part of the entity with a dye. Can be something else for different entities",
+    "使用染料为实体局部染色（不同实体可使用其他染色方式）",
     Colors.RED,
     "fluent:paint-bucket-16-filled"
 )
@@ -45,6 +45,6 @@ fun applyDyeColorData(entity: WrapperEntity, property: DyeColorProperty) {
         meta<WolfMeta> { collarColor = property.color.ordinal }
         meta<LlamaMeta> { carpetColor = property.color.ordinal }
         meta<ShulkerMeta> { color = property.color.ordinal.toByte() }
-        error("Could not apply CatCollarColorData to ${entity.entityType} entity.")
+        error("无法将CatCollarColorData应用到${entity.entityType}实体")
     }
 }

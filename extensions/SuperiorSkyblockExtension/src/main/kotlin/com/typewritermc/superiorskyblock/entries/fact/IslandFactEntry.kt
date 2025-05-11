@@ -33,7 +33,7 @@ enum class IslandFacts(private val retrieveFact: (SuperiorPlayer, Island) -> Int
     }
 }
 
-@Entry("island_fact", "Various facts about a player's island", Colors.PURPLE, "fa6-solid:map-location-dot")
+@Entry("island_fact", "关于玩家岛屿的各种持久化变量", Colors.PURPLE, "fa6-solid:map-location-dot")
 /**
  * A [fact](/docs/creating-stories/facts) that can retrieve various information about an island.
  *

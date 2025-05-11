@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("scale_data", "Scale of an Entity", Colors.RED, "fa6-solid:scale-balanced")
+@Entry("scale_data", "实体的缩放比例", Colors.RED, "fa6-solid:scale-balanced")
 @Tags("scale_data")
 class ScaleData(
     override val id: String = "",

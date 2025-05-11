@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Entry(
     "last_added_capped_audience",
-    "Caps audience to most recent X players",
+    "将受众限制为最近加入的X名玩家",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:account-clock"
 )

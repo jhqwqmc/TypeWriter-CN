@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import java.util.*
 
-@Entry("on_player_hit_entity", "When a player hits an entity", Colors.YELLOW, "fa6-solid:heart-crack")
+@Entry("on_player_hit_entity", "当玩家击中实体时", Colors.YELLOW, "fa6-solid:heart-crack")
 /**
  * The `Player Hit Entity Event` event is fired when a player hits an entity. If you want to detect when a player kills an entity, use the [`Player Kill Entity Event`](on_player_kill_entity) event.
  *

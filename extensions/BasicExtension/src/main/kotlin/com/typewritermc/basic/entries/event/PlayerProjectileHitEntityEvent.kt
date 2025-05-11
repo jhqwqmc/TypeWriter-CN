@@ -19,7 +19,7 @@ import java.util.*
 
 @Entry(
     "player_projectile_hit_entity_event",
-    "Triggers when a player's projectile hits an entity",
+    "当玩家的抛射物击中实体时触发",
     Colors.YELLOW,
     "mdi:target-account"
 )
@@ -33,7 +33,7 @@ class PlayerProjectileHitEntityEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("Triggers to run on a player getting hit by the projectile")
+    @Help("玩家被抛射物击中时运行的触发器")
     val targetTriggers: List<Ref<TriggerableEntry>> = emptyList(),
     val projectileType: Optional<EntityType> = Optional.empty(),
     val hitEntityType: Optional<EntityType> = Optional.empty(),

@@ -98,7 +98,7 @@ class SkinEditor extends HookConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: 12),
-                const SectionTitle(title: "Texture"),
+                const SectionTitle(title: "纹理"),
                 const SizedBox(height: 8),
                 StringEditor(
                   path: path.join("texture"),
@@ -106,7 +106,7 @@ class SkinEditor extends HookConsumerWidget {
                       const PrimitiveBlueprint(type: PrimitiveType.string),
                 ),
                 const SizedBox(height: 8),
-                const SectionTitle(title: "Signature"),
+                const SectionTitle(title: "签名"),
                 const SizedBox(height: 8),
                 StringEditor(
                   path: path.join("signature"),

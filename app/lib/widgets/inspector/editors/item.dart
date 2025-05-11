@@ -65,7 +65,7 @@ class ItemEditor extends HookConsumerWidget {
     if (algebraicBlueprint == null) {
       return Admonition.danger(
         child:
-            Text("Shape for item field is not an algebraic blueprint: $path"),
+            Text("物品字段的形状不是代数蓝图: $path"),
       );
     }
     return FieldHeader(
@@ -143,7 +143,7 @@ class SerializedItemEditor extends HookConsumerWidget {
 
     if (value is! Map<String, dynamic>) {
       return Admonition.danger(
-        child: Text("Value for serialized item field is not a map: $path"),
+        child: Text("序列化物品字段的值不是映射: $path"),
       );
     }
 
@@ -154,7 +154,7 @@ class SerializedItemEditor extends HookConsumerWidget {
     if (bytes.isEmpty) {
       return const Admonition.warning(
         child: Text(
-          "You have not yet captured the item. Click on the blue camera icon to capture the item you are holding in game.",
+          "您尚未捕获该物品。点击蓝色相机图标可捕获游戏中您持有的物品。",
         ),
       );
     }
@@ -166,7 +166,7 @@ class SerializedItemEditor extends HookConsumerWidget {
       spacing: 8,
       children: [
         if (minecraftMaterial != null) ...[
-          const SectionTitle(title: "Material"),
+          const SectionTitle(title: "材质"),
           Opacity(
             opacity: 0.5,
             child: InputField(
@@ -178,7 +178,7 @@ class SerializedItemEditor extends HookConsumerWidget {
           ),
         ],
         if (name.isNotEmpty) ...[
-          const SectionTitle(title: "Item Name"),
+          const SectionTitle(title: "物品名称"),
           Opacity(
             opacity: 0.5,
             child: InputField.icon(
@@ -196,7 +196,7 @@ class SerializedItemEditor extends HookConsumerWidget {
           ),
           const SizedBox(height: 0),
           const Text(
-            "This item has been captured from in game. If you want to change it, you can re-capture the item.",
+            "此物品已从游戏中捕获。如需修改，可重新捕获该物品。",
           ),
         ],
       ],

@@ -31,7 +31,7 @@ class AssetManager : KoinComponent {
     suspend fun fetchAsset(entry: AssetEntry): String? {
         val result = storage.fetchAsset(entry.path)
         if (result.isFailure) {
-            plugin.logger.severe("Failed to fetch asset ${entry.path}: ${result.exceptionOrNull()?.message}")
+            plugin.logger.severe("获取资源${entry.path}失败：${result.exceptionOrNull()?.message}")
             return null
         }
         return result.getOrNull()
@@ -55,7 +55,7 @@ class LocalAssetStorage : AssetStorage {
     override suspend fun fetchAsset(path: String): Result<String> {
         val file = plugin.dataFolder.resolve("assets/$path")
         if (!file.exists()) {
-            return Result.failure(IllegalArgumentException("Asset $path not found."))
+            return Result.failure(IllegalArgumentException("未找到资源$path"))
         }
         return Result.success(file.readText())
     }

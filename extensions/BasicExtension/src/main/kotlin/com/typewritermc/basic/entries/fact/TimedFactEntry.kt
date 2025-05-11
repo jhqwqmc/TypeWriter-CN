@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.toKotlinDuration
 
-@Entry("timed_fact", "Saved for a specified duration, like 20 minutes", Colors.PURPLE, "bi:stopwatch-fill")
+@Entry("timed_fact", "保存指定时长（例如20分钟）", Colors.PURPLE, "bi:stopwatch-fill")
 /**
  * This fact is stored for a certain amount of time.
  * After that time, it is reset.
@@ -33,7 +33,7 @@ class TimedFactEntry(
     override val name: String = "",
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
-    @Help("The duration after which the fact expires.")
+    @Help("持久化变量过期的时间长度")
     val duration: Duration = Duration.ZERO,
 ) : ExpirableFactEntry, PersistableFactEntry {
     override fun hasExpired(id: FactId, data: FactData): Boolean {

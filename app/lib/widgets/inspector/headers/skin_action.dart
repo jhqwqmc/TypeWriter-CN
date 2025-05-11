@@ -57,7 +57,7 @@ class SkinFetchFromUUIDHeaderAction extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return HeaderButton(
-      tooltip: "Fetch From UUID",
+      tooltip: "从UUID获取",
       icon: TWIcons.accountTag,
       color: Colors.orange,
       onTap: () => showDialog(
@@ -111,7 +111,7 @@ class SkinFetchFromURLHeaderAction extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return HeaderButton(
-      tooltip: "Fetch From URL",
+      tooltip: "从URL获取",
       icon: TWIcons.url,
       color: Colors.blue,
       onTap: () => showDialog(
@@ -151,7 +151,7 @@ class _FetchFromMineSkinDialogue extends HookConsumerWidget {
     final selectedVariant = useState<SkinVariant>(SkinVariant.unknown);
 
     return AlertDialog(
-      title: const Text("Fetch Skin"),
+      title: const Text("获取皮肤"),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -165,7 +165,7 @@ class _FetchFromMineSkinDialogue extends HookConsumerWidget {
             focus: focus,
             controller: controller,
             icon: icon,
-            hintText: "Enter the $bodyKey to fetch the skin",
+            hintText: "输入 $bodyKey 以获取皮肤",
           ),
           const SizedBox(height: 16),
           Dropdown<SkinVariant>(
@@ -184,7 +184,7 @@ class _FetchFromMineSkinDialogue extends HookConsumerWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text("Cancel"),
+          child: const Text("取消"),
         ),
         LoadingButton.icon(
           icon: const Iconify(TWIcons.download),
@@ -202,7 +202,7 @@ class _FetchFromMineSkinDialogue extends HookConsumerWidget {
             focus.requestFocus();
             error.value = result;
           },
-          label: const Text("Fetch"),
+          label: const Text("获取"),
         ),
       ],
     );
@@ -243,38 +243,38 @@ class _FetchFromMineSkinDialogue extends HookConsumerWidget {
           }).join("\n");
         }
       }
-      return "An unknown error occurred";
+      return "发生未知错误";
     }
 
     final result = jsonDecode(response.body);
     if (result is! Map<String, dynamic>) {
-      return "An unknown error occurred";
+      return "发生未知错误";
     }
 
     if (!result.containsKey("skin")) {
-      return "Could not find the skin data in the response";
+      return "在响应中找不到皮肤数据";
     }
 
     final textureObject = result["skin"]["texture"];
     if (textureObject == null || textureObject is! Map<String, dynamic>) {
-      return "Invalid texture data in response";
+      return "响应中的纹理数据无效";
     }
 
     final textureData = textureObject["data"];
     if (textureData == null || textureData is! Map<String, dynamic>) {
-      return "Invalid texture data in response";
+      return "响应中的纹理数据无效";
     }
 
     final texture = textureData["value"];
     final signature = textureData["signature"];
 
     if (texture is! String || signature is! String) {
-      return "Invalid texture or signature in response";
+      return "响应中的纹理或签名无效";
     }
 
     final definition = ref.read(inspectingEntryDefinitionProvider);
     if (definition == null) {
-      return "Currently not inspecting an entry";
+      return "当前未检查任何条目";
     }
 
     await definition.updateField(ref, path, {

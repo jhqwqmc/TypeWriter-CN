@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.entry.*
 import com.typewritermc.engine.paper.entry.entries.EventEntry
 import org.bukkit.event.player.PlayerJoinEvent
 
-@Entry("on_player_join", "When the player joins the server", Colors.YELLOW, "fluent:person-add-20-filled")
+@Entry("on_player_join", "当玩家加入服务器时", Colors.YELLOW, "fluent:person-add-20-filled")
 /**
  * The `Player Join Event` event is called when a player joins the server.
  *

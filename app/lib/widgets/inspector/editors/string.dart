@@ -60,7 +60,7 @@ class StringEditor extends HookConsumerWidget {
         focus: focus,
         icon: icon,
         hintText:
-            hint.isNotEmpty ? hint : "Enter a ${primitiveBlueprint.type.name}",
+            hint.isNotEmpty ? hint : "输入${primitiveBlueprint.type.name}",
         text: forcedValue ?? value,
         singleLine: singleLine,
         keyboardType: singleLine ? TextInputType.text : TextInputType.multiline,

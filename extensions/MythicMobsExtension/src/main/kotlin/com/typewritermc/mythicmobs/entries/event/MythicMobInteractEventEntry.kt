@@ -13,7 +13,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import com.typewritermc.engine.paper.entry.startDialogueWithOrNextDialogue
 import io.lumine.mythic.bukkit.events.MythicMobInteractEvent
 
-@Entry("mythicmobs_interact_event", "MythicMob Interact Event", Colors.YELLOW, "fa6-solid:dragon")
+@Entry("mythicmobs_interact_event", "MythicMob交互事件", Colors.YELLOW, "fa6-solid:dragon")
 /**
  * The `MythicMob Interact Event` is fired when a player interacts with a MythicMob.
  *
@@ -25,7 +25,7 @@ class MythicMobInteractEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The specific MythicMob type to listen for")
+    @Help("监听的特定MythicMob类型")
     @Regex
     val mobName: String = "",
 ) : EventEntry

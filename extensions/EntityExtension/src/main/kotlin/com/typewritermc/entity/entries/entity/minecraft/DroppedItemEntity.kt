@@ -19,7 +19,7 @@ import com.typewritermc.entity.entries.data.minecraft.display.item.applyItemData
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("dropped_item_entity_definition", "A dropped item entity", Colors.ORANGE, "material-symbols:pin-drop")
+@Entry("dropped_item_entity_definition", "掉落物实体", Colors.ORANGE, "material-symbols:pin-drop")
 @Tags("dropped_item_entity_definition")
 class DroppedItemEntityDefinition(
     override val id: String = "",
@@ -34,7 +34,7 @@ class DroppedItemEntityDefinition(
     }
 }
 
-@Entry("dropped_item_entity_instance", "An instance of a dropped item entity", Colors.YELLOW, "material-symbols:pin-drop")
+@Entry("dropped_item_entity_instance", "掉落物实体的实例", Colors.YELLOW, "material-symbols:pin-drop")
 class DroppedItemEntityInstance(
     override val id: String = "",
     override val name: String = "",

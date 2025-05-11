@@ -15,7 +15,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.java.KoinJavaComponent
 
 
-@Entry("patrol_activity", "Moving around a set of locations", Colors.BLUE, "fa6-solid:route")
+@Entry("patrol_activity", "在多个位置之间移动", Colors.BLUE, "fa6-solid:route")
 /**
  * The `PatrolActivity` is an activity that makes the entity move around a set of locations.
  * The entity will move to each location in the set in order.

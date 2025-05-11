@@ -17,7 +17,7 @@ import org.bukkit.entity.Player
 import java.time.Duration
 import kotlin.reflect.KClass
 
-@Entry("option", "Display a list of options to the player", "#4CAF50", "fa6-solid:list")
+@Entry("option", "向玩家显示选项列表", "#4CAF50", "fa6-solid:list")
 @ContextKeys(OptionContextKeys::class)
 /**
  * The `Option Dialogue` action displays a list of options to the player to choose from. This action provides you with the ability to give players choices that affect the outcome of the game.
@@ -37,7 +37,7 @@ class OptionDialogueEntry(
     @Colored
     val text: Var<String> = ConstVar(""),
     val options: List<Option> = emptyList(),
-    @Help("The duration it takes to type out the message. If the duration is zero, the message will be displayed instantly.")
+    @Help("消息打字显示的持续时间。如果持续时间为零，消息将立即显示")
     val duration: Var<Duration> = ConstVar(Duration.ZERO),
 ) : DialogueEntry {
     override fun messenger(player: Player, context: InteractionContext): DialogueMessenger<OptionDialogueEntry> {
@@ -53,13 +53,13 @@ enum class OptionContextKeys(override val klass: KClass<*>) : EntryContextKey {
 
 
 data class Option(
-    @Help("Text for this option.")
+    @Help("此选项的文本")
     val text: Var<String> = ConstVar(""),
-    @Help("The criteria that must be met for this option to show.")
+    @Help("显示此选项必须满足的条件")
     val criteria: List<Criteria> = emptyList(),
-    @Help("The modifiers to apply when this option is chosen.")
+    @Help("选择此选项时应用的修饰器")
     val modifiers: List<Modifier> = emptyList(),
-    @Help("The triggers to fire when this option is chosen.")
+    @Help("选择此选项时触发的触发器")
     val triggers: List<Ref<TriggerableEntry>> = emptyList()
 ) {
     val eventTriggers: List<EventTrigger> get() = triggers.map(::EntryTrigger)

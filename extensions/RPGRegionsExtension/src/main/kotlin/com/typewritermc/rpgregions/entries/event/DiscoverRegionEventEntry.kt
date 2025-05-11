@@ -15,7 +15,7 @@ import net.islandearth.rpgregions.api.events.RegionDiscoverEvent
 
 @Entry(
     "on_discover_rpg_region",
-    "When a player discovers an RPGRegions region",
+    "当玩家发现RPGRegions区域时",
     Colors.YELLOW,
     "fa-solid:location-arrow"
 )
@@ -31,7 +31,7 @@ class DiscoverRegionEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("Make sure that this is the region ID, not the region's display name.")
+    @Help("请确保使用区域ID而非显示名称")
     val region: String = "",
 ) : EventEntry
 

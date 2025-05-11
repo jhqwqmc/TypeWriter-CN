@@ -19,7 +19,7 @@ import org.koin.java.KoinJavaComponent
 
 @Entry(
     "interact_entity_objectives_path_stream",
-    "A Path Stream to Interact Entity Objectives",
+    "与实体交互目标的路径流",
     Colors.GREEN,
     "material-symbols:conversion-path"
 )

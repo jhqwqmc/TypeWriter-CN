@@ -32,7 +32,7 @@ interface InputDialogueEntry : DialogueEntry {
     val duration: Var<Duration>
 }
 
-@Entry("text_input_dialogue", "An input dialogue which excepts any text", Colors.CYAN, "fa6-solid:keyboard")
+@Entry("text_input_dialogue", "接受任意文本的输入对话框", Colors.CYAN, "fa6-solid:keyboard")
 @ContextKeys(TextInputContextKeys::class)
 class TextInputDialogueEntry(
     override val id: String = "",
@@ -56,14 +56,14 @@ enum class TextInputContextKeys(override val klass: KClass<*>) : EntryContextKey
 
 val integerInputNotAIntegerMessage: String by snippet(
     "dialogue.input.error.integer.not_a_integer",
-    "<red>Input must be an integer"
+    "<red>输入必须是整数"
 )
 val numberInputOutOfRangeMessage: String by snippet(
     "dialogue.input.error.number.out_of_range",
-    "<red>Input must be between <min> and <max>"
+    "<red>输入必须在<min>和<max>之间"
 )
 
-@Entry("integer_input_dialogue", "An input dialogue which excepts an integer", Colors.CYAN, "fa6-solid:keyboard")
+@Entry("integer_input_dialogue", "接受整数的输入对话框", Colors.CYAN, "fa6-solid:keyboard")
 @ContextKeys(IntegerInputContextKeys::class)
 class IntegerInputDialogueEntry(
     override val id: String = "",
@@ -101,10 +101,10 @@ enum class IntegerInputContextKeys(override val klass: KClass<*>) : EntryContext
 
 private val filterInputNotMatchedMessage: String by snippet(
     "dialogue.input.error.filter.not_matched",
-    "<red>Incorrect input"
+    "<red>输入不正确"
 )
 
-@Entry("filter_input_dialogue", "An input dialogue which excepts a filter", Colors.CYAN, "fa6-solid:keyboard")
+@Entry("filter_input_dialogue", "接受过滤器的输入对话框", Colors.CYAN, "fa6-solid:keyboard")
 @ContextKeys(FilterInputContextKeys::class)
 /**
  * The `Filter Input` entry is an input dialogue that expects the player to match a filter.
@@ -121,7 +121,7 @@ class FilterInputDialogueEntry(
     override val text: Var<String> = ConstVar(""),
     override val duration: Var<Duration> = ConstVar(Duration.ZERO),
     val filters: List<Filter> = emptyList(),
-    @Help("Triggers if none of the filters are matched. If not set, the user must match at a filter.")
+    @Help("如果没有匹配任何过滤器时触发。如果未设置，用户必须匹配某个过滤器。")
     val incorrectTriggers: Optional<List<Ref<TriggerableEntry>>> = Optional.empty(),
 ) : InputDialogueEntry {
     override val triggers: List<Ref<TriggerableEntry>> get() = emptyList()
@@ -165,10 +165,10 @@ enum class FilterInputContextKeys(override val klass: KClass<*>) : EntryContextK
 
 val doubleInputNotADoubleMessage: String by snippet(
     "dialogue.input.error.double.not_a_double",
-    "<red>Input must be a double"
+    "<red>输入必须是双精度浮点数"
 )
 
-@Entry("double_input_dialogue", "An input dialogue which excepts a double", Colors.CYAN, "fa6-solid:keyboard")
+@Entry("double_input_dialogue", "接受双精度浮点数的输入对话框", Colors.CYAN, "fa6-solid:keyboard")
 @ContextKeys(DoubleInputContextKeys::class)
 class DoubleInputDialogueEntry(
     override val id: String = "",

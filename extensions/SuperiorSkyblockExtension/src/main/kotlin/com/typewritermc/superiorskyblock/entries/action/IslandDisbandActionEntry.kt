@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.entry.entries.ActionEntry
 import com.typewritermc.engine.paper.entry.entries.ActionTrigger
 import org.bukkit.entity.Player
 
-@Entry("island_disband", "Disbands player's island", Colors.RED, "material-symbols:bookmark-remove-rounded")
+@Entry("island_disband", "解散玩家的岛屿", Colors.RED, "material-symbols:bookmark-remove-rounded")
 /**
  * The `Island Disband Action` disbands a player's island.
  *

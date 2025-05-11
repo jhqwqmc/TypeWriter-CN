@@ -12,12 +12,12 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("shield_height_data", "The height of the shulker's shield", Colors.RED, "fa6-solid:shield")
+@Entry("shield_height_data", "潜影贝外壳的高度", Colors.RED, "fa6-solid:shield")
 @Tags("shield_height_data", "shulker_data")
 class ShieldHeightData(
     override val id: String = "",
     override val name: String = "",
-    @Help("The height of the shulker's shield (0-100)")
+    @Help("潜影贝外壳的高度（0-100）")
     @Min(0)
     @Max(100)
     val height: Int = 0,
@@ -35,6 +35,6 @@ data class ShieldHeightProperty(val height: Int) : EntityProperty {
 fun applyShieldHeightData(entity: WrapperEntity, property: ShieldHeightProperty) {
     entity.metas {
         meta<ShulkerMeta> { shieldHeight = property.height.toByte() }
-        error("Could not apply ShulkerShieldHeightData to ${entity.entityType} entity.")
+        error("无法将ShulkerShieldHeightData应用到${entity.entityType}实体")
     }
 }

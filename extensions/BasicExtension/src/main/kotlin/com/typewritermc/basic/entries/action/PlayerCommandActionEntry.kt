@@ -18,7 +18,7 @@ import com.typewritermc.engine.paper.plugin
 import com.typewritermc.engine.paper.utils.ThreadType.SYNC
 import lirand.api.extensions.server.server
 
-@Entry("player_run_command", "Make player run command", Colors.RED, "mingcute:terminal-fill")
+@Entry("player_run_command", "让玩家执行命令  ", Colors.RED, "mingcute:terminal-fill")
 /**
  * The `Player Command Action` is an action that runs a command as if the player entered it.
  * This action provides you with the ability to execute commands on behalf of the player in response to specific events.
@@ -40,7 +40,7 @@ class PlayerCommandActionEntry(
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Placeholder
     @MultiLine
-    @Help("Every line is a different command. Commands should not be prefixed with <code>/</code>.")
+    @Help("每行代表一个不同的命令。命令不应以<code>/</code>开头。")
     val command: Var<String> = ConstVar(""),
     val sudo: Boolean = false,
 ) : ActionEntry {

@@ -20,7 +20,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.enderdragon.applyEn
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("ender_dragon_definition", "A ender_dragon entity", Colors.ORANGE, "game-icons:dragon-head")
+@Entry("ender_dragon_definition", "末影龙实体", Colors.ORANGE, "game-icons:dragon-head")
 @Tags("ender_dragon_definition")
 /**
  * The `EnderDragonDefinition` class is an entry that shows up as an ender_dragon in-game.
@@ -39,7 +39,7 @@ class EnderDragonDefinition(
     override fun create(player: Player): FakeEntity = EnderDragonEntity(player)
 }
 
-@Entry("ender_dragon_instance", "An instance of a ender_dragon entity", Colors.YELLOW, "game-icons:dragon-head")
+@Entry("ender_dragon_instance", "末影龙实体的实例", Colors.YELLOW, "game-icons:dragon-head")
 class EnderDragonInstance(
     override val id: String = "",
     override val name: String = "",

@@ -45,7 +45,7 @@ class PageSelectorEditor extends HookConsumerWidget {
     final type = typeTag == null ? null : PageType.fromName(typeTag);
 
     if (type == null) {
-      return const Text("Invalid page type");
+      return const Text("无效的页面类型");
     }
 
     final pageId =
@@ -81,14 +81,14 @@ class PageSelectorEditor extends HookConsumerWidget {
               return [
                 if (hasPage) ...[
                   ContextMenuTile.button(
-                    title: "Navigate to entry",
+                    title: "导航到条目",
                     icon: TWIcons.pencil,
                     onTap: () {
                       ref.read(appRouter).navigateToPage(ref.passing, pageId);
                     },
                   ),
                   ContextMenuTile.button(
-                    title: "Remove reference",
+                    title: "移除引用",
                     icon: TWIcons.squareMinus,
                     color: Colors.redAccent,
                     onTap: () {
@@ -100,7 +100,7 @@ class PageSelectorEditor extends HookConsumerWidget {
                 ],
                 if (!hasPage) ...[
                   ContextMenuTile.button(
-                    title: "Select entry",
+                    title: "选择条目",
                     icon: TWIcons.magnifyingGlass,
                     onTap: () {
                       _select(ref.passing, type);
@@ -150,7 +150,7 @@ class PageSelectorEditor extends HookConsumerWidget {
                     else
                       Expanded(
                         child: Text(
-                          "Select a ${type.tag} page",
+                          "选择${type.tag}页面",
                           style:
                               Theme.of(context).inputDecorationTheme.hintStyle,
                         ),
@@ -190,7 +190,7 @@ class PageSelectorEditor extends HookConsumerWidget {
             const SizedBox(width: 12),
             Expanded(
               child: Text(
-                "Page is not allowed here",
+                "此处不允许该页面",
                 style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             ),

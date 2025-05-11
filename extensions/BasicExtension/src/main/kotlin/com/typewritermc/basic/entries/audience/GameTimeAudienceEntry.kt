@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent
 
 @Entry(
     "game_time_audience",
-    "Filters an audience based on the game time",
+    "基于游戏时间的受众筛选器",
     Colors.MEDIUM_SEA_GREEN,
     "bi:clock-fill"
 )

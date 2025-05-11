@@ -19,7 +19,7 @@ import io.lumine.mythic.core.skills.SkillTriggers
 import io.lumine.mythic.core.utils.MythicUtil
 import org.bukkit.entity.Player
 
-@Entry("execute_mythicmob_skill", "Executes a MythicMobs skill", Colors.RED, "fa6-solid:bolt-lightning")
+@Entry("execute_mythicmob_skill", "执行MythicMobs技能", Colors.RED, "fa6-solid:bolt-lightning")
 /**
  * The `Execute Skill Action` action executes a MythicMobs skill.
  *
@@ -56,6 +56,6 @@ class ExecuteSkillActionEntry(
                 null,
                 1f
             )
-        } else logger.warning("Skill $skillName is not usable at this time (cooldown, etc.)")
+        } else logger.warning("当前无法使用技能$skillName（冷却中等状态）")
     }
 }

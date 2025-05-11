@@ -26,7 +26,7 @@ import org.bukkit.event.player.PlayerTeleportEvent
 
 @Entry(
     "player_radius_interaction_bound",
-    "An interaction bound around a player",
+    "围绕玩家的交互绑定区域",
     Colors.MEDIUM_PURPLE,
     "ph:user-circle-dashed-fill"
 )

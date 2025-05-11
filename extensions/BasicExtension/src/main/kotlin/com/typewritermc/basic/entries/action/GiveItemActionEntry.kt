@@ -17,9 +17,9 @@ import com.typewritermc.engine.paper.utils.ThreadType.SYNC
 import com.typewritermc.engine.paper.utils.asMini
 import org.bukkit.entity.Player
 
-private val dropMessage by snippet("give_item.drop", "<gray>Some items have been dropped because your inventory is full")
+private val dropMessage by snippet("give_item.drop", "<gray>由于你的背包已满，部分物品已被丢弃")
 
-@Entry("give_item", "Give an item to the player", Colors.RED, "streamline:give-gift-solid")
+@Entry("give_item", "给予玩家一个物品", Colors.RED, "streamline:give-gift-solid")
 /**
  * The `Give Item Action` is an action that gives a player an item. This action provides you with the ability to give an item with a specified Minecraft material, amount, display name, and lore.
  *

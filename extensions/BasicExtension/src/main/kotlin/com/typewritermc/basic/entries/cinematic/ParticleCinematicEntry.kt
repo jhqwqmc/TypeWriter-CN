@@ -13,7 +13,7 @@ import com.typewritermc.engine.paper.utils.toBukkitLocation
 import org.bukkit.Particle
 import org.bukkit.entity.Player
 
-@Entry("particle_cinematic", "Spawn particles for a cinematic", Colors.CYAN, "fa6-solid:fire-flame-simple")
+@Entry("particle_cinematic", "为过场动画生成粒子效果", Colors.CYAN, "fa6-solid:fire-flame-simple")
 /**
  * The `Particle Cinematic` entry is used to spawn particles for a cinematic.
  *
@@ -29,10 +29,10 @@ class ParticleCinematicEntry(
     override val criteria: List<Criteria> = emptyList(),
     val location: Var<Position> = ConstVar(Position.ORIGIN),
     val particle: Var<Particle> = ConstVar(Particle.FLAME),
-    @Help("The amount of particles to spawn every tick.")
+    @Help("每tick生成的粒子数量")
     val count: Var<Int> = ConstVar(1),
     val offset: Var<Vector> = ConstVar(Vector.ZERO),
-    @Help("The speed of the particles. For some particles, this is the \"extra\" data value to control particle behavior.")
+    @Help("粒子速度。对某些粒子类型，此值作为\"额外\"数据控制粒子行为")
     val speed: Var<Double> = ConstVar(0.0),
     @Segments(icon = "fa6-solid:fire-flame-simple")
     val segments: List<ParticleSegment> = emptyList(),

@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Entry(
     "cinematic_skippable_audience",
-    "An audience filter based on if the player can skip the cinematic they are in",
+    "基于玩家能否跳过当前过场动画的受众筛选器",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:skip-next"
 )

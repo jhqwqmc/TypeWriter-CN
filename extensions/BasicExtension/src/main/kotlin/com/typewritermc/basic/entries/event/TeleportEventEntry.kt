@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.utils.toPosition
 import org.bukkit.event.player.PlayerTeleportEvent
 import kotlin.reflect.KClass
 
-@Entry("teleport_event", "When the player teleports", Colors.YELLOW, "mdi:teleport")
+@Entry("teleport_event", "当玩家传送时", Colors.YELLOW, "mdi:teleport")
 @ContextKeys(TeleportEventContextKeys::class)
 /**
  * The `TeleportEventEntry` class represents an event triggered when a player teleports.

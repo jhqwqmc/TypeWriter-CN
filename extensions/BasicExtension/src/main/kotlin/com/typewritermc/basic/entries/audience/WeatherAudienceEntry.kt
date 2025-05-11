@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.player.PlayerChangedWorldEvent
 
-@Entry("weather_audience", "Display certain weather to the player", Colors.GREEN, "fluent:weather-rain-showers-day-24-filled")
+@Entry("weather_audience", "为玩家显示特定天气效果", Colors.GREEN, "fluent:weather-rain-showers-day-24-filled")
 /**
  * The `Weather Audience` entry is an audience filter that displays certain weather to the player.
  *

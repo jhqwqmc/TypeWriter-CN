@@ -26,21 +26,21 @@ class VarSerializer : DataSerializer<Var<*>> {
             }
 
             is MappedVar<*> -> {
-                throw IllegalStateException("Could not serialize mapped var")
+                throw IllegalStateException("无法序列化映射变量")
             }
 
             is ComputeVar<*> -> {
-                throw IllegalStateException("Could not serialize compute var")
+                throw IllegalStateException("无法序列化计算变量")
             }
         }
     }
 
     override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Var<*>? {
         val actualType = (typeOfT as? ParameterizedType)?.actualTypeArguments?.get(0)
-            ?: throw IllegalArgumentException("Could not find actual type for Var")
+            ?: throw IllegalArgumentException("找不到Var的实际类型")
 
         if (actualType !is Class<*>) {
-            throw IllegalArgumentException("Actual type for Var must be a class but was ${actualType::class.qualifiedName}")
+            throw IllegalArgumentException("Var的实际类型必须是类，但实际是${actualType::class.qualifiedName}")
         }
 
 

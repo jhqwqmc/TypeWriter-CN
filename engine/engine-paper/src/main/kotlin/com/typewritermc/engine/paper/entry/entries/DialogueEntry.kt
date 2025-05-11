@@ -10,7 +10,7 @@ import org.bukkit.entity.Player
 
 @Tags("dialogue")
 interface DialogueEntry : TriggerableEntry {
-    @Help("The speaker of the dialogue")
+    @Help("对话的发言者")
     val speaker: Ref<SpeakerEntry>
 
     val speakerDisplayName: Var<String>

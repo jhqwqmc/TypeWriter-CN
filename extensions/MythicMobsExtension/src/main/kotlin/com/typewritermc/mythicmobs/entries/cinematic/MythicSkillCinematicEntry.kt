@@ -16,7 +16,7 @@ import io.lumine.mythic.core.skills.SkillMetadataImpl
 import io.lumine.mythic.core.skills.SkillTriggers
 import org.bukkit.entity.Player
 
-@Entry("mythicskill_cinematic", "Trigger a MythicSkill during a cinematic", Colors.PURPLE, "fa6-solid:bolt-lightning")
+@Entry("mythicskill_cinematic", "在过场动画期间触发MythicSkill", Colors.PURPLE, "fa6-solid:bolt-lightning")
 /**
  * The `Mythic Skill Cinematic` cinematic entry triggers a skill during a cinematic.
  *
@@ -63,7 +63,7 @@ class SkillCinematicAction(
 
         val skillName = segment.skillName.get(player)
         val skill = MythicBukkit.inst().skillManager.getSkill(skillName).orElseGet {
-            throw IllegalArgumentException("Skill $skillName not found")
+            throw IllegalArgumentException("未找到技能$skillName")
         }
 
         val trigger = BukkitAdapter.adapt(player)
@@ -73,6 +73,6 @@ class SkillCinematicAction(
             SkillMetadataImpl(SkillTriggers.API, caster, trigger)
 
         if (skill.isUsable(skillMeta)) skill.execute(skillMeta)
-        else logger.warning("Skill ${segment.skillName} is not usable at this time (cooldown, etc.)")
+        else logger.warning("当前无法使用技能${segment.skillName}（冷却中等原因）")
     }
 }

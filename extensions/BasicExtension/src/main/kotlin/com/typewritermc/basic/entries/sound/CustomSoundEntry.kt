@@ -4,7 +4,7 @@ import com.typewritermc.core.books.pages.Colors
 import com.typewritermc.core.extension.annotations.Entry
 import com.typewritermc.engine.paper.entry.entries.SoundIdEntry
 
-@Entry("custom_sound", "A custom sound", Colors.ORANGE, "lets-icons:sound-fill")
+@Entry("custom_sound", "自定义声音", Colors.ORANGE, "lets-icons:sound-fill")
 /**
  * The `Custom Sound Entry` is an entry that allow you to add sounds from a resource pack.
  * And use it in other entries.

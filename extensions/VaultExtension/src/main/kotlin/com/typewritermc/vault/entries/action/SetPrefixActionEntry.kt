@@ -16,7 +16,7 @@ import net.milkbowl.vault.chat.Chat
 import org.bukkit.entity.Player
 import org.koin.java.KoinJavaComponent
 
-@Entry("set_prefix", "Set Prefix", Colors.RED, "fa6-solid:user-tag")
+@Entry("set_prefix", "设置前缀", Colors.RED, "fa6-solid:user-tag")
 /**
  * The `Set Prefix Action` action sets the prefix of a player's message
  *

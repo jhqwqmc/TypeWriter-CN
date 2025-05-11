@@ -15,7 +15,7 @@ import net.kyori.adventure.title.Title
 import org.bukkit.entity.Player
 import java.time.Duration
 
-@Entry("title_cinematic", "Show a title during a cinematic", Colors.CYAN, "fluent:align-center-vertical-32-filled")
+@Entry("title_cinematic", "在过场动画期间显示标题", Colors.CYAN, "fluent:align-center-vertical-32-filled")
 /**
  * The `Title Cinematic` entry shows a title during a cinematic.
  *

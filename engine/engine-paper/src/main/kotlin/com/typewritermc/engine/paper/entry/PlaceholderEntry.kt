@@ -159,7 +159,7 @@ fun PlaceholderNodeBuilder.literal(name: String, builder: PlaceholderNodeBuilder
 
 class LiteralArgument(val name: String) : PlaceholderArgument<String> {
     override fun parse(player: Player?, argument: String): Result<String> {
-        if (argument != name) return failure("Literal '$name' didn't match argument '$argument'")
+        if (argument != name) return failure("字面量'$name'与参数'$argument'不匹配")
         return ok(argument)
     }
 }
@@ -181,7 +181,7 @@ object IntArgument : PlaceholderArgument<Int> {
         return try {
             ok(argument.toInt())
         } catch (e: NumberFormatException) {
-            failure("Could not parse '$argument' as an integer")
+            failure("无法将'$argument'解析为整数")
         }
     }
 }
@@ -194,7 +194,7 @@ class EnumArgument<E : Enum<E>>(private val enumKClass: KClass<E>) : Placeholder
         return try {
             ok(enumKClass.java.enumConstants.first { it.name.equals(argument, ignoreCase = true) })
         } catch (e: NoSuchElementException) {
-            failure("Could not parse '$argument' as a valid value, possible values are ${enumKClass.java.enumConstants.joinToString { it.name.lowercase() }}")
+            failure("无法将'$argument'解析为有效值，可选值为${enumKClass.java.enumConstants.joinToString { it.name.lowercase() }}")
         }
     }
 }

@@ -104,7 +104,7 @@ private suspend fun migrateFacts(storage: FactStorage) {
         return
     }
 
-    logger.info("Migrating facts from old storage")
+    logger.info("正在从旧存储迁移持久化变量数据")
     val facts = directory.listFiles()?.flatMap { file ->
         val uuid = UUID.fromString(file.nameWithoutExtension)
         val facts = gson.fromJson(file.readText(), object : TypeToken<List<OldFact>>() {})

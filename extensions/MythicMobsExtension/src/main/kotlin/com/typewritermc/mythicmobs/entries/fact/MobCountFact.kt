@@ -12,7 +12,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "mythic_mob_count_fact",
-    "Count the number of active Mythic Mobs of the specified type",
+    "统计指定类型的活跃MythicMobs数量",
     Colors.PURPLE,
     "mingcute:counter-fill"
 )

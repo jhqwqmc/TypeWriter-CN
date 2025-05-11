@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.entry.entries.ActionTrigger
 import com.typewritermc.engine.paper.entry.entries.WritableFactEntry
 import org.bukkit.entity.Player
 
-@Entry("bulk_facts_reset_action", "Reset a list of facts", Colors.RED, "mingcute:broom-fill")
+@Entry("bulk_facts_reset_action", "重置持久化变量列表", Colors.RED, "mingcute:broom-fill")
 /**
  * The `Bulk Facts Reset Action` is an action that resets a list of facts.
  *

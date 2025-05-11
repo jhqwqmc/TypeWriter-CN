@@ -21,7 +21,7 @@ import com.typewritermc.engine.paper.utils.isFloodgate
 import org.bukkit.entity.Player
 import java.time.Duration
 
-@Entry("action_bar_dialogue", "An action bar dialogue", "#1E88E5", "fa6-solid:xmarks-lines")
+@Entry("action_bar_dialogue", "动作栏对话", "#1E88E5", "fa6-solid:xmarks-lines")
 /**
  * The `Action Bar Dialogue` is a dialogue that displays an animated message in the action bar.
  * It is similar to the Spoken Dialogue, but it displays the message in the action bar.
@@ -39,7 +39,7 @@ class ActionBarDialogueEntry(
     @Colored
     @Placeholder
     val text: Var<String> = ConstVar(""),
-    @Help("The duration it takes to type out the message.")
+    @Help("消息打字显示的持续时间")
     val duration: Var<Duration> = ConstVar(Duration.ZERO),
 ) : DialogueEntry {
     override fun messenger(player: Player, context: InteractionContext): DialogueMessenger<ActionBarDialogueEntry> {

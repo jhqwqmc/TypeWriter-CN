@@ -18,7 +18,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.applyLivingEntityDa
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("vindicator_definition", "A vindicator entity", Colors.ORANGE, "memory:axe")
+@Entry("vindicator_definition", "卫道士实体", Colors.ORANGE, "memory:axe")
 @Tags("vindicator_definition")
 /**
  * The `VindicatorDefinition` class is an entry that shows up as a vindicator in-game.
@@ -37,7 +37,7 @@ class VindicatorDefinition(
     override fun create(player: Player): FakeEntity = VindicatorEntity(player)
 }
 
-@Entry("vindicator_instance", "An instance of a vindicator entity", Colors.YELLOW, "memory:axe")
+@Entry("vindicator_instance", "卫道士实体的实例", Colors.YELLOW, "memory:axe")
 class VindicatorInstance(
     override val id: String = "",
     override val name: String = "",

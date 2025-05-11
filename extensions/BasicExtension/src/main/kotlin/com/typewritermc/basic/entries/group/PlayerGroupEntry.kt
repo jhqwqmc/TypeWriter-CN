@@ -6,7 +6,7 @@ import com.typewritermc.engine.paper.entry.entries.GroupEntry
 import com.typewritermc.engine.paper.entry.entries.GroupId
 import org.bukkit.entity.Player
 
-@Entry("player_group", "Group for every individual player", Colors.MYRTLE_GREEN, "fa6-solid:user")
+@Entry("player_group", "为每位玩家单独创建的组别", Colors.MYRTLE_GREEN, "fa6-solid:user")
 /**
  * The `Player Group` is a group that is specific to each individual player.
  *

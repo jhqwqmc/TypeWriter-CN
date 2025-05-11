@@ -56,9 +56,9 @@ class AudienceManager : Listener, Reloadable {
                 else if (wait < -100) {
                     val top5 = traces.entries.sortedByDescending { it.value }.take(5)
                     logger.warning(
-                        "Typewriter Audience Manager Tick took too long! (${endTime - startTime}ms) Top 5 longest ticks: ${
-                            top5.joinToString(", ") { "${it.key}: ${it.value}ms" }
-                        } (if this happens only occasionally, it's fine)"
+                        "Typewriter受众管理器耗时过长！(${endTime - startTime}毫秒) 前5个最长耗时: ${
+                            top5.joinToString(", ") { "${it.key}: ${it.value}毫秒" }
+                        } (如果只是偶尔发生，属于正常现象)"
                     )
                 }
             }

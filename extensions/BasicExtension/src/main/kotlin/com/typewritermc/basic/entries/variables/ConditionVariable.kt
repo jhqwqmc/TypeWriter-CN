@@ -13,7 +13,7 @@ import com.typewritermc.engine.paper.entry.matches
 
 @Entry(
     "condition_variable",
-    "A variable that returns a value based on criteria",
+    "基于条件返回值的变量",
     Colors.GREEN,
     "streamline:filter-2-solid"
 )
@@ -44,7 +44,7 @@ class ConditionVariable(
         }
 
         return default.get(context.klass)
-            ?: throw IllegalStateException("Could not find value for default: ${default.data} binding to ${context.klass.qualifiedName}")
+            ?: throw IllegalStateException("找不到默认值：${default.data} 绑定到 ${context.klass.qualifiedName} 的值")
     }
 }
 

@@ -138,13 +138,13 @@ class RoadNetworkEditor(
 }
 
 sealed class RoadNetworkEditorState(val message: String) {
-    data object Loading : RoadNetworkEditorState(" <gray><i>(loading)</i></gray>")
+    data object Loading : RoadNetworkEditorState(" <gray><i>(加载中)</i></gray>")
     data object Idle : RoadNetworkEditorState("")
-    data object Dirty : RoadNetworkEditorState(" <gray><i>(unsaved changes)</i></gray>")
-    data object Saving : RoadNetworkEditorState(" <red><i>(saving)</i></red>")
+    data object Dirty : RoadNetworkEditorState(" <gray><i>(未保存的更改)</i></gray>")
+    data object Saving : RoadNetworkEditorState(" <red><i>(保存中)</i></red>")
 
     class Calculating(val nodesTodo: Int, val max: Int) :
-        RoadNetworkEditorState(" <red><i>(calculating ${max - nodesTodo}/$max)</i></red>") {
+        RoadNetworkEditorState(" <red><i>(计算中 ${max - nodesTodo}/$max)</i></red>") {
         val percentage: Float
             get() = (max - nodesTodo) / max.toFloat()
     }

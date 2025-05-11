@@ -36,19 +36,19 @@ fun CommandTree.roadNetworkCommand() = literal("roadNetwork") {
         entry<RoadNetworkEntry>("network") { entry ->
             executePlayerOrTarget { target ->
                 val networkManager = KoinJavaComponent.get<RoadNetworkManager>(RoadNetworkManager::class.java)
-                target.sendActionBar("Loading network...".asMini())
+                target.sendActionBar("正在加载路网...".asMini())
                 ThreadType.DISPATCHERS_ASYNC.launch {
                     val network = networkManager.getNetwork(entry().ref())
                     target.sendMessage(
                         """
                         |<gray><st>${" ".repeat(60)}</st>
                         |
-                        |<red><b>Road Network Info</b>: <white>${entry().name}
+                        |<red><b>路网信息</b>: <white>${entry().name}
                         |
-                        |  <gray> - <blue>Nodes: <white>${network.nodes.size}
-                        |  <gray> - <green>Edges: <white>${network.edges.size}
-                        |  <gray> - <dark_gray>Negative Nodes: <white>${network.negativeNodes.size}
-                        |  <gray> - <gold>Modifications: <white>${network.modifications.size}
+                        |  <gray> - <blue>节点数: <white>${network.nodes.size}
+                        |  <gray> - <green>边数: <white>${network.edges.size}
+                        |  <gray> - <dark_gray>负节点数: <white>${network.negativeNodes.size}
+                        |  <gray> - <gold>修改数: <white>${network.modifications.size}
                         |  
                         |<gray><st>${" ".repeat(60)}</st>
                     """.trimMargin().asMini()
@@ -62,7 +62,7 @@ fun CommandTree.roadNetworkCommand() = literal("roadNetwork") {
         withPermission("typewriter.roadNetwork.clearCache")
         executes {
             KoinJavaComponent.get<InstanceSpaceCache>(InstanceSpaceCache::class.java).clear()
-            sender.msg("Cleared the instance space cache")
+            sender.msg("已清除实例空间缓存")
         }
     }
 }

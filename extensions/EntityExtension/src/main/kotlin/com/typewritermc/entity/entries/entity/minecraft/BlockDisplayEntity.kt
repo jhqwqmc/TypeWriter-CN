@@ -22,7 +22,7 @@ import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import me.tofaa.entitylib.meta.display.BlockDisplayMeta
 import org.bukkit.entity.Player
 
-@Entry("block_display_definition", "A block display entity", Colors.ORANGE, "heroicons:cube-transparent-16-solid")
+@Entry("block_display_definition", "方块展示实体", Colors.ORANGE, "heroicons:cube-transparent-16-solid")
 @Tags("block_display_definition")
 /**
  * The `BlockDisplayDefinition` class is an entry that represents a block display entity.
@@ -41,7 +41,7 @@ class BlockDisplayDefinition(
     override fun create(player: Player): FakeEntity = BlockDisplayEntity(player)
 }
 
-@Entry("block_display_instance", "An instance of a block display entity", Colors.YELLOW, "heroicons:cube-transparent-16-solid")
+@Entry("block_display_instance", "方块展示实体的实例", Colors.YELLOW, "heroicons:cube-transparent-16-solid")
 class BlockDisplayInstance(
     override val id: String = "",
     override val name: String = "",

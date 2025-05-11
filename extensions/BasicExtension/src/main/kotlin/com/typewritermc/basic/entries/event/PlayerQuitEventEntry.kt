@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import kotlinx.coroutines.runBlocking
 import org.bukkit.event.player.PlayerQuitEvent
 
-@Entry("on_player_quit", "When the player quits the server", Colors.YELLOW, "fluent:person-subtract-20-filled")
+@Entry("on_player_quit", "当玩家退出服务器时", Colors.YELLOW, "fluent:person-subtract-20-filled")
 /**
  * The `Player Quit Event` event is called when a player quits the server.
  *

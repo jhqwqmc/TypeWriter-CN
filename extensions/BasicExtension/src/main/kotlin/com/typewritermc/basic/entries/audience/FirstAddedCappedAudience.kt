@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Entry(
     "first_added_capped_audience",
-    "Caps audience to first X players who join",
+    "将受众限制为最先加入的X名玩家",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:account-filter"
 )

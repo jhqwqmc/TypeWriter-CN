@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("puff_state_data", "State of the Puf entity", Colors.BLUE, "mdi:state-machine")
+@Entry("puff_state_data", "河豚实体的状态", Colors.BLUE, "mdi:state-machine")
 @Tags("puff_state_data", "puffer_fish_data")
 class PuffStateData(
     override val id: String = "",
@@ -36,6 +36,6 @@ data class PuffStateProperty(val state: PufferFishMeta.State) : EntityProperty {
 fun applyPuffStateData(entity: WrapperEntity, property: PuffStateProperty) {
     entity.metas {
         meta<PufferFishMeta> { state = property.state }
-        error("Could not apply PufStateData to ${entity.entityType} entity.")
+        error("无法将PufStateData应用到${entity.entityType}实体")
     }
 }

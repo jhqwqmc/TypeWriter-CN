@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "bee_stung_data",
-    "Whether a bee is stung",
+    "蜜蜂是否已蜇人",
     Colors.RED,
     "carbon:bee"
 )
@@ -40,6 +40,6 @@ data class StungProperty(val stung: Boolean) : EntityProperty {
 fun applyBeeStungData(entity: WrapperEntity, property: StungProperty) {
     entity.metas {
         meta<BeeMeta> { setHasStung(property.stung) }
-        error("Could not apply BeeAngryData to ${entity.entityType} entity.")
+        error("无法将BeeAngryData应用到${entity.entityType}实体")
     }
 }

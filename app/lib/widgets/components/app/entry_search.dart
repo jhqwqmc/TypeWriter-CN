@@ -28,7 +28,7 @@ class TagFilter extends SearchFilter {
   final bool canRemove;
 
   @override
-  String get title => tags.lastOrNull?.formatted ?? "Tags";
+  String get title => tags.lastOrNull?.formatted ?? "标签";
   @override
   Color get color => Colors.deepOrangeAccent;
   @override
@@ -67,7 +67,7 @@ class ExcludeEntryFilter extends HiddenSearchFilter {
   final bool canRemove;
 
   @override
-  String get title => "Exclude Entry";
+  String get title => "排除条目";
 
   @override
   Color get color => Colors.orange;
@@ -92,7 +92,7 @@ class GenericEntryFilter extends SearchFilter {
   final bool canRemove;
 
   @override
-  String get title => "Generic";
+  String get title => "泛型";
 
   @override
   Color get color => Colors.green;
@@ -120,7 +120,7 @@ class NonGenericAddEntryFilter extends HiddenSearchFilter {
   final bool canRemove;
 
   @override
-  String get title => "Non-Generic";
+  String get title => "非泛型";
 
   @override
   Color get color => Colors.red;
@@ -222,7 +222,7 @@ Fuzzy<EntryBlueprint> _fuzzyBlueprints(Ref ref) {
       keys: [
         WeightedKey(
           name: "name",
-          getter: (blueprint) => "Add ${blueprint.name.formatted}",
+          getter: (blueprint) => "添加${blueprint.name.formatted}",
           weight: 0.5,
         ),
         WeightedKey(
@@ -261,7 +261,7 @@ class NewEntryFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "New Entries";
+  String get title => "新建条目";
 
   @override
   List<String> get quantifiers => [
@@ -326,7 +326,7 @@ class EntryFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Entries";
+  String get title => "条目";
 
   @override
   List<String> get quantifiers =>
@@ -432,12 +432,12 @@ class EntrySearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Open",
+        "打开",
         TWIcons.externalLink,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
       SearchAction(
-        "Open Wiki",
+        "打开Wiki",
         TWIcons.book,
         SmartSingleActivator(LogicalKeyboardKey.keyO, control: true),
         onTrigger: (_, __) {
@@ -474,7 +474,7 @@ class AddEntrySearchElement extends SearchElement {
   final FutureOr<bool?> Function(Entry)? onAdded;
 
   @override
-  String get title => "Add ${blueprint.name.formatted}";
+  String get title => "添加${blueprint.name.formatted}";
 
   @override
   Color color(BuildContext context) => blueprint.color;
@@ -493,12 +493,12 @@ class AddEntrySearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Add",
+        "添加",
         TWIcons.plus,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
       SearchAction(
-        "Open Wiki",
+        "打开Wiki",
         TWIcons.book,
         SmartSingleActivator(LogicalKeyboardKey.keyO, control: true),
         onTrigger: (_, __) {

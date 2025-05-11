@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("box_size_data", "This specifies the width and height of an entity", Colors.RED, "mdi:cube-outline")
+@Entry("box_size_data", "指定实体的宽度和高度", Colors.RED, "mdi:cube-outline")
 @Tags("box_size_data")
 class BoxSizeData(
     override val id: String = "",

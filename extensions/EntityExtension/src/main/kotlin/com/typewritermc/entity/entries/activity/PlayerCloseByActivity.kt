@@ -18,7 +18,7 @@ import java.util.*
 
 @Entry(
     "player_close_by_activity",
-    "A player close by activity",
+    "玩家邻近活动",
     Colors.PALATINATE_BLUE,
     "material-symbols-light:frame-person"
 )
@@ -41,17 +41,17 @@ import java.util.*
 class PlayerCloseByActivityEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The range in which the player has to be close by to activate the activity.")
+    @Help("激活活动所需的玩家邻近范围")
     @Default("10.0")
     val range: Double = 10.0,
-    @Help("Optional range in which the player has to enter to activate the activity. Must be smaller than the main range.")
+    @Help("（可选）激活活动所需的玩家进入范围，必须小于主范围")
     val activationRange: Optional<Double> = Optional.empty(),
-    @Help("The maximum duration a player can be idle in the same range before the activity deactivates.")
+    @Help("活动自动取消前玩家在同一范围内可闲置的最长时间")
     @Default("30000")
     val maxIdleDuration: Duration = Duration.ofSeconds(30),
-    @Help("The activity that will be used when there is a player close by.")
+    @Help("有玩家邻近时使用的活动")
     val closeByActivity: Ref<out EntityActivityEntry> = emptyRef(),
-    @Help("The activity that will be used when there is no player close by.")
+    @Help("无玩家邻近时使用的活动")
     val idleActivity: Ref<out EntityActivityEntry> = emptyRef(),
 ) : GenericEntityActivityEntry {
     override fun create(
@@ -60,7 +60,7 @@ class PlayerCloseByActivityEntry(
     ): EntityActivity<in ActivityContext> {
         val effectiveActivationRange = activationRange.map {
             if (it >= range) {
-                logger.warning("The activation range must be smaller than the main range.")
+                logger.warning("激活范围必须小于主范围")
                 range
             } else {
                 it

@@ -18,7 +18,7 @@ import org.koin.java.KoinJavaComponent.get
 
 @Tags("trigger")
 interface TriggerEntry : Entry {
-    @Help("The entries that will be fired after this entry.")
+    @Help("该条目触发后将被激活的条目")
     val triggers: List<Ref<TriggerableEntry>>
 
     val eventTriggers: List<EventTrigger>
@@ -27,16 +27,16 @@ interface TriggerEntry : Entry {
 
 @Tags("triggerable")
 interface TriggerableEntry : TriggerEntry {
-    @Help("The criteria that must be met before this entry is triggered")
+    @Help("触发该条目前必须满足的条件")
     val criteria: List<Criteria>
 
-    @Help("The modifiers that will be applied when this entry is triggered")
+    @Help("该条目触发时将应用的修饰器")
     val modifiers: List<Modifier>
 }
 
 @Tags("interaction_bound")
 interface InteractionBoundEntry : TriggerableEntry {
-    @Help("Triggers that are fired if the interaction is interrupted")
+    @Help("如果交互被中断将触发的触发器")
     val interruptTriggers: List<Ref<TriggerableEntry>>
 
     fun build(player: Player): InteractionBound

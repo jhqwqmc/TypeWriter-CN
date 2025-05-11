@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDeathEvent
 
-@Entry("on_player_kill_player", "When a player kills a player", Colors.YELLOW, "fa6-solid:skull")
+@Entry("on_player_kill_player", "当玩家击杀另一玩家时", Colors.YELLOW, "fa6-solid:skull")
 /**
  * The `Player Kill Player Event` is triggered when a player kills another player. If you want to detect when a player kills some thing else, use the [`Player Kill Entity Event`](on_player_kill_entity) instead.
  *

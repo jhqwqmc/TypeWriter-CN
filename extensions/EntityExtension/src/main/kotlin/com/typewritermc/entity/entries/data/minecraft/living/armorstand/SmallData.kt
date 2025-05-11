@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("small_data", "An small data", Colors.RED, "fluent:arrow-minimize-24-filled")
+@Entry("small_data", "小型数据", Colors.RED, "fluent:arrow-minimize-24-filled")
 @Tags("small_data", "armor_stand_data")
 class SmallData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class SmallProperty(val isSmall: Boolean) : EntityProperty {
 fun applySmallData(entity: WrapperEntity, property: SmallProperty) {
     entity.metas {
         meta<ArmorStandMeta> { isSmall = property.isSmall }
-        error("Could not apply SmallData to ${entity.entityType} entity.")
+        error("无法将SmallData应用到${entity.entityType}实体")
     }
 }

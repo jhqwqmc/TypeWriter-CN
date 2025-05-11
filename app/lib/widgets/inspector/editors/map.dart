@@ -160,9 +160,9 @@ class _MapEntry extends HookConsumerWidget {
     if (_alreadyContainsKey(key)) {
       final confirm = await showConfirmationDialogue(
         context: context,
-        title: "Override key?",
+        title: "覆盖键？",
         content:
-            "The key '$key' already exists.\nThis will delete all the data from the existing key.",
+            "键'$key'已存在。\n这将删除现有键的所有数据。",
         confirmIcon: TWIcons.warning,
         onConfirm: () => _changeKeyField(ref, key),
       );
@@ -273,7 +273,7 @@ class _StringKey extends HookConsumerWidget {
       primitiveBlueprint: field,
       forcedValue: value,
       icon: TWIcons.key,
-      hint: "Enter a key",
+      hint: "输入键",
       onChanged: onChanged,
     );
   }

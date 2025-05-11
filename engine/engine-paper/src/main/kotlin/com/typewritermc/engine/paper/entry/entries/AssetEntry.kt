@@ -11,7 +11,7 @@ import org.koin.java.KoinJavaComponent
 
 @Tags("asset")
 interface AssetEntry : StaticEntry {
-    @Help("The path to the asset.")
+    @Help("资源路径")
     val path: String
 }
 
@@ -32,7 +32,7 @@ suspend fun AssetEntry.data(data: String) {
  */
 @Tags("artifact")
 interface ArtifactEntry : AssetEntry {
-    @Help("A unique identifier for the artifact. SHOULD NOT BE CHANGED!")
+    @Help("该制品的唯一标识符。请勿修改！")
     @Generated
     val artifactId: String
 
@@ -45,15 +45,15 @@ interface ArtifactEntry : AssetEntry {
 
 fun getAssetFromFieldValue(fieldValue: Any?): Result<AssetEntry> {
     if (fieldValue !is String) {
-        return failure("Field value must be a string!")
+        return failure("字段值必须是字符串！")
     }
 
     if (fieldValue.isBlank()) {
-        return failure("A asset must be selected.")
+        return failure("必须选择一个资源")
     }
 
     val artifact = Query.findById<AssetEntry>(fieldValue)
-        ?: return failure("Could not find artifact with id '$fieldValue'")
+        ?: return failure("找不到ID为'$fieldValue'的制品")
 
     return Result.success(artifact)
 }

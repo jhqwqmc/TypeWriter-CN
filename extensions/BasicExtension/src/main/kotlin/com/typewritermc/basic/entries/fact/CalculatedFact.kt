@@ -17,7 +17,7 @@ import com.typewritermc.engine.paper.utils.parseDoubleFlexible
 import org.bukkit.entity.Player
 import kotlin.math.roundToInt
 
-@Entry("calculated_fact", "A fact where the value is calculated", Colors.PURPLE, "fa6-solid:calculator")
+@Entry("calculated_fact", "计算型持久化变量（值通过表达式计算）", Colors.PURPLE, "fa6-solid:calculator")
 /**
  * A [fact](/docs/creating-stories/facts) where the value is calculated.
  * You can use Placeholders and other facts for the value to change dynamically.
@@ -53,7 +53,7 @@ class CalculatedFact(
             is Try.Success -> FactData(result.value.roundToInt())
             is Try.Failure -> {
                 logger.warning(
-                    "Could not evaluate processed expression '$processedExpression' (original: '${this.expression}') for player ${player.name} for fact $id"
+                    "无法为玩家${player.name}的持久化变量${id}计算处理后的表达式'$processedExpression'（原始表达式：'${this.expression}'）"
                 )
                 FactData(0)
             }

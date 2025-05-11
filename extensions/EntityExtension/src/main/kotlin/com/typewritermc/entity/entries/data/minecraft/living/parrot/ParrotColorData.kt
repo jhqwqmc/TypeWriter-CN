@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("parrot_color_data", "The color of the parrot", Colors.RED, "ph:bird-fill")
+@Entry("parrot_color_data", "鹦鹉的颜色", Colors.RED, "ph:bird-fill")
 @Tags("parrot_color_data", "parrot_data")
 class ParrotColorData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class ParrotColorProperty(val parrotColor: ParrotMeta.Color) : EntityProper
 fun applyParrotColorData(entity: WrapperEntity, property: ParrotColorProperty) {
     entity.metas {
         meta<ParrotMeta> { color = property.parrotColor }
-        error("Could not apply ParrotColorData to ${entity.entityType} entity.")
+        error("无法将ParrotColorData应用到${entity.entityType}实体")
     }
 }

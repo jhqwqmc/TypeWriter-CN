@@ -13,7 +13,7 @@ import com.typewritermc.quest.QuestEntry
 import com.typewritermc.quest.trackQuest
 import org.bukkit.entity.Player
 
-@Entry("track_quest", "Start tracking a quest for a player", Colors.RED, "material-symbols:bookmark")
+@Entry("track_quest", "开始为玩家追踪任务", Colors.RED, "material-symbols:bookmark")
 /**
  * The `Track Quest Action` is an action that tracks a quest when triggered.
  *

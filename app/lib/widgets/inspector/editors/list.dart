@@ -147,7 +147,7 @@ class NoElements extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final name =
-        ref.watch(pathDisplayNameProvider(path)).nullIfEmpty ?? "Fields";
+        ref.watch(pathDisplayNameProvider(path)).nullIfEmpty ?? "字段";
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: SizedBox(
@@ -156,13 +156,13 @@ class NoElements extends HookConsumerWidget {
           spacing: 8,
           children: [
             Text(
-              "No $name found",
+              "未找到$name",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             OutlineButton.icon(
               onPressed: onAdd,
               icon: const Iconify(TWIcons.plus),
-              label: Text("Add ${name.singular}"),
+              label: Text("添加${name.singular}"),
               color: Theme.of(context).colorScheme.primary,
             ),
           ],

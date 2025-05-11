@@ -9,7 +9,7 @@ import com.typewritermc.engine.paper.entry.TriggerableEntry
 import com.typewritermc.engine.paper.entry.entries.ActionEntry
 import com.typewritermc.engine.paper.entry.entries.ActionTrigger
 
-@Entry("simple_action", "Simple action to modify facts", Colors.RED, "heroicons:bolt-16-solid")
+@Entry("simple_action", "用于修改持久化变量的简单操作", Colors.RED, "heroicons:bolt-16-solid")
 /**
  * The `Simple Action` is an empty action that can be used to modify facts.
  *

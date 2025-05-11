@@ -20,7 +20,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.applyLivingEntityDa
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("chicken_definition", "A chicken entity", Colors.ORANGE, "healthicons:animal-chicken")
+@Entry("chicken_definition", "鸡实体", Colors.ORANGE, "healthicons:animal-chicken")
 @Tags("chicken_definition")
 /**
  * The `ChickenDefinition` class is an entry that represents a chicken entity.
@@ -39,7 +39,7 @@ class ChickenDefinition(
     override fun create(player: Player): FakeEntity = ChickenEntity(player)
 }
 
-@Entry("chicken_instance", "An instance of a chicken entity", Colors.YELLOW, "healthicons:animal-chicken")
+@Entry("chicken_instance", "鸡实体的实例", Colors.YELLOW, "healthicons:animal-chicken")
 /**
  * The `ChickenInstance` class is an entry that represents an instance of a chicken entity.
  *

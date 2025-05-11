@@ -12,9 +12,9 @@ fun Duration.formatCompact(): String {
     val seconds = (this - days.days - hours.hours - minutes.minutes).inWholeSeconds
 
     return buildString {
-        if (days > 0) append("${days}d ")
-        if (hours > 0) append("${hours}h ")
-        if (minutes > 0) append("${minutes}m ")
-        if (seconds > 0 || this.isEmpty()) append("${seconds}s")
+        if (days > 0) append("${days}天")
+        if (hours > 0) append("${hours}小时")
+        if (minutes > 0) append("${minutes}分钟")
+        if (seconds > 0 || this.isEmpty()) append("${seconds}秒")
     }.trim()
 }

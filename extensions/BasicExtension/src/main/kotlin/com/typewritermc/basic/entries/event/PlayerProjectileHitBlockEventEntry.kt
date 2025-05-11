@@ -21,7 +21,7 @@ import java.util.*
 
 @Entry(
     "player_projectile_hit_block_event",
-    "Triggers when a player's projectile hits a block",
+    "当玩家的抛射物击中方块时触发",
     Colors.YELLOW,
     "tabler:target-arrow"
 )

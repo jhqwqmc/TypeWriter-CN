@@ -21,7 +21,7 @@ import org.bukkit.entity.Player
 
 private val simpleMessageFormat by snippet("action.simple_message.format", "<message>")
 
-@Entry("simple_message", "Send a message to a player", Colors.RED, "flowbite:message-dots-solid")
+@Entry("simple_message", "向玩家发送消息", Colors.RED, "flowbite:message-dots-solid")
 /**
  * The `Simple Message Action` is an action that sends a message to the player.
  * This allows you to send a message **without** a speaker.

@@ -13,7 +13,7 @@ import com.typewritermc.engine.paper.logger
 
 @Entry(
     "interaction_context_calculated_variable",
-    "A variable that performs calculations using interaction context values",
+    "使用交互上下文值进行计算的变量",
     Colors.GREEN,
     "fa6-solid:calculator"
 )
@@ -26,7 +26,7 @@ class InteractionContextCalculatedVariable(
 ) : VariableEntry {
     override fun <T : Any> get(context: VarContext<T>): T {
         val data = context.getData<InteractionContextCalculatedVariableData>()
-            ?: throw IllegalStateException("Could not find data for ${context.klass}, data: ${context.data} for entry $id")
+            ?: throw IllegalStateException("找不到 ${context.klass} 的数据，数据：${context.data}（条目ID：$id）")
 
         // First replace interaction context values
         var expression = data.expression.parsePlaceholders(context.player)
@@ -53,7 +53,7 @@ class InteractionContextCalculatedVariable(
         val value = when (val result = Expression(expression.trim()).tryEval()) {
             is com.mthaler.aparser.util.Try.Success -> result.value
             is com.mthaler.aparser.util.Try.Failure -> {
-                logger.warning("Could not evaluate expression '$expression' for player ${context.player.name} for variable $id")
+                logger.warning("无法为玩家 ${context.player.name} 的变量 $id 计算表达式 '$expression'")
                 return 0.0.cast<T>(context.klass)
             }
         }
@@ -65,12 +65,12 @@ private data class InteractionContextCalculatedVariableData(
     val keys: List<CalculatedKeyValue> = emptyList(),
     @Colored
     @Placeholder
-    @Help("Use <1> to insert the value from the first variable in your mathematical expression.")
+    @Help("使用 <1> 在数学表达式中插入第一个变量的值")
     val expression: String = "",
 )
 
 private data class CalculatedKeyValue(
     val key: InteractionContextKey<*> = InteractionContextKey.Empty,
-    @Help("What to use in the calculation if the key is not in the context.")
+    @Help("当键不在上下文中时用于计算的值")
     val default: Double = 0.0,
 )

@@ -32,9 +32,9 @@ import kotlin.math.min
 private val darkenLimit by snippet(
     "chat.darken-limit",
     12,
-    "The amount of messages displayed in the chat history during a dialogue"
+    "对话期间聊天历史中显示的消息数量"
 )
-private val spacing by snippet("chat.spacing", 3, "The amount of padding between the dialogue and the chat history")
+private val spacing by snippet("chat.spacing", 3, "对话内容与聊天历史之间的间距量")
 
 class ChatHistoryHandler :
     PacketListenerAbstract(PacketListenerPriority.HIGH), Listener {

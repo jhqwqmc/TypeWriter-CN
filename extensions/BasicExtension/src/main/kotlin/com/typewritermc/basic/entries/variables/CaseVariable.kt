@@ -10,7 +10,7 @@ import com.typewritermc.engine.paper.entry.entries.*
 
 @Entry(
     "case_variable",
-    "A variable that returns a value based on a selection",
+    "基于选择返回值的变量",
     Colors.GREEN,
     "mdi:list-status"
 )
@@ -51,7 +51,7 @@ class CaseVariable(
 
         // If we couldn't get a valid value, fall back to the default
         return default.get(context.klass)
-            ?: throw IllegalStateException("Could not convert default value: ${default.data} to ${context.klass.qualifiedName}")
+            ?: throw IllegalStateException("无法将默认值：${default.data}转换为${context.klass.qualifiedName}")
     }
 }
 

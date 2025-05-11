@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "item_holding_fact",
-    "The amount of a specific item the player is currently holding",
+    "玩家当前手持的特定物品数量",
     Colors.PURPLE,
     "fa6-solid:hand-holding"
 )

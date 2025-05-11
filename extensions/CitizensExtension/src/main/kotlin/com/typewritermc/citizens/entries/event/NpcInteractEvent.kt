@@ -17,7 +17,7 @@ import net.citizensnpcs.api.event.NPCLeftClickEvent
 import net.citizensnpcs.api.event.NPCRightClickEvent
 import org.bukkit.entity.Player
 
-@Entry("on_npc_interact", "When a player clicks on an NPC", Colors.YELLOW, "fa6-solid:people-robbery")
+@Entry("on_npc_interact", "当玩家点击NPC时", Colors.YELLOW, "fa6-solid:people-robbery")
 /**
  * The `NPC Interact Event` is fired when a player interacts with an NPC.
  *
@@ -29,7 +29,7 @@ class NpcInteractEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The identifier of the NPC.")
+    @Help("该NPC的标识符")
     // The NPC that needs to be interacted with.
     val identifier: Ref<ReferenceNpcEntry> = emptyRef(),
 ) : EventEntry

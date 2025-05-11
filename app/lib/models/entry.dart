@@ -88,12 +88,12 @@ class Entry {
   })  : assert(
           blueprint.isGeneric == (genericBlueprint != null),
           blueprint.isGeneric
-              ? "Blueprint is generic but no generic blueprint was provided"
-              : "Blueprint is not generic but a generic blueprint was provided",
+              ? "蓝图是泛型但未提供泛型蓝图"
+              : "蓝图不是泛型但提供了泛型蓝图",
         ),
         assert(
           blueprint.allowsGeneric(genericBlueprint),
-          "Generic blueprint given is not allowed for this blueprint, blueprint: ${blueprint.id}, allowed: ${blueprint.genericConstraints}, genericBlueprint: $genericBlueprint",
+          "提供的泛型蓝图不被该蓝图允许，蓝图：${blueprint.id}，允许的：${blueprint.genericConstraints}，泛型蓝图：$genericBlueprint",
         ),
         data = {
           ...blueprint.dataBlueprint.defaultValue(),
@@ -122,7 +122,7 @@ class Entry {
     if (blueprintId is String) return blueprintId;
     final type = data["type"];
     if (type is String) return type;
-    throw Exception("Could not find blueprint id or type in entry data");
+    throw Exception("无法在条目数据中找到蓝图ID或类型");
   }
 
   /// Returns the generic blueprint of the entry.
@@ -132,7 +132,7 @@ class Entry {
     if (genericBlueprint == null) return null;
 
     if (genericBlueprint is! Map<String, dynamic>) {
-      throw Exception("Generic blueprint is not a map");
+      throw Exception("泛型蓝图不是映射类型");
     }
 
     final blueprint = DataBlueprint.fromJson(genericBlueprint);

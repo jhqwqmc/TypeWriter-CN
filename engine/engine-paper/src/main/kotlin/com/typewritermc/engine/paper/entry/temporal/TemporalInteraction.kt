@@ -40,7 +40,7 @@ class TemporalInteraction(
     private lateinit var actions: List<CinematicAction>
 
     override suspend fun initialize(): Result<Unit> {
-        if (state != STARTING) return failure("Temporal interaction is already initialized")
+        if (state != STARTING) return failure("时间交互已初始化")
 
         if (settings.blockChatMessages) player.startBlockingMessages()
         if (settings.blockActionBarMessages) player.startBlockingActionBar()

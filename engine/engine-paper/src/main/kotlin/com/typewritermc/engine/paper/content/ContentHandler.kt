@@ -32,7 +32,7 @@ class ContentHandler : TriggerHandler {
             currentInteraction.pushMode(trigger.mode)
         }
         return if (result.isFailure) {
-            logger.warning("Failed to change content mode: ${result.exceptionOrNull()?.message}")
+            logger.warning("更改内容模式失败: ${result.exceptionOrNull()?.message}")
             TriggerContinuation.EndInteraction
         } else {
             TriggerContinuation.KeepInteraction

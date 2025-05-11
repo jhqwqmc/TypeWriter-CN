@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.entry.entries.EntityProperty
 import com.typewritermc.engine.paper.entry.entries.GenericEntityActivityEntry
 import com.typewritermc.engine.paper.entry.entries.Var
 
-@Entry("look_at_pitch_yaw_activity", "A look at pitch and yaw activity", Colors.BLUE, "fa6-solid:compass")
+@Entry("look_at_pitch_yaw_activity", "俯仰角与偏航角注视活动", Colors.BLUE, "fa6-solid:compass")
 /**
  * The `LookAtPitchYawActivityEntry` makes the entity look at a specific pitch and yaw.
  *
@@ -32,7 +32,7 @@ class LookAtPitchYawActivityEntry(
     @InnerMin(Min(-180))
     @InnerMax(Max(180))
     val yaw: Var<Float> = ConstVar(0f),
-    @Help("The activity which may return xyz")
+    @Help("可能返回xyz坐标的活动")
     val childActivity: Ref<out EntityActivityEntry> = emptyRef()
 ) : GenericEntityActivityEntry {
     override fun create(

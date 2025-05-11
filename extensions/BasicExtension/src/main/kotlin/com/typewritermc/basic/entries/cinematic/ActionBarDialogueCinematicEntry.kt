@@ -17,7 +17,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import org.bukkit.entity.Player
 
-@Entry("actionbar_dialogue_cinematic", "Show an action bar typed dialogue", Colors.CYAN, "fa6-solid:xmarks-lines")
+@Entry("actionbar_dialogue_cinematic", "显示动作栏类型对话", Colors.CYAN, "fa6-solid:xmarks-lines")
 /**
  * The `Action Bar Dialogue Cinematic` is a cinematic that shows a dialogue in the action bar.
  * You can specify the speaker and the dialogue.
@@ -47,10 +47,10 @@ class ActionBarDialogueCinematicEntry(
     }
 }
 
-@Deprecated("Use RandomVariable entry with a normal ActionBarDialogue instead")
+@Deprecated("请改用带普通ActionBarDialogue的RandomVariable条目")
 @Entry(
     "random_actionbar_dialogue_cinematic",
-    "Show a random action bar typed dialogue",
+    "显示随机动作栏类型对话",
     Colors.CYAN,
     "fa6-solid:xmarks-lines"
 )

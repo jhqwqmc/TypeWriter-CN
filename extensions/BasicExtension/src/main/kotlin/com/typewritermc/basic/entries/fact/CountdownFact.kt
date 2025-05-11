@@ -19,7 +19,7 @@ import kotlin.time.Duration.Companion.seconds
 
 @Entry(
     "countdown_fact",
-    "A fact that counts down from the set value",
+    "从设定值开始倒计时的持久化变量",
     Colors.PURPLE,
     "material-symbols:person-pin"
 )

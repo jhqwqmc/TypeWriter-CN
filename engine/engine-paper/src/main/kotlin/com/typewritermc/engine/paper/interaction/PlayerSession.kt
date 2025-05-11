@@ -63,7 +63,7 @@ class PlayerSession(val player: Player) : KoinComponent {
                 // Wait for the remainder or the tick
                 val wait = TICK_MS - (endTime - startTime) - AVERAGE_SCHEDULING_DELAY_MS
                 if (wait > 0) delay(wait)
-                else if (wait < -100) logger.warning("The session ticker for ${player.name} is running behind! Took ${endTime - startTime}ms (if this happens only occasionally, it's fine)")
+                else if (wait < -100) logger.warning("玩家${player.name}的会话计时器运行滞后！耗时${endTime - startTime}毫秒（若偶尔发生属正常现象）")
             }
         }
     }

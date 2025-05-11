@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "item_in_slot_audience",
-    "Filters an audience based on if they have a specific item in a specific slot",
+    "基于玩家特定槽位是否有特定物品的受众筛选器",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:hand"
 )
@@ -25,9 +25,9 @@ class ItemInSlotAudienceEntry(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
-    @Help("The item to check for.")
+    @Help("需要检查的物品")
     val item: Var<Item> = ConstVar(Item.Empty),
-    @Help("The slot to check.")
+    @Help("需要检查的槽位")
     val slot: Var<Int> = ConstVar(0),
     override val inverted: Boolean = false,
 ) : AudienceFilterEntry, Invertible {

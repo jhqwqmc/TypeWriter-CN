@@ -46,7 +46,7 @@ class ExtensionLoader : KoinComponent {
             ZipFile(jar).use { zip ->
                 val jsonEntry = zip.getEntry("extension.json")
                 if (jsonEntry == null) {
-                    logger.severe("No extension.json file found in jar: ${jar.name}, is this a valid Typewriter extension?")
+                    logger.severe("在jar包中未找到extension.json文件: ${jar.name}，这是一个有效的Typewriter扩展吗？")
                     return@mapNotNull null
                 }
                 zip.getInputStream(jsonEntry).bufferedReader().use { it.readText() }
@@ -63,13 +63,13 @@ class ExtensionLoader : KoinComponent {
                 gson.fromJson(extensionJson, Extension::class.java) to extensionJson
             }.filter { (extension, _) ->
                 if (extension.extension.engineVersion != version) {
-                    logger.warning("Extension '${extension.extension.name}Extension' was made for Typewriter ${extension.extension.engineVersion} but you are using Typewriter $version. Ignoring extension.")
+                    logger.warning("扩展'${extension.extension.name}Extension'是为Typewriter ${extension.extension.engineVersion}开发的，但您正在使用Typewriter $version。已忽略该扩展。")
                     return@filter false
                 }
 
                 val paper = extension.extension.paper
                 if (paper == null) {
-                    logger.warning("Extension '${extension.extension.name}Extension' does not seem to be a paper extension. Ignoring extension.")
+                    logger.warning("扩展'${extension.extension.name}Extension'似乎不是Paper扩展。已忽略该扩展。")
                     return@filter false
                 }
 
@@ -78,7 +78,7 @@ class ExtensionLoader : KoinComponent {
                 if (missingDependencies.isNotEmpty()) {
                     val missing = missingDependencies.joinToString(", ")
                     logger.warning(
-                        "Extension '${extension.extension.name}Extension' is missing external dependencies: '${missing}'. Ignoring extension."
+                        "扩展'${extension.extension.name}Extension'缺少外部依赖: '${missing}'。已忽略该扩展。"
                     )
                     return@filter false
                 }
@@ -97,9 +97,9 @@ class ExtensionLoader : KoinComponent {
                     }
 
                 if (missingDependencies.isNotEmpty()) {
-                    val missing = missingDependencies.joinToString(", ") { "${it.namespace}:${it.name}Extension" }
+                    val missing = missingDependencies.joinToString(", ") { "${it.namespace}:${it.name}扩展" }
                     logger.warning(
-                        "Extension '${extension.extension.name}Extension' is missing extension dependencies: '${missing}'. Ignoring extension."
+                        "扩展'${extension.extension.name}Extension'缺少扩展依赖: '${missing}'。已忽略该扩展。"
                     )
                     return@filter false
                 }
@@ -119,17 +119,17 @@ class ExtensionLoader : KoinComponent {
             logger.warning(
                 """
                 |
-                |${"-".repeat(15)}{ No Extensions Loaded }${"-".repeat(15)}
+                |${"-".repeat(15)}{ 没有加载任何扩展 }${"-".repeat(15)}
                 |
-                |No extensions were loaded.
-                |You should always have at least the BasicExtension loaded.
+                |未加载任何扩展。
+                |您至少应该加载BasicExtension基础扩展。
                 |
                 |${"-".repeat(50)}
                 """.trimMargin()
             )
         } else {
             val unsupportedMessage = if (extensions.any { it.extension.flags.contains(ExtensionFlag.Unsupported) }) {
-                "\nThere are unsupported extensions loaded. You won't get any support for these and should migrate them away from.\n"
+                "\\n已加载不受支持的扩展。您将不会获得这些扩展的任何支持，应该迁移它们。\\n"
             } else {
                 ""
             }
@@ -141,7 +141,7 @@ class ExtensionLoader : KoinComponent {
             logger.info(
                 """
                 |
-                |${"-".repeat(15)}{ Loaded Extensions }${"-".repeat(15)}
+                |${"-".repeat(15)}{ 已加载的扩展 }${"-".repeat(15)}
                 |
                 |${extensionsDisplay}
                 |$unsupportedMessage
@@ -170,7 +170,7 @@ class ExtensionLoader : KoinComponent {
         classLoader?.let {
             return it.loadClass(className)
         }
-        throw IllegalStateException("ExtensionLoader tried to load a class before it was initialized")
+        throw IllegalStateException("扩展加载器在初始化前尝试加载类")
     }
 
     fun unload() {
@@ -215,7 +215,7 @@ data class PaperExtensionInfo(
  * It is nicely formatted to align the information between adapters.
  */
 fun Extension.displayString(maxAdapterLength: Int, maxVersionLength: Int, maxDigits: Int): String {
-    var display = "${extension.name}Extension".rightPad(maxAdapterLength + "Extension".length)
+    var display = "${extension.name}扩展".rightPad(maxAdapterLength + "扩展".length)
     display += " (${extension.version})".rightPad(maxVersionLength + 2)
     display += padCount("📚", entries.size, maxDigits)
     display += padCount("👂", entryListeners.size, maxDigits)
@@ -300,15 +300,15 @@ enum class ExtensionFlag(val warning: String) {
     /**
      * The extension is not tested and may not work.
      */
-    Untested("⚠\uFE0F UNTESTED"),
+    Untested("⚠\uFE0F 未测试"),
 
     /**
      * The extension is deprecated and should not be used.
      */
-    Deprecated("⚠\uFE0F DEPRECATED"),
+    Deprecated("⚠\uFE0F 已弃用"),
 
     /**
      * The extension is not supported and should be migrated away from.
      */
-    Unsupported("⚠\uFE0F UNSUPPORTED"),
+    Unsupported("⚠\uFE0F 不受支持"),
 }

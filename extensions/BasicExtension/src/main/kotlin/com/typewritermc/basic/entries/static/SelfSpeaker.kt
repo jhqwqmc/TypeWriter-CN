@@ -8,7 +8,7 @@ import com.typewritermc.engine.paper.utils.Sound
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("self_speaker", "The player themself", Colors.ORANGE, "bi:person-fill")
+@Entry("self_speaker", "玩家自身", Colors.ORANGE, "bi:person-fill")
 /**
  * The `Self Speaker` is a speaker that represents the player themselves.
  * This speaker is used to display messages from the player's perspective.

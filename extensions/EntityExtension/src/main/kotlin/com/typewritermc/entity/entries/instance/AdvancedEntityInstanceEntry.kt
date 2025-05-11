@@ -15,7 +15,7 @@ import java.util.Optional
 
 @Entry(
     "shared_advanced_entity_instance",
-    "An advanced instance of an entity",
+    "实体的高级实例",
     Colors.YELLOW,
     "material-symbols:settings-account-box"
 )
@@ -38,7 +38,7 @@ class SharedAdvancedEntityInstanceEntry(
 
 @Entry(
     "group_advanced_entity_instance",
-    "An advanced instance of an entity",
+    "实体的高级实例",
     Colors.YELLOW,
     "material-symbols:settings-account-box"
 )
@@ -62,7 +62,7 @@ class GroupAdvancedEntityInstanceEntry(
 
 @Entry(
     "individual_advanced_entity_instance",
-    "An advanced instance of an entity",
+    "实体的高级实例",
     Colors.YELLOW,
     "material-symbols:settings-account-box"
 )

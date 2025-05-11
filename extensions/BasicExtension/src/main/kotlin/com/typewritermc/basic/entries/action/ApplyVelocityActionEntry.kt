@@ -14,7 +14,7 @@ import com.typewritermc.engine.paper.entry.entries.Var
 import com.typewritermc.engine.paper.utils.toBukkitVector
 import org.bukkit.entity.Player
 
-@Entry("apply_velocity", "Apply a velocity to the player", Colors.RED, "fa-solid:wind")
+@Entry("apply_velocity", "对玩家施加速度效果", Colors.RED, "fa-solid:wind")
 /**
  * The `ApplyVelocityActionEntry` is an action that applies a velocity to the player.
  *

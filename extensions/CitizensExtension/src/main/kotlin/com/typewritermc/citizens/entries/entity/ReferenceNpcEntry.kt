@@ -11,7 +11,7 @@ import net.citizensnpcs.api.CitizensAPI
 import org.bukkit.entity.Player
 
 @Tags("reference_npc")
-@Entry("reference_npc", "When the npc is not managed by TypeWriter", Colors.ORANGE, "fa-solid:user-tie")
+@Entry("reference_npc", "当NPC未被TypeWriter管理时", Colors.ORANGE, "fa-solid:user-tie")
 /**
  * An identifier that references an NPC in the Citizens plugin. But does not manage the NPC.
  *
@@ -24,7 +24,7 @@ class ReferenceNpcEntry(
     override val name: String = "",
     override val displayName: Var<String> = ConstVar(""),
     override val sound: Sound = Sound.EMPTY,
-    @Help("The id of the NPC in the Citizens plugin.")
+    @Help("Citizens插件中NPC的ID")
     val npcId: Int = 0,
 ) : SoundSourceEntry, SpeakerEntry, StaticEntry {
     override fun getEmitter(player: Player): SoundEmitter {

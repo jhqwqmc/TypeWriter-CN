@@ -14,7 +14,7 @@ import com.typewritermc.engine.paper.utils.item.Item
 import com.typewritermc.engine.paper.utils.ThreadType.SYNC
 import org.bukkit.entity.Player
 
-@Entry("set_item", "Set an item in a specific slot", Colors.RED, "fluent:tray-item-add-24-filled")
+@Entry("set_item", "在特定槽位设置物品", Colors.RED, "fluent:tray-item-add-24-filled")
 /**
  * The `Set Item Action` is an action that sets an item in a specific slot in the player's inventory.
  *

@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.utils.msg
 import io.papermc.paper.command.brigadier.CommandSourceStack
 import org.bukkit.entity.Player
 
-@Entry("on_run_command", "When a player runs a custom command", Colors.YELLOW, "mingcute:terminal-fill")
+@Entry("on_run_command", "当玩家运行自定义命令时", Colors.YELLOW, "mingcute:terminal-fill")
 /**
  * The `Run Command Event` event is triggered when a command is run. This event can be used to add custom commands to the server.
  *
@@ -31,7 +31,7 @@ class RunCommandEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The command to register. Do not include the leading slash.")
+    @Help("要注册的命令（不要包含开头的斜杠）")
     val command: String = "",
 ) : CustomCommandEntry, EventEntry {
     @Suppress("UnstableApiUsage")
@@ -39,7 +39,7 @@ class RunCommandEventEntry(
         executes {
             val player = (source.executor as? Player) ?: (sender as? Player)
             if (player == null) {
-                sender.msg("You must be a player to run this command.")
+                sender.msg("执行此命令必须是玩家身份")
                 return@executes
             }
             triggerAllFor(player, context())
@@ -49,13 +49,13 @@ class RunCommandEventEntry(
             executes {
                 val players = resolver().resolve(source)
                 if (players.isEmpty()) {
-                    sender.msg("<red>No players found to run this command for.")
+                    sender.msg("<red>找不到可以执行此命令的玩家")
                     return@executes
                 }
                 players.forEach { player ->
                     triggerAllFor(player, context())
                 }
-                sender.msg("Triggered $command for <green>${players.joinToString(", ") { it.name }}</green>.")
+                sender.msg("已为<green>${players.joinToString(", ") { it.name }}</green>触发${command}命令。")
             }
         }
     }

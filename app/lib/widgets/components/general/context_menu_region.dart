@@ -57,7 +57,7 @@ class _ContextMenuRegionState extends State<ContextMenuRegion> {
   }
 
   void _onLongPress() {
-    assert(_longPressOffset != null, "Long press offset should not be null");
+    assert(_longPressOffset != null, "长按偏移量不能为空");
     _show(_longPressOffset!);
     _longPressOffset = null;
   }
@@ -410,7 +410,7 @@ class ContextMenuController {
   void markNeedsBuild() {
     assert(
       isShown,
-      "Cannot call markNeedsBuild on a context menu that is not shown",
+      "不能在未显示的上下文菜单上调用markNeedsBuild",
     );
     _menuOverlayEntry?.markNeedsBuild();
   }

@@ -123,7 +123,7 @@ class _PagesSelector extends HookConsumerWidget {
                 children: [
                   const SizedBox(height: 12),
                   Text(
-                    "Pages",
+                    "页面",
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium
@@ -254,7 +254,7 @@ class _TreeCategory extends HookConsumerWidget {
           builder: (context) {
             return [
               ContextMenuTile.button(
-                title: "New Page",
+                title: "新建页面",
                 icon: TWIcons.plus,
                 onTap: () => showDialog(
                   context: context,
@@ -396,7 +396,7 @@ class _PageTile extends HookConsumerWidget {
   ) {
     return [
       ContextMenuTile.button(
-        title: "Rename",
+        title: "重命名",
         icon: TWIcons.pencil,
         onTap: () => showDialog(
           context: context,
@@ -407,7 +407,7 @@ class _PageTile extends HookConsumerWidget {
         ),
       ),
       ContextMenuTile.button(
-        title: "Change Chapter",
+        title: "更改章节",
         icon: TWIcons.bookMarker,
         onTap: () => showDialog(
           context: context,
@@ -416,7 +416,7 @@ class _PageTile extends HookConsumerWidget {
         ),
       ),
       ContextMenuTile.button(
-        title: "Change Priority",
+        title: "更改优先级",
         icon: TWIcons.priority,
         onTap: () => showDialog(
           context: context,
@@ -425,7 +425,7 @@ class _PageTile extends HookConsumerWidget {
       ),
       ContextMenuTile.divider(),
       ContextMenuTile.button(
-        title: "Delete",
+        title: "删除",
         icon: TWIcons.trash,
         color: Colors.redAccent,
         onTap: () => showPageDeletionDialogue(context, ref.passing, pageId),
@@ -631,8 +631,8 @@ class EmptyPageEditor extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return EmptyScreen(
-      title: "Select a page to edit or",
-      buttonText: "Add Page",
+      title: "选择要编辑的页面或",
+      buttonText: "添加页面",
       onButtonPressed: () => _showAddPageDialog(context),
     );
   }
@@ -665,7 +665,7 @@ class _AddPageButton extends HookConsumerWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    "Add page",
+                    "添加页面",
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Colors.white,
                         ),
@@ -714,7 +714,7 @@ class AddPageDialogue extends HookConsumerWidget {
     String text,
   ) {
     if (text.isEmpty) {
-      return "Name cannot be empty";
+      return "名称不能为空";
     }
     return null;
   }
@@ -733,8 +733,8 @@ class AddPageDialogue extends HookConsumerWidget {
     return AlertDialog(
       title: Text(
         fixedType != null
-            ? "Add a new ${fixedType!.tag} page"
-            : "Add a new page",
+            ? "添加新的${fixedType!.tag}页面"
+            : "添加新页面",
       ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -776,14 +776,14 @@ class AddPageDialogue extends HookConsumerWidget {
           ],
           const SizedBox(height: 12),
           ExpansionTile(
-            title: const Text("Advanced"),
+            title: const Text("高级选项"),
             shape: const RoundedRectangleBorder(),
             children: [
               const SizedBox(height: 12),
               FormattedTextField(
                 focus: chapterFocus,
                 text: chapter.value,
-                hintText: "Chapter Name",
+                hintText: "章节名称",
                 icon: TWIcons.book,
                 inputFormatters: [
                   TextInputFormatter.withFunction(
@@ -804,7 +804,7 @@ class AddPageDialogue extends HookConsumerWidget {
               FormattedTextField(
                 focus: priorityFocus,
                 text: priority.value.toString(),
-                hintText: "Priority",
+                hintText: "优先级",
                 icon: TWIcons.priority,
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(RegExp(r"^-?\d*")),
@@ -818,7 +818,7 @@ class AddPageDialogue extends HookConsumerWidget {
       actions: [
         TextButton.icon(
           icon: const Iconify(TWIcons.x),
-          label: const Text("Cancel"),
+          label: const Text("取消"),
           style: TextButton.styleFrom(
             foregroundColor: Theme.of(context).textTheme.bodySmall?.color,
           ),
@@ -838,7 +838,7 @@ class AddPageDialogue extends HookConsumerWidget {
                   );
                   navigator.pop(pageId);
                 },
-          label: const Text("Add"),
+          label: const Text("添加"),
           icon: const Iconify(TWIcons.plus),
         ),
       ],
@@ -868,11 +868,11 @@ class RenamePageDialogue extends HookConsumerWidget {
     String text,
   ) {
     if (text.isEmpty) {
-      return "Name cannot be empty";
+      return "名称不能为空";
     }
 
     if (text == oldName) {
-      return "Name cannot be the same";
+      return "名称不能重复";
     }
     return null;
   }
@@ -883,10 +883,10 @@ class RenamePageDialogue extends HookConsumerWidget {
     final isNameValid = useState(false);
 
     return AlertDialog(
-      title: Text("Rename ${oldName.formatted}"),
+      title: Text("重命名${oldName.formatted}"),
       content: ValidatedTextField<String>(
         value: name.value,
-        name: "Page Name",
+        name: "页面名称",
         icon: TWIcons.book,
         validator: (value) {
           final validation = _validateName(value);
@@ -903,7 +903,7 @@ class RenamePageDialogue extends HookConsumerWidget {
       actions: [
         TextButton.icon(
           icon: const Iconify(TWIcons.x),
-          label: const Text("Cancel"),
+          label: const Text("取消"),
           style: TextButton.styleFrom(
             foregroundColor: Theme.of(context).textTheme.bodySmall?.color,
           ),
@@ -917,7 +917,7 @@ class RenamePageDialogue extends HookConsumerWidget {
                   await _renamePage(ref, name.value);
                   navigator.pop(true);
                 },
-          label: const Text("Rename"),
+          label: const Text("重命名"),
           icon: const Iconify(TWIcons.pencil),
           color: Colors.orange,
         ),
@@ -959,11 +959,11 @@ class ChangeChapterDialogue extends HookConsumerWidget {
     useDelayedExecution(focusNode.requestFocus);
 
     return AlertDialog(
-      title: Text("Change chapter of ${ref.watch(pageNameProvider(pageId))}"),
+      title: Text("更改${ref.watch(pageNameProvider(pageId))}的章节"),
       content: FormattedTextField(
         focus: focusNode,
         text: chapter.value,
-        hintText: "Chapter Name",
+        hintText: "章节名称",
         icon: TWIcons.book,
         inputFormatters: [
           TextInputFormatter.withFunction(
@@ -985,7 +985,7 @@ class ChangeChapterDialogue extends HookConsumerWidget {
       actions: [
         TextButton.icon(
           icon: const Iconify(TWIcons.x),
-          label: const Text("Cancel"),
+          label: const Text("取消"),
           style: TextButton.styleFrom(
             foregroundColor: Theme.of(context).textTheme.bodySmall?.color,
           ),
@@ -998,7 +998,7 @@ class ChangeChapterDialogue extends HookConsumerWidget {
             chapter.value,
             changed,
           ),
-          label: const Text("Change"),
+          label: const Text("更改"),
           icon: const Iconify(TWIcons.pencil),
           color: Colors.orange,
         ),
@@ -1040,13 +1040,13 @@ class ChangePagePriorityDialogue extends HookConsumerWidget {
 
     return AlertDialog(
       title: Text(
-        "Change priority of ${ref.watch(pageNameProvider(pageId))?.formatted}",
+        "更改${ref.watch(pageNameProvider(pageId))?.formatted}的优先级",
       ),
       content: FormattedTextField(
         controller: controller,
         focus: focusNode,
         text: priority.toString(),
-        hintText: "Priority",
+        hintText: "优先级",
         icon: TWIcons.book,
         inputFormatters: [
           FilteringTextInputFormatter.allow(RegExp(r"^-?\d*")),
@@ -1057,7 +1057,7 @@ class ChangePagePriorityDialogue extends HookConsumerWidget {
       actions: [
         TextButton.icon(
           icon: const Iconify(TWIcons.x),
-          label: const Text("Cancel"),
+          label: const Text("取消"),
           style: TextButton.styleFrom(
             foregroundColor: Theme.of(context).textTheme.bodySmall?.color,
           ),
@@ -1070,7 +1070,7 @@ class ChangePagePriorityDialogue extends HookConsumerWidget {
             int.parse(controller.text),
             changed,
           ),
-          label: const Text("Change"),
+          label: const Text("更改"),
           icon: const Iconify(TWIcons.pencil),
           color: Colors.orange,
         ),
@@ -1084,14 +1084,14 @@ Future<bool> showPageDeletionDialogue(
   PassingRef ref,
   String pageId,
 ) {
-  final pageName = ref.read(pageProvider(pageId))?.pageName ?? "Page";
+  final pageName = ref.read(pageProvider(pageId))?.pageName ?? "页面";
   return showConfirmationDialogue(
     context: context,
-    title: "Delete ${pageName.formatted}?",
+    title: "删除${pageName.formatted}?",
     content:
-        "This will delete the page and all its content.\nTHIS CANNOT BE UNDONE.",
+        "这将删除该页面及其所有内容。\n此操作不可撤销。",
     delayConfirm: 3.seconds,
-    confirmText: "Delete",
+    confirmText: "删除",
     confirmIcon: TWIcons.trash,
     onConfirm: () async {
       await ref.read(bookProvider.notifier).deletePage(pageId);

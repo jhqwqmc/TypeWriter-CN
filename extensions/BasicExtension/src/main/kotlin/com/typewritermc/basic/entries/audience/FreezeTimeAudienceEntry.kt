@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Entry(
     "freeze_time_audience",
-    "Freezes the game time for a player to a specific time",
+    "将玩家的游戏时间锁定为特定时刻",
     Colors.GREEN,
     "mingcute:sandglass-fill"
 )

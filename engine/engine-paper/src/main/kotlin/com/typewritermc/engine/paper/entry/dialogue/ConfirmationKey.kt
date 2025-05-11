@@ -18,15 +18,15 @@ import org.bukkit.event.player.PlayerToggleSneakEvent
 
 private val confirmationKeyString by config(
     "confirmationKey", ConfirmationKey.JUMP.name, comment = """
-    |The key that should be pressed to confirm a dialogue option.
-    |Possible values: ${ConfirmationKey.entries.joinToString(", ") { it.name }}
+    |用于确认对话选项的按键。
+    |可选值: ${ConfirmationKey.entries.joinToString(", ") { it.name }}
 """.trimMargin()
 )
 
 val confirmationKey: ConfirmationKey by reloadable {
     val key = ConfirmationKey.fromString(confirmationKeyString)
     if (key == null) {
-        plugin.logger.warning("Invalid confirmation key '$confirmationKeyString'. Using default key '${ConfirmationKey.JUMP.name}' instead.")
+        plugin.logger.warning("无效的确认按键'$confirmationKeyString'。将使用默认按键'${ConfirmationKey.JUMP.name}'替代。")
         return@reloadable ConfirmationKey.JUMP
     }
     key

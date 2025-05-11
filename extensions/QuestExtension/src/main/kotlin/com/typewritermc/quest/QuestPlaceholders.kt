@@ -5,7 +5,7 @@ import com.typewritermc.engine.paper.extensions.placeholderapi.PlaceholderHandle
 import com.typewritermc.engine.paper.snippets.snippet
 import org.bukkit.entity.Player
 
-private val noneTracked by snippet("quest.tracked.none", "<gray>None tracked</gray>")
+private val noneTracked by snippet("quest.tracked.none", "<gray>无追踪</gray>")
 
 @Singleton
 class QuestPlaceholders : PlaceholderHandler {

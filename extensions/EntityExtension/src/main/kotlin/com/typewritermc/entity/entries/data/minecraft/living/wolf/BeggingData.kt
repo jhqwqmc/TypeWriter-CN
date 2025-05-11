@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("begging_data", "The begging state of the wolf", Colors.RED, "game-icons:sitting-dog")
+@Entry("begging_data", "狼的乞求状态", Colors.RED, "game-icons:sitting-dog")
 @Tags("begging_data", "wolf_data")
 class BeggingData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class BeggingProperty(val wolfBegging: Boolean) : EntityProperty {
 fun applyBeggingData(entity: WrapperEntity, property: BeggingProperty) {
     entity.metas {
         meta<WolfMeta> { isBegging = property.wolfBegging }
-        error("Could not apply WolfBeggingData to ${entity.entityType} entity.")
+        error("无法将WolfBeggingData应用到${entity.entityType}实体")
     }
 }

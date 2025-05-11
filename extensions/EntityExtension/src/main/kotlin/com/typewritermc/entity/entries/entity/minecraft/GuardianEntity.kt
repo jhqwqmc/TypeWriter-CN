@@ -20,7 +20,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.guardian.applyRetra
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("guardian_definition", "A guardian entity", Colors.ORANGE, "tabler:radar-filled")
+@Entry("guardian_definition", "守卫者实体", Colors.ORANGE, "tabler:radar-filled")
 @Tags("guardian_definition")
 /**
  * The `GuardianDefinition` class is an entry that shows up as a guardian in-game.
@@ -39,7 +39,7 @@ class GuardianDefinition(
     override fun create(player: Player): FakeEntity = GuardianEntity(player)
 }
 
-@Entry("guardian_instance", "An instance of a guardian entity", Colors.YELLOW, "tabler:radar-filled")
+@Entry("guardian_instance", "守卫者实体的实例", Colors.YELLOW, "tabler:radar-filled")
 class GuardianInstance(
     override val id: String = "",
     override val name: String = "",

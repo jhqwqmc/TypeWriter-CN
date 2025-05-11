@@ -45,13 +45,13 @@ interface GroupAdvancedEntityInstance : EntityInstanceEntry {
 
     val showRange: Optional<Var<Double>>
 
-    @Help("The group that this entity instance belongs to.")
+    @Help("该实体实例所属的组。")
     val group: Ref<out GroupEntry>
 
     override suspend fun display(): AudienceFilter {
         val activityCreator = this.activity.get() ?: IdleActivity
 
-        val group = this.group.get() ?: throw IllegalStateException("No group found for the group entity instance.")
+        val group = this.group.get() ?: throw IllegalStateException("未找到该组实体实例的组。")
         val (definition, suppliers) = baseInfo() ?: return PassThroughFilter(ref())
 
         return GroupAudienceEntityDisplay(
@@ -87,7 +87,7 @@ interface IndividualAdvancedEntityInstance : EntityInstanceEntry {
 private fun EntityInstanceEntry.baseInfo(): BaseInfo? {
     val definition = definition.get()
     if (definition == null) {
-        logger.warning("You must specify a definition for $name")
+        logger.warning("必须为${name}指定定义")
         return null
     }
 

@@ -147,7 +147,7 @@ class EntryInteractionContextKeyEditor extends HookConsumerWidget {
 
             return EntrySelectorEditorDisplay(
               entryId: candidateData.firstOrNull?.entryId ?? entryId,
-              display: "Entry",
+              display: "条目",
               isAccepting: isAccepting,
               selectEntry: () {
                 _select(ref.passing, targetBlueprint);

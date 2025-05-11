@@ -53,7 +53,7 @@ import org.geysermc.geyser.api.connection.GeyserConnection
 import java.util.*
 import kotlin.math.abs
 
-@Entry("camera_cinematic", "Create a cinematic camera path", Colors.CYAN, "fa6-solid:video")
+@Entry("camera_cinematic", "创建过场动画摄像机路径", Colors.CYAN, "fa6-solid:video")
 /**
  * The `Camera Cinematic` entry is used to create a cinematic camera path.
  *
@@ -110,7 +110,7 @@ data class CameraSegment(
 data class PathPoint(
     @WithRotation
     val location: Var<Position> = ConstVar(Position.ORIGIN),
-    @Help("The duration of the path point in frames.")
+    @Help("路径点的持续时间（以帧为单位）")
     /**
      * The duration of the path point in frames.
      * If not set,
@@ -551,7 +551,7 @@ private fun List<PathPoint>.transform(
     locationTransformer: (Position) -> Position
 ): List<PointSegment> {
     if (isEmpty()) {
-        throw IllegalArgumentException("The path points cannot be empty.")
+        throw IllegalArgumentException("路径点不能为空")
     }
 
     if (size == 1) {
@@ -563,7 +563,7 @@ private fun List<PathPoint>.transform(
 
     val allocatedDuration = sumOf { it.duration.orElse(0) }
     if (allocatedDuration > totalDuration) {
-        throw IllegalArgumentException("The total duration of the path points is greater than the total duration of the cinematic.")
+        throw IllegalArgumentException("路径点的总持续时间大于过场动画的总时长")
     }
 
     val remainingDuration = totalDuration - allocatedDuration
@@ -573,7 +573,7 @@ private fun List<PathPoint>.transform(
 
     if (leftSegments == 0) {
         if (remainingDuration > 0) {
-            logger.warning("The sum duration of the path points is less than the total duration of the cinematic. The remaining duration will be still frames.")
+            logger.warning("路径点的总持续时间小于过场动画的总时长，剩余时长将保持为静止帧")
         }
 
         var currentFrame = 0

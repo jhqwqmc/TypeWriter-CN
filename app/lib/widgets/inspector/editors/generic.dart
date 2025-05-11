@@ -77,10 +77,10 @@ class GenericNotFoundWidget extends HookConsumerWidget {
       onTap: () => launchUrlString("https://discord.gg/uYfnzJAFZN"),
       child: Text.rich(
         TextSpan(
-          text: "Could not find Generic information in the context, ",
+          text: "无法在上下文中找到泛型信息，",
           children: [
             TextSpan(
-              text: "please report this in the Typewriter Discord",
+              text: "请到Typewriter Discord反馈此问题",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),

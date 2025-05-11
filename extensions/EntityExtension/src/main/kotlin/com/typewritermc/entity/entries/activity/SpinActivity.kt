@@ -16,7 +16,7 @@ enum class SpinAxis {
     YAW, PITCH
 }
 
-@Entry("spin_activity", "A spinning activity", Colors.BLUE, "fa6-solid:rotate")
+@Entry("spin_activity", "旋转活动", Colors.BLUE, "fa6-solid:rotate")
 /**
  * The `SpinActivity` makes the entity rotate around its axis.
  *
@@ -26,12 +26,12 @@ enum class SpinAxis {
 class SpinActivityEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The duration of one full rotation")
+    @Help("完成一次完整旋转的持续时间")
     val duration: Var<Duration> = ConstVar(Duration.ofSeconds(2)),
     @Default("true")
     val clockwise: Boolean = true,
     val axis: SpinAxis = SpinAxis.YAW,
-    @Help("The activity that supplies the base position")
+    @Help("提供基础位置的活动")
     val childActivity: Ref<out EntityActivityEntry> = emptyRef()
 ) : GenericEntityActivityEntry {
     override fun create(context: ActivityContext, currentLocation: PositionProperty): EntityActivity<ActivityContext> {

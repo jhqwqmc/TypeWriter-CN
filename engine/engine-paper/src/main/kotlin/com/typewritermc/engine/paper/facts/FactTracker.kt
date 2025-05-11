@@ -120,7 +120,7 @@ fun Player.listenForFacts(
     facts: List<Ref<ReadableFactEntry>>,
     listener: (Player, Ref<ReadableFactEntry>) -> Unit
 ): FactListenerSubscription {
-    val watcher = factTracker ?: throw IllegalStateException("Player is not in an quest")
+    val watcher = factTracker ?: throw IllegalStateException("玩家未参与任何任务")
     return watcher.addListener(facts, listener)
 }
 

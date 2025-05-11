@@ -18,7 +18,7 @@ import kotlin.reflect.safeCast
 
 @Entry(
     "skin_variable",
-    "A variable that returns a players skin based on the uuid",
+    "基于UUID返回玩家皮肤的变量",
     Colors.GREEN,
     "ant-design:skin-filled"
 )
@@ -37,16 +37,16 @@ class SkinVariable(
     override val name: String = "",
 ) : VariableEntry {
     override fun <T : Any> get(context: VarContext<T>): T {
-        val data = context.getData<SkinVariableData>() ?: throw IllegalStateException("Could not find data for ${context.klass}, data: ${context.data} for entry $id")
+        val data = context.getData<SkinVariableData>() ?: throw IllegalStateException("找不到${context.klass}的数据，条目${id}的数据：${context.data}")
         val possibleUUID = data.uuid.parsePlaceholders(context.player)
         val uuid = try {
             UUID.fromString(possibleUUID)
         } catch (e: IllegalArgumentException) {
-            logger.warning("Could not parse uuid '$possibleUUID' for entry $id, using player uuid instead")
+            logger.warning("无法为条目${id}解析UUID'$possibleUUID'，将改用玩家UUID")
             context.player.uniqueId
         }
         val skin = server.getOfflinePlayer(uuid).skin
-        return context.klass.safeCast(skin) ?: throw IllegalStateException("Could not cast skin to ${context.klass}, SkinProperty is only compatible with SkinProperty fields")
+        return context.klass.safeCast(skin) ?: throw IllegalStateException("无法将皮肤转换为${context.klass}，SkinProperty仅兼容SkinProperty类型字段")
     }
 }
 

@@ -57,11 +57,11 @@ enum class CriteriaOperator {
 }
 
 data class Criteria(
-    @Help("The fact to check before triggering the entry")
+    @Help("触发条目前需要检查的持久化变量")
     val fact: Ref<ReadableFactEntry> = emptyRef(),
-    @Help("The operator to use when comparing the fact value to the criteria value")
+    @Help("比较持久化变量值与条件值时使用的运算符")
     val operator: CriteriaOperator = CriteriaOperator.EQUALS,
-    @Help("The value to compare the fact value to")
+    @Help("用于与持久化变量值比较的基准值")
     @Negative
     val value: Var<Int> = ConstVar(0),
 ) {
@@ -90,11 +90,11 @@ enum class ModifierOperator {
 }
 
 data class Modifier(
-    @Help("The fact to modify after the entry is completed")
+    @Help("条目完成后需要修改的持久化变量")
     val fact: Ref<WritableFactEntry> = emptyRef(),
-    @Help("The operator to use when modifying the fact value")
+    @Help("修改持久化变量值时使用的运算符")
     val operator: ModifierOperator = ModifierOperator.ADD,
-    @Help("The value to modify the fact value by")
+    @Help("持久化变量值的修改量")
     @Negative
     val value: Var<Int> = ConstVar(0),
 )

@@ -7,15 +7,15 @@ import java.time.Duration
 
 private val typingDurationTypeString by config(
     "typingDurationType", TypingDurationType.TOTAL.name, comment = """
-    |The type of typing duration that should be used.
-    |Possible values: ${TypingDurationType.entries.joinToString(", ") { it.name }}
+    |应该使用的打字持续时间类型。
+    |可选值: ${TypingDurationType.entries.joinToString(", ") { it.name }}
 """.trimMargin()
 )
 
 val typingDurationType: TypingDurationType by reloadable {
     val type = TypingDurationType.fromString(typingDurationTypeString)
     if (type == null) {
-        plugin.logger.warning("Invalid typing duration type '$typingDurationTypeString'. Using default type '${TypingDurationType.TOTAL.name}' instead.")
+        plugin.logger.warning("无效的打字持续时间类型'$typingDurationTypeString'。将使用默认类型'${TypingDurationType.TOTAL.name}'替代。")
         return@reloadable TypingDurationType.TOTAL
     }
     type

@@ -10,7 +10,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.player.PlayerChangedWorldEvent
 
-@Entry("world_audience", "Filters an audience based on the world", Colors.MEDIUM_SEA_GREEN, "bi:globe-europe-africa")
+@Entry("world_audience", "基于世界的受众筛选器", Colors.MEDIUM_SEA_GREEN, "bi:globe-europe-africa")
 /**
  * The `World Audience` entry filters an audience based on the world.
  *

@@ -176,16 +176,16 @@ class _DeperecationWarning extends StatelessWidget {
       onTap: _launceUrl,
       child: Text.rich(
         TextSpan(
-          text: "This entry has been marked as deprecated. Take a look at the ",
+          text: "此条目已被标记为弃用。请查看",
           children: [
             TextSpan(
-              text: "documentation",
+              text: "文档",
               style: TextStyle(
                 decoration: TextDecoration.underline,
                 decorationColor: Colors.redAccent,
               ),
             ),
-            TextSpan(text: " for more information."),
+            TextSpan(text: "以获取更多信息。"),
             if (reason.isNotEmpty) ...[
               TextSpan(
                 text: "\n$reason",

@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.entry.triggerFor
 
 @Entry(
     "fire_trigger_event",
-    "Trigger the event when a player runs `/tw fire <entry id/name> [player]`",
+    "当玩家执行`/tw fire <条目ID/名称> [玩家]`命令时触发事件",
     Colors.YELLOW,
     "mingcute:firework-fill"
 )

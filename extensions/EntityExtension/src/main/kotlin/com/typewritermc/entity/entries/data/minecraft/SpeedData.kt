@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 import java.util.Optional
 import kotlin.reflect.KClass
 
-@Entry("speed_data", "Change the walking speed of an entity", Colors.RED, "material-symbols:speed")
+@Entry("speed_data", "修改实体的行走速度", Colors.RED, "material-symbols:speed")
 @Tags("speed_data")
 class SpeedData(
     override val id: String = "",

@@ -24,7 +24,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.shulker.applyShield
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("shulker_definition", "A shulker entity", Colors.ORANGE, "fa6-solid:box")
+@Entry("shulker_definition", "潜影贝实体", Colors.ORANGE, "fa6-solid:box")
 @Tags("shulker_definition")
 /**
  * The `ShulkerDefinition` class is an entry that shows up as a shulker in-game.
@@ -43,7 +43,7 @@ class ShulkerDefinition(
     override fun create(player: Player): FakeEntity = ShulkerEntity(player)
 }
 
-@Entry("shulker_instance", "An instance of a shulker entity", Colors.YELLOW, "fa6-solid:box")
+@Entry("shulker_instance", "潜影贝实体的实例", Colors.YELLOW, "fa6-solid:box")
 class ShulkerInstance(
     override val id: String = "",
     override val name: String = "",

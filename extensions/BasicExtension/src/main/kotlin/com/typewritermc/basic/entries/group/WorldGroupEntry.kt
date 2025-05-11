@@ -6,7 +6,7 @@ import com.typewritermc.engine.paper.entry.entries.GroupEntry
 import com.typewritermc.engine.paper.entry.entries.GroupId
 import org.bukkit.entity.Player
 
-@Entry("world_group", "Group for the whole world", Colors.MYRTLE_GREEN, "bx:world")
+@Entry("world_group", "面向整个世界的组别", Colors.MYRTLE_GREEN, "bx:world")
 /**
  * The `World Group` is a group that includes all the players in a world.
  *

@@ -35,7 +35,7 @@ class Library : KoinComponent, Reloadable {
             .filter { it.isFile && it.canRead() && it.name.endsWith(".json") }
             .map {
                 val json = JsonParser.parseString(it.readText())
-                if (!json.isJsonObject) throw IllegalArgumentException("Page ${it.name} does not contain a valid json object")
+                if (!json.isJsonObject) throw IllegalArgumentException("页面 ${it.name} 不包含有效的 JSON 对象")
                 val obj = json.asJsonObject
                 obj.addProperty("id", it.name.removeSuffix(".json"))
                 obj
@@ -51,7 +51,7 @@ class Library : KoinComponent, Reloadable {
             }
         }.toMap()
 
-        logger.info("Loaded ${entries.size} entries from ${pages.size} pages.")
+        logger.info("从 ${pages.size} 个页面加载了 ${entries.size} 个条目。")
     }
 
     override suspend fun unload() {
@@ -61,13 +61,13 @@ class Library : KoinComponent, Reloadable {
     }
 
     private fun parsePage(obj: JsonObject): Page {
-        val id = obj.getAsJsonPrimitive("id")?.asString ?: throw IllegalArgumentException("Page does not have an id")
+        val id = obj.getAsJsonPrimitive("id")?.asString ?: throw IllegalArgumentException("页面没有 ID")
         val name =
-            obj.getAsJsonPrimitive("name")?.asString ?: throw IllegalArgumentException("Page $id does not have a name")
+            obj.getAsJsonPrimitive("name")?.asString ?: throw IllegalArgumentException("页面 $id 没有名称")
         val type = obj.getAsJsonPrimitive("type")?.asString
-            ?: throw IllegalArgumentException("Page $name ($id) does not have a type ")
+            ?: throw IllegalArgumentException("页面 $name ($id) 没有类型")
         val pageType =
-            PageType.fromId(type) ?: throw IllegalArgumentException("Page $name ($id) has an invalid type $type")
+            PageType.fromId(type) ?: throw IllegalArgumentException("页面 $name ($id) 的类型 $type 无效")
         val priority = obj.getAsJsonPrimitive("priority")?.asInt ?: 0
 
         val entries = obj.getAsJsonArray("entries").mapNotNull { parseEntry(it.asJsonObject, name) }
@@ -76,18 +76,18 @@ class Library : KoinComponent, Reloadable {
     }
 
     private fun parseEntry(obj: JsonObject, pageName: String): Entry? {
-        val id = obj.getAsJsonPrimitive("id")?.asString.logErrorIfNull("Entry does not have an id") ?: return null
+        val id = obj.getAsJsonPrimitive("id")?.asString.logErrorIfNull("条目没有 ID") ?: return null
         // TODO: Remove type as valid field
         val blueprintId = obj.getAsJsonPrimitive("blueprintId")?.asString ?:
-            obj.getAsJsonPrimitive("type")?.asString.logErrorIfNull("Entry '$id' does not have a blueprintId or type") ?: return null
+            obj.getAsJsonPrimitive("type")?.asString.logErrorIfNull("条目 '$id' 没有 blueprintId 或类型") ?: return null
         val clazz = extensionLoader.entryClass(blueprintId)
-            .logErrorIfNull("Could not find entry class for '$id' on page '${pageName}' with type '$blueprintId' in any extension.") ?: return null
+            .logErrorIfNull("在所有扩展中找不到页面 '${pageName}' 上 ID 为 '$id'、类型为 '$blueprintId' 的条目类") ?: return null
         try {
             val entry = gson.fromJson<Entry>(obj, clazz)
             entryValidation(entry, pageName, blueprintId)
             return entry
         } catch (e: Exception) {
-            logger.warning("Failed to parse entry '$id' with blueprintId '$blueprintId' on page '${pageName}': ${e.message}")
+            logger.warning("解析页面 '${pageName}' 上 ID 为 '$id'、blueprintId 为 '$blueprintId' 的条目失败：${e.message}")
             return null
         }
     }
@@ -99,7 +99,7 @@ class Library : KoinComponent, Reloadable {
     private fun deprecatedEntryValidation(entry: Entry, pageName: String, blueprintId: String) {
         // If the entry has the @Deprecated annotation, we want to warn the user about it.
         val deprecated = entry::class.findAnnotations<Deprecated>().firstOrNull() ?: return
-        logger.warning("Entry '${entry.id}' on page '${pageName}' with blueprintId '$blueprintId' is deprecated and will be removed in the future. Reason: ${deprecated.message}")
+        logger.warning("页面 '${pageName}' 上 ID 为 '${entry.id}'、blueprintId 为 '$blueprintId' 的条目已被弃用，将在未来移除。原因：${deprecated.message}")
     }
 
     private fun <T : Any> T?.logErrorIfNull(message: String): T? {

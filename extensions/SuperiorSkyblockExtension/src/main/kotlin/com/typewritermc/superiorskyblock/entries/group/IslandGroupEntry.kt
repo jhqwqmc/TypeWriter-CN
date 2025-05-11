@@ -7,7 +7,7 @@ import com.typewritermc.engine.paper.entry.entries.GroupEntry
 import com.typewritermc.engine.paper.entry.entries.GroupId
 import org.bukkit.entity.Player
 
-@Entry("island_group", "Group for the whole island", Colors.MYRTLE_GREEN, "fa6-solid:globe")
+@Entry("island_group", "整个岛屿的分组", Colors.MYRTLE_GREEN, "fa6-solid:globe")
 /**
  * The `Island Group` is a group that includes all the players on an island.
  *

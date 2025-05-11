@@ -141,7 +141,7 @@ class EntrySelectorEditorDisplay extends ConsumerWidget {
           return [
             if (hasEntry) ...[
               ContextMenuTile.button(
-                title: "Navigate to entry",
+                title: "导航到条目",
                 icon: TWIcons.pencil,
                 onTap: () {
                   ref
@@ -151,7 +151,7 @@ class EntrySelectorEditorDisplay extends ConsumerWidget {
               ),
               if (entryId.isNotEmpty)
                 ContextMenuTile.button(
-                  title: "Remove reference",
+                  title: "移除引用",
                   icon: TWIcons.squareMinus,
                   color: Colors.redAccent,
                   onTap: onRemove,
@@ -159,7 +159,7 @@ class EntrySelectorEditorDisplay extends ConsumerWidget {
             ],
             if (!hasEntry) ...[
               ContextMenuTile.button(
-                title: "Select entry",
+                title: "选择条目",
                 icon: TWIcons.magnifyingGlass,
                 onTap: selectEntry,
               ),
@@ -209,7 +209,7 @@ class EntrySelectorEditorDisplay extends ConsumerWidget {
                 else
                   Expanded(
                     child: Text(
-                      "Select a $display",
+                      "选择$display",
                       style: Theme.of(context).inputDecorationTheme.hintStyle,
                     ),
                   ),
@@ -251,7 +251,7 @@ class EntrySelectorRejectWidget extends HookConsumerWidget {
             const SizedBox(width: 12),
             Expanded(
               child: Text(
-                "Entry is not allowed here",
+                "此处不允许该条目",
                 style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             ),

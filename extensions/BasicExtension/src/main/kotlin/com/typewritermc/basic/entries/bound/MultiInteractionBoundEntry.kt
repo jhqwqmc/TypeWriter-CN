@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "multi_interaction_bound",
-    "An interaction bound that handles multiple interaction bounds",
+    "处理多个交互绑定的复合交互绑定",
     Colors.MEDIUM_PURPLE,
     "ph:layers-fill"
 )

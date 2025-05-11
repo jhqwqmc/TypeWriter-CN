@@ -21,7 +21,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerTeleportEvent
 
-@Entry("on_player_near_location", "When the player is near a certain location", Colors.YELLOW, "mdi:map-marker-radius")
+@Entry("on_player_near_location", "当玩家接近特定位置时", Colors.YELLOW, "mdi:map-marker-radius")
 /**
  * The `PlayerNearLocationEventEntry` class represents an event that is triggered when a player is within a certain range of a location.
  *
@@ -35,7 +35,7 @@ class PlayerNearLocationEventEntry(
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     val location: Var<Position> = ConstVar(Position.ORIGIN),
-    @Help("How close the player must be to the location to trigger the event.")
+    @Help("触发事件时玩家与位置的最小距离")
     @Min(1)
     val range: Var<Double> = ConstVar(1.0),
 ) : EventEntry

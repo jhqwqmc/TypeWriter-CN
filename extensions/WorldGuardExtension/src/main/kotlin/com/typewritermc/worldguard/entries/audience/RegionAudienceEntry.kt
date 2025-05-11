@@ -17,7 +17,7 @@ import org.bukkit.event.EventHandler
 
 @Entry(
     "region_audience",
-    "Filter players based on if they are in a region",
+    "基于玩家是否在区域内的筛选器",
     Colors.MEDIUM_SEA_GREEN,
     "gis:location-man"
 )

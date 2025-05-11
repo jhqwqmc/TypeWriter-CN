@@ -22,7 +22,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.mooshroom.applyMoos
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("mooshroom_definition", "A mooshroom entity", Colors.ORANGE, "mingcute:mushroom-fill")
+@Entry("mooshroom_definition", "哞菇实体", Colors.ORANGE, "mingcute:mushroom-fill")
 @Tags("mooshroom_definition")
 /**
  * The `MooshroomDefinition` class is an entry that shows up as a mooshroom in-game.
@@ -41,7 +41,7 @@ class MooshroomDefinition(
     override fun create(player: Player): FakeEntity = MooshroomEntity(player)
 }
 
-@Entry("mooshroom_instance", "An instance of a mooshroom entity", Colors.YELLOW, "mingcute:mushroom-fill")
+@Entry("mooshroom_instance", "哞菇实体的实例", Colors.YELLOW, "mingcute:mushroom-fill")
 class MooshroomInstance(
     override val id: String = "",
     override val name: String = "",

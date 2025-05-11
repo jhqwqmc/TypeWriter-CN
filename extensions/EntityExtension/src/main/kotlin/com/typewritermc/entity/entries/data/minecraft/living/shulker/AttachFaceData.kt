@@ -15,7 +15,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("attach_face_data", "The face that the shulker attaches to", Colors.RED, "fa6-solid:compass")
+@Entry("attach_face_data", "潜影贝的附着面", Colors.RED, "fa6-solid:compass")
 @Tags("attach_face_data", "shulker_data")
 class AttachFaceData(
     override val id: String = "",
@@ -35,6 +35,6 @@ data class AttachFaceProperty(val direction: Direction) : EntityProperty {
 fun applyAttachFaceData(entity: WrapperEntity, property: AttachFaceProperty) {
     entity.metas {
         meta<ShulkerMeta> { attachFace = property.direction }
-        error("Could not apply AttachFaceData to ${entity.entityType} entity.")
+        error("无法将AttachFaceData应用到${entity.entityType}实体")
     }
 }

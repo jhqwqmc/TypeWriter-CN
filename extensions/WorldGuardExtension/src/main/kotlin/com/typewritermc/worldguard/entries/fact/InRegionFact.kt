@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.entry.entries.ReadableFactEntry
 import com.typewritermc.engine.paper.facts.FactData
 import org.bukkit.entity.Player
 
-@Entry("in_region_fact", "If the player is in a WorldGuard region", Colors.PURPLE, "fa6-solid:road-barrier")
+@Entry("in_region_fact", "判断玩家是否在WorldGuard区域内", Colors.PURPLE, "fa6-solid:road-barrier")
 /**
  * A [fact](/docs/creating-stories/facts) that checks if the player is in a specific region. The value will be `0` if the player is not in the region, and `1` if the player is in the region.
  *

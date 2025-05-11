@@ -27,7 +27,7 @@ class ClosedRangeSerializer : DataSerializer<ClosedRange<*>> {
         val end: Any? = context?.deserialize(obj["end"], actualType)
 
         if (start == null || end == null) {
-            throw IllegalArgumentException("Invalid range")
+            throw IllegalArgumentException("无效的范围")
         }
 
         val range = when (actualType?.typeName) {
@@ -45,6 +45,6 @@ class ClosedRangeSerializer : DataSerializer<ClosedRange<*>> {
             return start as Comparable<Any>..end as Comparable<Any>
         }
 
-        throw IllegalArgumentException("Invalid range type for $actualType")
+        throw IllegalArgumentException("$actualType 的范围类型无效")
     }
 }

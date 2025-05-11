@@ -9,7 +9,7 @@ import net.islandearth.rpgregions.api.RPGRegionsAPI
 import org.bukkit.entity.Player
 import kotlin.jvm.optionals.getOrNull
 
-@Entry("rpg_region_group", "All players grouped by RPGRegions regions", Colors.MYRTLE_GREEN, "fa-solid:object-group")
+@Entry("rpg_region_group", "按RPGRegions区域分组的所有玩家", Colors.MYRTLE_GREEN, "fa-solid:object-group")
 /**
  * The `Region Group` is a group that includes all the players in a specific RPGRegions region.
  * Only the given region will be considered for the group.
@@ -21,7 +21,7 @@ import kotlin.jvm.optionals.getOrNull
 class RegionGroup(
     override val id: String = "",
     override val name: String = "",
-    @Help("The names of regions to consider for the group")
+    @Help("分组所考虑的区域名称")
     val regions: List<String> = emptyList(),
 ) : GroupEntry {
     override fun groupId(player: Player): GroupId? {

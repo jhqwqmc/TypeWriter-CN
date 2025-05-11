@@ -21,8 +21,8 @@ interface EventEntry : TriggerEntry
 interface CancelableEventEntry : EventEntry {
     @Help(
         """
-        Cancel the event when triggered.
-        If set to false, it will not modify the event.
+        触发时取消事件
+        如果设为false，将不会修改该事件
         """
     )
     val cancel: Var<Boolean>

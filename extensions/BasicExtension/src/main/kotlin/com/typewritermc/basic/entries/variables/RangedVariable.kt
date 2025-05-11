@@ -13,7 +13,7 @@ import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.reflect.safeCast
 
-@Entry("ranged_variable", "A variable which returns a random value in a range", Colors.GREEN, "mdi:code-tags")
+@Entry("ranged_variable", "返回范围内随机值的变量", Colors.GREEN, "mdi:code-tags")
 @GenericConstraint(Int::class)
 @GenericConstraint(Double::class)
 @GenericConstraint(Duration::class)
@@ -24,7 +24,7 @@ class RangedVariable(
 ) : VariableEntry {
     override fun <T : Any> get(context: VarContext<T>): T {
         val data = context.getData<RangedVariableData>()
-            ?: throw IllegalStateException("Could not find data for ${context.klass}, data: ${context.data} for entry $id")
+            ?: throw IllegalStateException("找不到 ${context.klass} 的数据，数据：${context.data}（条目ID：$id）")
         when (context.klass) {
             Int::class -> {
                 val start = data.range.start.get(Int::class) ?: 0
@@ -63,7 +63,7 @@ class RangedVariable(
                 return context.klass.safeCast(Duration.ofNanos(value))!!
             }
 
-            else -> throw IllegalStateException("Could not find data for ${context.klass}, data: ${context.data} for entry $id")
+            else -> throw IllegalStateException("找不到 ${context.klass} 的数据，数据：${context.data}（条目ID：$id）")
         }
     }
 }

@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("ender_dragon_phase_data", "Ender Dragon Phase Data", Colors.RED, "fa6-solid:dragon")
+@Entry("ender_dragon_phase_data", "末影龙阶段数据", Colors.RED, "fa6-solid:dragon")
 @Tags("ender_dragon_phase_data", "ender_dragon_data")
 class EnderDragonPhaseData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class EnderDragonPhaseProperty(val phase: EnderDragonMeta.Phase) : EntityPr
 fun applyEnderDragonPhaseData(entity: WrapperEntity, property: EnderDragonPhaseProperty) {
     entity.metas {
         meta<EnderDragonMeta> { phase = property.phase }
-        error("Could not apply EnderDragonPhaseData to ${entity.entityType} entity.")
+        error("无法将EnderDragonPhaseData应用到${entity.entityType}实体")
     }
 }

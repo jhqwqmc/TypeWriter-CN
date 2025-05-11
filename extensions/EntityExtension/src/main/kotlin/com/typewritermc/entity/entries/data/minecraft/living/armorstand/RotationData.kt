@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("rotation_data", "Rotation data", Colors.RED, "mdi:rotate-right")
+@Entry("rotation_data", "旋转数据", Colors.RED, "mdi:rotate-right")
 @Tags("rotation_data", "armor_stand_data")
 class RotationData(
     override val id: String = "",

@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.utils.item.Item
 import com.typewritermc.engine.paper.utils.item.SerializedItem
 import com.typewritermc.engine.paper.utils.item.components.ItemAmountComponent
 
-@Entry("remove_item", "Remove an item from the players inventory", Colors.RED, "icomoon-free:user-minus")
+@Entry("remove_item", "从玩家物品栏中移除一个物品", Colors.RED, "icomoon-free:user-minus")
 /**
  * The `Remove Item Action` is an action that removes an item from the player's inventory.
  * This action provides you with the ability to remove items from the player's inventory in response to specific events.

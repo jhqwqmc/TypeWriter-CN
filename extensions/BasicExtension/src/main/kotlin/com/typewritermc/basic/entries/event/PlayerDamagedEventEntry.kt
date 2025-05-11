@@ -18,7 +18,7 @@ import org.bukkit.event.entity.EntityDamageEvent
 import java.util.Optional
 import kotlin.reflect.KClass
 
-@Entry("player_damaged_event", "When a player gets damaged", Colors.YELLOW, "material-symbols:heart-broken")
+@Entry("player_damaged_event", "当玩家受到伤害时", Colors.YELLOW, "material-symbols:heart-broken")
 @ContextKeys(PlayerDamagedEventContextKeys::class)
 /**
  * The `Player Damaged Event` is triggered when a player gets damaged.

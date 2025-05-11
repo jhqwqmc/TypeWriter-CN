@@ -9,7 +9,7 @@ import com.typewritermc.engine.paper.entry.temporal.SimpleCinematicAction
 import com.typewritermc.engine.paper.utils.*
 import org.bukkit.entity.Player
 
-@Entry("sound_cinematic", "Play a sound during a cinematic", Colors.YELLOW, "fa6-solid:music")
+@Entry("sound_cinematic", "在过场动画期间播放音效", Colors.YELLOW, "fa6-solid:music")
 /**
  * The `Sound Cinematic` entry plays a sound during a cinematic.
  *

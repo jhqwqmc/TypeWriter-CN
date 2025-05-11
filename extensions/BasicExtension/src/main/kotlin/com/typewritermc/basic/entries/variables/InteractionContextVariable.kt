@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.getData
 import kotlin.reflect.KClass
 import kotlin.reflect.safeCast
 
-@Entry("interaction_context_variable", "Fill in a field with some data from another entry", Colors.GREEN, "uil:capture")
+@Entry("interaction_context_variable", "用其他条目的数据填充字段", Colors.GREEN, "uil:capture")
 @VariableData(InteractionContextVariableData::class)
 /**
  * The `Interaction Context Variable` entry is a variable
@@ -49,4 +49,4 @@ data class InteractionContextVariableData(
 )
 
 class DefaultValueNotValidException(klass: KClass<*>, data: JsonElement) :
-    Exception("The default value for InteractionContextVariable is not valid, needs ${klass.qualifiedName} but got data $data")
+    Exception("InteractionContextVariable的默认值无效，需要${klass.qualifiedName}但获取到的数据是$data")

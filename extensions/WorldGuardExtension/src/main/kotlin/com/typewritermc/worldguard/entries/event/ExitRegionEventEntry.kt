@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import com.typewritermc.engine.paper.entry.triggerAllFor
 import com.typewritermc.worldguard.events.RegionsExitEvent
 
-@Entry("on_exit_region", "When a player exits a WorldGuard region", Colors.YELLOW, "fa6-solid:door-closed")
+@Entry("on_exit_region", "当玩家离开WorldGuard区域时", Colors.YELLOW, "fa6-solid:door-closed")
 /**
  * The `Exit Region Event` is triggered when a player leaves a region.
  *
@@ -25,7 +25,7 @@ class ExitRegionEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("If left blank, it will trigger for all regions")
+    @Help("若留空，将对所有区域触发")
     val region: String = "",
 ) : EventEntry
 

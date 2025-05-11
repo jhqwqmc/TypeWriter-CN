@@ -18,7 +18,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.applyLivingEntityDa
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("spider_definition", "A spider entity", Colors.ORANGE, "fa6-solid:spider")
+@Entry("spider_definition", "蜘蛛实体", Colors.ORANGE, "fa6-solid:spider")
 @Tags("spider_definition")
 /**
  * The `SpiderDefinition` class is an entry that shows up as a spider in-game.
@@ -37,7 +37,7 @@ class SpiderDefinition(
     override fun create(player: Player): FakeEntity = SpiderEntity(player)
 }
 
-@Entry("spider_instance", "An instance of a spider entity", Colors.YELLOW, "fa6-solid:spider")
+@Entry("spider_instance", "蜘蛛实体的实例", Colors.YELLOW, "fa6-solid:spider")
 class SpiderInstance(
     override val id: String = "",
     override val name: String = "",

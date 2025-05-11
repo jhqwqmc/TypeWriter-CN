@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("pumpkin_hat_data", "The pumpkin hat state of the snow golem", Colors.RED, "game-icons:pumpkin")
+@Entry("pumpkin_hat_data", "雪傀儡的南瓜头状态", Colors.RED, "game-icons:pumpkin")
 @Tags("pumpkin_hat_data", "snow_golem_data")
 class PumpkinHatData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class PumpkinHatProperty(val hasPumpkinHat: Boolean) : EntityProperty {
 fun applyPumpkinHatData(entity: WrapperEntity, property: PumpkinHatProperty) {
     entity.metas {
         meta<SnowGolemMeta> { isHasPumpkinHat = property.hasPumpkinHat }
-        error("Could not apply PumpkinHatData to ${entity.entityType} entity.")
+        error("无法将PumpkinHatData应用到${entity.entityType}实体")
     }
 }

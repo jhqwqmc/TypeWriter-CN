@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.entry.inAudience
 
 @Entry(
     "audience_activity",
-    "Select activity based on the audience a player is in",
+    "根据玩家所在的受众选择活动",
     Colors.PALATINATE_BLUE,
     "fluent:people-audience-32-filled"
 )
@@ -34,7 +34,7 @@ class AudienceActivityEntry(
     override val id: String = "",
     override val name: String = "",
     val activities: List<AudienceActivityPair> = emptyList(),
-    @Help("The activity that will be used when the player is not in any audience.")
+    @Help("当玩家不属于任何受众时使用的活动")
     val defaultActivity: Ref<out EntityActivityEntry> = emptyRef(),
 ) : IndividualEntityActivityEntry {
     override fun create(

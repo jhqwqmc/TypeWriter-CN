@@ -70,7 +70,7 @@ class SocketNotifier extends StateNotifier<Socket?> {
   void _handleError(String message) {
     if (_disposed) {
       debugPrint(
-        "The socket was disposed so a connection error should not be possible. This is a bug.",
+        "Socket 已被释放，因此不应该出现连接错误。这是一个程序缺陷。",
       );
       return;
     }
@@ -116,7 +116,7 @@ class SocketNotifier extends StateNotifier<Socket?> {
     if (port != null) url += ":$port";
     if (token != null) url += "?token=$token";
 
-    debugPrint("Initializing socket to $url");
+    debugPrint("正在初始化 socket 连接到 $url");
 
     final socket = io(
       url,
@@ -127,7 +127,7 @@ class SocketNotifier extends StateNotifier<Socket?> {
       ..onConnect((data) {
         if (_disposed) {
           debugPrint(
-            "The socket was disposed so a connect should not be possible. This is a bug.",
+            "Socket 已被释放，因此不应该出现连接操作。这是一个程序缺陷。",
           );
           return;
         }
@@ -139,24 +139,24 @@ class SocketNotifier extends StateNotifier<Socket?> {
         if (shouldSetup) setup(socket);
       })
       ..onConnectError((data) {
-        _handleError("connect error $data");
+        _handleError("连接错误 $data");
       })
       ..onConnectTimeout((data) {
-        _handleError("connect timeout $data");
+        _handleError("连接超时 $data");
       })
       ..onError((data) {
-        _handleError("error $data");
+        _handleError("错误 $data");
       })
       ..onDisconnect((data) {
         if (_disposed) {
           debugPrint(
-            "The socket was disposed so a disconnect should not be possible. This is a bug.",
+            "Socket 已被释放，因此不应该出现断开连接操作。这是一个程序缺陷。",
           );
           return;
         }
         if (_connectionState != ConnectionState.connected) return;
         _connectionState = ConnectionState.disconnected;
-        debugPrint("disconnected: $data");
+        debugPrint("已断开连接: $data");
         _startTimeoutTimer(socket);
       })
       ..connect();
@@ -226,7 +226,7 @@ class SocketNotifier extends StateNotifier<Socket?> {
 
   @override
   void dispose() {
-    debugPrint("Disposing socket");
+    debugPrint("正在释放 socket");
     _disposed = true;
     _timeoutTimer?.cancel();
     state?.dispose();
@@ -594,7 +594,7 @@ class Communicator {
       return;
     }
     if (data is! String) {
-      debugPrint("Could not parse ack: $data");
+      debugPrint("无法解析 ack: $data");
       return;
     }
 
@@ -602,11 +602,11 @@ class Communicator {
     final response = Response.fromJson(json);
 
     if (!response.success) {
-      debugPrint("Ack failed: ${response.message}");
+      debugPrint("Ack 失败: ${response.message}");
       Toasts.showError(
         ref.passing,
         response.message,
-        description: "Reloading the full book to resync with the server.",
+        description: "正在重新加载完整书籍以与服务器重新同步。",
       );
       fetchBook();
       return;

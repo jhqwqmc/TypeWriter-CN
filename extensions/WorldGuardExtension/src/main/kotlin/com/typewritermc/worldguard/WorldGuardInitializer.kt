@@ -17,12 +17,12 @@ class WorldGuardInitializer : Initializable {
         val registered = worldGuard.platform.sessionManager.registerHandler(factory, null)
 
         if (!registered) {
-            logger.warning("Failed to register WorldGuardHandler. This is a bug, please report it on the Typewriter Discord.")
+            logger.warning("WorldGuardHandler注册失败。这是一个错误，请在Typewriter Discord上报告。")
             return
         }
         val worldGuardPlugin = server.pluginManager.getPlugin("WorldGuard") as? WorldGuardPlugin
         if (worldGuardPlugin == null) {
-            logger.warning("WorldGuard plugin not found, so WorldGuard will not be enabled.")
+            logger.warning("未找到WorldGuard插件，因此WorldGuard功能将不会启用。")
             return
         }
 

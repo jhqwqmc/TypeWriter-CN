@@ -22,7 +22,7 @@ import net.kyori.adventure.title.Title.Times
 import org.bukkit.entity.Player
 import java.time.Duration
 
-@Entry("subtitle_dialogue_cinematic", "Show an subtitle message", Colors.CYAN, "fa6-solid:diagram-next")
+@Entry("subtitle_dialogue_cinematic", "显示字幕消息", Colors.CYAN, "fa6-solid:diagram-next")
 /**
  * The `Subtitle Dialogue Cinematic Entry` is a cinematic entry that displays an animated subtitle message.
  * The speaker is displayed in the action bar, and the dialogue is displayed in the subtitle.
@@ -55,8 +55,8 @@ class SubtitleDialogueCinematicEntry(
     }
 }
 
-@Deprecated("Use RandomVariable entry with a normal SubtitleDialogue instead")
-@Entry("random_subtitle_dialogue_cinematic", "Show a random action bar message", Colors.CYAN, "fa6-solid:diagram-next")
+@Deprecated("请改用带有常规SubtitleDialogue的RandomVariable条目")
+@Entry("random_subtitle_dialogue_cinematic", "显示随机动作栏消息", Colors.CYAN, "fa6-solid:diagram-next")
 class RandomSubtitleDialogueCinematicEntry(
     override val id: String = "",
     override val name: String = "",

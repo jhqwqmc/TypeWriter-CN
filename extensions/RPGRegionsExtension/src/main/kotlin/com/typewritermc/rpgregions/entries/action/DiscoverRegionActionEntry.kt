@@ -14,7 +14,7 @@ import net.islandearth.rpgregions.managers.data.region.WorldDiscovery
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-@Entry("discover_rpg_region", "Create a discover for an RPGRegions region", Colors.RED, "fa6-solid:address-book")
+@Entry("discover_rpg_region", "为RPGRegions区域创建发现点", Colors.RED, "fa6-solid:address-book")
 /**
  * The `Discover Region Action` is used to add a discovery into a user's account.
  *
@@ -28,7 +28,7 @@ class DiscoverRegionActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("Make sure that this is the region ID, not the region's display name")
+    @Help("请确保使用区域ID而非显示名称")
     private val region: String = "",
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

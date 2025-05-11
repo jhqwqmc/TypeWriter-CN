@@ -22,9 +22,9 @@ class WorldSerializer : DataSerializer<World> {
 
         val bukkitWorld = server.getWorld(world)
             ?: server.worlds.firstOrNull { it.name.equals(world, true) }
-                .logErrorIfNull("No world found for identifier '$world', possible worlds: ${server.worlds.map { it.name }}. Picking ${server.worlds.firstOrNull()?.name} as default.")
+                .logErrorIfNull("找不到标识符为'$world'的世界，可选世界: ${server.worlds.map { it.name }}。将选择${server.worlds.firstOrNull()?.name}作为默认值。")
             ?: server.worlds.firstOrNull()
-            ?: throw IllegalArgumentException("Could not find world '$world' for location, and no default world available.")
+            ?: throw IllegalArgumentException("找不到位置对应的世界'$world'，且无默认世界可用。")
 
         return World(bukkitWorld.uid.toString())
     }

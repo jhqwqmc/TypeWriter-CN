@@ -21,7 +21,7 @@ fun Point<*>.toPacketVector3i() = Vector3i(blockX, blockY, blockZ)
 fun Point<*>.toBukkitVector(): org.bukkit.util.Vector = org.bukkit.util.Vector(x, y, z)
 
 fun World.toBukkitWorld(): org.bukkit.World = server.getWorld(UUID.fromString(identifier))
-    ?: throw IllegalArgumentException("Could not find world '$identifier' for location, and no default world available.")
+    ?: throw IllegalArgumentException("找不到位置对应的世界'$identifier'，且无默认世界可用")
 
 fun org.bukkit.World.toWorld(): World = World(uid.toString())
 

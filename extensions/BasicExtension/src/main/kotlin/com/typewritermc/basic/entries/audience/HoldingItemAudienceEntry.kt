@@ -17,7 +17,7 @@ import org.bukkit.event.player.PlayerItemHeldEvent
 
 @Entry(
     "holding_item_audience",
-    "Filters an audience based on if they are holding a specific item",
+    "基于玩家是否持有特定物品的受众筛选器",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:hand"
 )
@@ -32,7 +32,7 @@ class HoldingItemAudienceEntry(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
-    @Help("The item to check for.")
+    @Help("需要检查的物品")
     val item: Var<Item> = ConstVar(Item.Empty),
     override val inverted: Boolean = false,
 ) : AudienceFilterEntry, Invertible {

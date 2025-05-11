@@ -16,7 +16,7 @@ Future<List<String>> potionEffects(Ref ref) async {
   final response =
       await http.get(Uri.parse(_minecraftRegistriesUrl)).timeout(5.seconds);
   if (response.statusCode != 200) {
-    throw Exception("Failed to load sounds");
+    throw Exception("加载音效失败");
   }
   return _mapData(jsonDecode(response.body));
 }
@@ -24,15 +24,15 @@ Future<List<String>> potionEffects(Ref ref) async {
 List<String> _mapData(Map<String, dynamic> json) {
   final effects = json["mob_effect"];
   if (effects is! List) {
-    throw const FormatException("Invalid data format");
+    throw const FormatException("无效的数据格式");
   }
   return effects.map((effect) => effect as String).toList();
 }
 
 enum PotionEffectCategory {
-  beneficial("Beneficial", Colors.green),
-  neutral("Neutral", Colors.blue),
-  harmful("Harmful", Colors.red),
+  beneficial("有益效果", Colors.green),
+  neutral("中性效果", Colors.blue),
+  harmful("有害效果", Colors.red),
   ;
 
   const PotionEffectCategory(this.name, this.color);

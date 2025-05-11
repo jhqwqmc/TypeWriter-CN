@@ -38,8 +38,8 @@ import java.time.Duration
 
 val roadNetworkMaxDistance by snippet(
     "road_network.distance.max", 30.0, """
-    |The maximum distance that can be between two nodes. 
-    |Therefore it is also the maximum radius the player can be from a node to be inside the road network
+    |两节点之间的最大允许距离
+    |因此这也是玩家距离节点仍被视为在路网内的最大半径
     """.trimMargin()
 )
 
@@ -187,16 +187,16 @@ class SelectRoadNodeContentMode(context: ContentContext, player: Player) : Conte
     private var cycle = 0
 
     override suspend fun setup(): Result<Unit> {
-        val fieldPath = context.fieldPath ?: return failure(Exception("No field path found"))
-        val entryId = context.entryId ?: return failure(Exception("No entry id found"))
+        val fieldPath = context.fieldPath ?: return failure(Exception("未找到字段路径"))
+        val entryId = context.entryId ?: return failure(Exception("未找到条目ID"))
 
         val entry = Query.findById<RoadNodeEntry>(entryId)
-            ?: return failure(Exception("No road node found with id $entryId"))
+            ?: return failure(Exception("未找到ID为${entryId}的路网节点"))
 
         val roadNetworkRef = entry.roadNetwork
 
         if (!roadNetworkRef.isSet) {
-            return failure("No road network found with id ${entry.roadNetwork.id} associated with road node $entryId")
+            return failure("未找到与节点${entryId}关联的ID为${entry.roadNetwork.id}的路网")
         }
 
         editorComponent = RoadNetworkEditorComponent(roadNetworkRef)
@@ -242,11 +242,11 @@ class SelectRoadNodeCollectionContentMode(context: ContentContext, player: Playe
     private var nodes: List<RoadNodeId> = emptyList()
 
     override suspend fun setup(): Result<Unit> {
-        val fieldPath = context.fieldPath ?: return failure(Exception("No field path found"))
-        val entryId = context.entryId ?: return failure(Exception("No entry id found"))
+        val fieldPath = context.fieldPath ?: return failure(Exception("未找到字段路径"))
+        val entryId = context.entryId ?: return failure(Exception("未找到条目ID"))
 
         val entry = Query.findById<RoadNodeCollectionEntry>(entryId)
-            ?: return failure(Exception("No road node collection found with id $entryId"))
+            ?: return failure(Exception("未找到ID为${entryId}的路网节点集合"))
 
         nodes = entry.nodes
         val ref = entry.ref()
@@ -254,7 +254,7 @@ class SelectRoadNodeCollectionContentMode(context: ContentContext, player: Playe
         val roadNetworkRef = entry.roadNetwork
 
         if (!roadNetworkRef.isSet) {
-            return failure("No road network found with id ${entry.roadNetwork.id} associated with road node collection $entryId")
+            return failure("未找到与集合${entryId}关联的ID为${entry.roadNetwork.id}的路网")
         }
 
 
@@ -262,7 +262,7 @@ class SelectRoadNodeCollectionContentMode(context: ContentContext, player: Playe
 
         exit(doubleShiftExits = true)
         bossBar {
-            title = "Select Road Nodes <gray>(${nodes.size})"
+            title = "选择路网节点 <gray>(${nodes.size})"
             color = BossBar.Color.WHITE
         }
 

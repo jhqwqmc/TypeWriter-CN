@@ -13,7 +13,7 @@ import kotlin.random.Random
 
 @Entry(
     "screen_shake_cinematic",
-    "Shake the screen",
+    "震动屏幕",
     Colors.CYAN,
     "ant-design:shake-outlined"
 )
@@ -41,7 +41,7 @@ class ScreenShakeCinematicEntry(
 data class ScreenShakeSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("The number of frames to wait before the next shake.")
+    @Help("下次震动前等待的帧数")
     val frameDelay: Int = 0,
 ) : Segment
 

@@ -48,7 +48,7 @@ private const val MAX_DISTANCE_SQUARED = 25 * 25
 
 @Entry(
     "lock_interaction_bound",
-    "An interaction bound that locks the camera for the player",
+    "锁定玩家镜头的交互绑定",
     Colors.MEDIUM_PURPLE,
     "ic:round-video-camera-front"
 )

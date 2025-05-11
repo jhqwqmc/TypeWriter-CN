@@ -23,10 +23,10 @@ import kotlin.time.toDuration
 @Tags("fact")
 interface FactEntry : StaticEntry {
     @MultiLine
-    @Help("A comment to keep track of what this fact is used for.")
+    @Help("用于记录此持久化变量用途的注释")
     val comment: String
 
-    @Help("The group that this fact is for.")
+    @Help("该持久化变量所属的组")
     val group: Ref<GroupEntry>
 
     fun identifier(player: Player): FactId? {
@@ -128,7 +128,7 @@ interface CachableFactEntry : ReadableFactEntry,
     }
 
     override fun readSinglePlayer(player: Player): FactData {
-        throw UnsupportedOperationException("This method should not be used directly. Use readForPlayer instead.")
+        throw UnsupportedOperationException("不应直接使用此方法，请改用readForPlayer")
     }
 
     fun read(id: FactId): FactData {

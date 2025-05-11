@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import com.typewritermc.engine.paper.entry.triggerAllFor
 import org.bukkit.entity.Player
 
-@Entry("on_island_create", "When a player creates an Island", Colors.YELLOW, "fa6-solid:globe")
+@Entry("on_island_create", "当玩家创建岛屿时", Colors.YELLOW, "fa6-solid:globe")
 /**
  * The `Island Create Event` is triggered when an island is created.
  *

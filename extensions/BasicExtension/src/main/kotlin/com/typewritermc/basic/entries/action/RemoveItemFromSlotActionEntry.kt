@@ -18,7 +18,7 @@ import lirand.api.extensions.inventory.set
 import org.bukkit.inventory.ItemStack
 import java.util.Optional
 
-@Entry("remove_item_from_slot", "Remove an item from a specific slot in the players inventory", Colors.RED, "icomoon-free:user-minus")
+@Entry("remove_item_from_slot", "从玩家物品栏的特定槽位移除物品  ", Colors.RED, "icomoon-free:user-minus")
 /**
  * The `Remove Item From Slot Action` is an action that removes an item from a specific slot in the player's inventory.
  * This action provides you with the ability to remove items from specific slots in the player's inventory in response to specific events.
@@ -39,7 +39,7 @@ class RemoveItemFromSlotActionEntry(
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     val slot: Var<Int> = ConstVar(0),
-    @Help("If not specified, any item will be removed from the slot")
+    @Help("若未指定，将移除该槽位的任意物品")
     val item: Optional<Var<Item>> = Optional.empty(),
 ): ActionEntry {
     override fun ActionTrigger.execute() {

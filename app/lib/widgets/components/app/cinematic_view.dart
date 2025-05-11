@@ -78,9 +78,9 @@ void deleteSegmentConfirmation(
 ) {
   showConfirmationDialogue(
     context: context,
-    title: "Delete Segment",
-    content: "Are you sure you want to delete this segment?",
-    confirmText: "Delete",
+    title: "删除片段",
+    content: "确定要删除此片段吗？",
+    confirmText: "删除",
     onConfirm: () {
       _deleteSegment(ref, entryId, segmentId);
     },
@@ -131,8 +131,8 @@ String? _addSegment(
   if (timings == null) {
     Toasts.showError(
       ref,
-      "Could not add segment",
-      description: "There is not enough space to add a segment.",
+      "无法添加片段",
+      description: "没有足够的空间来添加片段。",
     );
     return null;
   }
@@ -181,8 +181,8 @@ void _deleteSegment(PassingRef ref, String entryId, String segmentPath) {
   if (page == null) {
     Toasts.showError(
       ref,
-      "Could not delete segment",
-      description: "No page is selected.",
+      "无法删除片段",
+      description: "未选择任何页面。",
     );
     return;
   }
@@ -190,8 +190,8 @@ void _deleteSegment(PassingRef ref, String entryId, String segmentPath) {
   if (entry == null) {
     Toasts.showError(
       ref,
-      "Could not delete segment",
-      description: "No entry is selected.",
+      "无法删除片段",
+      description: "未选择任何条目。",
     );
     return;
   }
@@ -200,8 +200,8 @@ void _deleteSegment(PassingRef ref, String entryId, String segmentPath) {
   if (blueprint == null) {
     Toasts.showError(
       ref,
-      "Could not delete segment",
-      description: "No blueprint is found for the selected entry.",
+      "无法删除片段",
+      description: "找不到所选条目的蓝图。",
     );
     return;
   }
@@ -209,8 +209,8 @@ void _deleteSegment(PassingRef ref, String entryId, String segmentPath) {
   if (segmentBlueprint == null) {
     Toasts.showError(
       ref,
-      "Could not delete segment",
-      description: "No blueprint is found for the selected segment.",
+      "无法删除片段",
+      description: "找不到所选片段的蓝图。",
     );
     return;
   }
@@ -269,7 +269,7 @@ List<ContextMenuTile> _entryContextActions(
     final icon = modifierData["icon"] as String? ?? TWIcons.plus;
 
     return ContextMenuTile.button(
-      title: "Add $title",
+      title: "添加$title",
       onTap: () {
         _addSegment(ref.passing, entryId, path);
       },
@@ -636,8 +636,8 @@ class CinematicView extends HookConsumerWidget {
 
     if (entryIds.isEmpty) {
       return EmptyScreen(
-        title: "There are no cinematic entries on this page.",
-        buttonText: "Add Entry",
+        title: "此页面上没有过场动画条目。",
+        buttonText: "添加条目",
         onButtonPressed: () => ref.read(searchProvider.notifier).asBuilder()
           ..fetchNewEntry()
           ..nonGenericAddEntry()
@@ -746,7 +746,7 @@ class _DeleteSegment extends HookConsumerWidget {
         deleteSegmentConfirmation(context, ref.passing, entryId, segmentId);
       },
       icon: const Iconify(TWIcons.trash),
-      label: const Text("Delete Segment"),
+      label: const Text("删除片段"),
       color: Theme.of(context).colorScheme.error,
     );
   }
@@ -763,7 +763,7 @@ class _DuplicateSegment extends HookConsumerWidget {
     return FilledButton.icon(
       onPressed: () => _duplicateSelectedSegment(ref.passing),
       icon: const Iconify(TWIcons.duplicate),
-      label: const Text("Duplicate Segment"),
+      label: const Text("复制片段"),
       color: color,
     );
   }
@@ -792,7 +792,7 @@ class _DurationField extends HookConsumerWidget {
           ],
           style: const TextStyle(fontSize: 12),
           decoration: const InputDecoration(
-            hintText: "Duration",
+            hintText: "持续时间",
             hintStyle: TextStyle(fontSize: 13),
           ),
           onChanged: (value) {
@@ -816,26 +816,26 @@ class _EndFrameField extends HookConsumerWidget {
     if (segmentId == null) return const SizedBox.shrink();
 
     return _FrameField(
-      title: "End Frame",
+      title: "结束帧",
       path: "$segmentId.endFrame",
       icon: TWIcons.stepBackward,
-      hintText: "Enter a frame number",
+      hintText: "输入帧号",
       onValidate: (frame) {
         final entryId = ref.read(inspectingEntryIdProvider);
-        if (entryId == null) return "No entry selected";
+        if (entryId == null) return "未选择条目";
         final segment = ref.read(inspectingSegmentProvider);
-        if (segment == null) return "No segment selected";
+        if (segment == null) return "未选择片段";
 
-        if (frame < segment.startFrame) return "Cannot be before start frame";
+        if (frame < segment.startFrame) return "不能在开始帧之前";
 
         if (segment.minFrames != null &&
             frame - segment.startFrame < segment.minFrames!) {
-          return "The segment must be at least ${segment.minFrames} frames long";
+          return "片段长度必须至少为${segment.minFrames}帧";
         }
 
         if (segment.maxFrames != null &&
             frame - segment.startFrame > segment.maxFrames!) {
-          return "The segment must be at most ${segment.maxFrames} frames long";
+          return "片段长度最多为${segment.maxFrames}帧";
         }
 
         final segments = ref.read(_segmentsProvider(entryId, segmentId.wild()));
@@ -845,10 +845,10 @@ class _EndFrameField extends HookConsumerWidget {
         final maximumFrame = nextSegment?.startFrame;
         if (maximumFrame == null &&
             frame > ref.read(_trackStateProvider).totalFrames) {
-          return "Cannot extend past the end of the track";
+          return "不能超出轨道末尾";
         }
         if (maximumFrame != null && frame > maximumFrame) {
-          return "Cannot overlap with next segment";
+          return "不能与下一个片段重叠";
         }
         return null;
       },
@@ -1066,7 +1066,7 @@ class _Heading extends HookConsumerWidget {
               children: [
                 const SizedBox(width: 8),
                 const Text(
-                  "Track Duration",
+                  "轨道持续时间",
                   style: TextStyle(
                     fontSize: 15,
                     fontVariations: [boldWeight],
@@ -1127,7 +1127,7 @@ class _InspectorHeader extends HookConsumerWidget {
         ) ??
         Theme.of(context).primaryColor;
     return Title(
-      title: "Segment Inspector",
+      title: "片段检查器",
       color: color,
     );
   }
@@ -1303,7 +1303,7 @@ class _SegmentDurationDisplay extends HookConsumerWidget {
     final secondsWithDecimal = totalDuration.inMilliseconds / 1000;
 
     return Text(
-      "Total Duration: $secondsWithDecimal seconds ($totalTime frames)",
+      "总时长：$secondsWithDecimal秒（$totalTime帧）",
       style: Theme.of(context).textTheme.bodySmall?.apply(
             color: Theme.of(context)
                 .textTheme
@@ -1360,7 +1360,7 @@ class _SegmentOperations extends HookConsumerWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionTitle(title: "Operations"),
+        SectionTitle(title: "操作"),
         SizedBox(height: 8),
         _DuplicateSegment(),
         SizedBox(height: 8),
@@ -1413,7 +1413,7 @@ class _SegmentSelector extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SectionTitle(title: "Segments"),
+        const SectionTitle(title: "片段"),
         const SizedBox(height: 8),
         if (segments.isEmpty) ...[
           Container(
@@ -1422,7 +1422,7 @@ class _SegmentSelector extends HookConsumerWidget {
               color: Theme.of(context).inputDecorationTheme.fillColor,
             ),
             padding: const EdgeInsets.all(8),
-            child: const Center(child: Text("No segments")),
+            child: const Center(child: Text("没有片段")),
           ),
         ] else ...[
           for (final segment in segments)
@@ -1450,7 +1450,7 @@ class _SegmentSelectorTile extends HookConsumerWidget {
       child: ContextMenuRegion(
         builder: (context) => [
           ContextMenuTile.button(
-            title: "Select",
+            title: "选择",
             icon: TWIcons.checkSquare,
             onTap: () {
               ref
@@ -1459,14 +1459,14 @@ class _SegmentSelectorTile extends HookConsumerWidget {
             },
           ),
           ContextMenuTile.button(
-            title: "Duplicate",
+            title: "复制",
             icon: TWIcons.duplicate,
             onTap: () {
               _duplicateSelectedSegment(ref.passing);
             },
           ),
           ContextMenuTile.button(
-            title: "Delete",
+            title: "删除",
             icon: TWIcons.trash,
             color: Theme.of(context).colorScheme.error,
             onTap: () {
@@ -1503,7 +1503,7 @@ class _SegmentSelectorTile extends HookConsumerWidget {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    "Segment ${segment.display}",
+                    "片段${segment.display}",
                     style: TextStyle(
                       fontSize: 14,
                       color: color.computeLuminance() > 0.5
@@ -1587,12 +1587,12 @@ class _SegmentWidget extends HookConsumerWidget {
       child: ContextMenuRegion(
         builder: (context) => [
           ContextMenuTile.button(
-            title: "Duplicate",
+            title: "复制",
             icon: TWIcons.duplicate,
             onTap: () => _duplicateSelectedSegment(ref.passing),
           ),
           ContextMenuTile.button(
-            title: "Delete",
+            title: "删除",
             icon: TWIcons.trash,
             color: Theme.of(context).colorScheme.error,
             onTap: () {
@@ -1734,21 +1734,21 @@ class _SingleFrameField extends HookConsumerWidget {
     if (segmentId == null) return const SizedBox.shrink();
 
     return _FrameField(
-      title: "Frame",
+      title: "帧",
       path: "$segmentId.startFrame",
       icon: TWIcons.stepForward,
-      hintText: "Enter a frame number",
+      hintText: "输入帧号",
       onValidate: (frame) {
         final entryId = ref.read(inspectingEntryIdProvider);
-        if (entryId == null) return "No entry selected";
+        if (entryId == null) return "未选择条目";
         final segment = ref.read(inspectingSegmentProvider);
-        if (segment == null) return "No segment selected";
+        if (segment == null) return "未选择片段";
 
         final segments = ref.read(_segmentsProvider(entryId, segmentId.wild()));
         if (segments
             .where((s) => s.truePath != segmentId)
             .any((s) => s.startFrame == frame)) {
-          return "A segment already exists at this frame";
+          return "此帧已存在片段";
         }
         return null;
       },
@@ -1801,25 +1801,25 @@ class _StartFrameField extends HookConsumerWidget {
     if (segmentId == null) return const SizedBox.shrink();
 
     return _FrameField(
-      title: "Start Frame",
+      title: "开始帧",
       path: "$segmentId.startFrame",
       icon: TWIcons.stepBackward,
-      hintText: "Enter a frame number",
+      hintText: "输入帧号",
       onValidate: (frame) {
         final entryId = ref.read(inspectingEntryIdProvider);
-        if (entryId == null) return "No entry selected";
+        if (entryId == null) return "未选择条目";
         final segment = ref.read(inspectingSegmentProvider);
-        if (segment == null) return "No segment selected";
+        if (segment == null) return "未选择片段";
 
-        if (frame > segment.endFrame) return "Cannot be after end frame";
+        if (frame > segment.endFrame) return "不能在结束帧之后";
 
         if (segment.minFrames != null &&
             segment.endFrame - frame < segment.minFrames!) {
-          return "The segment must be at least ${segment.minFrames} frames long";
+          return "片段长度必须至少为${segment.minFrames}帧";
         }
         if (segment.maxFrames != null &&
             segment.endFrame - frame > segment.maxFrames!) {
-          return "The segment must be at most ${segment.maxFrames} frames long";
+          return "片段长度最多为${segment.maxFrames}帧";
         }
 
         final segments = ref.read(_segmentsProvider(entryId, segmentId.wild()));
@@ -1827,7 +1827,7 @@ class _StartFrameField extends HookConsumerWidget {
             .where((s) => s.endFrame <= segment.startFrame)
             .maxBy((_, s) => s.endFrame);
         final minimumFrame = previousSegment?.endFrame ?? 0;
-        if (frame < minimumFrame) return "Cannot overlap with previous segment";
+        if (frame < minimumFrame) return "不能与上一个片段重叠";
         return null;
       },
     );

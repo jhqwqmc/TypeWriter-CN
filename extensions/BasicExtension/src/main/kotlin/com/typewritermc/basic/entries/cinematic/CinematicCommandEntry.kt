@@ -18,7 +18,7 @@ interface CinematicCommandEntry : CinematicEntry {
 
 @Entry(
     "cinematic_console_command",
-    "Runs command as the console at a specific frame.",
+    "在特定帧以控制台身份运行命令",
     Colors.YELLOW,
     "mingcute:terminal-fill"
 )
@@ -50,7 +50,7 @@ class CinematicConsoleCommandEntry(
 
 @Entry(
     "cinematic_player_command",
-    "Runs command as the player at a specific frame.",
+    "在特定帧以玩家身份运行命令",
     Colors.YELLOW,
     "mingcute:terminal-fill"
 )
@@ -83,7 +83,7 @@ class CinematicPlayerCommandEntry(
 data class CommandSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
-    @Help("Each line is a different command. Commands should not be prefixed with <code>/</code>.")
+    @Help("每行代表不同命令。命令不应以<code>/</code>开头。")
     @Placeholder
     @MultiLine
     val command: String = "",

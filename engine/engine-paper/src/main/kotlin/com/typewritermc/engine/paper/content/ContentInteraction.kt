@@ -51,11 +51,11 @@ class ContentInteraction(
         SYNC.switchContext {
             ContentEditorStartEvent(player).callEvent()
         }
-        val mode = mode ?: return failure("No content mode found")
+        val mode = mode ?: return failure("未找到内容模式")
         val result = mode.setup()
         if (result.isFailure) {
-            logger.severe("Failed to setup content mode for player ${player.name}: ${result.exceptionOrNull()?.message}")
-            player.msg("<red><b>Failed to setup content mode. Please see the console for more details.")
+            logger.severe("为玩家${player.name}设置内容模式失败: ${result.exceptionOrNull()?.message}")
+            player.msg("<red><b>设置内容模式失败，请查看控制台获取更多信息")
             return result
         }
         mode.initialize()
@@ -96,8 +96,8 @@ class ContentInteraction(
         stack.push(newMode)
         previous?.dispose()
         if (result.isFailure) {
-            logger.severe("Failed to setup content mode: ${result.exceptionOrNull()?.message}")
-            player.msg("<red><bold>Failed to setup content mode. Please see the console for more details.")
+            logger.severe("设置内容模式失败: ${result.exceptionOrNull()?.message}")
+            player.msg("<red><bold>设置内容模式失败，请查看控制台获取更多信息")
             return result
         }
         newMode.initialize()
@@ -111,8 +111,8 @@ class ContentInteraction(
         stack.push(newMode)
         previous.dispose()
         if (result.isFailure) {
-            logger.severe("Failed to setup content mode: ${result.exceptionOrNull()?.message}")
-            player.msg("<red><bold>Failed to setup content mode. Please see the console for more details.")
+            logger.severe("设置内容模式失败: ${result.exceptionOrNull()?.message}")
+            player.msg("<red><bold>设置内容模式失败，请查看控制台获取更多信息")
             return result
         }
         newMode.initialize()

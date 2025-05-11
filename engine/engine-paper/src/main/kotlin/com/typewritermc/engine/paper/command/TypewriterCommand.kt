@@ -54,10 +54,10 @@ fun CommandTree.registerDynamicCommands() {
 private fun CommandTree.reloadCommand() = literal("reload") {
     withPermission("typewriter.reload")
     executes {
-        sender.msg("Reloading configuration...")
+        sender.msg("重新加载配置中...")
         ThreadType.DISPATCHERS_ASYNC.launch {
             plugin.reload()
-            sender.msg("Configuration reloaded!")
+            sender.msg("配置已重新加载！")
         }
     }
 }
@@ -72,7 +72,7 @@ private fun CommandTree.factsCommand() = literal("facts") {
             int("value") { value ->
                 executePlayerOrTarget { target ->
                     fact().write(target, value())
-                    sender.msg("Fact <blue>${fact().formattedName}</blue> set to ${value()} for ${target.name}.")
+                    sender.msg("将<blue>${fact().formattedName}</blue>持久化变量设置为${value()}（目标：${target.name}）。")
                 }
             }
         }
@@ -83,21 +83,21 @@ private fun CommandTree.factsCommand() = literal("facts") {
         executePlayerOrTarget { target ->
             val entries = Query.find<WritableFactEntry>().toList()
             if (entries.isEmpty()) {
-                sender.msg("There are no facts available.")
+                sender.msg("当前没有可用的持久化变量。")
                 return@executePlayerOrTarget
             }
 
             for (entry in entries) {
                 entry.write(target, 0)
             }
-            sender.msg("All facts for <green>${target.name}</green> have been reset.")
+            sender.msg("<green>${target.name}</green>的所有持久化变量已重置。")
         }
     }
 
     literal("query") {
         entry<ReadableFactEntry>("fact") { fact ->
             executePlayerOrTarget { target ->
-                sender.sendMini("Fact for <green>${target.name}</green>:")
+                sender.sendMini("<green>${target.name}</green>的持久化变量：")
                 sender.sendMini(fact().format(target))
             }
         }
@@ -107,10 +107,10 @@ private fun CommandTree.factsCommand() = literal("facts") {
         page("page", PageType.STATIC) { page ->
             executePlayerOrTarget { target ->
                 val facts = page().entries.filterIsInstance<ReadableFactEntry>().sortedBy { it.name }
-                sender.sendMini("Facts on page <blue>${page().name}</blue> for <green>${target.name}</green>:")
+                sender.sendMini("页面<blue>${page().name}</blue>上关于<green>${target.name}</green>的持久化变量：")
 
                 if (facts.isEmpty()) {
-                    sender.msg("There are no facts on this page.")
+                    sender.msg("该页面没有持久化变量记录。")
                     return@executePlayerOrTarget
                 }
 
@@ -124,12 +124,12 @@ private fun CommandTree.factsCommand() = literal("facts") {
     executePlayerOrTarget { target ->
         val factEntries = Query.find<ReadableFactEntry>().toList()
         if (factEntries.isEmpty()) {
-            sender.msg("There are no facts available.")
+            sender.msg("当前没有可用的持久化变量。")
             return@executePlayerOrTarget
         }
 
         sender.sendMini("\n\n")
-        sender.msg("<green>${target.name}</green> has the following facts:\n")
+        sender.msg("<green>${target.name}</green>拥有以下持久化变量：\n")
 
         for (entry in factEntries.take(10)) {
             sender.sendMini(entry.format(target))
@@ -139,17 +139,17 @@ private fun CommandTree.factsCommand() = literal("facts") {
         if (remaining > 0) {
             sender.sendMini(
                 """
-                    |<gray><i>and $remaining more...
+                    |<gray><i>以及另外${remaining}个...
                     |
-                    |<gray>Use <white>/tw facts query [fact_id] </white>to query a specific fact.
-                    |<gray>Use <white>/tw facts inspect [page_name] </white>to inspect all facts on a page.
+                    |<gray>使用<white>/tw facts query [fact_id] </white>查询特定持久化变量
+                    |<gray>使用<white>/tw facts inspect [page_name] </white>检查页面所有持久化变量
                     """.trimMargin()
             )
         }
     }
 }
 
-private val formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy")
+private val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")
 private fun ReadableFactEntry.format(player: Player): String {
     val data = readForPlayersGroup(player)
     return "<hover:show_text:'${
@@ -157,7 +157,7 @@ private fun ReadableFactEntry.format(player: Player): String {
             Regex(" +"),
             " "
         ).replace("'", "\\'")
-    }\n\n<gray><i>Click to modify'><click:suggest_command:'/tw facts set $name ${data.value} ${player.name}'><gray> - </gray><blue>${formattedName}:</blue> ${data.value} <gray><i>(${
+    }\n\n<gray><i>点击修改'><click:suggest_command:'/tw facts set $name ${data.value} ${player.name}'><gray> - </gray><blue>${formattedName}:</blue> ${data.value} <gray><i>(${
         formatter.format(
             data.lastUpdate
         )
@@ -181,7 +181,7 @@ private fun CommandTree.connectCommand() = literal("connect") {
     withPermission("typewriter.connect")
     executes {
         if (communicationHandler.server == null) {
-            sender.msg("The server is not hosting the websocket. Try and enable it in the config.")
+            sender.msg("服务器未启用WebSocket服务，请尝试在配置中启用。")
             return@executes
         }
 
@@ -189,7 +189,7 @@ private fun CommandTree.connectCommand() = literal("connect") {
         val url = communicationHandler.generateUrl(player?.uniqueId)
 
         if (player == null) {
-            sender.msg("Connect to<blue> $url </blue>to start the connection.")
+            sender.msg("连接到<blue> $url </blue>以建立连接。")
             return@executes
         }
 
@@ -197,13 +197,13 @@ private fun CommandTree.connectCommand() = literal("connect") {
         val bookAuthor = "<blue>Typewriter</blue>".asMini()
 
         val bookPage = """
-				|<blue><bold>Connect to Panel</bold></blue>
+				|<blue><bold>连接控制面板</bold></blue>
 				|
-				|<#3e4975>Click on the link below to connect to the panel. Once you are connected, you can start writing.</#3e4975>
+				|<#3e4975>点击下方链接连接控制面板。连接后即可开始编写。</#3e4975>
 				|
-				|<hover:show_text:'<gray>Click to open the link'><click:open_url:'$url'><blue>[Link]</blue></click></hover>
+				|<hover:show_text:'<gray>点击打开链接'><click:open_url:'$url'><blue>[链接]</blue></click></hover>
 				|
-				|<gray><i>Because of security reasons, this link will expire in 5 minutes.</i></gray>
+				|<gray><i>出于安全考虑，此链接将在5分钟后失效。</i></gray>
 			""".trimMargin().asMini()
 
         val book = Book.book(bookTitle, bookAuthor, bookPage)
@@ -230,12 +230,12 @@ private fun CommandTree.manifestCommand() = literal("manifest") {
                 .toList()
 
             if (inEntries.none()) {
-                sender.msg("You are not in any audience entries.")
+                sender.msg("您不属于任何受众条目。")
                 return@executePlayerOrTarget
             }
 
             sender.sendMini("\n\n")
-            sender.msg("You are in the following audience entries:")
+            sender.msg("您属于以下受众条目：")
             for (entry in inEntries) {
                 sender.sendMini(
                     "<hover:show_text:'<gray>${entry.id}'><click:copy_to_clipboard:${entry.id}><gray> - </gray><blue>${entry.formattedName}</blue></click></hover>"
@@ -254,14 +254,14 @@ private fun CommandTree.manifestCommand() = literal("manifest") {
                     .toList()
 
                 if (audienceEntries.isEmpty()) {
-                    sender.msg("No audience entries found on page ${page().name}")
+                    sender.msg("在${page().name}页面未找到受众条目")
                     return@executePlayerOrTarget
                 }
 
                 val entryStates = audienceEntries.groupBy { target.audienceState(it) }
 
                 sender.sendMini("\n\n")
-                sender.msg("These are the audience entries on page <i>${page().name}</i>:")
+                sender.msg("以下是页面<i>${page().name}</i>上的受众条目：")
                 for (state in AudienceDisplayState.entries) {
                     val entries = entryStates[state] ?: continue
                     val color = state.color

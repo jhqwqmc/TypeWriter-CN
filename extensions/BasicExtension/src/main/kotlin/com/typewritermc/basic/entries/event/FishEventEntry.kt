@@ -15,7 +15,7 @@ import com.typewritermc.engine.paper.entry.triggerAllFor
 import com.typewritermc.engine.paper.utils.item.Item
 import org.bukkit.event.player.PlayerFishEvent
 
-@Entry("on_fish", "When the a player caught a fish or an item", Colors.YELLOW, "mdi:fish")
+@Entry("on_fish", "当玩家钓到鱼或物品时", Colors.YELLOW, "mdi:fish")
 /**
  * The `Player Fish Event` is triggered when a player catches a fish or an item.
  *
@@ -26,9 +26,9 @@ class FishEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The item the player must be holding when the fish or item is caught.")
+    @Help("钓到鱼或物品时玩家必须持有的物品")
     val itemInHand: Var<Item> = ConstVar(Item.Empty),
-    @Help("The hand the player must be holding the item in")
+    @Help("玩家必须持有该物品的手")
     val hand: HoldingHand = HoldingHand.BOTH,
     val caught: Var<Item> = ConstVar(Item.Empty),
 ) : EventEntry

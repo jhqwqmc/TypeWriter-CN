@@ -33,7 +33,7 @@ private const val OFFHAND_SLOT = 40
 
 @Entry(
     "item_slot_binder_audience",
-    "Forces a specific item in a specific slot for players in the audience",
+    "强制为受众玩家在特定槽位放置指定物品",
     Colors.GREEN,
     "mdi:archive-lock"
 )
@@ -123,7 +123,7 @@ class ItemSlotBinderDisplay(
 
     override fun setup() {
         super.setup()
-        val entry = ref.get() ?: throw IllegalStateException("Could not find item slot binder entry, $ref")
+        val entry = ref.get() ?: throw IllegalStateException("找不到物品槽位绑定条目：$ref")
         val currentItem = player.inventory.getItem(slot) ?: ItemStack.empty()
         if (currentItem.isEmpty) {
             setItem(item(entry))

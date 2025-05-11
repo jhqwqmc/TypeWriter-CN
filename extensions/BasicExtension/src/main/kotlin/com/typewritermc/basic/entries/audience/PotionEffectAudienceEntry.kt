@@ -12,7 +12,7 @@ import org.bukkit.potion.PotionEffectType
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
-@Entry("potion_effect_audience", "Filters an audience based on the potion effect", Colors.GREEN, "ion:flask")
+@Entry("potion_effect_audience", "基于药水效果的受众筛选器", Colors.GREEN, "ion:flask")
 /**
  * The `PotionEffect Audience` entry filters an audience based on the potion effect.
  * When the player is in the audience, the potion effect will be applied to the player infinitely.

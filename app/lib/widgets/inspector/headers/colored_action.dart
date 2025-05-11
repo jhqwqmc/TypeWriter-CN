@@ -42,7 +42,7 @@ class ColoredHeaderAction extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return const InfoHeaderAction(
-      tooltip: "Adventure Mini Format is supported. Click for more info.",
+      tooltip: "支持Adventure Mini格式，点击获取更多信息",
       icon: TWIcons.paintBrush,
       color: Color(0xFFff8e42),
       url: "https://docs.advntr.dev/minimessage/format.html",

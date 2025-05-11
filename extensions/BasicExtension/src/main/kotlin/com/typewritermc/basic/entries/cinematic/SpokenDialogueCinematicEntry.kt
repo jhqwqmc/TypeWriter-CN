@@ -19,7 +19,7 @@ import com.typewritermc.engine.paper.utils.isFloodgate
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import org.bukkit.entity.Player
 
-@Entry("spoken_dialogue_cinematic", "Play a spoken dialogue cinematic", Colors.CYAN, "mingcute:message-4-fill")
+@Entry("spoken_dialogue_cinematic", "在过场动画发送对话", Colors.CYAN, "mingcute:message-4-fill")
 /**
  * The `Spoken Dialogue Cinematic` is a cinematic that displays an animated message in chat.
  *
@@ -48,10 +48,10 @@ class SpokenDialogueCinematicEntry(
     }
 }
 
-@Deprecated("Use RandomVariable entry with a normal SpokenDialogueCinematic instead")
+@Deprecated("请改用带有常规SpokenDialogueCinematic的RandomVariable条目")
 @Entry(
     "random_spoken_dialogue_cinematic",
-    "Play a random spoken dialogue cinematic",
+    "发送随机对话的过场动画",
     Colors.CYAN,
     "mingcute:message-4-fill"
 )

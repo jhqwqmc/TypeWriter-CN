@@ -26,10 +26,10 @@ abstract class ImmediateFieldValueContentMode<T : Any>(context: ContentContext, 
 
     override suspend fun setup(): Result<Unit> {
         val entryId = context.entryId
-            ?: return failure("No entryId found for ${this::class.simpleName}. This is a bug. Please report it.")
+            ?: return failure("未找到 ${this::class.simpleName} 的 entryId。这是一个错误，请报告此问题。")
 
         val fieldPath = context.fieldPath
-            ?: return failure("No fieldPath found for ${this::class.simpleName}. This is a bug. Please report it.")
+            ?: return failure("未找到 ${this::class.simpleName} 的 fieldPath。这是一个错误，请报告此问题。")
 
         // Needs to complete the initialisation so that we can properly get the value and end the content mode
         plugin.launch {
@@ -38,7 +38,7 @@ abstract class ImmediateFieldValueContentMode<T : Any>(context: ContentContext, 
                 val value = value()
                 Ref(entryId, Entry::class).fieldValue(fieldPath, value, type)
             } catch (e: Exception) {
-                logger.severe("Failed to set field value for ${this::class.simpleName}, with context: $context. This is a bug. Please report it.")
+                logger.severe("未能为 ${this::class.simpleName} 设置字段值，上下文：$context。这是一个错误，请报告此问题。")
                 e.printStackTrace()
             } finally {
                 InteractionEndTrigger.triggerFor(player, context())

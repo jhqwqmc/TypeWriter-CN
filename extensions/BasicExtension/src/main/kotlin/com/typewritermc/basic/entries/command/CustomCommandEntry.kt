@@ -23,7 +23,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "custom_command",
-    "Create custom commands with parameters",
+    "创建带参数的自定义命令",
     Colors.YELLOW,
     "heroicons:command-line-16-solid"
 )
@@ -38,7 +38,7 @@ import kotlin.reflect.KClass
 class CustomCommandEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The command to register. Do not include the leading slash.")
+    @Help("要注册的命令（不要包含开头的斜杠）")
     val command: String = "",
     val aliases: List<String> = emptyList(),
     val arguments: List<Ref<CommandArgumentEntry>> = emptyList(),
@@ -72,7 +72,7 @@ sealed interface CommandArgumentEntry : ManifestEntry {
     fun build(tree: CommandTree, builder: CustomCommandArgumentBuilder)
 }
 
-@Entry("literal_command_argument", "A literal command argument", Colors.BLUE, "material-symbols:format-color-text-rounded")
+@Entry("literal_command_argument", "字面命令参数", Colors.BLUE, "material-symbols:format-color-text-rounded")
 /**
  * The `Literal Command Argument` entry is a command argument that is a literal.
  *
@@ -129,7 +129,7 @@ fun List<Ref<TriggerableEntry>>.applyTo(
     tree.executes {
         val player = (source.executor as? Player) ?: (sender as? Player)
         if (player == null) {
-            sender.msg("You must be a player to run this command.")
+            sender.msg("执行此命令必须是玩家身份")
             return@executes
         }
         val interactionContextBuilder = InteractionContextBuilder()

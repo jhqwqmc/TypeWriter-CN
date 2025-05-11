@@ -21,7 +21,7 @@ import org.bukkit.event.block.BlockBreakEvent
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("on_block_break", "When the player breaks a block", Colors.YELLOW, "mingcute:pickax-fill")
+@Entry("on_block_break", "当玩家破坏方块时", Colors.YELLOW, "mingcute:pickax-fill")
 @ContextKeys(BlockBreakContextKeys::class)
 /**
  *The `Block Break Event` is triggered when a player breaks a block.
@@ -37,9 +37,9 @@ class BlockBreakEventEntry(
     @MaterialProperties(MaterialProperty.BLOCK)
     val block: Optional<Material> = Optional.empty(),
     val location: Optional<Var<Position>> = Optional.empty(),
-    @Help("The item the player must be holding when the block is broken.")
+    @Help("破坏方块时玩家必须持有的物品")
     val itemInHand: Var<Item> = ConstVar(Item.Empty),
-    @Help("The hand the player must be holding the item in")
+    @Help("玩家必须持有该物品的手")
     val hand: HoldingHand = HoldingHand.BOTH,
     override val cancel: Var<Boolean> = ConstVar(false),
 ) : CancelableEventEntry

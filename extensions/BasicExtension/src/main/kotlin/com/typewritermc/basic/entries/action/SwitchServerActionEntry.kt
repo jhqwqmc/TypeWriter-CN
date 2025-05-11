@@ -15,7 +15,7 @@ import com.typewritermc.engine.paper.entry.entries.Var
 import com.typewritermc.engine.paper.plugin
 import org.bukkit.entity.Player
 
-@Entry("switch_server_action", "Switches the player to another server", Colors.RED, "fluent:server-link-16-filled")
+@Entry("switch_server_action", "将玩家切换至其他服务器", Colors.RED, "fluent:server-link-16-filled")
 /**
  * The `Switch Server Action` is an action that switches the player to another server.
  *
@@ -29,7 +29,7 @@ class SwitchServerActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The server the player will connect to.")
+    @Help("目标服务器名称")
     val server: Var<String> = ConstVar(""),
 ): ActionEntry {
     override fun ActionTrigger.execute() {

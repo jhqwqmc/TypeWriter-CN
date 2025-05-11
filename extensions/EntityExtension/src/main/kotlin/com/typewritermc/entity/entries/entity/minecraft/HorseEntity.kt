@@ -23,7 +23,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.horse.*
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("horse_definition", "A horse entity", Colors.ORANGE, "mdi:horse")
+@Entry("horse_definition", "马实体", Colors.ORANGE, "mdi:horse")
 @Tags("horse_definition")
 /**
  * The `HorseDefinition` class is an entry that represents a horse entity.
@@ -42,7 +42,7 @@ class HorseDefinition(
     override fun create(player: Player): FakeEntity = HorseEntity(player)
 }
 
-@Entry("horse_instance", "An instance of a horse entity", Colors.YELLOW, "mdi:horse")
+@Entry("horse_instance", "马实体的实例", Colors.YELLOW, "mdi:horse")
 /**
  * The `HorseInstance` class is an entry that represents an instance of a horse entity.
  *

@@ -14,7 +14,7 @@ import kotlin.reflect.full.cast
 
 @Entry(
     "meet_criteria_variable",
-    "A boolean variable that is true if the player meets the criteria",
+    "判断玩家是否符合条件的布尔型变量",
     Colors.GREEN,
     "fa-solid:filter"
 )

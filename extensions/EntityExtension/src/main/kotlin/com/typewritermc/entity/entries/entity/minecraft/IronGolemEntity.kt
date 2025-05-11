@@ -18,7 +18,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.applyLivingEntityDa
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("iron_golem_definition", "An iron golem entity", Colors.ORANGE, "game-icons:strong")
+@Entry("iron_golem_definition", "铁傀儡实体", Colors.ORANGE, "game-icons:strong")
 @Tags("iron_golem_definition")
 /**
  * The `IronGolemDefinition` class is an entry that shows up as an iron golem in-game.
@@ -37,7 +37,7 @@ class IronGolemDefinition(
     override fun create(player: Player): FakeEntity = IronGolemEntity(player)
 }
 
-@Entry("iron_golem_instance", "An instance of an iron golem entity", Colors.YELLOW, "game-icons:strong")
+@Entry("iron_golem_instance", "铁傀儡实体的实例", Colors.YELLOW, "game-icons:strong")
 class IronGolemInstance(
     override val id: String = "",
     override val name: String = "",

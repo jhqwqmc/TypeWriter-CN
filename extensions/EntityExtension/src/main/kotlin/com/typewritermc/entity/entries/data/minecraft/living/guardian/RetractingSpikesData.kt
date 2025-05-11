@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("retracting_spikes_data", "If the guardian has retracting spikes.", Colors.RED, "game-icons:spikes")
+@Entry("retracting_spikes_data", "守卫者是否收回尖刺", Colors.RED, "game-icons:spikes")
 @Tags("retracting_spikes_data", "guardian_data")
 class RetractingSpikesData(
     override val id: String = "",
@@ -35,6 +35,6 @@ data class RetractingSpikesProperty(val retractingSpikes: Boolean) : EntityPrope
 fun applyRetractingSpikesData(entity: WrapperEntity, property: RetractingSpikesProperty) {
     entity.metas {
         meta<GuardianMeta> { isRetractingSpikes = property.retractingSpikes }
-        error("Could not apply RetractingSpikesData to ${entity.entityType} entity.")
+        error("无法将RetractingSpikesData应用到${entity.entityType}实体")
     }
 }

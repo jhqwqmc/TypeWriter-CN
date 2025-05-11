@@ -15,7 +15,7 @@ import kotlin.text.Regex as KotlinRegex
 
 @Entry(
     "on_message_contains_text",
-    "When the player sends a chat message containing certain text",
+    "当玩家发送包含特定文本的聊天消息时",
     Colors.YELLOW,
     "fluent:note-48-filled"
 )
@@ -32,9 +32,9 @@ class ChatContainsTextEventEntry(
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Regex
-    @Help("The text to look for in the message.")
+    @Help("要在消息中查找的文本")
     val text: String = "",
-    @Help("If the text should be matched exactly or if it should be a substring.")
+    @Help("是否应完全匹配文本或作为子字符串匹配")
     val exactSame: Boolean = false
 ) : EventEntry
 

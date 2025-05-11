@@ -10,7 +10,7 @@ import com.typewritermc.vault.VaultInitializer
 import org.bukkit.entity.Player
 import org.koin.java.KoinJavaComponent
 
-@Entry("balance_audience", "Audiences grouped by balance", Colors.MYRTLE_GREEN, "streamline:justice-scale-2-solid")
+@Entry("balance_audience", "按余额分组的受众", Colors.MYRTLE_GREEN, "streamline:justice-scale-2-solid")
 /**
  * The `Balance Audience` is an group for which a player's balance meets a certain condition.
  * To determine if a player is part of this group, the balance of the player is checked for each condition.

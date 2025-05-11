@@ -17,7 +17,7 @@ import kotlin.math.roundToLong
 import kotlin.reflect.KClass
 import kotlin.reflect.full.cast
 
-@Entry("calculated_variable", "A variable that is calculated", Colors.GREEN, "fa6-solid:calculator")
+@Entry("calculated_variable", "通过计算得出的变量", Colors.GREEN, "fa6-solid:calculator")
 @GenericConstraint(Int::class)
 @GenericConstraint(Double::class)
 @VariableData(CalculatedVariableData::class)
@@ -33,7 +33,7 @@ class CalculatedVariable(
 ) : VariableEntry {
     override fun <T : Any> get(context: VarContext<T>): T {
         val data = context.getData<CalculatedVariableData>()
-            ?: throw IllegalStateException("Could not find data for ${context.klass}, data: ${context.data} for entry $id")
+            ?: throw IllegalStateException("找不到${context.klass}的数据，数据：${context.data}（条目ID：$id）")
         val expression = data.expression.parsePlaceholders(context.player).trim()
         if (expression.isBlank()) {
             return 0.0.cast<T>(context.klass)
@@ -42,7 +42,7 @@ class CalculatedVariable(
         val value = when (val result = Expression(expression).tryEval()) {
             is com.mthaler.aparser.util.Try.Success -> result.value
             is com.mthaler.aparser.util.Try.Failure -> {
-                logger.warning("Could not evaluate expression '$expression' for player ${context.player.name} for variable $id")
+                logger.warning("无法为玩家${context.player.name}的变量${id}计算表达式'$expression'")
                 return 0.0.cast<T>(context.klass)
             }
         }
@@ -56,7 +56,7 @@ fun <T : Any> Double.cast(klass: KClass<T>): T {
         Double::class -> klass.cast(this)
         Float::class -> klass.cast(this.toFloat())
         Long::class -> klass.cast(this.roundToLong())
-        else -> throw IllegalStateException("Could not parse value '$this' for $klass")
+        else -> throw IllegalStateException("无法为${klass}解析值'$this'")
     }
 }
 

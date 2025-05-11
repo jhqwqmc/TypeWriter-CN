@@ -14,7 +14,7 @@ import java.util.*
 
 @Entry(
     "group_trigger_action",
-    "Trigger the next entries for everyone in the same group as the player",
+    "为玩家所在组的全体成员触发后续条目",
     Colors.RED,
     "fluent:globe-arrow-forward-16-filled"
 )
@@ -37,7 +37,7 @@ class GroupTriggerActionEntry(
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     val group: Ref<GroupEntry> = emptyRef(),
-    @Help("The group to trigger the next entries for. If not set, the action will trigger for the group of the player that triggered the action.")
+    @Help("要触发后续条目的组别。若未设置，将默认由触发该动作的玩家所在组触发。")
     val forceGroup: Optional<Var<String>> = Optional.empty(),
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

@@ -17,7 +17,7 @@ import org.geysermc.cumulus.form.CustomForm
 
 private val inputTitle: String by snippet("dialogue.input.bedrock.title", "<bold><speaker></bold>")
 private val inputContent: String by snippet("dialogue.input.bedrock.content", "<message>\n\n")
-private val inputField: String by snippet("dialogue.input.bedrock.field", "Value")
+private val inputField: String by snippet("dialogue.input.bedrock.field", "值")
 
 class BedrockInputDialogueDialogueMessenger<T : Any>(
     player: Player,

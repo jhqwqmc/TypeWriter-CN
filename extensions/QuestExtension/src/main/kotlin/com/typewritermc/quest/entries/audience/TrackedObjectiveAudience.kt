@@ -12,7 +12,7 @@ import org.bukkit.event.EventHandler
 
 @Entry(
     "tracked_objective_audience",
-    "Filters an audience based on if they have a tracked objective",
+    "根据是否追踪目标筛选受众",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:target-account"
 )

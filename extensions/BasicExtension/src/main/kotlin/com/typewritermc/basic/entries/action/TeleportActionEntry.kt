@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.utils.ThreadType
 import com.typewritermc.engine.paper.utils.toBukkitLocation
 import kotlinx.coroutines.future.await
 
-@Entry("teleport", "Teleport a player", Colors.RED, "teenyicons:google-streetview-solid")
+@Entry("teleport", "传送玩家", Colors.RED, "teenyicons:google-streetview-solid")
 /**
  * The `Teleport Action` entry is used to teleport a player to a location.
  *

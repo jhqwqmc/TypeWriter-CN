@@ -74,7 +74,7 @@ class DependencyInject : KoinComponent, Reloadable {
 
         val primaryConstructor = klass.primaryConstructor
             ?: klass.constructors.firstOrNull()
-            ?: throw IllegalArgumentException("No primary constructor found for $klass")
+            ?: throw IllegalArgumentException("未找到 $klass 的主构造函数")
 
         val parameters = primaryConstructor.parameters.generateParameters(this, param)
         return primaryConstructor.call(*parameters)
@@ -82,7 +82,7 @@ class DependencyInject : KoinComponent, Reloadable {
 
     private fun Scope.createMethod(param: ParametersHolder, clazz: Class<*>, methodName: String): Any? {
         val method = clazz.declaredMethods.firstOrNull { it.name == methodName }?.kotlinFunction
-            ?: throw NoSuchMethodException("No method found with name $methodName in ${clazz.name}")
+            ?: throw NoSuchMethodException("在 ${clazz.name} 中未找到名为 $methodName 的方法")
 
         val parameters = method.parameters.generateParameters(this, param)
         return method.call(*parameters)
@@ -92,7 +92,7 @@ class DependencyInject : KoinComponent, Reloadable {
         return map { parameter ->
             val paramAnnotation = parameter.findAnnotations(Parameter::class).firstOrNull()
             val type = parameter.type.classifier as? KClass<*>
-                ?: throw IllegalArgumentException("Parameter ${parameter.name} is not a class")
+                ?: throw IllegalArgumentException("参数 ${parameter.name} 不是一个类")
 
             if (paramAnnotation != null) {
                 return@map param.getOrNull<Any?>(type)

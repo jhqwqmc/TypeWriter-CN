@@ -14,7 +14,7 @@ import com.typewritermc.core.interaction.InteractionContextBuilder
 import com.typewritermc.engine.paper.entry.TriggerableEntry
 import kotlin.reflect.KClass
 
-@Entry("boolean_argument", "A boolean argument", Colors.RED, "fa6-solid:toggle-on")
+@Entry("boolean_argument", "布尔型参数", Colors.RED, "fa6-solid:toggle-on")
 @ContextKeys(BooleanArgumentContextKeys::class)
 /**
  * The `Boolean Argument` entry is an argument that takes a boolean.

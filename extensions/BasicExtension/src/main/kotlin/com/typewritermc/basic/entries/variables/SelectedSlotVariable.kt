@@ -9,7 +9,7 @@ import kotlin.reflect.cast
 
 @Entry(
     "selected_slot_variable",
-    "The slot the player has selected in their hotbar",
+    "玩家当前选中的快捷栏槽位",
     Colors.GREEN,
     "qlementine-icons:empty-slot-16"
 )

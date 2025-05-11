@@ -19,7 +19,7 @@ import lirand.api.extensions.server.server
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
-@Entry("console_run_command", "Run command from console", Colors.RED, "mingcute:terminal-fill")
+@Entry("console_run_command", "从控制台运行命令", Colors.RED, "mingcute:terminal-fill")
 /**
  * The Console Command Action is an action that sends a command to the server console. This action provides you with the ability to execute console commands on the server in response to specific events.
  *
@@ -35,7 +35,7 @@ class ConsoleCommandActionEntry(
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Placeholder
     @MultiLine
-    @Help("Every line is a different command. Commands should not be prefixed with <code>/</code>.")
+    @Help("每行代表一个不同的命令。命令不应以<code>/</code>开头。")
     private val command: Var<String> = ConstVar(""),
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

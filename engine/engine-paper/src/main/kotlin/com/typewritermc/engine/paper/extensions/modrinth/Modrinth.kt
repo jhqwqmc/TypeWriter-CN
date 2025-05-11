@@ -60,11 +60,11 @@ object Modrinth {
 
         plugin.logger.severe(
             """|
-            |-----------------{ Typewriter Update }-----------------
-            |    A new version of Typewriter is available!
-            |    Current version: ${plugin.pluginMeta.version}
-            |    New version:     ${latestVersion.versionNumber}
-            |    Download it at:  ${latestVersion.url}
+            |-----------------{ Typewriter 更新 }-----------------
+            |    有新版本的 Typewriter 可用！
+            |    当前版本: ${plugin.pluginMeta.version}
+            |    最新版本: ${latestVersion.versionNumber}
+            |    下载地址: ${latestVersion.url}
             |------------------------------------------------------
         """.trimMargin()
         )
@@ -95,12 +95,12 @@ object Modrinth {
 
         player.sendMessage(
             """
-            |<st><gray>             </st><gray>{ <dark_gray><bold>Typewriter Update</bold><gray> }<st>             </st>
+            |<st><gray>             </st><gray>{ <dark_gray><bold>Typewriter 更新</bold><gray> }<st>             </st>
             |
-            |    A new version of Typewriter is available!
-            |    <red>Current version: <reset>${plugin.pluginMeta.version}<reset>
-            |    <green>New version:       <reset>${newVersion.versionNumber}<reset>
-            |    <blue>Download it:       <reset><bold><click:open_url:${newVersion.url}><hover:show_text:Click to open>[Here]<reset>
+            |    有新版本的 Typewriter 可用！
+            |    <red>当前版本: <reset>${plugin.pluginMeta.version}<reset>
+            |    <green>最新版本:     <reset>${newVersion.versionNumber}<reset>
+            |    <blue>下载地址:     <reset><bold><click:open_url:${newVersion.url}><hover:show_text:点击打开>[此处]<reset>
             |    
             |<st><gray>                                                      </st>
         """.trimMargin().asMini()
@@ -167,7 +167,7 @@ data class SemanticVersion(
             val versionPart = versionParts[0]
             val parts = versionPart.split(".")
             if (parts.size != 3) {
-                throw IllegalArgumentException("Invalid version format: $version")
+                throw IllegalArgumentException("无效的版本格式: $version")
             }
 
             val (major, minor, patch) = parts.map { it.toInt() }

@@ -15,7 +15,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("saddled_data", "If the entity has a saddle.", Colors.RED, "game-icons:saddle")
+@Entry("saddled_data", "实体是否装有鞍具", Colors.RED, "game-icons:saddle")
 @Tags("saddled_data", "horse_data", "pig_data")
 class SaddledData(
     override val id: String = "",
@@ -37,6 +37,6 @@ fun applySaddledData(entity: WrapperEntity, property: SaddledProperty) {
     entity.metas {
         meta<BaseHorseMeta> { isSaddled = property.saddled }
         meta<PigMeta> { setHasSaddle(property.saddled) }
-        error("Could not apply BaseHorseSaddledData to ${entity.entityType} entity.")
+        error("无法将BaseHorseSaddledData应用到${entity.entityType}实体")
     }
 }

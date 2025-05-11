@@ -8,7 +8,7 @@ import org.bukkit.entity.Player
 
 @Tags("cinematic")
 interface CinematicEntry : Entry {
-    @Help("The criteria that must be met before this entry is shown")
+    @Help("显示该条目前必须满足的条件")
     val criteria: List<Criteria>
 
     fun createRecording(player: Player): CinematicAction? = createSimulating(player)

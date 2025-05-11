@@ -62,9 +62,9 @@ class SelectedRoadNodeContentMode(
         val pathsComponent = +SelectedNodePathsComponent(::selectedNode, ::network)
         bossBar {
             var suffix = editorComponent.state.message
-            if (!pathsComponent.isPathsLoaded) suffix += " <gray><i>(calculating edges)</i></gray>"
+            if (!pathsComponent.isPathsLoaded) suffix += " <gray><i>(正在计算边)</i></gray>"
 
-            title = "Editing <gray>${selectedNode?.id}</gray> node$suffix"
+            title = "正在编辑<gray>${selectedNode?.id}</gray>节点$suffix"
             color = when {
                 editorComponent.state == RoadNetworkEditorState.Dirty -> BossBar.Color.RED
                 !pathsComponent.isPathsLoaded -> BossBar.Color.PURPLE
@@ -266,8 +266,8 @@ class RemoveNodeComponent(
     override fun item(player: Player): Pair<Int, IntractableItem> {
         return slot to (ItemStack(Material.REDSTONE_BLOCK).apply {
             editMeta { meta ->
-                meta.name = "<red><b>Remove Node"
-                meta.loreString = "<line> <gray>Careful! This action is irreversible."
+                meta.name = "<red><b>移除节点"
+                meta.loreString = "<line> <gray>注意！此操作不可逆。"
             }
         } onInteract {
             onRemove()

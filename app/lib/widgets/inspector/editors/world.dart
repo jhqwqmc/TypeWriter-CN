@@ -43,7 +43,7 @@ class WorldEditor extends HookConsumerWidget {
         focus: focus,
         text: value,
         icon: TWIcons.earth,
-        hintText: "World",
+        hintText: "世界",
         onChanged: (value) {
           ref
               .read(inspectingEntryDefinitionProvider)

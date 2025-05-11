@@ -39,7 +39,7 @@ class EntryArgumentType<E : Entry>(
     override fun convert(nativeType: String): E {
         return Query.findById<E>(klass, nativeType)
             ?: Query.findByName<E>(klass, nativeType)
-            ?: throw SimpleCommandExceptionType(LiteralMessage("Could not find entry $nativeType")).create()
+            ?: throw SimpleCommandExceptionType(LiteralMessage("找不到条目 $nativeType")).create()
     }
 
     override fun getNativeType(): ArgumentType<String> = StringArgumentType.word()
@@ -71,7 +71,7 @@ class PageArgumentType(
     override fun convert(nativeType: String): Page {
         val pages = Query.findPagesOfType(type).toList()
         return pages.firstOrNull { it.id == nativeType || it.name == nativeType }
-            ?: throw SimpleCommandExceptionType(LiteralMessage("Page '$nativeType' not found")).create()
+            ?: throw SimpleCommandExceptionType(LiteralMessage("未找到页面 '$nativeType'")).create()
     }
 
     override fun getNativeType(): ArgumentType<String> = StringArgumentType.word()

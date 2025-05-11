@@ -10,7 +10,7 @@ class CoordinateSerializer : DataSerializer<Coordinate> {
     override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Coordinate {
         if (json is JsonPrimitive) {
             val split = json.asString.split(",")
-            if (split.size != 6) throw IllegalArgumentException("Could not parse coordinate from $json")
+            if (split.size != 6) throw IllegalArgumentException("无法从${json}解析坐标")
 
             val x = split[1].toDouble()
             val y = split[2].toDouble()
@@ -29,7 +29,7 @@ class CoordinateSerializer : DataSerializer<Coordinate> {
             return Coordinate(x, y, z, yaw.toFloat(), pitch.toFloat())
         }
 
-        throw IllegalArgumentException("Could not parse coordinate from $json")
+        throw IllegalArgumentException("无法从${json}解析坐标")
     }
 
     override fun serialize(src: Coordinate, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {

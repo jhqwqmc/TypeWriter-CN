@@ -52,7 +52,7 @@ class RoadNetworkManager : Initializable, KoinComponent {
             val network = try {
                 Query.findById<RoadNetworkEntry>(id)?.loadRoadNetwork(gson)
             } catch (e: Exception) {
-                logger.severe("Failed to load road network with id $id: ${e.message}")
+                logger.severe("加载ID为${id}的路网失败: ${e.message}")
                 null
             } ?: RoadNetwork()
 
@@ -74,7 +74,7 @@ class RoadNetworkManager : Initializable, KoinComponent {
     internal suspend fun saveRoadNetwork(ref: Ref<out RoadNetworkEntry>, network: RoadNetwork) {
         val entry = ref.get()
         if (entry == null) {
-            logger.severe("Failed to save road network with id ${ref.id}")
+            logger.severe("保存ID为${ref.id}的路网失败")
             return
         }
         entry.saveRoadNetwork(gson, network)

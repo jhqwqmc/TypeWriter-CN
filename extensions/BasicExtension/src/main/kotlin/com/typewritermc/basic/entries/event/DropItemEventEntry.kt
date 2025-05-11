@@ -22,7 +22,7 @@ import org.bukkit.event.entity.EntityDropItemEvent
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("on_item_drop", "When the player drops an item", Colors.YELLOW, "mage:box-3d-minus-fill")
+@Entry("on_item_drop", "当玩家丢弃物品时", Colors.YELLOW, "mage:box-3d-minus-fill")
 @ContextKeys(DropItemContextKeys::class)
 /**
  * The `Drop Item Event` is triggered when the player drops an item.

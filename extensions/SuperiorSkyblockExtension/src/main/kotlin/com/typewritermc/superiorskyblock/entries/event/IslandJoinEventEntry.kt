@@ -13,7 +13,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import com.typewritermc.engine.paper.entry.triggerAllFor
 import org.bukkit.entity.Player
 
-@Entry("on_island_join", "When a player joins a Skyblock island", Colors.YELLOW, "fa6-solid:envelope-open")
+@Entry("on_island_join", "当玩家加入空岛时", Colors.YELLOW, "fa6-solid:envelope-open")
 /**
  * The `Island Join Event` is fired when a player joins an island.
  *

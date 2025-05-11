@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import com.typewritermc.engine.paper.entry.triggerAllFor
 import org.bukkit.entity.Player
 
-@Entry("on_island_disband", "When a player disbands an Island", Colors.YELLOW, "fa6-solid:globe")
+@Entry("on_island_disband", "当玩家解散岛屿时", Colors.YELLOW, "fa6-solid:globe")
 /**
  * The `Island Disband Event` is triggered when an island is disbanded.
  *

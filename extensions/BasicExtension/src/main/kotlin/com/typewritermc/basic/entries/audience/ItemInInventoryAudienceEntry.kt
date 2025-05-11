@@ -10,7 +10,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "item_in_inventory_audience",
-    "Filters an audience based on if they have a specific item in their inventory",
+    "基于玩家物品栏中是否有特定物品的受众筛选器",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:bag-personal"
 )

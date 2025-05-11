@@ -35,11 +35,11 @@ import java.time.Instant
 import kotlin.math.abs
 
 
-private val lookBackDelay: Int by snippet("look_at_entity_interaction_bound.look_back_delay", 500, "The duration in Milliseconds the player can move their head before the bound forces them to look at teh entity.")
+private val lookBackDelay: Int by snippet("look_at_entity_interaction_bound.look_back_delay", 500, "玩家可自由转动头部的毫秒时长（超过此时长后将强制看向实体）")
 
 @Entry(
     "look_at_entity_interaction_bound",
-    "An interaction which forces the player to look at an entity",
+    "强制玩家注视实体的交互",
     Colors.MEDIUM_PURPLE,
     "mingcute:look-up-fill"
 )
@@ -52,7 +52,7 @@ class LookAtEntityInteractionBoundEntry(
     override val interruptTriggers: List<Ref<TriggerableEntry>> = emptyList(),
     @Default("2.0")
     val radius: Double = 2.0,
-    @Help("If left empty, the entity where they interacted with will be used.")
+    @Help("若留空，将默认使用玩家交互的实体")
     val npc: Ref<EntityInstanceEntry> = emptyRef(),
 ) : InteractionBoundEntry {
     override fun build(player: Player): InteractionBound = LookAtNpcInteractionBound(player, radius, npc, priority, interruptTriggers.eventTriggers)

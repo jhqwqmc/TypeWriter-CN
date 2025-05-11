@@ -18,7 +18,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.time.toKotlinDuration
 
-@Entry("cron_fact", "Saved until a specified date, like (0 0 * * 1)", Colors.PURPLE, "mingcute:calendar-time-add-fill")
+@Entry("cron_fact", "保存至指定日期（例如 0 0 * * 1 表示每周一零点）", Colors.PURPLE, "mingcute:calendar-time-add-fill")
 /**
  * A [fact](/docs/creating-stories/facts) that is saved until a specified date, like (0 0 \* \* 1).
  *
@@ -31,7 +31,7 @@ class CronFactEntry(
     override val name: String = "",
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
-    @Help("The cron expression when the fact expires.")
+    @Help("持久化变量过期时间的cron表达式")
     // The <Link to="https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html">Cron Expression</Link> when the fact expires.
     val cron: CronExpression = CronExpression.default(),
 ) : ExpirableFactEntry, PersistableFactEntry {

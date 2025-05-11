@@ -21,7 +21,7 @@ import io.lumine.mythic.core.skills.SkillTriggers
 import lirand.api.extensions.server.server
 import org.bukkit.entity.Player
 
-@Entry("mythicmob_cinematic", "Spawn a MythicMob during a cinematic", Colors.PURPLE, "fa6-solid:dragon")
+@Entry("mythicmob_cinematic", "在过场动画期间生成MythicMob生物", Colors.PURPLE, "fa6-solid:dragon")
 /**
  * The `Spawn MythicMob Cinematic` cinematic entry spawns a MythicMob during a cinematic.
  *

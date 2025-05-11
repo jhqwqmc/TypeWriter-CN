@@ -7,7 +7,7 @@ import com.typewritermc.core.entries.emptyRef
 import com.typewritermc.engine.paper.entry.entries.GroupEntry
 import com.typewritermc.engine.paper.entry.entries.PersistableFactEntry
 
-@Entry("permanent_fact", "Saved permanently, it never gets removed", Colors.PURPLE, "fa6-solid:database")
+@Entry("permanent_fact", "永久保存，永不删除", Colors.PURPLE, "fa6-solid:database")
 /**
  * This [fact](/docs/creating-stories/facts) is permanent and never expires.
  *

@@ -86,7 +86,7 @@ class PageFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Pages";
+  String get title => "页面";
 
   @override
   List<String> get quantifiers =>
@@ -146,7 +146,7 @@ class AddPageFetcher extends SearchFetcher {
   final bool disabled;
 
   @override
-  String get title => "Add Page";
+  String get title => "添加页面";
 
   @override
   List<String> get quantifiers => [
@@ -231,12 +231,12 @@ class PageSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Open",
+        "打开",
         TWIcons.externalLink,
         SingleActivator(LogicalKeyboardKey.enter),
       ),
       SearchAction(
-        "Rename",
+        "重命名",
         TWIcons.pencil,
         SmartSingleActivator(LogicalKeyboardKey.keyR, control: true),
         onTrigger: (context, __) async =>
@@ -248,7 +248,7 @@ class PageSearchElement extends SearchElement {
             false,
       ),
       SearchAction(
-        "Change Chapter",
+        "更改章节",
         TWIcons.bookMarker,
         SmartSingleActivator(LogicalKeyboardKey.keyC, control: true),
         onTrigger: (context, __) async =>
@@ -262,7 +262,7 @@ class PageSearchElement extends SearchElement {
             false,
       ),
       SearchAction(
-        "Delete",
+        "删除",
         TWIcons.trash,
         SmartSingleActivator(LogicalKeyboardKey.backspace, control: true),
         color: Colors.red,
@@ -294,10 +294,10 @@ class AddPageSearchElement extends SearchElement {
   final void Function(Page)? onAdded;
 
   @override
-  String get title => "Add ${type.name}";
+  String get title => "添加${type.name}";
 
   @override
-  String description(BuildContext context) => "Create a new ${type.name}";
+  String description(BuildContext context) => "创建新的${type.name}";
 
   @override
   Widget icon(BuildContext context) => Iconify(type.icon);
@@ -312,7 +312,7 @@ class AddPageSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Add",
+        "添加",
         TWIcons.plus,
         SingleActivator(LogicalKeyboardKey.enter),
       ),

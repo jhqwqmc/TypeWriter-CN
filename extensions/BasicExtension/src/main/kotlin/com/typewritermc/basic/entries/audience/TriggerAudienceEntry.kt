@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "trigger_audience",
-    "Triggers a sequence when the player enters or exits the audience",
+    "当玩家加入或离开受众时触发序列",
     Colors.GREEN,
     "mdi:account-arrow-right"
 )
@@ -27,9 +27,9 @@ import org.bukkit.entity.Player
 class TriggerAudienceEntry(
     override val id: String = "",
     override val name: String = "",
-    @Help("The sequence to trigger when the player enters the audience.")
+    @Help("玩家加入受众时触发的序列")
     val onEnter: Ref<TriggerableEntry> = emptyRef(),
-    @Help("The sequence to trigger when the player exits the audience.")
+    @Help("玩家离开受众时触发的序列")
     val onExit: Ref<TriggerableEntry> = emptyRef(),
 ) : AudienceEntry {
     override suspend fun display(): AudienceDisplay = TriggerAudienceDisplay(onEnter, onExit)

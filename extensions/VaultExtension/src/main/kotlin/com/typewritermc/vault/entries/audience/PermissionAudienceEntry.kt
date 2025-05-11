@@ -13,7 +13,7 @@ import org.koin.java.KoinJavaComponent
 
 @Entry(
     "permission_audience",
-    "Filters an audience based on if they have a specific permission",
+    "基于玩家是否拥有特定权限的受众筛选器",
     Colors.MEDIUM_SEA_GREEN,
     "fa6-solid:user-shield"
 )
@@ -28,7 +28,7 @@ class PermissionAudienceEntry(
     override val id: String = "",
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
-    @Help("The permission to check for.")
+    @Help("需要检查的权限")
     val permission: String = "",
     override val inverted: Boolean = false,
 ) : AudienceFilterEntry, Invertible {

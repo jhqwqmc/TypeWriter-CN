@@ -25,7 +25,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.wolf.applyBeggingDa
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("wolf_definition", "A wolf entity", Colors.ORANGE, "game-icons:sitting-dog")
+@Entry("wolf_definition", "狼实体", Colors.ORANGE, "game-icons:sitting-dog")
 @Tags("wolf_definition")
 /**
  * The `WolfDefinition` class is an entry that represents a wolf entity.
@@ -44,7 +44,7 @@ class WolfDefinition(
     override fun create(player: Player): FakeEntity = WolfEntity(player)
 }
 
-@Entry("wolf_instance", "An instance of a wolf entity", Colors.YELLOW, "game-icons:sitting-dog")
+@Entry("wolf_instance", "狼实体的实例", Colors.YELLOW, "game-icons:sitting-dog")
 /**
  * The `Wolf Instance` class is an entry that represents an instance of a wolf entity.
  *

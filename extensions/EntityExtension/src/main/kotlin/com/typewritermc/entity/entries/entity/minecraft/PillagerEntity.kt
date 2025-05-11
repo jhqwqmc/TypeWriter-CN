@@ -18,7 +18,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.applyLivingEntityDa
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("pillager_definition", "A pillager entity", Colors.ORANGE, "game-icons:crossbow")
+@Entry("pillager_definition", "掠夺者实体", Colors.ORANGE, "game-icons:crossbow")
 @Tags("pillager_definition")
 /**
  * The `PillagerDefinition` class is an entry that shows up as a pillager in-game.
@@ -37,7 +37,7 @@ class PillagerDefinition(
     override fun create(player: Player): FakeEntity = PillagerEntity(player)
 }
 
-@Entry("pillager_instance", "An instance of a pillager entity", Colors.YELLOW, "game-icons:crossbow")
+@Entry("pillager_instance", "掠夺者实体的实例", Colors.YELLOW, "game-icons:crossbow")
 class PillagerInstance(
     override val id: String = "",
     override val name: String = "",

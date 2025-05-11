@@ -29,7 +29,7 @@ val optionFormat: String by snippet(
 			|<white> <speaker><reset>: <text>
 			|
 			|<options>
-			|<#5d6c78>[ <grey><white>Scroll</white> to change option and press<white> <confirmation_key> </white>to select <#5d6c78>]</#5d6c78>
+			|<#5d6c78>[ <grey><white>滚动</white>切换选项，按<white> <confirmation_key> </white>选择 <#5d6c78>]</#5d6c78>
 			|<gray><st>${" ".repeat(60)}</st>
 		""".trimMargin()
 )
@@ -53,7 +53,7 @@ val optionMaxLineLength: Int by snippet("dialogue.option.maxLineLength", 40)
 private val delayOptionShow: Int by snippet(
     "dialogue.option.delay",
     100,
-    "The delay in milliseconds between each option being shown."
+    "每个选项显示之间的延迟（毫秒）"
 )
 
 class JavaOptionDialogueDialogueMessenger(player: Player, context: InteractionContext, entry: OptionDialogueEntry) :

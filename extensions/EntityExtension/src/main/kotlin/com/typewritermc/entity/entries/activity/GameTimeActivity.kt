@@ -14,7 +14,7 @@ import com.typewritermc.engine.paper.entry.entries.GenericEntityActivityEntry
 import com.typewritermc.engine.paper.utils.logErrorIfNull
 import com.typewritermc.engine.paper.utils.toBukkitWorld
 
-@Entry("game_time_activity", "A game time activity", Colors.PALATINATE_BLUE, "bi:clock-fill")
+@Entry("game_time_activity", "游戏时间活动", Colors.PALATINATE_BLUE, "bi:clock-fill")
 /**
  * The `GameTimeActivityEntry` is an activity that activates child activities at specific times in the game.
  *

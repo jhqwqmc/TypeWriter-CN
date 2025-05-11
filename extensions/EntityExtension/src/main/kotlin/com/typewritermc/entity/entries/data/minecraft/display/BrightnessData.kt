@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("brightness_data", "Brightness of a Display.", Colors.RED, "mdi:lightbulb-on-outline")
+@Entry("brightness_data", "展示实体的亮度", Colors.RED, "mdi:lightbulb-on-outline")
 @Tags("brightness_data")
 class BrightnessData(
     override val id: String = "",
@@ -43,6 +43,6 @@ data class BrightnessProperty(val blockLight: Int, val skyLight: Int) : EntityPr
 fun applyBrightnessData(entity: WrapperEntity, property: BrightnessProperty) {
     entity.metas {
         meta<AbstractDisplayMeta> { brightnessOverride = (property.blockLight shl 4 or property.skyLight shl 20) }
-        error("Could not apply BrightnessData to ${entity.entityType} entity.")
+        error("无法将BrightnessData应用到${entity.entityType}实体")
     }
 }

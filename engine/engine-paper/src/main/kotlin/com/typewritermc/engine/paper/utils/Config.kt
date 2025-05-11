@@ -28,7 +28,7 @@ class ConfigPropertyDelegate<T : Any>(
         }
         val t = klass.safeCast(value)
         if (t == null) {
-            logger.warning("Invalid value for config key '$key', expected ${klass.simpleName}, got ${value::class.simpleName}")
+            logger.warning("配置键'$key'的值无效，预期类型${klass.simpleName}，实际类型${value::class.simpleName}")
             return default
         }
         return t
@@ -48,7 +48,7 @@ class OptionalConfigPropertyDelegate<T : Any>(
         val value = plugin.config.get(key) ?: return null
         val t = klass.safeCast(value)
         if (t == null) {
-            logger.warning("Invalid value for config key '$key', expected ${klass.simpleName}, got ${value::class.simpleName}")
+            logger.warning("配置键'$key'的值无效，预期类型${klass.simpleName}，实际类型${value::class.simpleName}")
             return null
         }
         return t

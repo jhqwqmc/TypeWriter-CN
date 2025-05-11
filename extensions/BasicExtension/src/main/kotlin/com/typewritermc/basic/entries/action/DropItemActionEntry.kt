@@ -19,7 +19,7 @@ import io.github.retrooper.packetevents.util.SpigotConversionUtil.toBukkitLocati
 import org.bukkit.entity.Player
 import java.util.*
 
-@Entry("drop_item", "Drop an item at location, or on player", Colors.RED, "fa-brands:dropbox")
+@Entry("drop_item", "在指定位置或玩家处丢弃物品", Colors.RED, "fa-brands:dropbox")
 /**
  * The `Drop Item Action` is an action that drops an item in the world.
  * This action provides you with the ability to drop an item with a specified Minecraft material, amount, display name, lore, and location.
@@ -37,7 +37,7 @@ class DropItemActionEntry(
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     val item: Var<Item> = ConstVar(Item.Empty),
-    @Help("The location to drop the item. (Defaults to the player's location)")
+    @Help("物品丢弃的位置（默认为玩家当前位置）")
     private val location: Optional<Var<Position>> = Optional.empty(),
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

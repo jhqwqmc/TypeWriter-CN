@@ -90,10 +90,10 @@ extension StringExt on String? {
 
 extension IntExt on int {
   String get ordinal {
-    if (this == 1) return "1st";
-    if (this == 2) return "2nd";
-    if (this == 3) return "3rd";
-    return "${this}th";
+    if (this == 1) return "第1";
+    if (this == 2) return "第2";
+    if (this == 3) return "第3";
+    return "第${this}";
   }
 
   String pluralize(String singular, [String? plural]) =>

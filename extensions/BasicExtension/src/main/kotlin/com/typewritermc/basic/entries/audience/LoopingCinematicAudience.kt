@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Entry(
     "looping_cinematic_audience",
-    "Show the audience members a cinematic that loops",
+    "为受众成员播放循环过场动画",
     Colors.GREEN,
     "mdi:movie-open-play"
 )
@@ -46,7 +46,7 @@ class LoopingCinematicAudience(
         val inValidEntries = entries.filterIsInstance<PrimaryCinematicEntry>().map { it.name }
 
         if (inValidEntries.isNotEmpty()) {
-            logger.warning("The cinematic $cinematicId has primary entries that cannot be looped: $inValidEntries, skipping these entries.")
+            logger.warning("过场动画${cinematicId}包含无法循环的主要条目：$inValidEntries，已跳过这些条目")
         }
 
         val loopingEntries = entries.filter { it !is PrimaryCinematicEntry }

@@ -11,7 +11,7 @@ import kotlin.reflect.cast
 
 @Entry(
     "interaction_context_text_variable",
-    "A way to build text with interaction variables",
+    "使用交互变量构建文本的方法",
     Colors.GREEN,
     "material-symbols:text-compare-rounded"
 )
@@ -22,7 +22,7 @@ class InteractionContextTextVariable(
     override val name: String = "",
 ) : VariableEntry {
     override fun <T : Any> get(context: VarContext<T>): T {
-        val data = context.getData<InteractionContextTextVariableData>() ?: throw IllegalStateException("Could not find data for ${context.klass}, data: ${context.data} for entry $id")
+        val data = context.getData<InteractionContextTextVariableData>() ?: throw IllegalStateException("找不到 ${context.klass} 的数据，数据：${context.data}（条目ID：$id）")
 
         val text = data.text.parsePlaceholders(context.player)
         val keys = data.keys
@@ -47,13 +47,13 @@ private data class InteractionContextTextVariableData(
     val keys: List<TextKeyValue> = emptyList(),
     @Colored
     @Placeholder
-    @Help("Use <1> to insert the text from the first variable.")
+    @Help("使用 <1> 插入第一个变量的文本")
     val text: String = "",
 )
 
 private data class TextKeyValue(
     @IgnoreContextKeyBlueprint
     val key: InteractionContextKey<*> = InteractionContextKey.Empty,
-    @Help("What to display if the key is not in the context.")
+    @Help("当键不在上下文中时显示的内容")
     val default: String = "",
 )

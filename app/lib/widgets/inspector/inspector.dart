@@ -81,10 +81,10 @@ class EmptyInspector extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Inspector"),
+        const Text("检查器"),
         const SizedBox(height: 12),
         Text(
-          "Click on an entry to inspect its properties.",
+          "点击条目可查看其属性。",
           style: Theme.of(context).textTheme.bodySmall,
         ),
         const SizedBox(height: 40),
@@ -195,14 +195,14 @@ class NoBlueprintEntryInspector extends HookConsumerWidget {
         const SizedBox(height: 12),
         Text(
           """
-          |The blueprint for this entry does not exist.
+          |此条目的蓝图不存在。
           |
-          |This can happen if the extension for this entry is no longer installed.
-          |Or if the extension removed the entry type.
+          |这可能发生在以下情况：
+          | - 该条目对应的扩展已卸载
+          | - 扩展移除了该条目类型
           |
-          |To fix this, you can either:
-          | - Install the extension again.
-          | - Remove the entry.
+          |解决方法：
+          | - 重新安装扩展
         """
               .trimMargin(),
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(),

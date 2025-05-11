@@ -17,7 +17,7 @@ interface SimpleEntityDefinition : EntityDefinitionEntry
 interface SimpleEntityInstance : EntityInstanceEntry {
     override val definition: Ref<out SimpleEntityDefinition>
     val data: List<Ref<EntityData<*>>>
-    @Help("What the entity will do.")
+    @Help("该实体将执行的动作。")
     @OnlyTags("shared_entity_activity")
     val activity: Ref<out EntityActivityEntry>
 
@@ -28,7 +28,7 @@ interface SimpleEntityInstance : EntityInstanceEntry {
         get() = data
 
     override suspend fun display(): AudienceFilter {
-        val definition = definition.get().logErrorIfNull("You must specify a definition for $name")
+        val definition = definition.get().logErrorIfNull("必须为${name}指定定义")
             ?: return PassThroughFilter(ref())
 
         val activity = this.activity.get() ?: IdleActivity

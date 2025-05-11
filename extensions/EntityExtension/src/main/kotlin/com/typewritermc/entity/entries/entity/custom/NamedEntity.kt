@@ -32,7 +32,7 @@ val namePlateColor by snippet("entity.name.color", "#40000000")
 
 @Entry(
     "named_entity_definition",
-    "An entity with a name above it's head and the indicator",
+    "带有头顶名称和指示器的实体",
     Colors.ORANGE,
     "mdi:account-tag"
 )
@@ -54,7 +54,7 @@ class NamedEntityDefinition(
 
     override fun create(player: Player): FakeEntity {
         val entity = baseEntity.get()?.create(player)
-            ?: throw IllegalStateException("A base entity must be specified for entry $name ($id)")
+            ?: throw IllegalStateException("条目$name ($id)必须指定基础实体")
         return NamedEntity(player, displayName, entity, ref())
     }
 }

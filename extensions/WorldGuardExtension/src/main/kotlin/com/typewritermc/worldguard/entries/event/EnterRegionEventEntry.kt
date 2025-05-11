@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.EventEntry
 import com.typewritermc.engine.paper.entry.triggerAllFor
 import com.typewritermc.worldguard.events.RegionsEnterEvent
 
-@Entry("on_enter_region", "When a player enters a WorldGuard region", Colors.YELLOW, "fa6-solid:door-open")
+@Entry("on_enter_region", "当玩家进入WorldGuard区域时", Colors.YELLOW, "fa6-solid:door-open")
 /**
  * The `Enter Region Event` is triggered when a player enters a region.
  *
@@ -25,7 +25,7 @@ class EnterRegionEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("If left blank, it will trigger for all regions")
+    @Help("若留空，将对所有区域触发")
     val region: String = "",
 ) : EventEntry
 

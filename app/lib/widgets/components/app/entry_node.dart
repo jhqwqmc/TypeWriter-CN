@@ -283,13 +283,13 @@ class _EntryNode extends HookConsumerWidget {
               ...contextActions,
               if (linkablePaths.isNotEmpty)
                 ContextMenuTile.button(
-                  title: "Link with ...",
+                  title: "关联到...",
                   icon: TWIcons.plus,
                   onTap: () => _linkWith(context, ref.passing, linkablePaths),
                 ),
               if (linkableDuplicatePaths.isNotEmpty)
                 ContextMenuTile.button(
-                  title: "Link with Duplicate",
+                  title: "关联到副本",
                   icon: TWIcons.copy,
                   onTap: () => _linkWithDuplicate(
                     context,
@@ -298,25 +298,25 @@ class _EntryNode extends HookConsumerWidget {
                   ),
                 ),
               ContextMenuTile.button(
-                title: "Duplicate",
+                title: "复制",
                 icon: TWIcons.duplicate,
                 onTap: () => _duplicateEntry(ref.passing),
               ),
               ContextMenuTile.button(
-                title: "Move to ...",
+                title: "移动到...",
                 icon: TWIcons.moveEntry,
                 color: Colors.blueAccent,
                 onTap: () => moveEntryToSelectingPage(ref.passing, id),
               ),
               ContextMenuTile.button(
-                title: "Replace with ...",
+                title: "替换为...",
                 icon: TWIcons.replace,
                 color: Colors.orange,
                 onTap: () => _replaceWithConfirmation(context, ref.passing, id),
               ),
               ContextMenuTile.divider(),
               ContextMenuTile.button(
-                title: "Delete",
+                title: "删除",
                 icon: TWIcons.trash,
                 color: Colors.redAccent,
                 onTap: () => _deleteEntry(context, ref.passing),
@@ -559,7 +559,7 @@ class NoBlueprintEntry extends HookConsumerWidget {
       builder: (context) {
         return [
           ContextMenuTile.button(
-            title: "Delete",
+            title: "删除",
             icon: TWIcons.trash,
             color: Colors.redAccent,
             onTap: () => _deleteEntry(context, ref.passing),
@@ -581,14 +581,14 @@ class NoBlueprintEntry extends HookConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      entryName ?? "Non existent blueprint",
+                      entryName ?? "不存在的蓝图",
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 13,
                       ),
                     ),
                     Text(
-                      "Blueprint for this entry does not exist",
+                      "该条目的蓝图不存在",
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Colors.white70,
                             fontStyle: FontStyle.italic,
@@ -624,14 +624,14 @@ class NonExistentEntry extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Non-existent entry",
+                  "不存在的条目",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 13,
                   ),
                 ),
                 Text(
-                  "Entry reference is not an entry",
+                  "条目引用不是一个有效条目",
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: Colors.white70,
                         fontStyle: FontStyle.italic,
@@ -661,7 +661,7 @@ class ExternalEntryNode extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final blueprint = ref.watch(entryBlueprintProvider(entry.blueprintId));
     final page = ref.watch(pageProvider(pageId));
-    final pageName = page?.pageName.formatted ?? "Unknown page";
+    final pageName = page?.pageName.formatted ?? "未知页面";
 
     if (blueprint == null) {
       return const NonExistentEntry();
@@ -690,7 +690,7 @@ class ExternalEntryNode extends HookConsumerWidget {
         builder: (context) {
           return [
             ContextMenuTile.button(
-              title: "Delete Reference",
+              title: "删除引用",
               icon: TWIcons.delete,
               color: Colors.redAccent,
               onTap: () => ref

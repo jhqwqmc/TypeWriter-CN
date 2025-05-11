@@ -21,7 +21,7 @@ import java.time.Duration
 
 @Entry(
     "add_potion_effect",
-    "Add a potion effect to the player",
+    "给玩家添加药水效果",
     Colors.RED,
     "fa6-solid:flask-vial"
 )
@@ -46,7 +46,7 @@ class AddPotionEffectActionEntry(
     val ambient: Boolean = false,
     @Default("true")
     val particles: Boolean = true,
-    @Help("Whether or not to show the potion effect icon in the player's inventory.")
+    @Help("是否在玩家物品栏显示药水效果图标")
     @Default("true")
     val icon: Boolean = true,
 ) : ActionEntry {

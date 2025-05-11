@@ -42,7 +42,7 @@ class SoundIdSerializer : DataSerializer<SoundId> {
         return when (type) {
             "default" -> DefaultSoundId(value)
             "entry" -> EntrySoundId(value)
-            else -> throw IllegalArgumentException("Invalid sound id type: $type")
+            else -> throw IllegalArgumentException("无效的音效ID类型: $type")
         }
     }
 }

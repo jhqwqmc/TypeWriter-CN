@@ -19,7 +19,7 @@ import com.typewritermc.engine.paper.events.AsyncEntityDefinitionInteract
 
 @Entry(
     "entity_interact_event",
-    "When the player clicks on an entity",
+    "当玩家点击实体时",
     Colors.YELLOW,
     "fa6-solid:people-robbery"
 )

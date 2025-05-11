@@ -17,7 +17,7 @@ import kotlin.random.Random
 
 @Entry(
     "ambient_sound_activity",
-    "Play an ambient sound for an entity",
+    "为实体播放环境音效",
     Colors.PALATINATE_BLUE,
     "mingcute:shuffle-2-fill"
 )
@@ -33,7 +33,7 @@ class AmbientSoundActivityEntry(
     override val id: String = "",
     override val name: String = "",
     val sounds: List<AmbientSound> = emptyList(),
-    @Help("How long to wait before playing the next sound")
+    @Help("播放下一个音效前的等待时间")
     @Default("{\"start\": 2000, \"end\": 5000}")
     val delay: ClosedRange<Duration> = Duration.ZERO..Duration.ZERO,
     val activity: Ref<out EntityActivityEntry> = emptyRef(),

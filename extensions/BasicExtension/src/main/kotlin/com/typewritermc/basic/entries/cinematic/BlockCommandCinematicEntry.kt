@@ -18,7 +18,7 @@ import com.typewritermc.engine.paper.interaction.interceptPackets
 import com.typewritermc.engine.paper.utils.ThreadType
 import org.bukkit.entity.Player
 
-@Entry("block_command_cinematic", "Block commands during the cinematic", Colors.RED, "mdi:console")
+@Entry("block_command_cinematic", "在过场动画期间屏蔽命令", Colors.RED, "mdi:console")
 /**
  * The `Block Command Cinematic` entry is used to block commands during the cinematic.
  *
@@ -42,7 +42,7 @@ data class BlockCommandSegment(
     override val startFrame: Int = 0,
     override val endFrame: Int = 0,
     @Regex
-    @Help("No need to include the slash. For example, use `say` instead of `/say`")
+    @Help("无需包含斜杠。例如使用`say`而非`/say`")
     val allowedCommands: List<String> = emptyList(),
 ) : Segment
 

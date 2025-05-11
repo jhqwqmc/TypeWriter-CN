@@ -21,7 +21,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.horse.*
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("llaama_definition", "A llama entity", Colors.ORANGE, "simple-icons:ollama")
+@Entry("llaama_definition", "羊驼实体", Colors.ORANGE, "simple-icons:ollama")
 @Tags("llama_definition")
 /**
  * The `LlamaDefinition` class is an entry that represents a llama entity.
@@ -40,7 +40,7 @@ class LlamaDefinition(
     override fun create(player: Player): FakeEntity = LlamaEntity(player)
 }
 
-@Entry("llama_instance", "An instance of a llama entity", Colors.YELLOW, "simple-icons:ollama")
+@Entry("llama_instance", "羊驼实体的实例", Colors.YELLOW, "simple-icons:ollama")
 /**
  * The `LlamaInstance` class is an entry that represents an instance of a llama entity.
  *

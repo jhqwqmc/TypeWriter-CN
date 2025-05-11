@@ -25,7 +25,7 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import java.util.*
 
-@Entry("pumpkin_hat_cinematic", "Show a pumpkin hat during a cinematic", Colors.CYAN, "mingcute:hat-fill")
+@Entry("pumpkin_hat_cinematic", "在过场动画期间显示南瓜头效果", Colors.CYAN, "mingcute:hat-fill")
 /**
  * The `Pumpkin Hat Cinematic` is a cinematic that shows a pumpkin hat on the player's head.
  *

@@ -11,7 +11,7 @@ import com.typewritermc.quest.QuestEntry
 import com.typewritermc.quest.QuestStatus
 import org.bukkit.entity.Player
 
-@Entry("quest", "A quest definition", Colors.MEDIUM_PURPLE, "material-symbols:book-2")
+@Entry("quest", "任务定义", Colors.MEDIUM_PURPLE, "material-symbols:book-2")
 /**
  * The `Quest` entry is a collection of tasks that the player can complete.
  * It is mainly for displaying the progress to a player.
@@ -30,10 +30,10 @@ class SimpleQuestEntry(
     override val name: String = "",
     override val children: List<Ref<AudienceEntry>> = emptyList(),
     override val displayName: Var<String> = ConstVar(""),
-    @Help("When the criteria is met, it considers the quest to be active.")
+    @Help("满足条件时视为任务激活")
     val activeCriteria: List<Criteria> = emptyList(),
 
-    @Help("When the criteria is met, it considers the quest to be completed.")
+    @Help("满足条件时视为任务完成")
     val completedCriteria: List<Criteria> = emptyList(),
 ) : QuestEntry {
     override val facts: List<Ref<ReadableFactEntry>>

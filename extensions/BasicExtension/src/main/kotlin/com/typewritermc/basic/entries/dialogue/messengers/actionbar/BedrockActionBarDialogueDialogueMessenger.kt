@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 
 private val actionBarTitle: String by snippet("dialogue.actionbar.bedrock.title", "<bold><speaker></bold>")
 private val actionBarContent: String by snippet("dialogue.actionbar.bedrock.content", "<message>\n\n")
-private val actionBarButton: String by snippet("dialogue.actionbar.bedrock.button", "Continue")
+private val actionBarButton: String by snippet("dialogue.actionbar.bedrock.button", "继续")
 
 class BedrockActionBarDialogueDialogueMessenger(
     player: Player,

@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.entry.entries.EventTrigger
 import com.typewritermc.engine.paper.entry.temporal.TemporalStartTrigger
 
 
-@Entry("cinematic", "Start a new cinematic", Colors.RED, "fa-solid:camera-retro")
+@Entry("cinematic", "新建一个过场动画", Colors.RED, "fa-solid:camera-retro")
 /**
  * The `Cinematic` action is used to start a new cinematic.
  *
@@ -36,7 +36,7 @@ class CinematicEntry(
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     @SerializedName("page")
     @Page(PageType.CINEMATIC)
-    @Help("The cinematic page to start.")
+    @Help("要开始的过场动画页面")
     val pageId: String = "",
 ) : ActionEntry {
     override val eventTriggers: List<EventTrigger>

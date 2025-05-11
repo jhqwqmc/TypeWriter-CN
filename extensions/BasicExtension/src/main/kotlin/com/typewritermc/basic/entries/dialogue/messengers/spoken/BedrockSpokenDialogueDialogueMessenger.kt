@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 
 private val spokenTitle: String by snippet("dialogue.spoken.bedrock.title", "<bold><speaker></bold>")
 private val spokenContent: String by snippet("dialogue.spoken.bedrock.content", "<message>\n\n")
-private val spokenButton: String by snippet("dialogue.spoken.bedrock.button", "Continue")
+private val spokenButton: String by snippet("dialogue.spoken.bedrock.button", "继续")
 
 class BedrockSpokenDialogueDialogueMessenger(player: Player, context: InteractionContext, entry: SpokenDialogueEntry) :
     DialogueMessenger<SpokenDialogueEntry>(player, context, entry) {

@@ -20,7 +20,7 @@ import com.typewritermc.engine.paper.utils.restore
 import com.typewritermc.engine.paper.utils.state
 import org.bukkit.entity.Player
 
-@Entry("game_time_cinematic", "A cinematic that changes the in game time", Colors.CYAN, "material-symbols:auto-timer")
+@Entry("game_time_cinematic", "改变过场动画的游戏内时间", Colors.CYAN, "material-symbols:auto-timer")
 /**
  * The `GameTimeCinematicEntry` is an entry that changes the in game time during a cinematic.
  *

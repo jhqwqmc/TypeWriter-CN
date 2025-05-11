@@ -16,7 +16,7 @@ import com.typewritermc.core.interaction.InteractionContextBuilder
 import com.typewritermc.engine.paper.entry.TriggerableEntry
 import kotlin.reflect.KClass
 
-@Entry("number_argument", "An number argument", Colors.RED, "fa6-solid:hashtag")
+@Entry("number_argument", "整型参数", Colors.RED, "fa6-solid:hashtag")
 @ContextKeys(NumberArgumentContextKeys::class)
 /**
  * The `Number Argument` entry is an argument that takes a number.

@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("arms_data", "An arms data", Colors.RED, "openmoji:stick-figure-with-arms-raised")
+@Entry("arms_data", "手臂数据", Colors.RED, "openmoji:stick-figure-with-arms-raised")
 @Tags("arms_data", "armor_stand_data")
 class ArmsData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class ArmsProperty(val hasArms: Boolean) : EntityProperty {
 fun applyArmsData(entity: WrapperEntity, property: ArmsProperty) {
     entity.metas {
         meta<ArmorStandMeta> { isHasArms = property.hasArms }
-        error("Could not apply ArmsData to ${entity.entityType} entity.")
+        error("无法将ArmsData应用到${entity.entityType}实体")
     }
 }

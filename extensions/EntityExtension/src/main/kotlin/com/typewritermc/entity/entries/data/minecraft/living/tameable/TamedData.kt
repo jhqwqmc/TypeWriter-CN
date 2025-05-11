@@ -15,7 +15,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("tamed_data", "When a tamable entity is tamed", Colors.RED, "game-icons:sitting-dog")
+@Entry("tamed_data", "当可驯服实体被驯服时", Colors.RED, "game-icons:sitting-dog")
 @Tags("tamed_data", "horse_data")
 class TamedData(
     override val id: String = "",
@@ -36,6 +36,6 @@ fun applyTamedData(entity: WrapperEntity, property: TamedProperty) {
     entity.metas {
         meta<TameableMeta> { isTamed = property.tamed }
         meta<BaseHorseMeta> { isTamed = property.tamed }
-        error("Could not apply TamedData to ${entity.entityType} entity.")
+        error("无法将TamedData应用到${entity.entityType}实体")
     }
 }

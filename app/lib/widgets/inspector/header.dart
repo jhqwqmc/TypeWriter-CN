@@ -109,7 +109,7 @@ class FieldHeader extends HookConsumerWidget {
     final actions = ref.watch(_actionsProvider(path));
 
     final name =
-        ref.watch(pathDisplayNameProvider(path)).nullIfEmpty ?? "Fields";
+        ref.watch(pathDisplayNameProvider(path)).nullIfEmpty ?? "字段";
 
     final expanded = useState(defaultExpanded);
     final depth = (parent?.depth ?? -1) + 1;

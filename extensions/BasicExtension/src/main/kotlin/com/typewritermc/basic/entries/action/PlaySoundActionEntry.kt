@@ -14,7 +14,7 @@ import com.typewritermc.engine.paper.utils.Sound
 import com.typewritermc.engine.paper.utils.playSound
 import org.bukkit.entity.Player
 
-@Entry("play_sound", "Play sound at player, or location", Colors.RED, "fa6-solid:volume-high")
+@Entry("play_sound", "在玩家位置或指定位置播放音效", Colors.RED, "fa6-solid:volume-high")
 /**
  * The `Play Sound Action` is an action that plays a sound for the player. This action provides you with the ability to play any sound that is available in Minecraft, at a specified location.
  *

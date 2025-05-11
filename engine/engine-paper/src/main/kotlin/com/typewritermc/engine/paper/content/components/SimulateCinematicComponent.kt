@@ -83,8 +83,8 @@ class SimulateCinematicComponent(
             val frameDisplay = "$frame".padStart(maxFrame.digits)
             var prefix = ""
 
-            if (scrollFrames != null) prefix += " <gradient:#9452ff:#ff2eea><b>(Scrolling)</b></gradient>"
-            if (inputting != null) prefix += " <gradient:#52a3ff:#2effea><b>(Inputting)</b></gradient>"
+            if (scrollFrames != null) prefix += "<gradient:#9452ff:#ff2eea><b>(滚动中)</b></gradient>"
+            if (inputting != null) prefix += "<gradient:#52a3ff:#2effea><b>(输入中)</b></gradient>"
 
             if (prefix.isNotBlank()) prefix = " <gray>-$prefix"
 
@@ -143,7 +143,7 @@ class SimulateCinematicComponent(
         inputting = player.uniqueId
         player.playSound("block.amethyst_block.hit")
         player.startBlockingMessages()
-        player.sendInputMessage("Type frame in chat")
+        player.sendInputMessage("在聊天框中输入帧数")
     }
 
     @EventHandler(priority = EventPriority.LOW)
@@ -153,7 +153,7 @@ class SimulateCinematicComponent(
         event.isCancelled = true
         val frame = event.message().plainText().toIntOrNull()
         if (frame == null || frame < 0 || frame > maxFrame) {
-            player.sendInputMessage("<red>Frame must be between 0 and $maxFrame")
+            player.sendInputMessage("<red>帧数必须在0到${maxFrame}之间")
             return
         }
 
@@ -171,7 +171,7 @@ class SimulateCinematicComponent(
                 """
 	        |<gray><st>${" ".repeat(60)}</st>
             |
-            |<white><b>Enter a frame number:</b>
+            |<white><b>输入帧数：</b>
             |
             |<gray><info_padding><info_text>
 	        |<gray><st>${" ".repeat(60)}</st>
@@ -209,14 +209,14 @@ class SimulateCinematicComponent(
     override fun items(player: Player): Map<Int, IntractableItem> {
         val playbackSpeed = ItemStack(Material.CLOCK).apply {
             editMeta { meta ->
-                meta.name = "<yellow><bold>Playback Speed"
+                meta.name = "<yellow><bold>播放速度"
                 meta.loreString = """
-                    |<line> <green><b>Right Click: </b><white>Increases speed by 1
-                    |<line> <green>Shift + Right Click: <white>Increases speed by 0.25
-                    |<line> <red><b>Left Click: </b><white>Decreases speed by 1
-                    |<line> <red>Shift + Left Click: <white>Decreases speed by 0.25
-                    |<line> <yellow><b><key:key.drop>: </b><white>Rewind to start
-                    |<line> <blue><b><key:key.swapOffhand>: </b><white>Pause/Resume
+                    |<line> <green><b>右键点击：</b><white>速度增加1
+                    |<line> <green>Shift + 右键点击：<white>速度增加0.25
+                    |<line> <red><b>左键点击：</b><white>速度减少1
+                    |<line> <red>Shift + 左键点击：<white>速度减少0.25
+                    |<line> <yellow><b><key:key.drop>：</b><white>倒回起始
+                    |<line> <blue><b><key:key.swapOffhand>：</b><white>暂停/继续
                 """.trimMargin()
             }
         } onInteract { (type) ->
@@ -236,14 +236,14 @@ class SimulateCinematicComponent(
 
         val skip = ItemStack(Material.AMETHYST_SHARD).apply {
             editMeta { meta ->
-                meta.name = "<yellow><bold>Skip Frame"
+                meta.name = "<yellow><bold>跳帧"
                 meta.loreString = """
-                    |<line> <green><b>Right Click: </b><white>Goes forward (with velocity)
-                    |<line> <green>Shift + Right Click: <white>Goes forward 1 frames
-                    |<line> <red><b>Left Click: </b><white>Goes backwards (with velocity)
-                    |<line> <red>Shift + Left Click: <white>Goes backwards 1 frames
-                    |<line> <yellow><b><key:key.drop>: </b><white>Input a specific frame
-                    |<line> <blue><b><key:key.swapOffhand>: </b><white>Go into advanced playback control mode
+                    |<line> <green><b>右键点击：</b><white>前进（带速度）
+                    |<line> <green>Shift + 右键点击：<white>前进1帧
+                    |<line> <red><b>左键点击：</b><white>后退（带速度）
+                    |<line> <red>Shift + 左键点击：<white>后退1帧
+                    |<line> <yellow><b><key:key.drop>：</b><white>输入指定帧数
+                    |<line> <blue><b><key:key.swapOffhand>：</b><white>进入高级播放控制模式
                 """.trimMargin()
             }
         } onInteract { (type) ->
@@ -286,18 +286,18 @@ class SimulateCinematicComponent(
 
 fun findCinematicPageById(pageId: String?): Page? {
     if (pageId.isNullOrEmpty()) {
-        logger.warning("Can only simulate cinematic for a page")
+        logger.warning("只能为页面模拟过场动画效果")
         return null
     }
 
     val page = Query.findPageById(pageId)
     if (page == null) {
-        logger.warning("Page $pageId not found, make sure to publish before using content mode")
+        logger.warning("未找到页面$pageId，使用内容模式前请先发布")
         return null
     }
 
     if (page.type != PageType.CINEMATIC) {
-        logger.warning("Page $pageId is not a cinematic page")
+        logger.warning("页面${pageId}不是过场动画页面")
         return null
     }
     return page

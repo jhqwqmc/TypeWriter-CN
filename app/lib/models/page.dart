@@ -137,7 +137,7 @@ enum PageType {
         values.firstWhereOrNull((type) => blueprint.tags.contains(type.tag));
     if (pageType == null) {
       throw Exception(
-        "No page type found for blueprint ${blueprint.name}, make sure it has one of the following tags: ${values.map((type) => type.tag).join(", ")}",
+        "未找到蓝图 ${blueprint.name} 对应的页面类型，请确保它包含以下任意标签：${values.map((type) => type.tag).join(", ")}",
       );
     }
     return pageType;
@@ -399,7 +399,7 @@ extension PageX on Page {
     if (blueprint == null) {
       Toasts.showError(
         ref,
-        "Could not wire blueprint for entry ${baseEntry.blueprintId}, report this to the discord!",
+        "无法为条目 ${baseEntry.blueprintId} 连接蓝图，请将此问题反馈至 Discord！",
       );
       return;
     }
@@ -407,8 +407,8 @@ extension PageX on Page {
     if (dataBlueprint == null) {
       Toasts.showError(
         ref,
-        "Could not wire blueprint for entry ${baseEntry.blueprintId}, report this to the discord!",
-        description: "No data blueprint found for path $path",
+        "无法为条目 ${baseEntry.blueprintId} 连接蓝图，请将此问题反馈至 Discord！",
+        description: "未找到路径 $path 对应的数据蓝图",
       );
       return;
     }
@@ -437,8 +437,8 @@ extension PageX on Page {
 
     Toasts.showError(
       ref,
-      "Could not wire entry ${baseEntry.id} to target entry $targetEntryId, report this to the discord!",
-      description: "Data blueprint for path $path did not match",
+      "无法将条目 ${baseEntry.id} 连接到目标条目 $targetEntryId，请将此问题反馈至 Discord！",
+      description: "路径 $path 的数据蓝图不匹配",
     );
   }
 
@@ -456,8 +456,8 @@ extension PageX on Page {
     if (currentTriggers == null || currentTriggers is! List) {
       Toasts.showError(
         ref,
-        "Could not wire entry ${baseEntry.id} to target entry $targetEntryId, report this to the discord!",
-        description: "Path $path is not a list while blueprint requires a list",
+        "无法将条目 ${baseEntry.id} 连接到目标条目 $targetEntryId，请将此问题反馈至 Discord！",
+        description: "路径 $path 不是列表类型，但蓝图要求是列表",
       );
       return;
     }
@@ -487,8 +487,8 @@ extension PageX on Page {
     if (map is! Map<dynamic, dynamic>) {
       Toasts.showError(
         ref,
-        "Could not wire entry ${baseEntry.id} to target entry $targetEntryId, report this to the discord!",
-        description: "Path $path is not a map while blueprint requires a map",
+        "无法将条目 ${baseEntry.id} 连接到目标条目 $targetEntryId，请将此问题反馈至 Discord！",
+        description: "路径 $path 不是映射类型，但蓝图要求是映射",
       );
       return;
     }
@@ -552,7 +552,7 @@ extension PageX on Page {
     final pathModifier = modifiers[wildPath];
     if (pathModifier == null) {
       debugPrint(
-        "No modifier found for path $wildPath in entry ${entry.id}.",
+        "在条目 ${entry.id} 中未找到路径 $wildPath 对应的修改器",
       );
       return;
     }
@@ -587,7 +587,7 @@ extension PageX on Page {
     final pathModifier = modifiers[wildPath];
     if (pathModifier == null) {
       debugPrint(
-        "No modifier found for path $wildPath in entry ${entry.id}.",
+        "在条目 ${entry.id} 中未找到路径 $wildPath 对应的修改器",
       );
       return;
     }
@@ -637,9 +637,9 @@ extension PageX on Page {
     if (!blueprint.allowsGeneric(entry.genericBlueprint)) {
       Toasts.showError(
         ref,
-        "Could not replace entry ${entry.id} with ${blueprint.name}",
+        "无法用蓝图 ${blueprint.name} 替换条目 ${entry.id}",
         description:
-            "The generic blueprint of the entry is not compatible with the new blueprint",
+            "条目的泛型蓝图与新蓝图不兼容",
       );
       return;
     }
@@ -667,10 +667,10 @@ extension PageX on Page {
 
     await showConfirmationDialogue(
       context: context,
-      title: "Replace Entry",
+      title: "替换条目",
       content:
-          "Replacing entries is not reversible.\nIt may result in data loss or data corruption.\nAre you sure you want to replace this entry?",
-      confirmText: "Replace",
+          "替换条目操作不可逆。\n可能导致数据丢失或损坏。\n确定要替换此条目吗？",
+      confirmText: "替换",
       onConfirm: () {
         final builder = ref.read(searchProvider.notifier).asBuilder()
           ..tag(type.tag, canRemove: false)
@@ -703,9 +703,9 @@ extension PageX on Page {
   ) {
     showConfirmationDialogue(
       context: context,
-      title: "Delete Entry",
-      content: "Are you sure you want to delete this entry?",
-      confirmText: "Delete",
+      title: "删除条目",
+      content: "确定要删除此条目吗？",
+      confirmText: "删除",
       onConfirm: () {
         final entry = ref.read(entryProvider(id, entryId));
         if (entry == null) return;

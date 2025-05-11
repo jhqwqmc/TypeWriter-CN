@@ -34,7 +34,7 @@ import kotlin.math.pow
 private val showEdgeDistance by snippet(
     "content.road_network.show_edge_distance",
     30.0,
-    "The distance at which the edge particles will still be shown"
+    "仍会显示边缘粒子的距离"
 )
 
 class RoadNetworkContentMode(context: ContentContext, player: Player) : ContentMode(context, player), KoinComponent {
@@ -49,20 +49,20 @@ class RoadNetworkContentMode(context: ContentContext, player: Player) : ContentM
     private val network get() = editorComponent.network
 
     override suspend fun setup(): Result<Unit> {
-        val entryId = context.entryId ?: return failure("No entry id found for RoadNetworkContentMode")
+        val entryId = context.entryId ?: return failure("未找到RoadNetworkContentMode的条目ID")
 
         ref = Ref(entryId, RoadNetworkEntry::class)
-        ref.get() ?: return failure("No entry '$entryId' found for RoadNetworkContentMode")
+        ref.get() ?: return failure("未找到RoadNetworkContentMode的条目'$entryId'")
 
         editorComponent = +RoadNetworkEditorComponent(ref)
 
         bossBar {
             val componentState = editorComponent.state
             var suffix = ""
-            if (highlighting) suffix += " <yellow>(highlighting)</yellow>"
+            if (highlighting) suffix += " <yellow>(高亮显示)</yellow>"
             suffix += componentState.message
 
-            title = "Editing Road Network$suffix"
+            title = "正在编辑路网$suffix"
             color = when {
                 componentState == RoadNetworkEditorState.Dirty -> BossBar.Color.RED
                 componentState is RoadNetworkEditorState.Calculating -> BossBar.Color.PURPLE
@@ -189,8 +189,8 @@ private class NetworkAddNodeComponent(
     override fun items(player: Player): Map<Int, IntractableItem> {
         val addNodeItem = ItemStack(Material.DIAMOND).apply {
             editMeta { meta ->
-                meta.name = "<green><b>Add Node"
-                meta.loreString = "<line> <gray>Click to add a new node to the road network"
+                meta.name = "<green><b>添加节点"
+                meta.loreString = "<line> <gray>点击为路网添加新节点"
             }
         } onInteract {
             if (it.type.isClick) onAdd(it.clickedBlock?.location?.clone()?.add(0, 1, 0) ?: player.location)
@@ -198,10 +198,10 @@ private class NetworkAddNodeComponent(
 
         val addNegativeNodeItem = ItemStack(Material.NETHERITE_INGOT).apply {
             editMeta { meta ->
-                meta.name = "<red><b>Add Negative Node"
+                meta.name = "<red><b>添加负节点"
                 meta.loreString = """
-                |<line> <gray>Click to add a new negative node to the road network
-                |<line> <gray>Blocking pathfinding through its radius
+                |<line> <gray>点击为路网添加新的负节点
+                |<line> <gray>阻止通过其半径的路径查找
                 """.trimMargin()
             }
         } onInteract {
@@ -225,8 +225,8 @@ private class NetworkHighlightComponent(
     override fun item(player: Player): Pair<Int, IntractableItem> {
         val item = ItemStack(Material.GLOWSTONE_DUST).apply {
             editMeta { meta ->
-                meta.name = "<yellow><b>Highlight Nodes"
-                meta.loreString = "<line> <gray>Click to highlight all nodes"
+                meta.name = "<yellow><b>高亮节点"
+                meta.loreString = "<line> <gray>点击高亮所有节点"
             }
         } onInteract {
             if (!it.type.isClick) return@onInteract
@@ -244,8 +244,8 @@ private class NetworkRecalculateAllEdgesComponent(
     override fun item(player: Player): Pair<Int, IntractableItem> {
         val item = ItemStack(Material.REDSTONE).apply {
             editMeta { meta ->
-                meta.name = "<red><b>Recalculate Edges"
-                meta.loreString = "<line> <gray>Click to recalculate all edges, this might take a while."
+                meta.name = "<red><b>重新计算边"
+                meta.loreString = "<line> <gray>点击重新计算所有边，这可能需要一些时间。"
             }
         } onInteract {
             if (!it.type.isClick) return@onInteract

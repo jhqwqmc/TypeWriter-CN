@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 
 @Entry(
     "game_weather_cinematic",
-    "A cinematic that changes the weather",
+    "改变过场动画的天气",
     Colors.CYAN,
     "fluent:weather-rain-showers-day-24-filled"
 )

@@ -18,7 +18,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.applyLivingEntityDa
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("skeleton_definition", "A skeleton entity", Colors.ORANGE, "healthicons:skeleton")
+@Entry("skeleton_definition", "骷髅实体", Colors.ORANGE, "healthicons:skeleton")
 @Tags("skeleton_definition")
 /**
  * The `SkeletonDefinition` class is an entry that shows up as a skeleton in-game.
@@ -37,7 +37,7 @@ class SkeletonDefinition(
     override fun create(player: Player): FakeEntity = SkeletonEntity(player)
 }
 
-@Entry("skeleton_instance", "An instance of a skeleton entity", Colors.YELLOW, "healthicons:skeleton")
+@Entry("skeleton_instance", "骷髅实体的实例", Colors.YELLOW, "healthicons:skeleton")
 class SkeletonInstance(
     override val id: String = "",
     override val name: String = "",

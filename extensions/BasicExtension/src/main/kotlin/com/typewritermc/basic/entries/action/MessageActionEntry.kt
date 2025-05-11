@@ -22,7 +22,7 @@ private val messageFormat: String by snippet(
     "\n<gray> [ <bold><speaker></bold><reset><gray> ]\n<reset><white> <message>\n"
 )
 
-@Entry("send_message", "Send a message to a player", Colors.RED, "flowbite:message-dots-solid")
+@Entry("send_message", "向玩家发送一条消息", Colors.RED, "flowbite:message-dots-solid")
 /**
  * The `Send Message Action` is an action that sends a message to a player.
  * You can specify the speaker, and the message to send.

@@ -53,7 +53,7 @@ fun CommandTree.executePlayerOrTarget(block: ExecutionContext<CommandSourceStack
             block(this, player)
             return@executes
         }
-        sender.msg("Provide a player to execute this command on.")
+        sender.msg("请指定要执行此命令的玩家。")
     }
 }
 

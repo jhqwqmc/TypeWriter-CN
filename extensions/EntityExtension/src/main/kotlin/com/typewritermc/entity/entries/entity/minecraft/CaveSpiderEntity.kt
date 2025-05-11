@@ -18,7 +18,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.applyLivingEntityDa
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("cave_spider_definition", "A cave spider entity", Colors.ORANGE, "mdi:spider")
+@Entry("cave_spider_definition", "洞穴蜘蛛实体", Colors.ORANGE, "mdi:spider")
 @Tags("cave_spider_definition")
 /**
  * The `CaveSpiderDefinition` class is an entry that shows up as a cave spider in-game.
@@ -37,7 +37,7 @@ class CaveSpiderDefinition(
     override fun create(player: Player): FakeEntity = CaveSpiderEntity(player)
 }
 
-@Entry("cave_spider_instance", "An instance of a cave spider entity", Colors.YELLOW, "mdi:spider")
+@Entry("cave_spider_instance", "洞穴蜘蛛实体的实例", Colors.YELLOW, "mdi:spider")
 class CaveSpiderInstance(
     override val id: String = "",
     override val name: String = "",

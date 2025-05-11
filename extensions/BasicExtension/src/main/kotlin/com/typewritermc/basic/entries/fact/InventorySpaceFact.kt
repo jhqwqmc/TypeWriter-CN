@@ -15,7 +15,7 @@ import java.util.*
 
 @Entry(
     "inventory_space_fact",
-    "Check how many items a player can receive",
+    "检查玩家可接收多少物品",
     Colors.PURPLE,
     "fa6-solid:box-open"
 )
@@ -34,7 +34,7 @@ class InventorySpaceFact(
     override val name: String = "",
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
-    @Help("If specified, checks space for this specific item type")
+    @Help("若指定，则检查特定物品类型的空间")
     val item: Optional<Var<Item>> = Optional.empty(),
 ) : ReadableFactEntry {
     override fun readSinglePlayer(player: Player): FactData {

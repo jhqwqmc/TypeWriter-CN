@@ -15,7 +15,7 @@ import com.typewritermc.core.interaction.InteractionContextBuilder
 import com.typewritermc.engine.paper.entry.TriggerableEntry
 import kotlin.reflect.KClass
 
-@Entry("decimal_argument", "A double-precision floating-point argument", Colors.RED, "material-symbols:decimal-increase-rounded")
+@Entry("decimal_argument", "双精度浮点型参数", Colors.RED, "material-symbols:decimal-increase-rounded")
 @ContextKeys(DecimalArgumentContextKeys::class)
 /**
  * The `Decimal Argument` entry is an argument that takes a decimal.

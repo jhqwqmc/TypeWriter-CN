@@ -91,11 +91,11 @@ class AlgebraicEditor extends HookConsumerWidget {
         child: Text.rich(
           TextSpan(
             text: selectedCase is! String || selectedCase.isEmpty
-                ? "This field contains invalid data. "
-                : "Could not find a case for $selectedCase. ",
+                ? "此字段包含无效数据"
+                : "找不到$selectedCase对应的选项",
             children: const [
               TextSpan(
-                text: "Click to reset it to the default value.",
+                text: "点击重置为默认值",
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   decorationColor: Colors.redAccent,
@@ -290,7 +290,7 @@ class _AlgebraicSearchFetcher extends SearchFetcher {
   final Fuzzy<MapEntry<String, DataBlueprint>> _fuzzy;
 
   @override
-  String get title => "Select Case";
+  String get title => "选择选项";
 
   @override
   List<SearchElement> fetch(PassingRef ref, String query) {
@@ -337,7 +337,7 @@ class _AlgebraicSearchElement extends SearchElement {
 
   @override
   String description(BuildContext context) =>
-      "Set ${caseName.titleCase()} as the type of the field";
+      "将${caseName.titleCase()}设为字段类型";
 
   @override
   Widget icon(BuildContext context) => Iconify(
@@ -353,7 +353,7 @@ class _AlgebraicSearchElement extends SearchElement {
   List<SearchAction> actions(PassingRef ref) {
     return [
       const SearchAction(
-        "Select",
+        "选择",
         TWIcons.check,
         SingleActivator(LogicalKeyboardKey.enter),
       ),

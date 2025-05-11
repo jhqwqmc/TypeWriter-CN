@@ -18,7 +18,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "quest_status_update_event",
-    "Triggered when a quest status is updated for a player",
+    "当玩家任务状态更新时触发",
     Colors.YELLOW,
     "mdi:notebook-edit"
 )
@@ -35,9 +35,9 @@ class QuestStatusUpdateEventEntry(
     override val id: String = "",
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("When not set, it will trigger for all quests.")
+    @Help("未设置时，将为所有任务触发")
     val quest: Ref<QuestEntry> = emptyRef(),
-    @Help("When not set, it will trigger for all statuses.")
+    @Help("未设置时，将为所有状态触发")
     val from: Optional<QuestStatus> = Optional.empty(),
     val to: QuestStatus = QuestStatus.INACTIVE,
 ) : EventEntry

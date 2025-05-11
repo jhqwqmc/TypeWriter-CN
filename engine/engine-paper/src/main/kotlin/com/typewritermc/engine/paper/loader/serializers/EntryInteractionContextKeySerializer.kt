@@ -25,11 +25,11 @@ class EntryInteractionContextKeySerializer : DataSerializer<EntryInteractionCont
         typeOfT: Type,
         context: JsonDeserializationContext,
     ): EntryInteractionContextKey<*> {
-        if (json !is JsonObject) throw IllegalArgumentException("Invalid json for EntryInteractionContextKey, expected JsonObject")
+        if (json !is JsonObject) throw IllegalArgumentException("EntryInteractionContextKey的JSON无效，应为JsonObject")
         val obj = json.asJsonObject
         val required = listOf("ref", "key", "keyClass")
         required.forEach {
-            if (!obj.has(it)) throw IllegalArgumentException("Missing required field $it")
+            if (!obj.has(it)) throw IllegalArgumentException("缺少必填字段$it")
         }
         val ref = context.deserialize<Ref<Entry>>(obj["ref"], object : TypeToken<Ref<Entry>>() {}.type)
         if (!ref.isSet) return EntryInteractionContextKey<Any>()
@@ -40,7 +40,7 @@ class EntryInteractionContextKeySerializer : DataSerializer<EntryInteractionCont
 
         val key = context.deserialize<Any>(obj["key"], keyClass) ?: return EntryInteractionContextKey<Any>()
         val entryKey = EntryContextKey::class.safeCast(key)
-            ?: throw IllegalArgumentException("Invalid keyClass, expected ${EntryContextKey::class.qualifiedName} but got $keyClass")
+            ?: throw IllegalArgumentException("无效的keyClass，预期${EntryContextKey::class.qualifiedName}但得到$keyClass")
 
         return EntryInteractionContextKey<Any>(ref, entryKey)
     }

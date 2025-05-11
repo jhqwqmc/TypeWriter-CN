@@ -15,7 +15,7 @@ import com.typewritermc.engine.paper.utils.item.Item
 import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityPickupItemEvent
 
-@Entry("on_item_pickup", "When the player picks up an item", Colors.YELLOW, "fa6-solid:hand-holding-medical")
+@Entry("on_item_pickup", "当玩家拾取物品时", Colors.YELLOW, "fa6-solid:hand-holding-medical")
 /**
  * The `Pickup Item Event` is triggered when the player picks up an item.
  *

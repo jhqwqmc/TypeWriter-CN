@@ -15,7 +15,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "resource_pack_event",
-    "When the player's resource pack status changes",
+    "当玩家的资源包状态变更时",
     Colors.YELLOW,
     "mingcute:file-cloud-fill"
 )
@@ -24,7 +24,7 @@ class ResourcePackEventEntry(
     override val name: String = "",
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
 
-    @Help("List of resource pack statuses that will trigger this event.")
+    @Help("将触发此事件的资源包状态列表")
     @Default("""["SUCCESSFULLY_LOADED"]""")
     val statuses: List<Status> = listOf(Status.SUCCESSFULLY_LOADED)
 

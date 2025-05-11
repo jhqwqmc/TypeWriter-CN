@@ -69,7 +69,7 @@ class ClosedRangeHeaderActionFilter extends HeaderActionFilter {
     DataBlueprint dataBlueprint,
   ) =>
       InfoHeaderAction(
-        tooltip: "From start to end inclusive",
+        tooltip: "从开始到结束（包含首尾）",
         icon: TWIcons.inclusive,
         color: Color(0xFF0ccf92),
         url: "",

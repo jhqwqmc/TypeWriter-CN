@@ -49,11 +49,11 @@ class SoundSourceSerializer : DataSerializer<SoundSource> {
 
             "location" -> {
                 val position: Position = context?.deserialize(obj.get("location"), Position::class.java)
-                    ?: throw JsonParseException("Invalid location for LocationSoundSource")
+                    ?: throw JsonParseException("LocationSoundSource的位置无效")
                 LocationSoundSource(position)
             }
 
-            else -> throw JsonParseException("Invalid sound source type: $type")
+            else -> throw JsonParseException("无效的音源类型: $type")
         }
     }
 }

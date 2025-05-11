@@ -22,7 +22,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.parrot.applyParrotC
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("parrot_definition", "A parrot entity", Colors.ORANGE, "ph:bird-fill")
+@Entry("parrot_definition", "鹦鹉实体", Colors.ORANGE, "ph:bird-fill")
 @Tags("parrot_definition")
 /**
  * The `ParrotDefinition` class is an entry that represents a parrot entity.
@@ -41,7 +41,7 @@ class ParrotDefinition(
     override fun create(player: Player): FakeEntity = ParrotEntity(player)
 }
 
-@Entry("parrot_instance", "An instance of a parrot entity", Colors.YELLOW, "ph:bird-fill")
+@Entry("parrot_instance", "鹦鹉实体的实例", Colors.YELLOW, "ph:bird-fill")
 /**
  * The `Parrot Instance` class is an entry that represents an instance of a parrot entity.
  *

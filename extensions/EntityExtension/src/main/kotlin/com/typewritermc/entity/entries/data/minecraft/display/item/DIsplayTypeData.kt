@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("display_type_data", "Type of display for an ItemDisplay.", Colors.RED, "mdi:tools")
+@Entry("display_type_data", "物品展示实体的显示类型", Colors.RED, "mdi:tools")
 @Tags("item_display_data")
 class DisplayTypeData(
     override val id: String = "",
@@ -37,6 +37,6 @@ data class DisplayTypeProperty(val display: DisplayType) : EntityProperty {
 fun applyDisplayTypeData(entity: WrapperEntity, property: DisplayTypeProperty) {
     entity.metas {
         meta<ItemDisplayMeta> { displayType = property.display }
-        error("Could not apply DisplayTypeData to ${entity.entityType} entity.")
+        error("无法将DisplayTypeData应用到${entity.entityType}实体")
     }
 }

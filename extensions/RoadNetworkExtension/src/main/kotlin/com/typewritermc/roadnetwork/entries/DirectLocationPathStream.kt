@@ -16,7 +16,7 @@ import com.typewritermc.roadnetwork.gps.PathStreamDisplay
 
 @Entry(
     "direct_location_path_stream",
-    "A Path Stream to a Direct Location",
+    "到指定位置的路径流",
     Colors.GREEN,
     "material-symbols:conversion-path"
 )

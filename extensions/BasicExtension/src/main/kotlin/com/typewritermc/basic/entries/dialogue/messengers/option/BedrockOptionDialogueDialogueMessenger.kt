@@ -18,7 +18,7 @@ import org.bukkit.entity.Player
 
 private val optionTitle: String by snippet("dialogue.option.bedrock.title", "<bold><speaker></bold>")
 private val optionDescription: String by snippet("dialogue.option.bedrock.description", "<message>\n\n\n>")
-private val optionSelect: String by snippet("dialogue.option.bedrock.select", "Select Response")
+private val optionSelect: String by snippet("dialogue.option.bedrock.select", "选择回复")
 
 class BedrockOptionDialogueDialogueMessenger(player: Player, context: InteractionContext, entry: OptionDialogueEntry) :
     DialogueMessenger<OptionDialogueEntry>(player, context, entry) {

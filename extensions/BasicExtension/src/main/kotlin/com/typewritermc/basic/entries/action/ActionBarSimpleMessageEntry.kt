@@ -16,7 +16,7 @@ import com.typewritermc.engine.paper.entry.entries.Var
 import com.typewritermc.engine.paper.extensions.placeholderapi.parsePlaceholders
 import com.typewritermc.engine.paper.utils.asMini
 
-@Entry("action_bar_simple_message", "Send an action bar message to a player", Colors.RED, "bxs:message-square-detail")
+@Entry("action_bar_simple_message", "向玩家发送动作栏消息", Colors.RED, "bxs:message-square-detail")
 /**
  * The `Action Bar Simple Message` is an action that sends a message to the player using the action bar.
  * This allows you to send an action bar message **without** a speaker.

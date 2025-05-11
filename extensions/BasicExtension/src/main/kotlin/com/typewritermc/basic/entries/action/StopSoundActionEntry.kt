@@ -14,7 +14,7 @@ import com.typewritermc.engine.paper.utils.SoundId
 import net.kyori.adventure.sound.SoundStop
 import java.util.*
 
-@Entry("stop_sound", "Stop a or all sounds for a player", Colors.RED, "teenyicons:sound-off-solid")
+@Entry("stop_sound", "停止玩家当前播放的某个或所有音效", Colors.RED, "teenyicons:sound-off-solid")
 /**
  * The `Stop Sound` action is used to stop a or all sounds for a player.
  *
@@ -29,7 +29,7 @@ class StopSoundActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The sound to stop. If this field is left blank, all sounds will be stopped.")
+    @Help("要停止的音效名称（留空则停止所有音效）")
     val sound: Optional<Var<SoundId>> = Optional.empty(),
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

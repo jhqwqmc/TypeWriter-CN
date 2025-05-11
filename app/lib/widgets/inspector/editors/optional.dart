@@ -91,7 +91,7 @@ class OptionalEditor extends HookConsumerWidget {
           borderRadius: BorderRadius.circular(4),
         ),
         child: Text(
-          "Invalid subfield, try to restart the server",
+          "无效的子字段，请尝试重启服务器",
           style: Theme.of(context).textTheme.bodySmall,
         ),
       );

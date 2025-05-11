@@ -31,7 +31,7 @@ class TypewriterCommandManager {
     fun registerCommands() {
         val dispatcher = this.dispatcher
         if (dispatcher == null) {
-            throw IllegalStateException("TypewriterCommandManager has not been initialized with a dispatcher")
+            throw IllegalStateException("TypewriterCommandManager 尚未初始化为调度器")
         }
 
         val commands = listOf(
@@ -51,7 +51,7 @@ class TypewriterCommandManager {
     fun unregisterCommands() {
         val dispatcher = this.dispatcher
         if (dispatcher == null) {
-            throw IllegalStateException("TypewriterCommandManager has not been initialized with a dispatcher")
+            throw IllegalStateException("TypewriterCommandManager 尚未初始化为调度器")
         }
 
         commandsLabels.forEach {

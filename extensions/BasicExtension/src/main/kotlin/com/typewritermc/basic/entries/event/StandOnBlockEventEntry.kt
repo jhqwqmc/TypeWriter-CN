@@ -25,7 +25,7 @@ import kotlin.reflect.KClass
 
 @Entry(
     "stand_on_block_event",
-    "Triggered when a player stands on a block",
+    "当玩家站在方块上时触发",
     Colors.YELLOW,
     "material-symbols:lightning-stand"
 )

@@ -11,7 +11,7 @@ import kotlin.random.Random
 
 @Entry(
     "random_variable",
-    "A variable that returns a random value of the given values",
+    "返回给定值中随机值的变量",
     Colors.GREEN,
     "streamline:dices-entertainment-gaming-dices-solid"
 )
@@ -30,7 +30,7 @@ class RandomVariableEntry(
             dataValues[randomIndex - values.size]
         }
 
-        return genericValue.get(context.klass) ?: throw IllegalStateException("Could not find value for generic: ${genericValue.data} binding to ${context.klass.qualifiedName}")
+        return genericValue.get(context.klass) ?: throw IllegalStateException("找不到泛型值：${genericValue.data} 绑定到 ${context.klass.qualifiedName} 的值")
     }
 }
 

@@ -39,7 +39,7 @@ class RegexHeaderInfo extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return const InfoHeaderAction(
-      tooltip: "Regular expressions are supported. Click for more info.",
+      tooltip: "支持正则表达式。点击了解更多信息。",
       icon: TWIcons.asterisk,
       color: Color(0xFFf731d6),
       url: "https://www.autoregex.xyz/",

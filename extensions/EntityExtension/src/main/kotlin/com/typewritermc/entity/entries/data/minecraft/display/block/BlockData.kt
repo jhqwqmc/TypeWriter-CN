@@ -34,7 +34,7 @@ import org.bukkit.event.player.PlayerInteractEvent
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("block_data", "Block of a BlockDisplay.", Colors.RED, "mage:box-3d-fill")
+@Entry("block_data", "方块展示实体的方块", Colors.RED, "mage:box-3d-fill")
 @Tags("block_data")
 class BlockData(
     override val id: String = "",
@@ -55,17 +55,17 @@ data class BlockProperty(val blockId: Int) : EntityProperty {
 fun applyBlockData(entity: WrapperEntity, property: BlockProperty) {
     entity.metas {
         meta<BlockDisplayMeta> { blockId = property.blockId }
-        error("Could not apply BlockData to ${entity.entityType} entity.")
+        error("无法将BlockData应用到${entity.entityType}实体")
     }
 }
 
 class BlockIdContentMode(context: ContentContext, player: Player) : ContentMode(context, player), Listener {
     override suspend fun setup(): Result<Unit> {
-        context.entryId ?: return failure("No entry id found in context")
-        context.fieldPath ?: return failure("No field path found in context")
+        context.entryId ?: return failure("上下文中未找到条目ID")
+        context.fieldPath ?: return failure("上下文中未找到字段路径")
 
         bossBar {
-            title = "Click on a block to set the block state id"
+            title = "点击方块设置方块状态ID"
         }
         exit()
 

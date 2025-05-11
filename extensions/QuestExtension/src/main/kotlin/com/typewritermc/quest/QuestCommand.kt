@@ -13,7 +13,7 @@ fun CommandTree.questCommand() = literal("quest") {
         entry<QuestEntry>("quest") { quest ->
             executePlayerOrTarget { target ->
                 target.trackQuest(quest().ref())
-                sender.msg("You are now tracking <blue>${quest().display(target)}</blue>.")
+                sender.msg("你正在追踪<blue>${quest().display(target)}</blue>。")
             }
         }
     }
@@ -22,7 +22,7 @@ fun CommandTree.questCommand() = literal("quest") {
         withPermission("typewriter.quest.untrack")
         executePlayerOrTarget { target ->
             target.unTrackQuest()
-            sender.msg("You are no longer tracking any quests.")
+            sender.msg("你不再追踪任何任务。")
         }
     }
 }

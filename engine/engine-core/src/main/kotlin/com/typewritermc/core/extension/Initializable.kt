@@ -22,7 +22,7 @@ class InitializableManager : KoinComponent, Reloadable {
             try {
                 it.initialize()
             } catch (e: Exception) {
-                logger.severe("Failed to initialize ${it.javaClass.simpleName}: ${e.message}")
+                logger.severe("初始化 ${it.javaClass.simpleName} 失败: ${e.message}")
             }
         }
     }
@@ -32,7 +32,7 @@ class InitializableManager : KoinComponent, Reloadable {
             try {
                 it.shutdown()
             } catch (e: Exception) {
-                logger.severe("Failed to shutdown ${it.javaClass.simpleName}: ${e.message}")
+                logger.severe("关闭 ${it.javaClass.simpleName} 失败: ${e.message}")
             }
         }
         initializables = emptyList()

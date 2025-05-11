@@ -11,7 +11,7 @@ import com.typewritermc.engine.paper.entry.entries.ActionEntry
 import com.typewritermc.engine.paper.entry.entries.ActionTrigger
 import org.bukkit.entity.Player
 
-@Entry("island_set_border_size", "Set a player's island's border size", Colors.RED, "fa6-solid:border-all")
+@Entry("island_set_border_size", "设置玩家岛屿的边界大小", Colors.RED, "fa6-solid:border-all")
 /**
  * The `Island Set Border Size` action is used to set a player's island's border size.
  *

@@ -17,10 +17,10 @@ import kotlin.reflect.KClass
 interface SpeakerEntry : PlaceholderEntry {
     @Colored
     @Placeholder
-    @Help("The name of the entity that will be displayed in the chat (e.g. 'Steve' or 'Alex').")
+    @Help("将在聊天中显示的实体名称（例如'Steve'或'Alex'）")
     val displayName: Var<String>
 
-    @Help("The sound that will be played when the entity speaks.")
+    @Help("该实体说话时将播放的音效")
     val sound: Sound
 
     override fun parser(): PlaceholderParser = placeholderParser {
@@ -167,15 +167,15 @@ class WrongActivityContextException(
     entry: EntityActivityEntry
 ) : IllegalStateException(
     """
-    |The activity context for ${entry.name} is not of the expected type.
-    |Expected: $expected
-    |Actual: $context
+    |${entry.name}的活动上下文不符合预期类型
+    |预期类型: $expected
+    |实际类型: $context
     |
-    |This happens when you try to mix shared and individual activities.
-    |For example, you can't use a shared activity on an individual entity.
-    |And you can't use an individual activity on a shared entity.
+    |当您尝试混合使用共享活动和个体活动时会出现此问题
+    |例如：不能在个体实体上使用共享活动
+    |也不能在共享实体上使用个体活动
     |
-    |To fix this, you need to make sure that the activity matches the entity visibility.
-    |If you need more help, please join the TypeWriter Discord! https://discord.gg/gs5QYhfv9x
+    |解决方法：确保活动类型与实体可见性匹配
+    |如需更多帮助，请加入TypeWriter Discord！https://discord.gg/gs5QYhfv9x
 """.trimMargin()
 )

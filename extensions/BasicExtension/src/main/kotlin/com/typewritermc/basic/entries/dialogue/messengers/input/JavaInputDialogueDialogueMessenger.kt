@@ -32,7 +32,7 @@ val inputFormat: String by snippet(
 """.trimMargin()
 )
 
-val inputInfoText: String by snippet("dialogue.input.info", "Type answer in chat")
+val inputInfoText: String by snippet("dialogue.input.info", "在聊天框中输入答案")
 
 val inputPadding: String by snippet("dialogue.input.padding", "    ")
 val inputMinLength: Int by snippet("dialogue.input.minLength", 1)
@@ -89,7 +89,7 @@ class JavaInputDialogueDialogueMessenger<T : Any>(
         val message = event.message().plainText()
         val result = parser(message)
         if (result.isFailure) {
-            infoText = result.exceptionOrNull()?.message ?: "<red>Invalid input"
+            infoText = result.exceptionOrNull()?.message ?: "<red>无效输入"
             player.sendInputDialogue()
             return
         }

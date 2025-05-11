@@ -20,7 +20,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.guardian.applyRetra
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("elder_guardian_definition", "An elder guardian entity", Colors.ORANGE, "tabler:radar-filled")
+@Entry("elder_guardian_definition", "远古守卫者实体", Colors.ORANGE, "tabler:radar-filled")
 @Tags("elder_guardian_definition")
 /**
  * The `ElderGuardianDefinition` class is an entry that shows up as an elder guardian in-game.
@@ -39,7 +39,7 @@ class ElderGuardianDefinition(
     override fun create(player: Player): FakeEntity = ElderGuardianEntity(player)
 }
 
-@Entry("elder_guardian_instance", "An instance of an elder guardian entity", Colors.YELLOW, "tabler:radar-filled")
+@Entry("elder_guardian_instance", "远古守卫者实体的实例", Colors.YELLOW, "tabler:radar-filled")
 class ElderGuardianInstance(
     override val id: String = "",
     override val name: String = "",

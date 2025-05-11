@@ -22,7 +22,7 @@ import io.github.retrooper.packetevents.util.SpigotConversionUtil
 import org.bukkit.Particle
 import java.util.*
 
-@Entry("spawn_particles", "Spawn particles at location", Colors.RED, "fa6-solid:fire-flame-simple")
+@Entry("spawn_particles", "在指定位置生成粒子效果", Colors.RED, "fa6-solid:fire-flame-simple")
 /**
  * The `Spawn Particle Action` is an action that spawns a specific particle at a given location. This action provides you with the ability to spawn particles with a specified type, count, and location.
  *
@@ -36,12 +36,12 @@ class SpawnParticleActionEntry(
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
-    @Help("The location to spawn the particles at. (Defaults to player's location)")
+    @Help("粒子生成的位置（默认为玩家当前位置）")
     val location: Optional<Var<Position>> = Optional.empty(),
     val particle: Var<Particle> = ConstVar(Particle.FLAME),
     val count: Var<Int> = ConstVar(1),
     val offset: Var<Vector> = ConstVar(Vector.ZERO),
-    @Help("The speed of the particles. For some particles, this is the \"extra\" data value to control particle behavior.")
+    @Help("粒子的速度。对某些粒子类型而言，此参数将作为\"额外\"数据值来控制粒子行为。")
     val speed: Var<Double> = ConstVar(0.0),
 ) : ActionEntry {
     override fun ActionTrigger.execute() {

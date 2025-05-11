@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Entry(
     "fact_value_capped_audience",
-    "Caps audience based on fact values",
+    "基于持久化变量值限制受众数量",
     Colors.MEDIUM_SEA_GREEN,
     "mdi:sort-numeric"
 )

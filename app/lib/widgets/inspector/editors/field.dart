@@ -43,7 +43,7 @@ class _NoEditorFound extends StatelessWidget {
   Widget build(BuildContext context) {
     return Admonition.danger(
       child: Text(
-        "Could not find a editor for $path, with data blueprint ${dataBlueprint.runtimeType}",
+        "找不到$path的编辑器，数据蓝图类型为${dataBlueprint.runtimeType}",
       ),
     );
   }

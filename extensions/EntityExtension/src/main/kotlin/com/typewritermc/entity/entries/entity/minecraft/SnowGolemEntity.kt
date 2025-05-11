@@ -20,7 +20,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.snowgolem.applyPump
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("snow_golem_definition", "A snow golem entity", Colors.ORANGE, "game-icons:snowman")
+@Entry("snow_golem_definition", "雪傀儡实体", Colors.ORANGE, "game-icons:snowman")
 @Tags("snow_golem_definition")
 /**
  * The `SnowGolemDefinition` class is an entry that shows up as a snow golem in-game.
@@ -39,7 +39,7 @@ class SnowGolemDefinition(
     override fun create(player: Player): FakeEntity = SnowGolemEntity(player)
 }
 
-@Entry("snow_golem_instance", "An instance of a snow golem entity", Colors.YELLOW, "game-icons:snowman")
+@Entry("snow_golem_instance", "雪傀儡实体的实例", Colors.YELLOW, "game-icons:snowman")
 class SnowGolemInstance(
     override val id: String = "",
     override val name: String = "",

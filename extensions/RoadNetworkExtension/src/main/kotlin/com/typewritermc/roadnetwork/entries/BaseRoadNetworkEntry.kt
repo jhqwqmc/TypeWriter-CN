@@ -11,7 +11,7 @@ import com.typewritermc.roadnetwork.RoadNetwork
 import com.typewritermc.roadnetwork.RoadNetworkEntry
 import com.typewritermc.roadnetwork.content.RoadNetworkContentMode
 
-@Entry("base_road_network", "A definition of the words road network", Colors.YELLOW, "material-symbols:map")
+@Entry("base_road_network", "路网定义", Colors.YELLOW, "material-symbols:map")
 /**
  * The `Simple Road Network` is a definition of a road network.
  * The road network is a system of interconnected nodes and edges that represent a network in the world.

@@ -34,7 +34,7 @@ import java.util.*
 
 private const val FIREWORK_EXPLOSION_STATUS = 17
 
-@Entry("firework", "Spawns a firework", Colors.RED, "streamline:fireworks-rocket-solid")
+@Entry("firework", "生成烟花", Colors.RED, "streamline:fireworks-rocket-solid")
 /**
  * The `Firework Action Entry` is an action that spawns a firework.
  *

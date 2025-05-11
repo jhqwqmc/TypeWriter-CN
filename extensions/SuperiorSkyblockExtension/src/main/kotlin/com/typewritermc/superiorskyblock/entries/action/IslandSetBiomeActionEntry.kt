@@ -12,7 +12,7 @@ import com.typewritermc.engine.paper.entry.entries.ActionTrigger
 import org.bukkit.block.Biome
 import org.bukkit.entity.Player
 
-@Entry("island_set_biome", "Set a player's island's biome", Colors.RED, "fa6-solid:map")
+@Entry("island_set_biome", "设置玩家岛屿的生物群系", Colors.RED, "fa6-solid:map")
 /**
  * The `Island Set Biome` action is used to set a player's island's biome.
  *

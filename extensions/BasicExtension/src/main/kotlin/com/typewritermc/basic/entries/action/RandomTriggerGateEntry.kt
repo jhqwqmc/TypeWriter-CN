@@ -13,7 +13,7 @@ import com.typewritermc.engine.paper.entry.entries.ActionTrigger
 import com.typewritermc.engine.paper.entry.entries.ConstVar
 import com.typewritermc.engine.paper.entry.entries.Var
 
-@Entry("random_trigger", "Randomly selects its connected triggers", Colors.PINK, "mdi:clover")
+@Entry("random_trigger", "随机选择连接的触发器", Colors.PINK, "mdi:clover")
 /**
  * The `Random Trigger Gate` is a gate that triggers a specified number of entries randomly. This gate provides you with the ability to randomly select and trigger a set number of entries in response to a specific event.
  *
@@ -27,7 +27,7 @@ class RandomTriggerGateEntry(
     override val triggers: List<Ref<TriggerableEntry>> = emptyList(),
     override val criteria: List<Criteria> = emptyList(),
     override val modifiers: List<Modifier> = emptyList(),
-    @Help("The number of triggers to fire next.")
+    @Help("要触发的下一个触发器数量。")
     @Default("1")
     private val amount: Var<Int> = ConstVar(1),
 ) : ActionEntry {

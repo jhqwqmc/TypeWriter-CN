@@ -17,7 +17,7 @@ import com.typewritermc.engine.paper.facts.FactData
 import com.typewritermc.engine.paper.logger
 import org.bukkit.entity.Player
 
-@Entry("number_placeholder", "Computed Fact for a placeholder number", Colors.PURPLE, "ph:placeholder-fill")
+@Entry("number_placeholder", "占位符数值计算型持久化变量", Colors.PURPLE, "ph:placeholder-fill")
 /**
  * A [fact](/docs/creating-stories/facts) that is computed from a placeholder.
  * This placeholder is evaluated when the fact is read and must return a number or boolean.
@@ -35,7 +35,7 @@ class NumberPlaceholderFactEntry(
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
     @Placeholder
-    @Help("Placeholder to parse (e.g. %player_level%) - Only placeholders that return a number or boolean are supported!")
+    @Help("需要解析的占位符（例如%player_level%）——仅支持返回数字或布尔值的占位符！")
     /**
      * The placeholder to parse.
      * For example %player_level%.
@@ -51,7 +51,7 @@ class NumberPlaceholderFactEntry(
     override fun readSinglePlayer(player: Player): FactData {
         val placeholder = placeholder.get(player)
         if (!placeholder.isPlaceholder) {
-            logger.warning("Placeholder '$placeholder' is not a valid placeholder! Make sure it is only a placeholder starting & ending with %")
+            logger.warning("占位符'$placeholder'无效！请确保是以%开头和结尾的纯占位符")
             return FactData(0)
         }
         val value = placeholder.parsePlaceholders(player)
@@ -61,7 +61,7 @@ class NumberPlaceholderFactEntry(
 
 fun Boolean.toInt() = if (this) 1 else 0
 
-@Entry("value_placeholder", "Fact for a placeholder value", Colors.PURPLE, "fa6-solid:user-tag")
+@Entry("value_placeholder", "占位符值持久化变量", Colors.PURPLE, "fa6-solid:user-tag")
 /**
  * A [fact](/docs/creating-stories/facts) that is computed from a placeholder.
  * This placeholder is evaluated when the fact is read and can return anything.
@@ -79,10 +79,10 @@ class ValuePlaceholderFactEntry(
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
     @Placeholder
-    @Help("Placeholder to parse (e.g. %player_gamemode%)")
+    @Help("需要解析的占位符（例如%player_gamemode%）")
     private val placeholder: Var<String> = ConstVar(""),
     @Regex
-    @Help("Values to match the placeholder with and their corresponding fact value. Regex is supported.")
+    @Help("与占位符匹配的值及其对应持久化变量值（支持正则表达式）")
     /**
      * The values to match the placeholder with and their corresponding fact value.
      *
@@ -104,7 +104,7 @@ class ValuePlaceholderFactEntry(
     override fun readSinglePlayer(player: Player): FactData {
         val placeholder = placeholder.get(player)
         if (!placeholder.isPlaceholder) {
-            logger.warning("Placeholder '$placeholder' is not a valid placeholder! Make sure it is only a placeholder starting & ending with %")
+            logger.warning("占位符'$placeholder'无效！请确保是以%开头和结尾的纯占位符")
             return FactData(0)
         }
         val parsed = placeholder.parsePlaceholders(player)

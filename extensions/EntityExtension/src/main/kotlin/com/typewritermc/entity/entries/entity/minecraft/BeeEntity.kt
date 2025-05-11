@@ -26,7 +26,7 @@ import com.typewritermc.entity.entries.data.minecraft.living.bee.applyBeeNectarD
 import com.typewritermc.entity.entries.entity.WrapperFakeEntity
 import org.bukkit.entity.Player
 
-@Entry("bee_definition", "A bee entity", Colors.ORANGE, "carbon:bee")
+@Entry("bee_definition", "蜜蜂实体", Colors.ORANGE, "carbon:bee")
 @Tags("bee_definition")
 /**
  * The `BeeDefinition` class is an entry that represents a bee entity.
@@ -45,7 +45,7 @@ class BeeDefinition(
     override fun create(player: Player): FakeEntity = BeeEntity(player)
 }
 
-@Entry("bee_instance", "An instance of a bee entity", Colors.YELLOW, "carbon:bee")
+@Entry("bee_instance", "蜜蜂实体的实例", Colors.YELLOW, "carbon:bee")
 class BeeInstance(
     override val id: String = "",
     override val name: String = "",

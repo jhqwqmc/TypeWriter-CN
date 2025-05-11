@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import java.util.*
 import kotlin.reflect.KClass
 
-@Entry("sheared_data", "If the entity is sheared.", Colors.RED, "mdi:sheep")
+@Entry("sheared_data", "实体是否被剪毛", Colors.RED, "mdi:sheep")
 @Tags("sheared_data")
 class ShearedData(
     override val id: String = "",
@@ -33,6 +33,6 @@ data class ShearedProperty(val sheared: Boolean) : EntityProperty {
 fun applySheepShearedData(entity: WrapperEntity, property: ShearedProperty) {
     entity.metas {
         meta<SheepMeta> { isSheared = property.sheared }
-        error("Could not apply SheepShearedData to ${entity.entityType} entity.")
+        error("无法将SheepShearedData应用到${entity.entityType}实体")
     }
 }

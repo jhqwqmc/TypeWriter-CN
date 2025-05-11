@@ -16,7 +16,7 @@ class Iconify extends StatelessWidget {
   String _url(String icon, double size) {
     final split = icon.split(":");
     if (split.length != 2) {
-      throw Exception("Invalid icon name: $icon");
+      throw Exception("无效的图标名称: $icon");
     }
     final collection = split[0];
     final name = split[1];
