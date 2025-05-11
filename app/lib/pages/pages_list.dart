@@ -742,7 +742,7 @@ class AddPageDialogue extends HookConsumerWidget {
         children: [
           ValidatedTextField<String>(
             value: name.value,
-            name: "Page Name",
+            name: "页面名称",
             icon: TWIcons.book,
             validator: (value) {
               final validation = _validateName(value);
